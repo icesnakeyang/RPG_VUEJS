@@ -1,13 +1,15 @@
 <template>
   <div class="content">
-    <Button type="primary">ok</Button>
     <Card class="card" :bordered="true"
-          v-for="item in jobs"
-    >
-      <p slot="title" @click="tapJob">
+          v-for="item in jobs">
+      <!--<p slot="title" @click="tapJob">-->
+      <p slot="title">
         <Icon type="ios-film-outline"></Icon>
         <a>{{item.title}}</a>
       </p>
+      <Button @click="changeLangToEn(this)">English</Button>
+      <Button @click="chnageLangToZh">中文</Button>
+      <p>{{$t("test.hello")}}</p>
       <p>Publisher: 刘洋/Liuyang</p>
 
 
@@ -16,7 +18,9 @@
       <p>Reward: {{item.reward}}</p>
 
       <p>Days: {{item.days}} days</p>
-      <quill-editor></quill-editor>
+      <quill-editor v-model="item.detail"
+                    :options="options"
+        ></quill-editor>
     </Card>
   </div>
 </template>
@@ -40,17 +44,32 @@
     data() {
       return {
         jobs: [],
+        options:{
+          modules:{
+            toolbar:false
+          }
+        }
       }
     },
     methods: {
       loadData() {
+        console.log('load');
         loadJobs().then(this.getData)
         apiGetTasks().then(this.getData)
       },
 
       getData(res) {
-        this.jobs = res.data;
+        console.log('load2');
+        this.jobs = res.data.data;
         console.log(this.jobs)
+      },
+
+      changeLangToEn(hand){
+        this.$i18n.locale='en'
+      },
+
+      chnageLangToZh(){
+        this.$i18n.locale='zh'
       }
     },
     mounted() {

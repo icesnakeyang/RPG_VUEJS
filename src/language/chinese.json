@@ -1,0 +1,20 @@
+{
+  "command":{
+    "createNewTask":"创建新项目",
+    "myRPG":"我的RPG",
+    "rpgAdministrator":"RPG管理员",
+    "matchJob":"匹配任务",
+    "topUp":"充值",
+    "appealSquare":"申诉广场",
+    "signOut":"退出登录",
+    "settings":"设置"
+  },
+  "label":{
+    "title":"标题",
+    "days":"期限（天）",
+    "price":"价格"
+  },
+  "header": {
+    "language": "语言"
+  }
+}

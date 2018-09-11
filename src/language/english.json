@@ -1,0 +1,20 @@
+{
+  "command":{
+    "createNewTask":"Create New Task",
+    "myRPG":"My RPG",
+    "rpgAdministrator":"RPG Admin",
+    "matchJob":"Match Jobs",
+    "topUp":"Top Up",
+    "appealSquare":"Appeal Square",
+    "signOut":"Sign Out",
+    "settings":"Settings"
+  },
+  "label":{
+    "title":"Title",
+    "days":"Term(Days)",
+    "price":"Price"
+  },
+  "header": {
+    "language": "Language"
+  }
+}

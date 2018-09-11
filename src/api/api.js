@@ -1,14 +1,9 @@
 import axios from 'axios';
 
-
-// let host = 'http://192.168.1.102:8000';
-// let host = 'http://192.168.0.106:8000';
-// let host = 'http://192.168.43.29:8000';
-// let host = 'http://192.168.43.29:8000';
-let host = 'http://localhost:8000';
+let host = 'http://localhost:9527';
 
 export const loadJobs=params=>{
-  return axios.get(`${host}/jobs`)
+  return axios.get(`${host}/task/public`)
 };
 
 export const login = params => {

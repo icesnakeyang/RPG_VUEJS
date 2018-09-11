@@ -7,15 +7,33 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueI18n from 'vue-i18n'
 
-Vue.config.productionTip = false
-Vue.use(iView)
-Vue.use(VueAxios, axios)
+Vue.config.productionTip = false;
+Vue.use(iView);
+Vue.use(VueAxios, axios);
+Vue.use(VueI18n);
+
+import chinese from '@/language/chinese.json'
+import english from '@/language/english.json'
+
+const messages={
+  zh:chinese,
+  en:english
+};
+
+const i18n=new VueI18n({
+  locale:'en',
+  messages
+});
+
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>'
-})
+});
