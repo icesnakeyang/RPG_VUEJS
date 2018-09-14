@@ -1,24 +1,28 @@
 <template>
   <Menu mode="horizontal" active-name="1" @on-select="menuClick">
     <Row>
-      <Col :xs="4" :sm="2" :md="2" :lg="1">
+      <Col :xs="4" :sm="2" :md="2" :lg="2">
         <img class="layout-logo" src="../../assets/gogoyang.png"/>
       </Col>
       <Col :xs="4" :sm="2" :md="1" :lg="1">
-        <a herf="" class="gogo-title">RPG</a>
+        <a herf="" class="gogo-title" @click="clickRPG">RPG</a>
       </Col>
       <Col :xs="8" :sm="2" :md="1" :lg="1">
-        <a herf="" class="gogo-title">刘洋</a>
+        <Button type="primary" @click="createTask">{{$t("command.createNewTask")}}</Button>
       </Col>
-      <Col :xs="8" :sm="2" :md="1" :lg="1">
-        <Button type="primary">{{$t("command.createNewTask")}}</Button>
-      </Col>
-      <Col :xs="24" :sm="16" :md="19" :lg="20">
+      <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
-          <MenuItem name="1">
-            <Icon type="ios-navigate"></Icon>
-            {{$t("command.myRPG")}}
-          </MenuItem>
+          <Submenu name="1">
+            <template slot="title">
+              <Icon type="ios-navigate"></Icon>
+              {{$t("command.myRPG")}}
+            </template>
+            <MenuItem name="1-1">
+              <Icon type="ios-navigate"></Icon>
+              {{$t("command.myTask")}}
+            </MenuItem>
+          </Submenu>
+
           <Submenu name="10">
             <template slot="title">
               <Icon type="ios-paper"></Icon>
@@ -38,23 +42,31 @@
             <Icon type="ios-analytics"></Icon>
             {{$t("command.appealSquare")}}
           </MenuItem>
-          <MenuItem name="4">
-            <Icon type="ios-analytics"></Icon>
-            {{$t("command.signOut")}}
-          </MenuItem>
-          <MenuItem name="5">
-            <Icon type="ios-analytics"></Icon>
-            {{$t("command.settings")}}
-          </MenuItem>
 
-            <Submenu name="6">
-              <template slot="title">
-                <Icon type="ios-paper"></Icon>
-                {{$t("header.language")}}
-              </template>
-              <MenuItem name="6-1">中文</MenuItem>
-              <MenuItem name="6-2">English</MenuItem>
-            </Submenu>
+          <Submenu name="4">
+            <template slot="title">
+              <Icon type="ios-paper"></Icon>
+              <span v-if="username">{{username}}</span>
+              <span v-else>{{$t("command.signIn")}}</span>
+            </template>
+            <MenuItem name="4-1" v-if="token">
+              <Icon type="ios-analytics"></Icon>
+              {{$t("command.signOut")}}
+            </MenuItem>
+            <MenuItem name="4-2" v-else>
+              <Icon type="ios-analytics"></Icon>
+              {{$t("command.signIn")}}
+            </MenuItem>
+          </Submenu>
+
+          <Submenu name="6">
+            <template slot="title">
+              <Icon type="ios-paper"></Icon>
+              {{$t("header.language")}}
+            </template>
+            <MenuItem name="6-1">中文</MenuItem>
+            <MenuItem name="6-2">English</MenuItem>
+          </Submenu>
         </div>
       </Col>
     </Row>
@@ -64,14 +76,37 @@
 <script>
   export default {
     name: "HeaderBar",
-    methods:{
-      menuClick(name){
-        if(name==="6-1"){
-          this.$i18n.locale='zh'
+    computed: {
+      token() {
+        return this.$store.state.token
+      },
+      username() {
+        return this.$store.state.username
+      }
+    },
+    methods: {
+      menuClick(name) {
+        if (name === "6-1") {
+          this.$i18n.locale = 'zh'
         }
-        if(name==="6-2"){
-          this.$i18n.locale='en'
+        if (name === "6-2") {
+          this.$i18n.locale = 'en'
         }
+        if (name === "4-1") {
+          this.$store.dispatch('logout');
+        }
+        if (name === "4-2") {
+          this.$router.push({name: "login"})
+        }
+        if (name === "1-1") {
+          this.$router.push({name: "taskPage"})
+        }
+      },
+      createTask() {
+        this.$router.push({name: 'createTask'})
+      },
+      clickRPG() {
+        this.$router.push({name: 'rpgPublic'})
       }
     }
   }

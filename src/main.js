@@ -8,6 +8,7 @@ import 'iview/dist/styles/iview.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueI18n from 'vue-i18n'
+import store from './store/index'
 
 Vue.config.productionTip = false;
 Vue.use(iView);
@@ -34,6 +35,7 @@ new Vue({
   el: '#app',
   router,
   i18n,
+  store,
   components: { App },
   template: '<App/>'
 });

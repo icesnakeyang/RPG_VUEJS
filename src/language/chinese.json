@@ -2,12 +2,14 @@
   "command":{
     "createNewTask":"创建新项目",
     "myRPG":"我的RPG",
+    "myTask":"我的私有任务",
     "rpgAdministrator":"RPG管理员",
     "matchJob":"匹配任务",
     "topUp":"充值",
     "appealSquare":"申诉广场",
     "signOut":"退出登录",
-    "settings":"设置"
+    "settings":"设置",
+    "signIn":"登录"
   },
   "label":{
     "title":"标题",
@@ -16,5 +18,29 @@
   },
   "header": {
     "language": "语言"
+  },
+  "register":{
+    "username":"用户名",
+    "usernamePlaceholder":"手机/Email",
+    "password":"登录密码",
+    "password2":"确认密码",
+    "passwordPlaceholder":"请输入登录密码",
+    "password2Placeholder":"请再次确认密码",
+    "register":"注册",
+    "err1":"两次输入的密码不一致",
+    "err2":"请输入用户名",
+    "err3":"用户名必须是Email格式",
+    "err4":"用户名或密码不正确",
+    "login":"登录"
+  },
+  "task":{
+    "title":"任务标题",
+    "code":"任务代号",
+    "detail":"任务详情",
+    "days":"任务期限（天）",
+    "create":"创建任务",
+    "err1":"创建任务失败",
+    "createdUserName":"创建人",
+    "createdTime":"创建时间"
   }
 }

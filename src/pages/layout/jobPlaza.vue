@@ -19,12 +19,18 @@
         jobs:[]
       }
     },
+    computed:{
+      token(){
+        return this.$store.state.token
+      },
+      username(){
+        return this.$store.state.username
+      }
+    },
+
     mounted() {
-      console.log(1);
       loadJobs().then((data)=>{
-        console.log(data);
         this.jobs=data.data.data;
-        console.log(this.jobs);
       });
 
     }

@@ -53,13 +53,11 @@
     },
     methods: {
       loadData() {
-        console.log('load');
         loadJobs().then(this.getData)
         apiGetTasks().then(this.getData)
       },
 
       getData(res) {
-        console.log('load2');
         this.jobs = res.data.data;
         console.log(this.jobs)
       },

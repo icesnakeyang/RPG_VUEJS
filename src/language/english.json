@@ -1,20 +1,46 @@
 {
-  "command":{
-    "createNewTask":"Create New Task",
-    "myRPG":"My RPG",
-    "rpgAdministrator":"RPG Admin",
-    "matchJob":"Match Jobs",
-    "topUp":"Top Up",
-    "appealSquare":"Appeal Square",
-    "signOut":"Sign Out",
-    "settings":"Settings"
+  "command": {
+    "createNewTask": "Create New Task",
+    "myRPG": "My RPG",
+    "myTask":"My Task",
+    "rpgAdministrator": "RPG Admin",
+    "matchJob": "Match Jobs",
+    "topUp": "Top Up",
+    "appealSquare": "Appeal Square",
+    "signOut": "Sign Out",
+    "settings": "Settings",
+    "signIn": "Sign In"
   },
-  "label":{
-    "title":"Title",
-    "days":"Term(Days)",
-    "price":"Price"
+  "label": {
+    "title": "Title",
+    "days": "Term(Days)",
+    "price": "Price"
   },
   "header": {
     "language": "Language"
+  },
+  "register": {
+    "username": "User name",
+    "usernamePlaceholder": "Phone/Email",
+    "password": "Password",
+    "password2": "Confirm password",
+    "passwordPlaceholder": "Please input password",
+    "password2Placeholder": "Please confirm password",
+    "register": "Register",
+    "err1": "Password is not equal",
+    "err2": "Please input username",
+    "err3": "Username must be an email",
+    "err4": "Username or password error",
+    "login": "Login"
+  },
+  "task": {
+    "title": "Title",
+    "code": "Code",
+    "detail": "Detail",
+    "days": "Days",
+    "create": "Create",
+    "err1": "Create task failed!",
+    "createdUserName": "Created by",
+    "createdTime": "Created time"
   }
 }
