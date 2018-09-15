@@ -48,9 +48,25 @@
     "freelancer":"Freelancer",
     "complete":"Complete",
     "delete":"Delete",
-    "price":"price",
+    "price":"Price",
     "publish":"Publish",
     "succPublish":"Congratulation, publish successful! ",
     "errPublish":"Sorry, publish failed!"
+  },
+  "job":{
+    "title":"Job Title",
+    "code":"Project Code",
+    "detail":"Requirement",
+    "days":"Term(days)",
+    "publishUserName":"Published By",
+    "publishTime":"Published Time",
+    "price":"Commission",
+    "apply":"Apply this job"
+  },
+  "user":{
+    "realName":"Real Name",
+    "phone":"Contact Phone",
+    "email":"Email",
+    "confirm":"Confirm"
   }
 }

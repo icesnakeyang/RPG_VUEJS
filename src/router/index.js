@@ -15,6 +15,10 @@ import taskDetail from '@/pages/task/taskDetail'
 import taskEdit from '@/pages/task/taskEdit'
 import taskFreelancer from '@/pages/task/taskFreelancer'
 
+import jobDetail from '@/pages/job/jobDetail'
+import jobApplyForm from '@/pages/job/jobApplyForm'
+
+
 import store from '../store/index'
 
 Vue.use(Router);
@@ -126,6 +130,32 @@ const router = new Router({
           },
           meta:{
             title:'TaskFreelancer',
+            token:true
+          }
+        },
+        {
+          path:'jobDetail/:jobId',
+          name:'jobDetail',
+          components:{
+            head:HeaderBar,
+            content:jobDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:'JobDetail',
+            token:false
+          }
+        },
+        {
+          path:'jobApplyForm',
+          name:'jobApplyForm',
+          components:{
+            head:HeaderBar,
+            content:jobApplyForm,
+            footer:FooterBar
+          },
+          meta:{
+            title:'JobApplyForm',
             token:true
           }
         }

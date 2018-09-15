@@ -1,19 +1,21 @@
 <template>
   <div>
-    <Card class="card" v-for="item in jobs">
-      <p slot="title">{{item.title}}</p>
-      <p>{{$t("label.title")}}: {{item.detail}}</p>
-      <p>{{$t("label.price")}}: {{item.price}}</p>
-      <p>{{$t("label.days")}}: {{item.days}}</p>
-    </Card>
+    <job-list-card v-for="job in jobs"
+                   v-bind:key="job.jobId"
+                   v-bind:job="job"
+    ></job-list-card>
   </div>
 </template>
 
 <script>
   import {loadJobPlaza} from '@/api/api'
+  import jobListCard from './jobListCard'
 
   export default {
     name: "jobPlaza",
+    components:{
+      jobListCard
+    },
     data(){
       return{
         jobs:[]
@@ -31,6 +33,7 @@
     mounted() {
       loadJobPlaza('rpg').then((data)=>{
         this.jobs=data.data.data;
+        console.log(this.jobs);
       });
 
     }

@@ -52,5 +52,21 @@
     "publish":"发布任务",
     "succPublish":"恭喜，发布任务成功！",
     "errPublish":"抱歉，发布任务失败!"
+  },
+  "job":{
+    "title":"任务标题",
+    "code":"项目代号",
+    "detail":"任务需求",
+    "days":"任务期限（天）",
+    "publishUserName":"任务发布者",
+    "publishTime":"发布时间",
+    "price":"任务报酬",
+    "apply":"申请任务"
+  },
+  "user":{
+    "realName":"真实姓名",
+    "phone":"联系电话",
+    "email":"Email",
+    "confirm":"确认"
   }
 }

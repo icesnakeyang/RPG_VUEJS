@@ -61,7 +61,17 @@
           if(response.data.errorCode!==0){
             alert('Register error')
           }else {
-            this.$router.push({name:'jobPlaza'})
+
+            this.$store.dispatch('saveToken', response.data.data.user);
+            if(this.$store.state.toUrl){
+              const theUrl=this.$store.state.toUrl;
+              this.$store.dispatch('saveToUrl','');
+              this.$router.push({name:theUrl})
+            }else {
+              this.$router.push({path: '/'})
+            }
+
+            // this.$router.push({name:'jobPlaza'})
           }
         });
       },
