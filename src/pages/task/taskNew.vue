@@ -15,8 +15,15 @@
     <FormItem :label="$t('task.days')">
       <Input v-model="task.days"/>
     </FormItem>
-    <FormItem>
+    <FormItem v-show="!saving">
       <Button type="primary" @click="create">{{$t("task.create")}}</Button>
+    </FormItem>
+    <FormItem v-show="saving">
+      <template>
+        <!--<Spin size="small"></Spin>-->
+        <!--<Spin></Spin>-->
+        <Spin size="large"></Spin>
+      </template>
     </FormItem>
   </Form>
 </template>
@@ -38,7 +45,8 @@
       return{
         task:{},
         errInput:false,
-        errMsg:''
+        errMsg:'',
+        saving:false
       }
     },
     methods: {
@@ -49,11 +57,12 @@
         if(!this.task.days){
           return;
         }
-
+        this.saving=true;
         createTask({
           title:this.task.title,
           detail:this.task.detail,
-          days:this.task.days
+          days:this.task.days,
+          code:this.task.code
         }).then((response)=>{
           if(response.data.data.id){
             this.$router.push({name:'taskPage'})

@@ -52,7 +52,7 @@
               this.$store.dispatch('saveToUrl','');
               this.$router.push({name:theUrl})
             }else {
-              this.$router.push({name: '/'})
+              this.$router.push({path: '/'})
             }
           }
         })

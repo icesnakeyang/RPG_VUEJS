@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Layout from '@/pages/layout/Layout'
-import JobPlaza from '@/pages/layout/jobPlaza'
+import JobPlaza from '@/pages/job/jobPlaza'
 
 import HeaderBar from '@/pages/layout/HeaderBar'
 import FooterBar from '@/pages/layout/FooterBar'
@@ -12,7 +12,8 @@ import RegisterPage from '@/pages/user/RegisterPage'
 import taskNew from '@/pages/task/taskNew'
 import taskPage from '@/pages/task/taskPage'
 import taskDetail from '@/pages/task/taskDetail'
-import rpgPublic from '@/pages/job/rpgPublic'
+import taskEdit from '@/pages/task/taskEdit'
+import taskFreelancer from '@/pages/task/taskFreelancer'
 
 import store from '../store/index'
 
@@ -86,7 +87,7 @@ const router = new Router({
           },
           meta: {
             title: 'TaskPage',
-            token: false
+            token: true
           }
         },
         {
@@ -103,16 +104,29 @@ const router = new Router({
           }
         },
         {
-          path: 'rpgPublic',
-          name:'rpgPublic',
-          components: {
-            head: HeaderBar,
-            content: rpgPublic,
-            footer: FooterBar
+          path:'taskEdit/:taskId',
+          name:'taskEdit',
+          components:{
+            head:HeaderBar,
+            content:taskEdit,
+            footer:FooterBar
           },
-          meta: {
-            title: 'Home',
-            token: false
+          meta:{
+            title:'TaskEdit',
+            token:true
+          }
+        },
+        {
+          path:'taskFreelancer/:taskId',
+          name:'taskFreelancer',
+          components:{
+            head:HeaderBar,
+            content:taskFreelancer,
+            footer:FooterBar
+          },
+          meta:{
+            title:'TaskFreelancer',
+            token:true
           }
         }
       ]
@@ -126,7 +140,7 @@ router.beforeEach((to, from, next) => {
     if (!to.name) {
       if (to.path === '/') {
         next({
-          name:'rpgPublic'
+          name:'jobPlaza'
         })
       }
     } else {

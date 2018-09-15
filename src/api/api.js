@@ -23,16 +23,32 @@ export const createTask=params=>{
   })
 };
 
-export const loadJobs=params=>{
-  return axios.get(`${host}/task/public`)
-};
-
 export const loadTask=params=>{
   return axios.post(`${host}/task/mytask/`,params,{
     headers:{
       "token":store.state.token
     }
   });
+};
+
+export const loadTaskDetail=params=>{
+  return axios.get(`${host}/task/`+params,{
+    headers:{
+      "token":store.state.token
+    }
+  })
+};
+
+export const publishTask=params=>{
+  return axios.post(`${host}/job/publish`, params,{
+    headers:{
+      "token":store.state.token
+    }
+  })
+};
+
+export const loadJobPlaza=params=>{
+  return axios.get(`${host}/job/jobPlaza/`+params);
 };
 
 

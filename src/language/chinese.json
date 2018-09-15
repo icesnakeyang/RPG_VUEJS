@@ -41,6 +41,16 @@
     "create":"创建任务",
     "err1":"创建任务失败",
     "createdUserName":"创建人",
-    "createdTime":"创建时间"
+    "createdTime":"创建时间",
+    "update":"修改",
+    "logs":"进度日志",
+    "subTask":"子任务",
+    "freelancer":"威客",
+    "complete":"完成",
+    "delete":"删除",
+    "price":"任务金额",
+    "publish":"发布任务",
+    "succPublish":"恭喜，发布任务成功！",
+    "errPublish":"抱歉，发布任务失败!"
   }
 }

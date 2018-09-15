@@ -106,7 +106,7 @@
         this.$router.push({name: 'createTask'})
       },
       clickRPG() {
-        this.$router.push({name: 'rpgPublic'})
+        this.$router.push({name: 'jobPlaza'})
       }
     }
   }

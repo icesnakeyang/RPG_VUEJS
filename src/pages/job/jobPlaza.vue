@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import {loadJobs} from '@/api/api'
+  import {loadJobPlaza} from '@/api/api'
 
   export default {
     name: "jobPlaza",
@@ -29,7 +29,7 @@
     },
 
     mounted() {
-      loadJobs().then((data)=>{
+      loadJobPlaza('rpg').then((data)=>{
         this.jobs=data.data.data;
       });
 

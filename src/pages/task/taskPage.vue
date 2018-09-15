@@ -31,6 +31,7 @@
     mounted() {
       loadTask().then((data) => {
         this.jobs = data.data.data;
+        console.log(this.jobs)
       })
     }
   }

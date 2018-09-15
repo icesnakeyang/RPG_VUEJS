@@ -41,6 +41,16 @@
     "create": "Create",
     "err1": "Create task failed!",
     "createdUserName": "Created by",
-    "createdTime": "Created time"
+    "createdTime": "Created time",
+    "update":"Update",
+    "logs":"Logs",
+    "subTask":"Sub tasks",
+    "freelancer":"Freelancer",
+    "complete":"Complete",
+    "delete":"Delete",
+    "price":"price",
+    "publish":"Publish",
+    "succPublish":"Congratulation, publish successful! ",
+    "errPublish":"Sorry, publish failed!"
   }
 }
