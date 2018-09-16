@@ -36,6 +36,7 @@
 <script>
   import {loadUserInfo} from "../../api/api";
   import {saveContactInfo} from "../../api/api";
+  import {applyJob} from "../../api/api";
 
   export default {
     name: "jobApplyForm",
@@ -50,14 +51,25 @@
     methods:{
       clickConfirm(){
         console.log(this.userInfo)
+        this.saving=true;
         saveContactInfo({
           realName:this.userInfo.realName,
           phone:this.userInfo.phone,
           email:this.userInfo.email
         }).then((response)=>{
           console.log(response)
-          if(response.data.data.errorCode===0){
+          if(response.data.errorCode===0){
+            console.log(this.$route.params)
+            applyJob({
+              jobId:this.$route.params.jobId
+            }).then((response)=>{
+              console.log(response)
+              if(response.data.errorCode===0){
 
+              }
+              this.errMsg=this.$t("syserr.10002")
+              this.errInput=true
+            })
           }
         })
       }

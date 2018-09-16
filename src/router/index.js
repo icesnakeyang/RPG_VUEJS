@@ -17,6 +17,7 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
+import applyJobSuccess from '@/pages/job/applyJobSuccess'
 
 
 import store from '../store/index'
@@ -156,6 +157,19 @@ const router = new Router({
           },
           meta:{
             title:'JobApplyForm',
+            token:true
+          }
+        },
+        {
+          path:'applyJobSuccess',
+          name:'applyJobSuccess',
+          components:{
+            head:HeaderBar,
+            content:applyJobSuccess,
+            footer:FooterBar
+          },
+          meta:{
+            title:'ApplyJobSuccess',
             token:true
           }
         }

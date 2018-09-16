@@ -47,6 +47,10 @@ export const publishTask=params=>{
   })
 };
 
+export const loadPublicJobsByCategory=params=>{
+  return axios.get(`${host}/job/jobPlaza/`+params);
+};
+
 export const loadJobDetail=params=>{
   return axios.get(`${host}/job/`+params);
 };
@@ -61,6 +65,14 @@ export const loadUserInfo=params=>{
 
 export const saveContactInfo=params=>{
   return axios.post(`${host}/user/saveContactInfo`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const applyJob=params=>{
+  return axios.post(`${host}/job/applyJob`, params,{
     headers:{
       token:store.state.token
     }

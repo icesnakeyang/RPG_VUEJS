@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {loadJobPlaza} from '@/api/api'
+  import {loadPublicJobsByCategory} from '@/api/api'
   import jobListCard from './jobListCard'
 
   export default {
@@ -31,7 +31,7 @@
     },
 
     mounted() {
-      loadJobPlaza('rpg').then((data)=>{
+      loadPublicJobsByCategory('rpg').then((data)=>{
         this.jobs=data.data.data;
         console.log(this.jobs);
       });

@@ -27,7 +27,13 @@
     },
     methods:{
       applyJob(){
-        this.$router.push({name:'jobApplyForm'})
+        console.log(this.$route.params);
+        this.$router.push({
+          name:'jobApplyForm',
+          params:{
+            jobId:this.$route.params.jobId
+          }
+        })
       }
     },
     mounted() {

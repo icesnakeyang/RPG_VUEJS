@@ -68,5 +68,8 @@
     "phone":"Contact Phone",
     "email":"Email",
     "confirm":"Confirm"
+  },
+  "syserr":{
+    "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again."
   }
 }
