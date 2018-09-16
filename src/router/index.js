@@ -9,6 +9,8 @@ import FooterBar from '@/pages/layout/FooterBar'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
+import AdminUser from '@/pages/user/AdminUser'
+
 import taskNew from '@/pages/task/taskNew'
 import taskPage from '@/pages/task/taskPage'
 import taskDetail from '@/pages/task/taskDetail'
@@ -172,6 +174,19 @@ const router = new Router({
             title:'ApplyJobSuccess',
             token:true
           }
+        },
+        {
+          path:'adminUser',
+          name:'adminUser',
+          components:{
+            head:HeaderBar,
+            content:AdminUser,
+            footer:FooterBar
+          },
+          meta:{
+            title:'AdminUser',
+            token:true
+          }
         }
       ]
     }
@@ -193,7 +208,11 @@ router.beforeEach((to, from, next) => {
           if (to.name === 'login') {
             store.dispatch('saveToUrl', '');
           } else {
-            store.dispatch('saveToUrl', to.name);
+            const toPath={
+              name:to.name,
+              params:to.params
+            };
+            store.dispatch('saveToUrl', toPath);
           }
           next({
             path: '/app/login'

@@ -73,7 +73,9 @@
             }).then((response)=>{
               console.log(response)
               if(response.data.errorCode===0){
-
+                this.$router.push({
+                  name:'applyJobSuccess'
+                });
                 return;
               }
               this.errMsg=this.$t("syserr."+response.data.errorCode);

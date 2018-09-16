@@ -49,8 +49,9 @@
             this.$store.dispatch('saveToken', response.data.data.user);
             if(this.$store.state.toUrl){
               const theUrl=this.$store.state.toUrl;
+              console.log(theUrl);
               this.$store.dispatch('saveToUrl','');
-              this.$router.push({name:theUrl})
+              this.$router.push({name:theUrl.name, params:theUrl.params})
             }else {
               this.$router.push({path: '/'})
             }

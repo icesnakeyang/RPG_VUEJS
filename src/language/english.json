@@ -4,6 +4,7 @@
     "myRPG": "My RPG",
     "myTask":"My Task",
     "rpgAdministrator": "RPG Admin",
+    "adminManger":"Admin Manger",
     "matchJob": "Match Jobs",
     "topUp": "Top Up",
     "appealSquare": "Appeal Square",
@@ -71,6 +72,12 @@
   },
   "syserr":{
     "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
-    "10003":"This job has been assigned to others already, please choose another job."
+    "10003":"This job has been assigned to others already, please choose another job.",
+    "10004":"Token is not correct.",
+    "10005":"The job you applied is not exist.",
+    "10006":"The job you applied is contracted by other users, please apply another job.",
+    "10007":"You have applied this job already, please waiting for the process.",
+    "10008":"Sorry, you do not has the authority to authorize the administrator.",
+    "10009":"Something wrong when set the user to administrator."
   }
 }

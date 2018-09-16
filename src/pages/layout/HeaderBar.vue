@@ -28,6 +28,10 @@
               <Icon type="ios-paper"></Icon>
               {{$t("command.rpgAdministrator")}}
             </template>
+            <MenuItem name="10-3">
+              <Icon type="ios-analytics"></Icon>
+              {{$t("command.adminManger")}}
+            </MenuItem>
             <MenuItem name="10-1">
               <Icon type="ios-analytics"></Icon>
               {{$t("command.matchJob")}}
@@ -100,6 +104,9 @@
         }
         if (name === "1-1") {
           this.$router.push({name: "taskPage"})
+        }
+        if (name === "10-3") {
+          this.$router.push({name: "adminUser"})
         }
       },
       createTask() {
