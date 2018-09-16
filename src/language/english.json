@@ -70,6 +70,7 @@
     "confirm":"Confirm"
   },
   "syserr":{
-    "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again."
+    "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
+    "10003":"This job has been assigned to others already, please choose another job."
   }
 }

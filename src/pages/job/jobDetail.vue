@@ -31,7 +31,8 @@
         this.$router.push({
           name:'jobApplyForm',
           params:{
-            jobId:this.$route.params.jobId
+            jobId:this.$route.params.jobId,
+            jobTitle:this.job.title
           }
         })
       }

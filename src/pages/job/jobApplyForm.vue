@@ -2,7 +2,7 @@
   <div>
     <Card class="card">
       <p slot="title">
-        {{userInfo.username}}
+        {{jobTitle}}
       </p>
       <Form :model="userInfo" :label-width="140">
         <FormItem v-show="errInput">
@@ -48,6 +48,11 @@
         saving:false
       }
     },
+    computed:{
+      jobTitle(){
+        return this.$route.params.jobTitle
+      }
+    },
     methods:{
       clickConfirm(){
         console.log(this.userInfo)
@@ -60,14 +65,18 @@
           console.log(response)
           if(response.data.errorCode===0){
             console.log(this.$route.params)
+            if(!this.$route.params){
+              return
+            }
             applyJob({
               jobId:this.$route.params.jobId
             }).then((response)=>{
               console.log(response)
               if(response.data.errorCode===0){
 
+                return;
               }
-              this.errMsg=this.$t("syserr.10002")
+              this.errMsg=this.$t("syserr."+response.data.errorCode);
               this.errInput=true
             })
           }
@@ -76,6 +85,9 @@
     },
     mounted(){
         console.log('mounted')
+      console.log(this.$route.params)
+
+
       loadUserInfo().then((response)=>{
         console.log(response)
         this.userInfo=response.data.data
