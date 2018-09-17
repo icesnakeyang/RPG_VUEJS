@@ -3,6 +3,7 @@
     "createNewTask":"创建新项目",
     "myRPG":"我的RPG",
     "myTask":"我的私有任务",
+    "myProfile":"我的信息",
     "rpgAdministrator":"RPG管理员",
     "adminManager":"管理员设置",
     "matchJob":"匹配任务",
@@ -65,6 +66,7 @@
     "apply":"申请任务"
   },
   "user":{
+    "username":"用户名",
     "realName":"真实姓名",
     "phone":"联系电话",
     "email":"Email",

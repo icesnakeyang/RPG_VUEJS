@@ -4,7 +4,7 @@
       <FormItem>
         <Button type="primary" @click="addAdmin">添加Admin</Button>
       </FormItem>
-      <admin-user-page-row v-for="user in users"
+      <admin-user-page-row v-for="user in admins"
                            v-bind:key="user.userId"
                            v-bind:user="user">
       </admin-user-page-row>
@@ -13,8 +13,13 @@
     <Modal
       title="Title"
       v-model="modal1"
+      width="70%"
       :mask-closable="false">
-      <Table :columns="columns1" :data="data1"></Table>
+      <UnadminUserTable v-for="user in users"
+                        v-bind:key="user.userId"
+                        v-bind:user="user">
+
+      </UnadminUserTable>
     </Modal>
   </div>
 </template>
@@ -23,6 +28,7 @@
   import adminUserPageRow from "./adminUserPageRow"
   import {loadAdmins} from "../../api/api";
   import {loadUsers} from "../../api/api";
+  import UnadminUserTable from "./UnadminUserTable";
 
   export default {
     name: "adminUserPage",
@@ -30,51 +36,12 @@
       return {
         users: [],
         admins:[],
-        modal1:false,
-        columns1: [
-          {
-            title: 'Name',
-            key: 'name'
-          },
-          {
-            title: 'Age',
-            key: 'age'
-          },
-          {
-            title: 'Address',
-            key: 'address'
-          }
-        ],
-        data1: [
-          {
-            name: 'John Brown',
-            age: 18,
-            address: 'New York No. 1 Lake Park',
-            date: '2016-10-03'
-          },
-          {
-            name: 'Jim Green',
-            age: 24,
-            address: 'London No. 1 Lake Park',
-            date: '2016-10-01'
-          },
-          {
-            name: 'Joe Black',
-            age: 30,
-            address: 'Sydney No. 1 Lake Park',
-            date: '2016-10-02'
-          },
-          {
-            name: 'Jon Snow',
-            age: 26,
-            address: 'Ottawa No. 2 Lake Park',
-            date: '2016-10-04'
-          }
-        ]
+        modal1:false
       }
     },
     components: {
-      adminUserPageRow
+      adminUserPageRow,
+      UnadminUserTable
     },
     methods: {
       addAdmin() {
@@ -88,20 +55,21 @@
           }
         })
       },
-      loadUnAdminUsers() {
+      loadAdminUsers() {
         loadAdmins({
           pageIndex: 0,
           pageSize: 100
         }).then((response) => {
           if (response.data.data) {
             this.admins = response.data.data.content;
+            console.log(this.admins)
           }
         })
       }
     },
 
     mounted() {
-      this.loadUnAdminUsers();
+      this.loadAdminUsers();
     }
   }
 </script>

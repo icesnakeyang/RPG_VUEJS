@@ -3,6 +3,7 @@
     "createNewTask": "Create New Task",
     "myRPG": "My RPG",
     "myTask":"My Task",
+    "myProfile":"My Profile",
     "rpgAdministrator": "RPG Admin",
     "adminManager":"Admin Manger",
     "matchJob": "Match Jobs",
@@ -65,6 +66,7 @@
     "apply":"Apply this job"
   },
   "user":{
+    "username":"Username",
     "realName":"Real Name",
     "phone":"Contact Phone",
     "email":"Email",

@@ -9,6 +9,7 @@ import FooterBar from '@/pages/layout/FooterBar'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
+import myProfile from '@/pages/user/myProfile'
 
 import taskNew from '@/pages/task/taskNew'
 import taskPage from '@/pages/task/taskPage'
@@ -186,6 +187,19 @@ const router = new Router({
           },
           meta:{
             title:'AdminUserPage',
+            token:true
+          }
+        },
+        {
+          path:'myProfile',
+          name:'myProfile',
+          components:{
+            head:HeaderBar,
+            content:myProfile,
+            footer:FooterBar
+          },
+          meta:{
+            title:'MyProfile',
             token:true
           }
         }

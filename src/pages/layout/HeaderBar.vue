@@ -21,6 +21,10 @@
               <Icon type="ios-navigate"></Icon>
               {{$t("command.myTask")}}
             </MenuItem>
+            <MenuItem name="1-2">
+              <Icon type="ios-navigate"></Icon>
+              {{$t("command.myProfile")}}
+            </MenuItem>
           </Submenu>
 
           <Submenu name="10" v-if="isAdmin">
@@ -116,6 +120,9 @@
         }
         if (name === "10-3") {
           this.$router.push({name: "adminUserPage"})
+        }
+        if(name==="1-2"){
+          this.$router.push({name:"myProfile"})
         }
       },
       createTask() {
