@@ -71,6 +71,14 @@ export const saveContactInfo = params => {
   })
 };
 
+export const saveProfile=params=>{
+  return axios.post(`${host}/user/saveProfile`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
 export const applyJob = params => {
   return axios.post(`${host}/job/applyJob`, params, {
     headers: {

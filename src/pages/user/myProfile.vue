@@ -11,20 +11,22 @@
         <Input v-model="profile.realName" />
       </FormItem>
       <FormItem :label="$t('user.phone')">
-        <Input v-model="user.phone" />
+        <Input v-model="profile.phone" />
       </FormItem>
       <FormItem :label="$t('user.email')">
         <Input v-model="profile.email" />
       </FormItem>
       <FormItem>
-        <Button type="primary" @click="register">{{$t("register.register")}}</Button>
-        <Button type="text" @click="login">{{$t("register.login")}}</Button>
+        <Button type="primary" @click="submitProfile">{{$t("user.update")}}</Button>
       </FormItem>
     </Form>
   </div>
 </template>
 
 <script>
+  import {loadUserInfo} from "../../api/api";
+  import {saveProfile} from "../../api/api";
+
   export default {
     name: "myProfile",
     data() {
@@ -34,6 +36,29 @@
         errMsg:'',
         profile:{}
       }
+    },
+    methods:{
+      loadUserProfile(){
+        loadUserInfo({
+          pageIndex:0,
+          pageSize:100
+        }).then((response)=>{
+          this.profile=response.data.data;
+          console.log(this.profile)
+        })
+      },
+      submitProfile(){
+        saveProfile({
+          realName:this.profile.realName,
+          email:this.profile.email,
+          phone:this.profile.phone
+        }).then((response)=>{
+          console.log(response);
+        })
+      }
+    },
+    mounted(){
+      this.loadUserProfile()
     }
   }
 </script>

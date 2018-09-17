@@ -15,11 +15,7 @@
       v-model="modal1"
       width="70%"
       :mask-closable="false">
-      <UnadminUserTable v-for="user in users"
-                        v-bind:key="user.userId"
-                        v-bind:user="user">
-
-      </UnadminUserTable>
+      <Table :columns="columns1" :data="users" height="200"></Table>
     </Modal>
   </div>
 </template>
@@ -36,7 +32,33 @@
       return {
         users: [],
         admins:[],
-        modal1:false
+        modal1:false,
+        columns1: [
+          {
+            title: 'User ID',
+            key: 'userId'
+          },
+          {
+            title: 'Username',
+            key: 'username'
+          },
+          {
+            title: 'Real Name',
+            key: 'realName'
+          },
+          {
+            title: 'Phone',
+            key: 'phone'
+          },
+          {
+            title: 'Email',
+            key: 'email'
+          },
+          {
+            title: 'Register Time',
+            key: 'regTime'
+          }
+        ],
       }
     },
     components: {
@@ -52,6 +74,7 @@
         }).then((response)=>{
           if(response.data.data.content){
             this.users=response.data.data.content;
+            console.log(this.users)
           }
         })
       },
