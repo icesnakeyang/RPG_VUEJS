@@ -23,14 +23,14 @@
             </MenuItem>
           </Submenu>
 
-          <Submenu name="10">
+          <Submenu name="10" v-if="isAdmin">
             <template slot="title">
               <Icon type="ios-paper"></Icon>
               {{$t("command.rpgAdministrator")}}
             </template>
             <MenuItem name="10-3">
               <Icon type="ios-analytics"></Icon>
-              {{$t("command.adminManger")}}
+              {{$t("command.adminManager")}}
             </MenuItem>
             <MenuItem name="10-1">
               <Icon type="ios-analytics"></Icon>
@@ -86,6 +86,15 @@
       },
       username() {
         return this.$store.state.username
+      },
+      userRole(){
+        return this.$store.state.userRole
+      },
+      isAdmin(){
+        if(this.$store.state.userRole==='ADMINISTRATOR'){
+          return true;
+        }
+        return false;
       }
     },
     methods: {
@@ -106,7 +115,7 @@
           this.$router.push({name: "taskPage"})
         }
         if (name === "10-3") {
-          this.$router.push({name: "adminUser"})
+          this.$router.push({name: "adminUserPage"})
         }
       },
       createTask() {

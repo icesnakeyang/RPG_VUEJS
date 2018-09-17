@@ -86,3 +86,30 @@ export const setAdmin=params=>{
     }
   })
 };
+
+export const loadUsers=params=>{
+  console.log(params);
+  return axios.post(`${host}/user/loadUsers`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadAdmins=params=>{
+  console.log(params);
+  return axios.post(`${host}/user/loadAdmins`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadSecretary=params=>{
+  console.log(params);
+  return axios.post(`${host}/user/loadSecretary`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};

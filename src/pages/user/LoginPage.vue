@@ -47,6 +47,7 @@
             this.errMsg=this.$t('register.err4');
           }else {
             this.$store.dispatch('saveToken', response.data.data.user);
+            console.log(response);
             if(this.$store.state.toUrl){
               const theUrl=this.$store.state.toUrl;
               console.log(theUrl);

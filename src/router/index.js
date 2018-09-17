@@ -9,7 +9,6 @@ import FooterBar from '@/pages/layout/FooterBar'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
-import AdminUser from '@/pages/user/AdminUser'
 
 import taskNew from '@/pages/task/taskNew'
 import taskPage from '@/pages/task/taskPage'
@@ -20,6 +19,8 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
+
+import adminUserPage from '@/pages/admin/adminUserPage'
 
 
 import store from '../store/index'
@@ -176,15 +177,15 @@ const router = new Router({
           }
         },
         {
-          path:'adminUser',
-          name:'adminUser',
+          path:'adminUserPage',
+          name:'adminUserPage',
           components:{
             head:HeaderBar,
-            content:AdminUser,
-            footer:FooterBar
+            content:adminUserPage,
+            foot:FooterBar
           },
           meta:{
-            title:'AdminUser',
+            title:'AdminUserPage',
             token:true
           }
         }
