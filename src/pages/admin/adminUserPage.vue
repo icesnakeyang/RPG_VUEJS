@@ -25,6 +25,7 @@
   import {loadAdmins} from "../../api/api";
   import {loadUsers} from "../../api/api";
   import UnadminUserTable from "./UnadminUserTable";
+  import {rpgFormat} from "../../common/rpgfun";
 
   export default {
     name: "adminUserPage",
@@ -56,7 +57,7 @@
           },
           {
             title: 'Register Time',
-            key: 'regTime'
+            key: 'registerTime'
           }
         ],
       }
@@ -68,12 +69,19 @@
     methods: {
       addAdmin() {
         this.modal1=true;
+        console.log('load');
         loadUsers({
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
           if(response.data.data.content){
-            this.users=response.data.data.content;
+            let userList=[];
+            for(let row of response.data.data.content){
+              console.log(row)
+              row.registerTime=rpgFormat.formatTime(row.registerTime);
+              console.log(row);
+              this.users.push(row)
+            }
             console.log(this.users)
           }
         })
