@@ -14,8 +14,11 @@
       title="Title"
       v-model="modal1"
       width="70%"
-      :mask-closable="false">
-      <Table :columns="columns1" :data="users" height="200"></Table>
+      :mask-closable="false"
+      @on-ok="handleSelectAll(true)">
+      <Table ref="selection" :columns="columns1" :data="users" height="200"
+             highlight-row @on-current-change="selectedRow"
+      ></Table>
     </Modal>
   </div>
 </template>
@@ -26,6 +29,7 @@
   import {loadUsers} from "../../api/api";
   import UnadminUserTable from "./UnadminUserTable";
   import {rpgFormat} from "../../common/rpgfun";
+  import {setAdmin} from "../../api/api";
 
   export default {
     name: "adminUserPage",
@@ -33,8 +37,14 @@
       return {
         users: [],
         admins:[],
+        selectedUser:{},
         modal1:false,
         columns1: [
+          {
+            type:'selection',
+            width:60,
+            align:'center'
+          },
           {
             title: 'User ID',
             key: 'userId'
@@ -69,21 +79,18 @@
     methods: {
       addAdmin() {
         this.modal1=true;
-        console.log('load');
         loadUsers({
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
+          let userList=[];
           if(response.data.data.content){
-            let userList=[];
             for(let row of response.data.data.content){
-              console.log(row)
               row.registerTime=rpgFormat.formatTime(row.registerTime);
-              console.log(row);
-              this.users.push(row)
+              userList.push(row)
             }
-            console.log(this.users)
           }
+          this.users=userList
         })
       },
       loadAdminUsers() {
@@ -93,9 +100,22 @@
         }).then((response) => {
           if (response.data.data) {
             this.admins = response.data.data.content;
-            console.log(this.admins)
           }
         })
+      },
+
+      handleSelectAll(status){
+        console.log(this.selectedUser)
+        setAdmin({
+          userId:this.selectedUser.userId,
+          role:'ADMINISTRATOR'
+        }).then((response)=>{
+          console.log(response)
+        })
+      },
+
+      selectedRow(currentRow, oldCurrentRow){
+        this.selectedUser=currentRow
       }
     },
 
