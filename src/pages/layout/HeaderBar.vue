@@ -36,6 +36,10 @@
               <Icon type="ios-analytics"></Icon>
               {{$t("command.adminManager")}}
             </MenuItem>
+            <MenuItem name="10-4">
+              <Icon type="ios-analytics"></Icon>
+              {{$t("command.rpgSecretary")}}
+            </MenuItem>
             <MenuItem name="10-1">
               <Icon type="ios-analytics"></Icon>
               {{$t("command.matchJob")}}
@@ -120,6 +124,9 @@
         }
         if (name === "10-3") {
           this.$router.push({name: "adminUserPage"})
+        }
+        if(name==="10-4"){
+          this.$router.push({name:'secretaryUserPage'})
         }
         if(name==="1-2"){
           this.$router.push({name:"myProfile"})

@@ -23,6 +23,8 @@ import applyJobSuccess from '@/pages/job/applyJobSuccess'
 
 import adminUserPage from '@/pages/admin/adminUserPage'
 
+import secretaryUserPage from '@/pages/secretary/secretaryUserPage'
+
 
 import store from '../store/index'
 
@@ -200,6 +202,19 @@ const router = new Router({
           },
           meta:{
             title:'MyProfile',
+            token:true
+          }
+        },
+        {
+          path:'secretaryUserPage',
+          name:'secretaryUserPage',
+          components:{
+            head:HeaderBar,
+            content:secretaryUserPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'SecretaryUserPage',
             token:true
           }
         }
