@@ -71,10 +71,10 @@ export const saveContactInfo = params => {
   })
 };
 
-export const saveProfile=params=>{
-  return axios.post(`${host}/user/saveProfile`, params,{
-    headers:{
-      token:store.state.token
+export const saveProfile = params => {
+  return axios.post(`${host}/user/saveProfile`, params, {
+    headers: {
+      token: store.state.token
     }
   })
 };
@@ -87,37 +87,54 @@ export const applyJob = params => {
   })
 };
 
-export const setAdmin=params=>{
-  return axios.post(`${host}/user/setAdmin`,params,{
-    headers:{
-      token:store.state.token
+export const setAdmin = params => {
+  return axios.post(`${host}/user/setAdmin`, params, {
+    headers: {
+      token: store.state.token
     }
   })
 };
 
-export const loadUsers=params=>{
+export const loadUsers = params => {
   console.log(params);
-  return axios.post(`${host}/user/loadUsers`,params,{
-    headers:{
-      token:store.state.token
+  return axios.post(`${host}/user/loadUsers`, params, {
+    headers: {
+      token: store.state.token
     }
   })
 };
 
-export const loadAdmins=params=>{
+export const loadAdmins = params => {
   console.log(params);
-  return axios.post(`${host}/user/loadAdmins`,params,{
-    headers:{
-      token:store.state.token
+  return axios.post(`${host}/user/loadAdmins`, params, {
+    headers: {
+      token: store.state.token
     }
   })
 };
 
-export const loadSecretary=params=>{
+export const loadSecretary = params => {
   console.log(params);
-  return axios.post(`${host}/user/loadSecretary`,params,{
-    headers:{
-      token:store.state.token
+  return axios.post(`${host}/user/loadSecretary`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+export const loadUnSecretary = params => {
+  console.log(params);
+  return axios.post(`${host}/user/loadUnSecretary`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+export const setSecretary = params => {
+  return axios.post(`${host}/user/setSecretary`, params, {
+    headers: {
+      token: store.state.token
     }
   })
 };

@@ -2,7 +2,7 @@
   <div class="content">
     <Form>
       <FormItem>
-        <Button type="primary" @click="addAdmin">添加Admin</Button>
+        <Button type="primary" @click="addAdmin">{{$t("admin.addAdmin")}}</Button>
       </FormItem>
       <admin-user-page-row v-for="user in admins"
                            v-bind:key="user.userId"
@@ -41,32 +41,27 @@
         modal1:false,
         columns1: [
           {
-            type:'selection',
-            width:60,
-            align:'center'
-          },
-          {
-            title: 'User ID',
+            title: this.$t("user.userId"),
             key: 'userId'
           },
           {
-            title: 'Username',
+            title: this.$t("user.username"),
             key: 'username'
           },
           {
-            title: 'Real Name',
+            title: this.$t("user.realName"),
             key: 'realName'
           },
           {
-            title: 'Phone',
+            title: this.$t("user.phone"),
             key: 'phone'
           },
           {
-            title: 'Email',
+            title: this.$t("user.email"),
             key: 'email'
           },
           {
-            title: 'Register Time',
+            title: this.$t("user.registerTime"),
             key: 'registerTime'
           }
         ],

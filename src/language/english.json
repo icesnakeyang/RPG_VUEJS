@@ -72,7 +72,13 @@
     "phone":"Contact Phone",
     "email":"Email",
     "confirm":"Confirm",
-    "update":"Update"
+    "update":"Update",
+    "userId":"User ID",
+    "registerTime":"Register Time"
+  },
+  "admin":{
+    "addAdmin":"Add Admin",
+    "addSecretary":"Add Secretary"
   },
   "syserr":{
     "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
