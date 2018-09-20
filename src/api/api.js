@@ -47,8 +47,13 @@ export const publishTask = params => {
   })
 };
 
-export const loadPublicJobsByCategory = params => {
-  return axios.get(`${host}/job/jobPlaza/` + params);
+export const loadPublicJobs = params => {
+  console.log('load jobs')
+  return axios.post(`${host}/job/jobPlaza/`, params,{
+    headers:{
+      token:store.state.token
+    }
+  });
 };
 
 export const loadJobDetail = params => {
@@ -135,6 +140,30 @@ export const setSecretary = params => {
   return axios.post(`${host}/user/setSecretary`, params, {
     headers: {
       token: store.state.token
+    }
+  })
+};
+
+export const loadJobToMatch=params=>{
+  return axios.post(`${host}/job/loadJobToMatch`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadUsersAppliedJobAndWaiting=params=>{
+  return axios.post(`${host}/user/loadUsersAppliedJobAndWaiting`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const addNewJobMatchLog=params=>{
+  return axios.post(`${host}/job/addNewJobMatchLog`, params, {
+    headers:{
+      token:store.state.token
     }
   })
 };

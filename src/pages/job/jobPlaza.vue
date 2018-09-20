@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {loadPublicJobsByCategory} from '@/api/api'
+  import {loadPublicJobs} from '@/api/api'
   import jobListCard from './jobListCard'
 
   export default {
@@ -31,8 +31,11 @@
     },
 
     mounted() {
-      loadPublicJobsByCategory('rpg').then((data)=>{
-        this.jobs=data.data.data;
+      loadPublicJobs({
+        pageIndex:0,
+        pageSize:100
+      }).then((data)=>{
+        this.jobs=data.data.data.content;
         console.log(this.jobs);
       });
 

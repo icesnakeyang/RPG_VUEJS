@@ -24,6 +24,7 @@ import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import adminUserPage from '@/pages/admin/adminUserPage'
 
 import secretaryUserPage from '@/pages/secretary/secretaryUserPage'
+import matchJobPage from '@/pages/secretary/matchJob/matchJobPage'
 
 
 import store from '../store/index'
@@ -215,6 +216,19 @@ const router = new Router({
           },
           meta:{
             title:'SecretaryUserPage',
+            token:true
+          }
+        },
+        {
+          path:'matchJobPage',
+          name:'matchJobPage',
+          components:{
+            head:HeaderBar,
+            content:matchJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:"MatchJobPage",
             token:true
           }
         }

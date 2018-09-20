@@ -131,6 +131,11 @@
         if(name==="1-2"){
           this.$router.push({name:"myProfile"})
         }
+        if(name==="10-1"){
+          this.$router.push({
+            name:"matchJobPage"
+          })
+        }
       },
       createTask() {
         this.$router.push({name: 'createTask'})

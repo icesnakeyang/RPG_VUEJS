@@ -89,6 +89,7 @@
     "10007":"You have applied this job already, please waiting for the process.",
     "10008":"Sorry, you do not has the authority to authorize the administrator.",
     "10009":"Something wrong when set the user to administrator.",
-    "10010":"Save profile information error."
+    "10010":"Save profile information error.",
+    "10011":"Match job failed."
   }
 }
