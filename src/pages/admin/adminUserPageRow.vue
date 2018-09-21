@@ -24,5 +24,7 @@
 </script>
 
 <style scoped>
-
+  .card{
+    margin:20px
+  }
 </style>

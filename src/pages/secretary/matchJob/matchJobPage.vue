@@ -2,32 +2,37 @@
   <div class="content">
     <Form>
       <FormItem>
-        <Button type="primary" @click="addSecretary">{{$t("admin.addSecretary")}}</Button>
+        <!--<Button type="primary" @click="addSecretary">{{$t("admin.addSecretary")}}</Button>-->
       </FormItem>
-      <secretaryUserPageRow v-for="user in secretaries"
-                            v-bind:key="user.userId"
-                            v-bind:user="user"
+      <MatchJobPageRow v-for="job in jobs"
+                            v-bind:key="job.jobId"
+                            v-bind:job="job"
       >
-      </secretaryUserPageRow>
+      </MatchJobPageRow>
     </Form>
-    <Modal
-      title="Title"
-      v-model="modal1"
-      width="70%"
-      :mask-closable="false"
-      @on-ok="handleSetSecretary">
-      <Table :columns="columns1" :data="users" height="200"
-             highlight-row @on-current-change="selectedRow"></Table>
-    </Modal>
+    <!--<Modal-->
+      <!--title="Title"-->
+      <!--v-model="modal1"-->
+      <!--width="70%"-->
+      <!--:mask-closable="false"-->
+      <!--@on-ok="handleSetSecretary">-->
+      <!--<Table :columns="columns1" :data="users" height="200"-->
+             <!--highlight-row @on-current-change="selectedRow"></Table>-->
+    <!--</Modal>-->
   </div>
 </template>
 
 <script>
   import {loadUsersAppliedJobAndWaiting} from "../../../api/api";
   import {loadJobToMatch} from "../../../api/api";
+  import MatchJobPageRow from "./matchJobPageRow"
 
   export default {
     name: "matchJobPage",
+    components: {MatchJobPageRow},
+    component:{
+      MatchJobPageRow
+    },
     data() {
       return {
         jobs: [],
@@ -65,9 +70,6 @@
     methods: {
       matchToUser() {
         this.modal1 = true
-        loadUsersAppliedJobAndWaiting({}).then((response) => {
-          console.log(response);
-        })
       },
 
       loadJobToMatchMethod(){
@@ -75,8 +77,8 @@
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
-          console.log(response)
-          this.jobs=response.data.data
+          this.jobs=response.data.data.content
+          console.log(this.jobs)
         })
       }
     },

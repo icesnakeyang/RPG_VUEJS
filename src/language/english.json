@@ -78,7 +78,9 @@
   },
   "admin":{
     "addAdmin":"Add Admin",
-    "addSecretary":"Add Secretary"
+    "addSecretary":"Add Secretary",
+    "totalApplyUser":"Total apply users",
+    "match":"Match"
   },
   "syserr":{
     "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
