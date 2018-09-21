@@ -1,11 +1,9 @@
 <template>
   <Card class="card">
     <p slot="title">
-      {{user.realName}}
+      {{job.title}}
     </p>
-    <p>{{user.email}}</p>
-    <p>{{user.phone}}</p>
-    <p>{{user.username}}</p>
+    <p>{{job.createdTime}}</p>
   </Card>
 </template>
 
@@ -13,7 +11,7 @@
   export default {
     name: "matchJobPageRow",
     props: {
-      user: {}
+      job: {}
     },
   }
 </script>
