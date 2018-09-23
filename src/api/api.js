@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'http://localhost:9527';
+let host = 'http://gogorpg.com:9527';
 
 export const registerUser = params => {
   return axios.post(`${host}/user/create`, params, {
