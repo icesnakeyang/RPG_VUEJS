@@ -12,7 +12,16 @@
     "appealSquare":"申诉广场",
     "signOut":"退出登录",
     "settings":"设置",
-    "signIn":"登录"
+    "signIn":"登录",
+    "myJob":"我的工作",
+    "newJob":"新工作",
+    "partyA":"我是甲方",
+    "partyB":"我是乙方"
+  },
+  "common":{
+    "tipTitleQuestion":"提问",
+    "ok":"确定",
+    "cancel":"取消"
   },
   "label":{
     "title":"标题",
@@ -66,6 +75,13 @@
     "price":"任务报酬",
     "apply":"申请任务"
   },
+  "jobMatchLog":{
+    "matchTime":"工作分配时间",
+    "processRemark":"处理意见",
+    "processResult":"处理结果",
+    "processTime":"处理时间"
+
+  },
   "user":{
     "username":"用户名",
     "realName":"真实姓名",
@@ -80,7 +96,8 @@
     "addAdmin":"添加管理员",
     "addSecretary":"添加RPG秘书",
     "totalApplyUser":"总申请人数",
-    "match":"分配"
+    "match":"分配",
+    "tip1":"确定要分配给该用户吗？"
   },
   "syserr":{
     "10002":"没有找到提交的任务ID，可能因为浏览器缓存丢失，请重新选择任务提交。",
@@ -92,6 +109,8 @@
     "10008":"你没有设置管理员用户的权限。",
     "10009":"设置管理员权限失败。",
     "10010":"保存用户信息错误",
-    "10011":"分配任务失败"
+    "10011":"分配任务失败",
+    "10012":"该任务已经分配给这个用户了，请等待用户处理",
+    "10013":"读取新任务失败"
   }
 }

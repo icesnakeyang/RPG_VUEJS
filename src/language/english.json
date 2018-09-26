@@ -12,7 +12,16 @@
     "appealSquare": "Appeal Square",
     "signOut": "Sign Out",
     "settings": "Settings",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "myJob":"My Job",
+    "newJob":"New Job",
+    "partyA":"PartyA",
+    "partyB":"PartyB"
+  },
+  "common":{
+    "tipTitleQuestion":"Question",
+    "ok":"Ok",
+    "cancel":"Cancel"
   },
   "label": {
     "title": "Title",
@@ -66,6 +75,13 @@
     "price":"Commission",
     "apply":"Apply this job"
   },
+  "jobMatchLog":{
+    "matchTime":"Job Assign Time",
+    "processRemark":"Process Remark",
+    "processResult":"Process Result",
+    "processTime":"Process Time"
+
+  },
   "user":{
     "username":"Username",
     "realName":"Real Name",
@@ -80,7 +96,8 @@
     "addAdmin":"Add Admin",
     "addSecretary":"Add Secretary",
     "totalApplyUser":"Total apply users",
-    "match":"Match"
+    "match":"Match",
+    "tip1":"Are you sure to match this user?"
   },
   "syserr":{
     "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
@@ -92,6 +109,8 @@
     "10008":"Sorry, you do not has the authority to authorize the administrator.",
     "10009":"Something wrong when set the user to administrator.",
     "10010":"Save profile information error.",
-    "10011":"Match job failed."
+    "10011":"Match job failed.",
+    "10012":"This job has been signed to this user already",
+    "10013":"Load new job failed"
   }
 }

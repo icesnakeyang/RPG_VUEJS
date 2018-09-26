@@ -4,8 +4,9 @@ import Router from 'vue-router'
 import Layout from '@/pages/layout/Layout'
 import JobPlaza from '@/pages/job/jobPlaza'
 
-import HeaderBar from '@/pages/layout/HeaderBar'
+import HeadBarBase from '@/pages/layout/header/HeaderBarBase'
 import FooterBar from '@/pages/layout/FooterBar'
+import menuJob2 from '@/pages/layout/header/menuJob2'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
@@ -20,6 +21,8 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
+import myJobPage from '@/pages/job/myJob/myJobPage'
+import newJobPage from '@/pages/job/myJob/newJob/newJobPage'
 
 import adminUserPage from '@/pages/admin/adminUserPage'
 
@@ -41,7 +44,7 @@ const router = new Router({
           path: 'jobPlaza',
           name: 'jobPlaza',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: JobPlaza,
             footer: FooterBar
           },
@@ -54,7 +57,7 @@ const router = new Router({
           path: 'login',
           name: 'login',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: LoginPage,
             footer: FooterBar
           },
@@ -67,7 +70,7 @@ const router = new Router({
           path: 'register',
           name: 'register',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: RegisterPage,
             footer: FooterBar
           },
@@ -80,7 +83,7 @@ const router = new Router({
           path: 'createTask',
           name: 'createTask',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: taskNew,
             footer: FooterBar
           },
@@ -93,7 +96,7 @@ const router = new Router({
           path: 'taskPage',
           name: 'taskPage',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: taskPage,
             footer: FooterBar
           },
@@ -106,7 +109,7 @@ const router = new Router({
           path: 'taskDetail/:taskId',
           name: 'taskDetail',
           components: {
-            head: HeaderBar,
+            head: HeadBarBase,
             content: taskDetail,
             footer: FooterBar
           },
@@ -119,7 +122,7 @@ const router = new Router({
           path:'taskEdit/:taskId',
           name:'taskEdit',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:taskEdit,
             footer:FooterBar
           },
@@ -132,7 +135,7 @@ const router = new Router({
           path:'taskFreelancer/:taskId',
           name:'taskFreelancer',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:taskFreelancer,
             footer:FooterBar
           },
@@ -145,7 +148,7 @@ const router = new Router({
           path:'jobDetail/:jobId',
           name:'jobDetail',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:jobDetail,
             footer:FooterBar
           },
@@ -158,7 +161,7 @@ const router = new Router({
           path:'jobApplyForm',
           name:'jobApplyForm',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:jobApplyForm,
             footer:FooterBar
           },
@@ -171,7 +174,7 @@ const router = new Router({
           path:'applyJobSuccess',
           name:'applyJobSuccess',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:applyJobSuccess,
             footer:FooterBar
           },
@@ -184,7 +187,7 @@ const router = new Router({
           path:'adminUserPage',
           name:'adminUserPage',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:adminUserPage,
             foot:FooterBar
           },
@@ -197,7 +200,7 @@ const router = new Router({
           path:'myProfile',
           name:'myProfile',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:myProfile,
             footer:FooterBar
           },
@@ -210,7 +213,7 @@ const router = new Router({
           path:'secretaryUserPage',
           name:'secretaryUserPage',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:secretaryUserPage,
             footer:FooterBar
           },
@@ -223,12 +226,39 @@ const router = new Router({
           path:'matchJobPage',
           name:'matchJobPage',
           components:{
-            head:HeaderBar,
+            head:HeadBarBase,
             content:matchJobPage,
             footer:FooterBar
           },
           meta:{
             title:"MatchJobPage",
+            token:true
+          }
+        },
+        {
+          path:'myJobPage',
+          name:'myJobPage',
+          components:{
+            head:HeadBarBase,
+            content:myJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:"MyJobPage",
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'newJobPage',
+          name:'newJobPage',
+          components:{
+            head:HeadBarBase,
+            content:newJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:"NewJobPage",
             token:true
           }
         }

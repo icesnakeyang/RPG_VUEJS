@@ -8,6 +8,7 @@
 
 <script>
   import {loadUsersAppliedJobAndWaiting} from "../../../api/api";
+  import {addNewJobMatchLog} from "../../../api/api";
 
   export default {
     name: "applyUserList",
@@ -32,7 +33,9 @@
                   },
                   on: {
                     click: () => {
-                      console.log(params.row.userId+"/"+this.jobId)
+                      console.log(params.row.userId + "/" + this.jobId);
+                      this.confirmMatch(params.row.userId, this.jobId)
+
                     }
                   }
                 }, this.$t("admin.match"))
@@ -70,6 +73,34 @@
 
       selectedRow() {
 
+      },
+
+      confirmMatch(userId, jobId) {
+        this.$Modal.confirm({
+          title: this.$t("common.tipTitleQuestion"),
+          content: this.$t("admin.tip1"),
+          okText: this.$t("common.ok"),
+          cancelText: this.$t("common.cancel"),
+          onOk: () => {
+            addNewJobMatchLog({
+              jobId: jobId,
+              matchUserId: userId
+            }).then((response) => {
+              console.log(response)
+              if (response.data.errorCode !== 0) {
+                this.$Message.error({
+                  content: this.$t("syserr." + response.data.errorCode),
+                  duration: 3
+                })
+              }
+            })
+          },
+          onCancel: () => {
+            console.log('cancel');
+            this.$Message.info('Click cancel');
+            return false;
+          }
+        })
       }
     },
     computed: {

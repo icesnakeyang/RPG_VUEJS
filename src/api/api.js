@@ -1,7 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'http://gogorpg.com:9527';
+// let host = 'http://gogorpg.com:9527';
+let host = 'http://localhost:9527';
 
 export const registerUser = params => {
   return axios.post(`${host}/user/create`, params, {
@@ -167,3 +168,11 @@ export const addNewJobMatchLog=params=>{
     }
   })
 };
+
+export const loadMyNewJob=params=>{
+  return axios.post(`${host}/job/loadMyNewJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
