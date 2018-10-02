@@ -8,7 +8,9 @@ export default new Vuex.Store({
     token:''||localStorage.token,
     username:''||localStorage.username,
     toUrl:''||localStorage.toUrl,
-    userRole:''||localStorage.userRole
+
+    roleType:''||localStorage.roleType,
+    loginName:'',
   },
   actions:{
     saveToken(ctx, user){
@@ -27,16 +29,20 @@ export default new Vuex.Store({
       localStorage.token=user.token;
       state.username=user.username;
       localStorage.username=user.username;
-      state.userRole=user.userRole;
-      localStorage.userRole=user.userRole;
+
+      state.loginName=user.loginName;
+
+      state.roleType=user.roleType;
+      localStorage.roleType=user.roleType;
     },
     logout(state){
       state.token='';
       localStorage.token='';
       state.username='';
       localStorage.username='';
-      state.userRole='';
-      localStorage.userRole='';
+      state.roleType='';
+      localStorage.roleType='';
+      state.loginName='';
     },
     saveToUrl(state, url){
       state.toUrl=url;

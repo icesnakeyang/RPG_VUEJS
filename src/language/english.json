@@ -16,12 +16,16 @@
     "myJob":"My Job",
     "newJob":"New Job",
     "partyA":"PartyA",
-    "partyB":"PartyB"
+    "partyB":"PartyB",
+    "myAccount":"My Account",
+    "myHonor":"My Honor",
+    "myApply":"My Applied Job"
   },
   "common":{
     "tipTitleQuestion":"Question",
     "ok":"Ok",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "unRead":"Unread"
   },
   "label": {
     "title": "Title",
@@ -63,7 +67,8 @@
     "price":"Price",
     "publish":"Publish",
     "succPublish":"Congratulation, publish successful! ",
-    "errPublish":"Sorry, publish failed!"
+    "errPublish":"Sorry, publish failed!",
+    "checkPrice":"Please input proper task price"
   },
   "job":{
     "title":"Job Title",
@@ -73,7 +78,13 @@
     "publishUserName":"Published By",
     "publishTime":"Published Time",
     "price":"Commission",
-    "apply":"Apply this job"
+    "apply":"Apply this job",
+    "applyUserNum":"Applied Users",
+    "matchingUserNum":"Matching Users"
+  },
+  "apply":{
+    "applyTime":"Apply Time",
+    "readTime":"Read Time by RPG Secretary"
   },
   "jobMatchLog":{
     "matchTime":"Job Assign Time",
@@ -97,7 +108,8 @@
     "addSecretary":"Add Secretary",
     "totalApplyUser":"Total apply users",
     "match":"Match",
-    "tip1":"Are you sure to match this user?"
+    "tip1":"Are you sure to match this user?",
+    "roleType":"Role Type"
   },
   "syserr":{
     "10002":"It seems the job id has lost, please try to reload the job list, and try to apply this job again.",
@@ -111,6 +123,33 @@
     "10010":"Save profile information error.",
     "10011":"Match job failed.",
     "10012":"This job has been signed to this user already",
-    "10013":"Load new job failed"
+    "10013":"Load new job failed",
+    "10014":"Create new user failed",
+    "10015":"Process user honor point failed",
+    "10016":"The login name is duplicated with others",
+    "10017":"The login name is empty",
+    "10018":"Email not exist",
+    "10019":"This user is not exist",
+    "10020":"You cannot delete the last email, if you do want to do this, please add a new email, and set to default.",
+    "10021":"You cannot delete default email, if you do want to do this, please set another email to default, and try it gain.",
+    "10022":"Send verify email failed",
+    "10023":"Verify email failed",
+    "10024":"Login name or password error",
+    "10025":"Login failed",
+    "10026":"Your request has missed his mission, pray to God for his godspeed.",
+    "10027":"Update user information failed",
+    "10028":"Read user information failed",
+    "10029":"Cannot read users who applied this job",
+    "10030":"Create task failed",
+    "10031":"Read task failed",
+    "10032":"Publish job failed",
+    "10033":"Apply job failed",
+    "10034":"Sorry, you do not has the RPG secretary permission",
+    "10035":"Read applied job failed",
+    "10036":"Match job failed",
+    "10037":"You cannot apply the job that created by yourself",
+    "10038":"Read administrator error",
+    "10039":"Read administrator permission error",
+    "10040":"Sorry, you do not have the RPG secretary permission"
   }
 }

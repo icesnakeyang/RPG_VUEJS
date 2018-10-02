@@ -28,7 +28,6 @@
     },
     methods: {
       goJobDetail(jobId) {
-        console.log(jobId)
         this.$router.push({
           name: 'jobDetail',
           params: {

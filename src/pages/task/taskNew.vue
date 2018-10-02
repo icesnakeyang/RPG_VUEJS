@@ -64,7 +64,7 @@
           days:this.task.days,
           code:this.task.code
         }).then((response)=>{
-          if(response.data.data.id){
+          if(response.data.errorCode===0){
             this.$router.push({name:'taskPage'})
           }else {
             this.errInput=true;

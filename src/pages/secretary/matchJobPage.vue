@@ -23,8 +23,8 @@
 </template>
 
 <script>
-  import {loadUsersAppliedJobAndWaiting} from "../../../api/api";
-  import {loadJobToMatch} from "../../../api/api";
+  import {loadUsersAppliedJobAndWaiting} from "../../api/api";
+  import {loadJobToMatch} from "../../api/api";
   import MatchJobPageRow from "./matchJobPageRow"
 
   export default {
@@ -77,7 +77,8 @@
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
-          this.jobs=response.data.data.content
+          console.log(response);
+          this.jobs=response.data.data
           console.log(this.jobs)
         })
       }

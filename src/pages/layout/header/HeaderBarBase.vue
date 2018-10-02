@@ -14,6 +14,8 @@
         <div class="layout-nav">
           <MenuJob2 v-if="isJobMenu"></MenuJob2>
           <MenuJob v-else="isJobMenu"></MenuJob>
+          <MenuAdmin v-if="isAdmin"></MenuAdmin>
+          <MenuLogin></MenuLogin>
           <MenuLanguage></MenuLanguage>
         </div>
       </Col>
@@ -22,16 +24,20 @@
 </template>
 
 <script>
-  import MenuJob from './menuJob'
-  import MenuJob2 from './menuJob2'
+  import MenuJob from './menuMyRpg'
+  import MenuJob2 from './menuMyJob'
   import MenuLanguage from './menuLanguage'
+  import MenuLogin from './menuLogin'
+  import MenuAdmin from './menuAdmin'
 
   export default {
     name: "HeaderBarBase",
     components: {
       MenuJob,
       MenuJob2,
-      MenuLanguage
+      MenuLanguage,
+      MenuLogin,
+      MenuAdmin
     },
     computed: {
       token() {
@@ -44,7 +50,16 @@
         return this.$store.state.userRole
       },
       isAdmin() {
-        if (this.$store.state.userRole === 'ADMINISTRATOR') {
+        if (this.$store.state.roleType === 'ADMINISTRATOR') {
+          return true;
+        }
+        if(this.$store.state.roleType==='SUPER_ADMIN') {
+          return true;
+        }
+        if(this.$store.state.roleType==='ROOT_ADMIN'){
+          return true;
+        }
+        if(this.$store.state.roleType==='SECRETARY'){
           return true;
         }
         return false;
@@ -64,22 +79,19 @@
         if (name === "6-2") {
           this.$i18n.locale = 'en'
         }
-        if (name === "4-1") {
+        if (name === "5-1") {
           this.$store.dispatch('logout');
         }
-        if (name === "4-2") {
+        if (name === "5-2") {
           this.$router.push({name: "login"})
         }
-        if (name === "1-1") {
+        if (name === "3-1") {
           this.$router.push({name: "taskPage"})
         }
         if (name === "10-3") {
           this.$router.push({name: "adminUserPage"})
         }
-        if (name === "10-4") {
-          this.$router.push({name: 'secretaryUserPage'})
-        }
-        if (name === "1-2") {
+        if (name === "3-3") {
           this.$router.push({name: "myProfile"})
         }
         if (name === "10-1") {
@@ -87,21 +99,36 @@
             name: "matchJobPage"
           })
         }
-        if (name === "1-3") {
+        if (name === "3-2") {
           this.$router.push({
             name: "myJobPage"
           })
         }
-        if (name === "1-3-1") {
+        if (name === "3-2-1") {
           this.$router.push({
             name:"newJobPage"
           })
         }
-        if (name === "1-3-2") {
+        if (name === "3-2-2") {
           console.log('party a')
         }
-        if (name === "1-3-3") {
+        if (name === "3-2-3") {
           console.log('party b')
+        }
+        if (name === "3-6") {
+          this.$router.push({
+            name:"myApplyJob"
+          })
+        }
+        if(name==="7-1"){
+          this.$router.push({
+            name:"adminPage"
+          })
+        }
+        if(name==="7-2"){
+          this.$router.push({
+            name:"matchJobPage"
+          })
         }
       },
       createTask() {

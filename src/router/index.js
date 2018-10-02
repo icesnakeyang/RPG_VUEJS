@@ -6,7 +6,7 @@ import JobPlaza from '@/pages/job/jobPlaza'
 
 import HeadBarBase from '@/pages/layout/header/HeaderBarBase'
 import FooterBar from '@/pages/layout/FooterBar'
-import menuJob2 from '@/pages/layout/header/menuJob2'
+import menuMyJob from '@/pages/layout/header/menuMyJob'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
@@ -24,10 +24,12 @@ import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
 import newJobPage from '@/pages/job/myJob/newJob/newJobPage'
 
-import adminUserPage from '@/pages/admin/adminUserPage'
+import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 
-import secretaryUserPage from '@/pages/secretary/secretaryUserPage'
-import matchJobPage from '@/pages/secretary/matchJob/matchJobPage'
+import adminPage from '@/pages/admin/adminPage'
+import adminLogin from '@/pages/admin/adminLogin'
+
+import matchJobPage from '@/pages/secretary/matchJobPage'
 
 
 import store from '../store/index'
@@ -184,15 +186,15 @@ const router = new Router({
           }
         },
         {
-          path:'adminUserPage',
-          name:'adminUserPage',
+          path:'adminPage',
+          name:'adminPage',
           components:{
             head:HeadBarBase,
-            content:adminUserPage,
+            content:adminPage,
             foot:FooterBar
           },
           meta:{
-            title:'AdminUserPage',
+            title:'AdminPage',
             token:true
           }
         },
@@ -206,19 +208,6 @@ const router = new Router({
           },
           meta:{
             title:'MyProfile',
-            token:true
-          }
-        },
-        {
-          path:'secretaryUserPage',
-          name:'secretaryUserPage',
-          components:{
-            head:HeadBarBase,
-            content:secretaryUserPage,
-            footer:FooterBar
-          },
-          meta:{
-            title:'SecretaryUserPage',
             token:true
           }
         },
@@ -260,6 +249,32 @@ const router = new Router({
           meta:{
             title:"NewJobPage",
             token:true
+          }
+        },
+        {
+          path:'myApplyJob',
+          name:'myApplyJob',
+          components:{
+            head:HeadBarBase,
+            content:myApplyJob,
+            footer:FooterBar
+          },
+          meta:{
+            title:"MyApplyJob",
+            token:true
+          }
+        },
+        {
+          path:'adminLogin',
+          name:"adminLogin",
+          components:{
+            head:HeadBarBase,
+            content:adminLogin,
+            footer:FooterBar
+          },
+          meta:{
+            title:"AdminLogin",
+            token:false
           }
         }
       ]

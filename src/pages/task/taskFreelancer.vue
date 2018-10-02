@@ -98,7 +98,7 @@
         }
         if (!this.task.price) {
           this.errInput = true
-          this.errMsg = "4";
+          this.errMsg = this.$t("task.checkPrice");
         }
         return this.errInput;
       }

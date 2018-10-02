@@ -67,11 +67,10 @@
           days:this.task.days,
           code:this.task.code
         }).then((response)=>{
-          console.log(response.data.data.id);
-          if(response.data.data.id){
+          if(response.data.errorCode===0){
             this.$router.push({name:'taskDetail',
               params:{
-                taskId:response.data.data.id
+                taskId:this.$route.params.taskId
               }
             })
           }else {

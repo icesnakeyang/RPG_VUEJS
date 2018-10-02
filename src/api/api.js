@@ -4,16 +4,37 @@ import store from '../store/index'
 // let host = 'http://gogorpg.com:9527';
 let host = 'http://localhost:9527';
 
-export const registerUser = params => {
-  return axios.post(`${host}/user/create`, params, {
+
+export const loadPublicJobs = params => {
+  return axios.get(`${host}/job/jobPlaza/`);
+};
+
+export const loadJobDetail = params => {
+  return axios.get(`${host}/job/`+params);
+};
+
+export const loadUserInfo = params => {
+  return axios.get(`${host}/user/userInfo`,{
     headers: {
-      "token": "token"
+      token: store.state.token
     }
   })
 };
 
-export const loadUser = params => {
-  return axios.post(`${host}/user/login`, params)
+export const saveContactInfo = params => {
+  return axios.post(`${host}/user/saveContactInfo`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+export const registerUser = params => {
+  return axios.post(`${host}/user/register`, params, {
+    headers: {
+      "token": "token"
+    }
+  })
 };
 
 export const createTask = params => {
@@ -33,11 +54,7 @@ export const loadTask = params => {
 };
 
 export const loadTaskDetail = params => {
-  return axios.get(`${host}/task/` + params, {
-    headers: {
-      "token": store.state.token
-    }
-  })
+  return axios.get(`${host}/task/` + params)
 };
 
 export const publishTask = params => {
@@ -48,33 +65,78 @@ export const publishTask = params => {
   })
 };
 
-export const loadPublicJobs = params => {
-  console.log('load jobs')
-  return axios.post(`${host}/job/jobPlaza/`, params,{
+export const loadMyApplyJob=params=>{
+  return axios.get(`${host}/job/loadMyApplyJob`,{
+    headers:{
+      "token":store.state.token
+    }
+  })
+};
+
+/**
+ * 管理员登录接口
+ * @param params
+ * @returns {AxiosPromise<any>}
+ */
+export const adminLogin=params=>{
+  return axios.post(`${host}/admin/login`,params);
+}
+
+export const loadAdmins = params => {
+  return axios.get(`${host}/admin/admin`, {
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+export const loadRoleType=params=>{
+  return axios.get(`${host}/admin/roleType`,{
     headers:{
       token:store.state.token
     }
-  });
+  })
 };
 
-export const loadJobDetail = params => {
-  return axios.get(`${host}/job/` + params);
-};
 
-export const loadUserInfo = params => {
-  return axios.post(`${host}/user/profile`, params, {
+export const createAdmin = params => {
+  return axios.post(`${host}/admin/create`, params, {
     headers: {
       token: store.state.token
     }
   })
 };
 
-export const saveContactInfo = params => {
-  return axios.post(`${host}/user/saveContactInfo`, params, {
-    headers: {
-      token: store.state.token
+export const loadJobToMatch=params=>{
+  return axios.post(`${host}/admin/loadJobToMatch`,params,{
+    headers:{
+      token:store.state.token
     }
   })
+};
+
+export const loadUsersAppliedJobAndWaiting=params=>{
+  return axios.post(`${host}/admin/loadUsersAppliedJobAndWaiting`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const addNewJobMatch=params=>{
+  return axios.post(`${host}/admin/addNewJobMatch`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+export const loadUser = params => {
+  return axios.post(`${host}/user/login`, params)
 };
 
 export const saveProfile = params => {
@@ -93,13 +155,6 @@ export const applyJob = params => {
   })
 };
 
-export const setAdmin = params => {
-  return axios.post(`${host}/user/setAdmin`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
 
 export const loadUsers = params => {
   console.log(params);
@@ -110,14 +165,7 @@ export const loadUsers = params => {
   })
 };
 
-export const loadAdmins = params => {
-  console.log(params);
-  return axios.post(`${host}/user/loadAdmins`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
+
 
 export const loadSecretary = params => {
   console.log(params);
@@ -145,29 +193,11 @@ export const setSecretary = params => {
   })
 };
 
-export const loadJobToMatch=params=>{
-  return axios.post(`${host}/job/loadJobToMatch`,params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-};
 
-export const loadUsersAppliedJobAndWaiting=params=>{
-  return axios.post(`${host}/user/loadUsersAppliedJobAndWaiting`, params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-};
 
-export const addNewJobMatchLog=params=>{
-  return axios.post(`${host}/job/addNewJobMatchLog`, params, {
-    headers:{
-      token:store.state.token
-    }
-  })
-};
+
+
+
 
 export const loadMyNewJob=params=>{
   return axios.post(`${host}/job/loadMyNewJob`, params,{

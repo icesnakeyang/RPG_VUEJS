@@ -12,17 +12,16 @@
       </FormItem>
       <FormItem>
         <Button type="primary" @click="login">{{$t('register.login')}}</Button>
-        <Button type="text" @click="register">{{$t("register.register")}}</Button>
       </FormItem>
     </Form>
   </div>
 </template>
 
 <script>
-  import {loadUser} from "../../api/api";
+  import {adminLogin} from "../../api/api";
 
   export default {
-    name: "LoginPage",
+    name: "adminLogin",
     data() {
       return {
         showErr: false,
@@ -39,8 +38,8 @@
           return;
         }
         console.log('login')
-        loadUser({
-          username: this.formItem.username,
+        adminLogin({
+          loginName: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
           console.log(response);
@@ -50,6 +49,7 @@
             return;
           }
           this.$store.dispatch('saveToken', response.data.data);
+          console.log(this.$store.state)
           if (this.$store.state.toUrl) {
             const theUrl = this.$store.state.toUrl;
             this.$store.dispatch('saveToUrl', '');
@@ -59,10 +59,6 @@
           }
         })
       },
-      register() {
-        this.$router.push({name: 'register'})
-      },
-
       checkInput() {
         if (this.formItem.username === '') {
           return false

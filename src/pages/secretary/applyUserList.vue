@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div>{{$t("admin.totalApplyUser")}}:{{currentUsers}}</div>
     <Table :columns="columns1" :data="users" height="200"
            highlight-row @on-current-change="selectedRow"></Table>
   </div>
 </template>
 
 <script>
-  import {loadUsersAppliedJobAndWaiting} from "../../../api/api";
-  import {addNewJobMatchLog} from "../../../api/api";
+  import {addNewJobMatch} from "../../api/api";
+  import {loadUsersAppliedJobAndWaiting} from "../../api/api";
 
   export default {
     name: "applyUserList",
@@ -75,6 +74,16 @@
 
       },
 
+      loadApplyUsers(){
+        loadUsersAppliedJobAndWaiting({
+          jobId:this.jobId
+        }).then((response)=>{
+          if(response.data.errorCode===0){
+            this.users=response.data.data
+          }
+        })
+      },
+
       confirmMatch(userId, jobId) {
         this.$Modal.confirm({
           title: this.$t("common.tipTitleQuestion"),
@@ -82,9 +91,9 @@
           okText: this.$t("common.ok"),
           cancelText: this.$t("common.cancel"),
           onOk: () => {
-            addNewJobMatchLog({
+            addNewJobMatch({
               jobId: jobId,
-              matchUserId: userId
+              userId: userId
             }).then((response) => {
               console.log(response)
               if (response.data.errorCode !== 0) {
@@ -92,33 +101,21 @@
                   content: this.$t("syserr." + response.data.errorCode),
                   duration: 3
                 })
+              }else {
+                this.loadApplyUsers()
               }
             })
           },
           onCancel: () => {
-            console.log('cancel');
-            this.$Message.info('Click cancel');
             return false;
           }
         })
       }
     },
     computed: {
-      currentUsers() {
-        return this.users.length;
-      }
     },
     mounted() {
-      console.log(this.jobId)
-      loadUsersAppliedJobAndWaiting({
-        pageIndex: 0,
-        pageSize: 100,
-        jobId: this.jobId
-      }).then((response) => {
-        console.log(response)
-        this.users = response.data.data;
-      })
-
+      this.loadApplyUsers()
     }
   }
 </script>

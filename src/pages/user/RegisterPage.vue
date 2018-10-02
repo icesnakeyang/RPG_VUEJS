@@ -8,10 +8,10 @@
         <Input v-model="formItem.username" :placeholder="$t('register.usernamePlaceholder')"/>
       </FormItem>
       <FormItem :label="$t('register.password')">
-        <Input v-model="formItem.password" :placeholder="$t('register.passwordPlaceholder')"/>
+        <Input type="password" v-model="formItem.password" :placeholder="$t('register.passwordPlaceholder')"/>
       </FormItem>
       <FormItem :label="$t('register.password2')">
-        <Input v-model="formItem.password2" :placeholder="$t('register.password2Placeholder')"/>
+        <Input type="password" v-model="formItem.password2" :placeholder="$t('register.password2Placeholder')"/>
       </FormItem>
       <FormItem>
         <Button type="primary" @click="register">{{$t("register.register")}}</Button>
@@ -48,6 +48,7 @@
         if(!reg.test(this.formItem.username)){
           this.errInput=true;
           this.errMsg=this.$t('register.err3')
+          return
         }
         if(this.formItem.password!==this.formItem.password2){
           this.errInput=true;
@@ -61,8 +62,8 @@
           if(response.data.errorCode!==0){
             alert('Register error')
           }else {
-
-            this.$store.dispatch('saveToken', response.data.data.user);
+            console.log(response.data.data)
+            this.$store.dispatch('saveToken', response.data.data);
             if(this.$store.state.toUrl){
               const theUrl=this.$store.state.toUrl;
               this.$store.dispatch('saveToUrl','');
@@ -77,6 +78,9 @@
       },
 
       login(){
+        this.$router.push({
+          name:"login"
+        })
       }
     }
   }

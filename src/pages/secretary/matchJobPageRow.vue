@@ -5,7 +5,7 @@
         <div @click="clickJobCard(job.jobId)">
           <Card style="margin-right: 20px">
             <p slot="title">
-              {{job.title}}
+              {{job.title}}{{job.jobId}}
             </p>
             <p>{{$t("job.code")}}: {{job.code}}</p>
             <p>{{$t("job.publishUserName")}}: {{job.createdUserName}}</p>
@@ -16,6 +16,7 @@
         </div>
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
+        <div>{{$t("admin.totalApplyUser")}}:{{job.jobApplyNum}}</div>
         <ApplyUserList v-bind:jobId="job.jobId"></ApplyUserList>
       </Col>
     </Row>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+  import {rpgFormat} from "../../common/rpgfun";
   import ApplyUserList from "./applyUserList"
 
   export default {
