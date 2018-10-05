@@ -4,15 +4,15 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("command.myJob")}}
     </template>
-    <MenuItem name="10-1">
+    <MenuItem name="3-2-1">
       <Icon type="ios-navigate"></Icon>
       {{$t("command.newJob")}}
     </MenuItem>
-    <MenuItem name="10-2">
+    <MenuItem name="3-2-2">
     <Icon type="ios-navigate"></Icon>
     {{$t("command.partyA")}}
     </MenuItem>
-    <MenuItem name="10-3">
+    <MenuItem name="3-2-3">
     <Icon type="ios-navigate"></Icon>
     {{$t("command.partyB")}}
     </MenuItem>

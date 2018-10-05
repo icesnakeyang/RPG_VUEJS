@@ -131,6 +131,14 @@ export const addNewJobMatch=params=>{
   })
 };
 
+export const loadMyNewJob=params=>{
+  return axios.get(`${host}/job/loadMyNewJob`,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
 /////////////////////////////////////////////////////////////////////
 
 
@@ -199,10 +207,4 @@ export const setSecretary = params => {
 
 
 
-export const loadMyNewJob=params=>{
-  return axios.post(`${host}/job/loadMyNewJob`, params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-}
+
