@@ -8,7 +8,7 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("command.adminManager")}}
     </MenuItem>
-    <MenuItem name="7-2">
+    <MenuItem name="7-2" v-if="isSecretary">
       <Icon type="ios-navigate"></Icon>
       {{$t("command.rpgSecretary")}}
     </MenuItem>
@@ -17,7 +17,15 @@
 
 <script>
     export default {
-        name: "menuAdmin"
+        name: "menuAdmin",
+      computed:{
+          isSecretary(){
+            if(this.$store.state.roleType==='SECRETARY'){
+              return true;
+            }
+            return false;
+          }
+      }
     }
 </script>
 
