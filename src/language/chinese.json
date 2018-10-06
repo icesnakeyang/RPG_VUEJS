@@ -80,7 +80,10 @@
     "price":"任务报酬",
     "apply":"申请任务",
     "applyUserNum":"申请人数",
-    "matchingUserNum":"分配人数"
+    "matchingUserNum":"分配人数",
+    "btAcceptJob":"接受任务",
+    "btRejectJob":"拒绝任务",
+    "rejectJobRemark":"拒绝任务说明"
   },
   "apply":{
     "applyTime":"申请时间",

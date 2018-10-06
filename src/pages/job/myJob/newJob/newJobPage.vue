@@ -21,6 +21,9 @@
         matchLogs:[]
       }
     },
+    methods:{
+
+    },
     mounted() {
       console.log(1);
       loadMyNewJob({}).then((response) => {

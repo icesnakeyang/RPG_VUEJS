@@ -80,7 +80,10 @@
     "price":"Commission",
     "apply":"Apply this job",
     "applyUserNum":"Applied Users",
-    "matchingUserNum":"Matching Users"
+    "matchingUserNum":"Matching Users",
+    "btAcceptJob":"Accept Job",
+    "btRejectJob":"Reject Job",
+    "rejectJobRemark":"Reject Description"
   },
   "apply":{
     "applyTime":"Apply Time",

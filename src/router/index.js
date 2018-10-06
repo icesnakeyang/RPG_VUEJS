@@ -6,7 +6,6 @@ import JobPlaza from '@/pages/job/jobPlaza'
 
 import HeadBarBase from '@/pages/layout/header/HeaderBarBase'
 import FooterBar from '@/pages/layout/FooterBar'
-import menuMyJob from '@/pages/layout/header/menuMyJob'
 
 import LoginPage from '@/pages/user/LoginPage'
 import RegisterPage from '@/pages/user/RegisterPage'
@@ -23,6 +22,7 @@ import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
 import newJobPage from '@/pages/job/myJob/newJob/newJobPage'
+import newJobDetail from '@/pages/job/myJob/newJob/newJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 
@@ -275,6 +275,19 @@ const router = new Router({
           meta:{
             title:"AdminLogin",
             token:false
+          }
+        },
+        {
+          path:'newJobDetail',
+          name:'newJobDetail',
+          components:{
+            head:HeadBarBase,
+            content:newJobDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:'NewJobDetail',
+            token:true
           }
         }
       ]
