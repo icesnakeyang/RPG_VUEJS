@@ -153,6 +153,7 @@
     "10037":"You cannot apply the job that created by yourself",
     "10038":"Read administrator error",
     "10039":"Read administrator permission error",
-    "10040":"Sorry, you do not have the RPG secretary permission"
+    "10040":"Sorry, you do not have the RPG secretary permission",
+    “”"10041":"Accept new job failed"
   }
 }
