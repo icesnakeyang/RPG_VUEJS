@@ -19,6 +19,7 @@
 <script>
   import JobDetailTpl from "../../components/jobDetailTpl"
   import {loadJobDetail} from "../../../../api/api";
+  import {acceptNewJob} from "../../../../api/api";
 
   export default {
     name: "newJobDetail",
@@ -36,6 +37,11 @@
       onAccept() {
         console.log(this.job.jobId)
         this.saving=true;
+        acceptNewJob({
+          jobId:this.job.jobId
+        }).then((response)=>{
+          console.log(response)
+        })
       },
       onReject() {
         console.log(this.job.jobId)

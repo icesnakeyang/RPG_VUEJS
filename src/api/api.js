@@ -4,7 +4,24 @@ import store from '../store/index'
 // let host = 'http://gogorpg.com:9527';
 let host = 'http://localhost:9527';
 
+///////////////////////////////////////////////////////////////////////////////////////////
+export const publishNewJob=params=>{
+  return axios.post(`${host}/job/publish/publishNewJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
 
+export const acceptNewJob=params=>{
+  return axios.post(`${host}/job/acceptNewJob`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
 export const loadPublicJobs = params => {
   return axios.get(`${host}/job/jobPlaza/`);
 };

@@ -154,6 +154,8 @@
     "10038":"Read administrator error",
     "10039":"Read administrator permission error",
     "10040":"Sorry, you do not have the RPG secretary permission",
-    “”"10041":"Accept new job failed"
+    "10041":"Accept new job failed",
+    "10042":"Update user account error",
+    "10043":"You do not have enough balance to publish this job"
   }
 }

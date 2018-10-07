@@ -31,6 +31,8 @@ import adminLogin from '@/pages/admin/adminLogin'
 
 import matchJobPage from '@/pages/secretary/matchJobPage'
 
+import topUpPage from '@/pages/topUp/topUpPage'
+
 
 import store from '../store/index'
 
@@ -289,6 +291,20 @@ const router = new Router({
             title:'NewJobDetail',
             token:true
           }
+        },
+        {
+          path:'topUpPage',
+          name:'topUpPage',
+          components:{
+            head:HeadBarBase,
+            content:topUpPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'TopUpPage',
+            token:true
+          }
+
         }
       ]
     }

@@ -31,7 +31,7 @@
 
 <script>
   import {loadTaskDetail} from "../../api/api";
-  import {publishTask} from "../../api/api";
+  import {publishNewJob} from "../../api/api";
 
   export default {
     name: "taskFreelancer",
@@ -56,7 +56,7 @@
           return;
         }
         this.saving = true;
-        publishTask({
+        publishNewJob({
           taskId: this.task.taskId,
           title: this.task.title,
           code: this.task.code,
