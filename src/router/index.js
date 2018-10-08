@@ -31,7 +31,8 @@ import adminLogin from '@/pages/admin/adminLogin'
 
 import matchJobPage from '@/pages/secretary/matchJobPage'
 
-import topUpPage from '@/pages/topUp/topUpPage'
+import secretaryTopUpPage from '@/pages/secretary/topUp/topUpPage'
+import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
 
 
 import store from '../store/index'
@@ -293,18 +294,30 @@ const router = new Router({
           }
         },
         {
-          path:'topUpPage',
-          name:'topUpPage',
+          path:'secretaryTopUpPage',
+          name:'secretaryTopUpPage',
           components:{
             head:HeadBarBase,
-            content:topUpPage,
+            content:secretaryTopUpPage,
             footer:FooterBar
           },
           meta:{
-            title:'TopUpPage',
+            title:'SecretaryTopUpPage',
             token:true
           }
-
+        },
+        {
+          path:'userTopUpPage',
+          name:'userTopUpPage',
+          components:{
+            head:HeadBarBase,
+            content:userTopUpPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'userTopUpPage',
+            token:true
+          }
         }
       ]
     }

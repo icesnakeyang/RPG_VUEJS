@@ -15,6 +15,7 @@
           <MenuJob2 v-if="isJobMenu"></MenuJob2>
           <MenuJob v-else="isJobMenu"></MenuJob>
           <MenuAdmin v-if="isAdmin"></MenuAdmin>
+          <MenuSecretary v-if="isSecretary"></MenuSecretary>
           <MenuLogin></MenuLogin>
           <MenuLanguage></MenuLanguage>
         </div>
@@ -29,6 +30,7 @@
   import MenuLanguage from './menuLanguage'
   import MenuLogin from './menuLogin'
   import MenuAdmin from './menuAdmin'
+  import MenuSecretary from './menuSecretary'
 
   export default {
     name: "HeaderBarBase",
@@ -37,7 +39,8 @@
       MenuJob2,
       MenuLanguage,
       MenuLogin,
-      MenuAdmin
+      MenuAdmin,
+      MenuSecretary
     },
     computed: {
       token() {
@@ -53,12 +56,14 @@
         if (this.$store.state.roleType === 'ADMINISTRATOR') {
           return true;
         }
-        if(this.$store.state.roleType==='SUPER_ADMIN') {
+        if (this.$store.state.roleType === 'SUPER_ADMIN') {
           return true;
         }
-        if(this.$store.state.roleType==='ROOT_ADMIN'){
+        if (this.$store.state.roleType === 'ROOT_ADMIN') {
           return true;
         }
+      },
+      isSecretary(){
         if(this.$store.state.roleType==='SECRETARY'){
           return true;
         }
@@ -125,9 +130,14 @@
             name:"adminPage"
           })
         }
-        if(name==="7-2"){
+        if(name==="8-1"){
           this.$router.push({
             name:"matchJobPage"
+          })
+        }
+        if(name==="8-2"){
+          this.$router.push({
+            name:"secretaryTopUpPage"
           })
         }
       },
