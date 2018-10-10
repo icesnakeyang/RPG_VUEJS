@@ -17,7 +17,7 @@ export const loadJobDetail = params => {
 };
 
 export const saveContactInfo = params => {
-  return axios.post(`${host}/user/saveContactInfo`, params, {
+  return axios.post(`${host}/user/info/saveContactInfo`, params, {
     headers: {
       token: store.state.token
     }

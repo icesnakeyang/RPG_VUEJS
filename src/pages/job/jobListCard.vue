@@ -5,10 +5,10 @@
         {{job.title}}</a>
     </p>
     <p>{{$t("task.code")}}:{{job.code}}</p>
-    <p>{{$t("task.createdUserName")}}: {{job.createdUserName}}</p>
+    <p>{{$t("task.createdUserName")}}: {{job.partyAName}}</p>
     <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
     <p>{{$t("task.days")}}: {{job.days}}</p>
-    <p>{{$t("task.price")}}: {{job.reward}}</p>
+    <p>{{$t("task.price")}}: {{job.price}}</p>
   </Card>
 </template>
 
