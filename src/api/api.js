@@ -12,30 +12,8 @@ export const publishNewJob=params=>{
     }
   })
 };
-
-export const acceptNewJob=params=>{
-  return axios.post(`${host}/job/acceptNewJob`,params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////
-export const loadPublicJobs = params => {
-  return axios.get(`${host}/job/jobPlaza/`);
-};
-
 export const loadJobDetail = params => {
-  return axios.get(`${host}/job/`+params);
-};
-
-export const loadUserInfo = params => {
-  return axios.get(`${host}/user/userInfo`,{
-    headers: {
-      token: store.state.token
-    }
-  })
+  return axios.get(`${host}/job/detail/`+params);
 };
 
 export const saveContactInfo = params => {
@@ -45,6 +23,30 @@ export const saveContactInfo = params => {
     }
   })
 };
+
+export const acceptNewJob=params=>{
+  return axios.post(`${host}/job/acceptNewJob`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadPublicJobs = params => {
+  return axios.post(`${host}/job/plaza/publicJob`,params);
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export const loadUserInfo = params => {
+  return axios.get(`${host}/user/userInfo`,{
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+
 
 export const registerUser = params => {
   return axios.post(`${host}/user/register`, params, {

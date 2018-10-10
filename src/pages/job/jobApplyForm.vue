@@ -91,7 +91,6 @@
 
 
       loadUserInfo().then((response)=>{
-        console.log(response)
         this.userInfo=response.data.data
       })
     }

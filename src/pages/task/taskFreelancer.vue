@@ -16,6 +16,10 @@
       <Input v-model="task.price"/>
     </FormItem>
 
+    <FormItem :label="$t('task.detail')">
+      <quill-editor v-model="task.detail"></quill-editor>
+    </FormItem>
+
     <FormItem v-show="!saving">
       <Button type="primary" @click="clickPublish">{{$t("task.publish")}}</Button>
     </FormItem>
@@ -32,9 +36,13 @@
 <script>
   import {loadTaskDetail} from "../../api/api";
   import {publishNewJob} from "../../api/api";
+  import {quillEditor} from "vue-quill-editor";
 
   export default {
     name: "taskFreelancer",
+    components:{
+      quillEditor
+    },
     data() {
       return {
         task: {},
@@ -46,7 +54,7 @@
     computed: {
       taskID() {
         this.task.taskId = this.$route.params.taskId;
-        return this.taskID();
+        return this.task.taskId;
       }
     },
     methods: {
@@ -61,12 +69,20 @@
           title: this.task.title,
           code: this.task.code,
           days: this.task.days,
-          reward: this.task.price
+          price: this.task.price,
+          jobDetail:this.task.detail
         }).then((response) => {
           console.log(response)
-          if (response.data.data.jobId) {
+          if (response.data.errorCode===0) {
             this.$Message.success(this.$t("task.succPublish"));
             // jump to job detail
+            console.log(response.data.data.job.jobId)
+            this.$router.push({
+              name:"jobDetail",
+              params:{
+                jobId:response.data.data.job.jobId
+              }
+            })
           }else {
             this.errInput=true;
             this.errMsg=this.$t("task.errPublish");

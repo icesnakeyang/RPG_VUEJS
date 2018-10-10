@@ -39,7 +39,7 @@
     },
     mounted() {
       loadJobDetail(this.$route.params.jobId).then((response) => {
-        this.job = response.data.data
+        this.job = response.data.data.job
         console.log(this.job)
       })
     }
