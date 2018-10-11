@@ -15,7 +15,7 @@
           <Input v-model="userInfo.phone"/>
         </FormItem>
         <FormItem :label="$t('user.email')">
-          <Input v-model="userInfo.email" />
+          <Input v-model="userInfo.email"/>
         </FormItem>
         <FormItem v-show="!saving">
           <Button type="primary" @click="clickConfirm">{{$t("user.confirm")}}</Button>
@@ -40,65 +40,68 @@
 
   export default {
     name: "jobApplyForm",
-    data(){
-      return{
-        userInfo:{},
-        errInput:false,
-        errMsg:'',
-        saving:false
+    data() {
+      return {
+        userInfo: {},
+        errInput: false,
+        errMsg: '',
+        saving: false
       }
     },
-    computed:{
-      jobTitle(){
+    computed: {
+      jobTitle() {
         return this.$route.params.jobTitle
       }
     },
-    methods:{
-      clickConfirm(){
+    methods: {
+      clickConfirm() {
         console.log(this.userInfo)
-        this.saving=true;
+        this.saving = true;
         saveContactInfo({
-          realName:this.userInfo.realName,
-          phone:this.userInfo.phone,
-          email:this.userInfo.email
-        }).then((response)=>{
+          realName: this.userInfo.realName,
+          phone: this.userInfo.phone,
+          email: this.userInfo.email
+        }).then((response) => {
           console.log(response)
-          if(response.data.errorCode===0){
+          if (response.data.errorCode === 0) {
             console.log(this.$route.params)
-            if(!this.$route.params){
+            if (!this.$route.params) {
               return
             }
             applyJob({
-              jobId:this.$route.params.jobId
-            }).then((response)=>{
+              jobId: this.$route.params.jobId
+            }).then((response) => {
               console.log(response)
-              if(response.data.errorCode===0){
+              if (response.data.errorCode === 0) {
                 this.$router.push({
-                  name:'applyJobSuccess'
+                  name: 'applyJobSuccess'
                 });
-                return;
+              } else {
+                this.errMsg = this.$t("syserr." + response.data.errorCode);
               }
-              this.errMsg=this.$t("syserr."+response.data.errorCode);
-              this.errInput=true
             })
+          } else {
+            this.errMsg = this.$t("syserr." + response.data.errorCode);
           }
         })
+        this.errInput = true
+        this.saving = false
       }
     },
-    mounted(){
-        console.log('mounted')
+    mounted() {
+      console.log('mounted')
       console.log(this.$route.params)
 
 
-      loadUserInfo().then((response)=>{
-        this.userInfo=response.data.data
+      loadUserInfo().then((response) => {
+        this.userInfo = response.data.data
       })
     }
   }
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 40px;
   }
 
