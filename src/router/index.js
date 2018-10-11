@@ -21,7 +21,7 @@ import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
-import matchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
+import myMatchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 
@@ -31,7 +31,7 @@ import secretaryTopUpPage from '@/pages/secretary/topUp/topUpPage'
 import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
 
 import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
-import matchJobPage from '@/pages/secretary/matchJobPage'
+import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
 
 
 
@@ -228,15 +228,15 @@ const router = new Router({
           }
         },
         {
-          path:'matchJobPage',
-          name:'matchJobPage',
+          path:'secretaryMatchJobPage',
+          name:'secretaryMatchJobPage',
           components:{
             head:HeadBarBase,
-            content:matchJobPage,
+            content:secretaryMatchJobPage,
             footer:FooterBar
           },
           meta:{
-            title:"MatchJobPage",
+            title:"SecretaryMatchJobPage",
             token:true
           }
         },
@@ -281,15 +281,15 @@ const router = new Router({
           }
         },
         {
-          path:'matchJobDetail',
-          name:'matchJobDetail',
+          path:'myMatchJobDetail',
+          name:'myMatchJobDetail',
           components:{
             head:HeadBarBase,
-            content:matchJobDetail,
+            content:myMatchJobDetail,
             footer:FooterBar
           },
           meta:{
-            title:'MatchJobDetail',
+            title:'MyMatchJobDetail',
             token:true
           }
         },

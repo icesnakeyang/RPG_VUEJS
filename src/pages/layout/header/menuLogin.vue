@@ -18,7 +18,11 @@
         return this.$store.state.token
       },
       username1() {
-        return this.$store.state.username;
+        if(this.$store.state.username) {
+          return this.$store.state.username;
+        }else {
+          return this.$store.state.loginName;
+        }
       }
     }
   }

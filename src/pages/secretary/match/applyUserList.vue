@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import {addNewJobMatch} from "../../api/api";
-  import {loadUsersAppliedJobAndWaiting} from "../../api/api";
+  import {addNewJobMatch} from "../../../api/api";
+  import {loadUsersAppliedJobAndWaiting} from "../../../api/api";
 
   export default {
     name: "applyUserList",

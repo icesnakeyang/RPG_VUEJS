@@ -5,7 +5,7 @@
         <div @click="clickJobCard(job.jobId)">
           <Card style="margin-right: 20px">
             <p slot="title">
-              {{job.title}}{{job.jobId}}
+              {{job.title}}
             </p>
             <p>{{$t("job.code")}}: {{job.code}}</p>
             <p>{{$t("job.publishUserName")}}: {{job.partyAName}}</p>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../common/rpgfun";
+  import {rpgFormat} from "../../../common/rpgfun";
   import ApplyUserList from "./applyUserList"
 
   export default {
-    name: "matchJobPageRow",
+    name: "secretaryMatchJobPageRow",
     components: {
       ApplyUserList
     },

@@ -23,11 +23,11 @@
 </template>
 
 <script>
-  import {loadJobToMatch} from "../../api/api";
-  import MatchJobPageRow from "./matchJobPageRow"
+  import {loadJobToMatch} from "../../../api/api";
+  import MatchJobPageRow from "./secretaryMatchJobPageRow"
 
   export default {
-    name: "matchJobPage",
+    name: "secretaryMatchJobPage",
     components: {MatchJobPageRow},
     component:{
       MatchJobPageRow

@@ -73,16 +73,20 @@ export const loadMyNewJob=params=>{
 };
 
 export const acceptNewJob=params=>{
-  return axios.post(`${host}/job/acceptNewJob`,params,{
+  return axios.post(`${host}/job/myMatch/acceptNewJob`,params,{
     headers:{
       token:store.state.token
     }
   })
 };
 
-export const loadPublicJobs = params => {
-  return axios.post(`${host}/job/plaza/publicJob`,params);
-};
+export const rejectNewJob=params=>{
+  return axios.post(`${host}/job/myMatch/rejectNewJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

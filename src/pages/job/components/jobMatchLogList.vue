@@ -36,7 +36,7 @@
       goJobDetail(jobId){
         console.log(jobId)
         this.$router.push({
-          name:"matchJobDetail",
+          name:"myMatchJobDetail",
           params:{
             jobId:jobId
           }
