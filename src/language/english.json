@@ -171,6 +171,9 @@
     "10045":"Update user phone failed.",
     "10046":"This phone has been occupied by other users.",
     "10047":"Save user real name failed.",
-    "10048":"Save user contact information error."
+    "10048":"Save user contact information error.",
+    "10049":"RPG Secretary has assigned this job to you already."
+
+
   }
 }

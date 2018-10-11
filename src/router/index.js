@@ -21,18 +21,18 @@ import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
-import matchJobPage from '@/pages/job/myJob/matchJob/matchJobPage'
-import matchJobDetail from '@/pages/job/myJob/matchJob/matchJobDetail'
+import matchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 
 import adminPage from '@/pages/admin/adminPage'
 import adminLogin from '@/pages/admin/adminLogin'
-
-import matchJobPage from '@/pages/secretary/matchJobPage'
-
 import secretaryTopUpPage from '@/pages/secretary/topUp/topUpPage'
 import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
+
+import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
+import matchJobPage from '@/pages/secretary/matchJobPage'
+
 
 
 import store from '../store/index'
@@ -215,6 +215,19 @@ const router = new Router({
           }
         },
         {
+          path:'myMatchJobPage',
+          name:'myMatchJobPage',
+          components:{
+            head:HeadBarBase,
+            content:myMatchJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:"MyMatchJobPage",
+            token:true
+          }
+        },
+        {
           path:'matchJobPage',
           name:'matchJobPage',
           components:{
@@ -239,19 +252,6 @@ const router = new Router({
             title:"MyJobPage",
             token:true,
             menuType:"job"
-          }
-        },
-        {
-          path:'matchJobPage',
-          name:'matchJobPage',
-          components:{
-            head:HeadBarBase,
-            content:matchJobPage,
-            footer:FooterBar
-          },
-          meta:{
-            title:"MatchJobPage",
-            token:true
           }
         },
         {

@@ -21,7 +21,7 @@
   import {acceptNewJob} from "../../../../api/api";
 
   export default {
-    name: "matchJobDetail",
+    name: "myMatchJobDetail",
     components: {
       JobDetailTpl
     },
