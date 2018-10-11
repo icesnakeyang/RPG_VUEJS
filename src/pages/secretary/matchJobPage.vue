@@ -78,7 +78,7 @@
           pageSize:100
         }).then((response)=>{
           console.log(response);
-          this.jobs=response.data.data
+          this.jobs=response.data.data.jobs
           console.log(this.jobs)
         })
       }

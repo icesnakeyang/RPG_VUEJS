@@ -5,13 +5,13 @@
         {{log.job.title}}</a>
     </p>
     <p>{{$t("job.code")}}:{{log.job.code}}</p>
-    <p>{{$t("job.publishUserName")}}: {{log.job.createdUserName}}</p>
+    <p>{{$t("job.publishUserName")}}: {{log.job.partyAName}}</p>
     <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
     <p>{{$t("jobMatchLog.matchTime")}}: {{matchTime}}</p>
     <p>{{$t("job.days")}}: {{log.job.days}}</p>
-    <p>{{$t("job.price")}}: {{log.job.reward}}</p>
+    <p>{{$t("job.price")}}: {{log.job.price}}</p>
     <br>
-    <p>{{$t("job.applyUserNum")}}: {{log.applyNum}}</p>
+    <p>{{$t("job.applyUserNum")}}: {{log.job.jobApplyNum}}</p>
     <p>{{$t("job.matchingUserNum")}}: {{log.matchingUserNum}}</p>
   </Card>
 </template>

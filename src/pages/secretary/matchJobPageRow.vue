@@ -8,9 +8,9 @@
               {{job.title}}{{job.jobId}}
             </p>
             <p>{{$t("job.code")}}: {{job.code}}</p>
-            <p>{{$t("job.publishUserName")}}: {{job.createdUserName}}</p>
+            <p>{{$t("job.publishUserName")}}: {{job.partyAName}}</p>
             <p>{{$t("job.days")}}: {{job.days}}</p>
-            <p>{{$t("job.price")}}: {{job.reward}}</p>
+            <p>{{$t("job.price")}}: {{job.price}}</p>
             <p>{{$t("job.publishTime")}}: {{jobCreatedTime}}</p>
           </Card>
         </div>

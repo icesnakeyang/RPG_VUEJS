@@ -64,6 +64,7 @@
         }
       },
       isSecretary(){
+        console.log(this.$store.state)
         if(this.$store.state.roleType==='SECRETARY'){
           return true;
         }

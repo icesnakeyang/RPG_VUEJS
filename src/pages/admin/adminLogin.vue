@@ -48,7 +48,7 @@
             this.showErr = true;
             return;
           }
-          this.$store.dispatch('saveToken', response.data.data);
+          this.$store.dispatch('saveToken', response.data.data.admin);
           console.log(this.$store.state)
           if (this.$store.state.toUrl) {
             const theUrl = this.$store.state.toUrl;

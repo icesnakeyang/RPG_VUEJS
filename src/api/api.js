@@ -24,6 +24,54 @@ export const saveContactInfo = params => {
   })
 };
 
+export const applyJob = params => {
+  return axios.post(`${host}/job/myApply/applyJob`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+};
+
+export const loadMyApplyJob=params=>{
+  return axios.get(`${host}/job/myApply/loadMyApplyJob`,{
+    headers:{
+      "token":store.state.token
+    }
+  })
+};
+
+export const loadJobToMatch=params=>{
+  return axios.post(`${host}/secretary/loadJobToMatch`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadUsersAppliedJobAndWaiting=params=>{
+  return axios.post(`${host}/secretary/loadUserApplyJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const addNewJobMatch=params=>{
+  return axios.post(`${host}/secretary/matchJobToUser`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
+export const loadMyNewJob=params=>{
+  return axios.get(`${host}/job/myMatch/loadJobMatchToMe`,{
+    headers:{
+      token:store.state.token
+    }
+  })
+};
+
 export const acceptNewJob=params=>{
   return axios.post(`${host}/job/acceptNewJob`,params,{
     headers:{
@@ -84,13 +132,7 @@ export const publishTask = params => {
   })
 };
 
-export const loadMyApplyJob=params=>{
-  return axios.get(`${host}/job/loadMyApplyJob`,{
-    headers:{
-      "token":store.state.token
-    }
-  })
-};
+
 
 /**
  * 管理员登录接口
@@ -126,37 +168,13 @@ export const createAdmin = params => {
   })
 };
 
-export const loadJobToMatch=params=>{
-  return axios.post(`${host}/admin/loadJobToMatch`,params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-};
 
-export const loadUsersAppliedJobAndWaiting=params=>{
-  return axios.post(`${host}/admin/loadUsersAppliedJobAndWaiting`, params,{
-    headers:{
-      token:store.state.token
-    }
-  })
-};
 
-export const addNewJobMatch=params=>{
-  return axios.post(`${host}/admin/addNewJobMatch`, params, {
-    headers:{
-      token:store.state.token
-    }
-  })
-};
 
-export const loadMyNewJob=params=>{
-  return axios.get(`${host}/job/loadMyNewJob`,{
-    headers:{
-      token:store.state.token
-    }
-  })
-};
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////
 
@@ -174,13 +192,7 @@ export const saveProfile = params => {
   })
 };
 
-export const applyJob = params => {
-  return axios.post(`${host}/job/applyJob`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
+
 
 
 export const loadUsers = params => {

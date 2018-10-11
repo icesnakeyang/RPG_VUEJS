@@ -78,8 +78,9 @@
         loadUsersAppliedJobAndWaiting({
           jobId:this.jobId
         }).then((response)=>{
+          console.log(response)
           if(response.data.errorCode===0){
-            this.users=response.data.data
+            this.users=response.data.data.users
           }
         })
       },

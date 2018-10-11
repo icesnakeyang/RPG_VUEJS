@@ -11,6 +11,17 @@
     <quill-editor v-model="job.detail"
                   :options="options">
     </quill-editor>
+    <Divider></Divider>
+    <Row>
+      <Col :xs="6" :sm="2" :md="2" :lg="2">
+        <P>{{$t("job.applyUserNum")}}: {{job.jobApplyNum}}</P>
+      </Col>
+      <Col :xs="6" :sm="2" :md="2" :lg="2">
+        <P>{{$t("job.matchingUserNum")}}: {{job.jobMatchNum}}</P>
+      </Col>
+    </Row>
+
+
   </Card>
 </template>
 
@@ -19,14 +30,14 @@
 
   export default {
     name: "jobDetailCard",
-    components:{
+    components: {
       quillEditor
     },
-    data(){
-      return{
-        options:{
-          modules:{
-            toolbar:false
+    data() {
+      return {
+        options: {
+          modules: {
+            toolbar: false
           }
         }
       }

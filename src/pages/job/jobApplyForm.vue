@@ -65,9 +65,6 @@
           console.log(response)
           if (response.data.errorCode === 0) {
             console.log(this.$route.params)
-            if (!this.$route.params) {
-              return
-            }
             applyJob({
               jobId: this.$route.params.jobId
             }).then((response) => {
@@ -78,14 +75,15 @@
                 });
               } else {
                 this.errMsg = this.$t("syserr." + response.data.errorCode);
+                this.errInput = true
               }
             })
           } else {
             this.errMsg = this.$t("syserr." + response.data.errorCode);
+            this.errInput = true
           }
         })
-        this.errInput = true
-        this.saving = false
+
       }
     },
     mounted() {

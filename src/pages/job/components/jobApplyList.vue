@@ -7,7 +7,7 @@
     <p>{{$t("job.code")}}:{{jobApply.job.code}}</p>
     <Row>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.publishUserName")}}: {{jobApply.job.createdUserName}}</p>
+        <p>{{$t("job.publishUserName")}}: {{jobApply.job.partyAName}}</p>
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
         <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
@@ -18,14 +18,14 @@
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.price")}}: {{jobApply.job.reward}}</p>
+        <p>{{$t("job.price")}}: {{jobApply.job.price}}</p>
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
         <p>{{$t("apply.applyTime")}}: {{applyTime}}</p>
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("apply.readTime")}}: {{readTime}}</p>
+        <!--<p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
       </Col>
     <Divider />
       <Col :xs="12" :sm="6" :md="6" :lg="6">

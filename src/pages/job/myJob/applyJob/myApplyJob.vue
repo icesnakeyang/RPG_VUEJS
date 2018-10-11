@@ -24,8 +24,9 @@
     methods: {},
     mounted() {
       loadMyApplyJob({}).then((response) => {
+        console.log(response)
         if (response.data.errorCode === 0) {
-          this.applyJobList = response.data.data;
+          this.applyJobList = response.data.data.jobList;
         }
       })
 

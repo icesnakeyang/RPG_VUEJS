@@ -28,7 +28,7 @@
       console.log(1);
       loadMyNewJob({}).then((response) => {
         console.log(response)
-        this.matchLogs=response.data.data
+        this.matchLogs=response.data.data.newJobs
         console.log(this.matchLogs)
       })
     }
