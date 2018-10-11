@@ -21,8 +21,8 @@ import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/jobApplyForm'
 import applyJobSuccess from '@/pages/job/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
-import newJobPage from '@/pages/job/myJob/newJob/newJobPage'
-import newJobDetail from '@/pages/job/myJob/newJob/newJobDetail'
+import matchJobPage from '@/pages/job/myJob/matchJob/matchJobPage'
+import matchJobDetail from '@/pages/job/myJob/matchJob/matchJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 
@@ -242,15 +242,15 @@ const router = new Router({
           }
         },
         {
-          path:'newJobPage',
-          name:'newJobPage',
+          path:'matchJobPage',
+          name:'matchJobPage',
           components:{
             head:HeadBarBase,
-            content:newJobPage,
+            content:matchJobPage,
             footer:FooterBar
           },
           meta:{
-            title:"NewJobPage",
+            title:"MatchJobPage",
             token:true
           }
         },
@@ -281,15 +281,15 @@ const router = new Router({
           }
         },
         {
-          path:'newJobDetail',
-          name:'newJobDetail',
+          path:'matchJobDetail',
+          name:'matchJobDetail',
           components:{
             head:HeadBarBase,
-            content:newJobDetail,
+            content:matchJobDetail,
             footer:FooterBar
           },
           meta:{
-            title:'NewJobDetail',
+            title:'MatchJobDetail',
             token:true
           }
         },

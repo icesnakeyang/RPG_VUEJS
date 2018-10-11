@@ -12,7 +12,7 @@
     <p>{{$t("job.price")}}: {{log.job.price}}</p>
     <br>
     <p>{{$t("job.applyUserNum")}}: {{log.job.jobApplyNum}}</p>
-    <p>{{$t("job.matchingUserNum")}}: {{log.matchingUserNum}}</p>
+    <p>{{$t("job.matchingUserNum")}}: {{log.job.jobMatchNum}}</p>
   </Card>
 </template>
 
@@ -36,7 +36,7 @@
       goJobDetail(jobId){
         console.log(jobId)
         this.$router.push({
-          name:"newJobDetail",
+          name:"matchJobDetail",
           params:{
             jobId:jobId
           }

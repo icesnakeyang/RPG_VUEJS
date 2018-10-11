@@ -6,7 +6,7 @@
     </template>
     <MenuItem name="3-2-1">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.newJob")}}
+      {{$t(matchJob)}}
     </MenuItem>
     <MenuItem name="3-2-2">
     <Icon type="ios-navigate"></Icon>

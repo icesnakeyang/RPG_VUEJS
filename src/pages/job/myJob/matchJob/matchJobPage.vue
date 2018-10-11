@@ -12,7 +12,7 @@
   import JobMatchLogList from "../../components/jobMatchLogList"
 
   export default {
-    name: "newJobPage",
+    name: "matchJobPage",
     components:{
       JobMatchLogList
     },

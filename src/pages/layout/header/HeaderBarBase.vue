@@ -112,7 +112,7 @@
         }
         if (name === "3-2-1") {
           this.$router.push({
-            name:"newJobPage"
+            name:"matchJobPage"
           })
         }
         if (name === "3-2-2") {

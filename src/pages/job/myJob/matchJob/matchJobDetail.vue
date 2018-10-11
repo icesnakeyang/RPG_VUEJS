@@ -2,7 +2,6 @@
   <div>
     <JobDetailTpl v-bind:job="job"></JobDetailTpl>
     <Form :model="data1" :label-width="200">
-
       <FormItem v-show="!saving">
         <Button type="primary" @click="onAccept">{{$t("job.btAcceptJob")}}</Button>
         <Button type="error" @click="onReject">{{$t("job.btRejectJob")}}</Button>
@@ -22,7 +21,7 @@
   import {acceptNewJob} from "../../../../api/api";
 
   export default {
-    name: "newJobDetail",
+    name: "matchJobDetail",
     components: {
       JobDetailTpl
     },
@@ -52,7 +51,7 @@
       loadJobDetail(this.$route.params.jobId).then((response) => {
         console.log(response);
         if (response.data.errorCode == 0) {
-          this.job = response.data.data;
+          this.job = response.data.data.job;
         }
       })
     }
