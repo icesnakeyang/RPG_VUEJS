@@ -177,7 +177,11 @@
     "10048":"Save user contact information error.",
     "10049":"RPG Secretary has assigned this job to you already.",
     "10050":"Reject job failed.",
-    "10051":"Read my jobs failed"
+    "10051":"Read my jobs failed",
+    "10052":"Create job log failed",
+    "10053":"Update job log failed",
+    "10054":"Read job log failed",
+    "10055":"Set job read time error"
 
   }
 }
