@@ -7,7 +7,7 @@
     <p>{{$t("job.publishUserName")}}: {{job.partyAName}}</p>
     <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
     <p>{{$t("job.days")}}: {{job.days}}</p>
-    <p>{{$t("job.price")}}: {{job.reward}}</p>
+    <p>{{$t("job.price")}}: {{job.price}}</p>
     <quill-editor v-model="job.detail"
                   :options="options">
     </quill-editor>

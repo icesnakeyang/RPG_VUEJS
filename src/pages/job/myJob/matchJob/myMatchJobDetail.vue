@@ -19,6 +19,7 @@
   import JobDetailTpl from "../../components/jobDetailTpl"
   import {loadJobDetail} from "../../../../api/api";
   import {acceptNewJob} from "../../../../api/api";
+  import {rejectNewJob} from "../../../../api/api";
 
   export default {
     name: "myMatchJobDetail",
@@ -35,16 +36,32 @@
     methods: {
       onAccept() {
         console.log(this.job.jobId)
-        this.saving=true;
+        this.saving = true;
         acceptNewJob({
-          jobId:this.job.jobId
-        }).then((response)=>{
+          jobId: this.job.jobId
+        }).then((response) => {
           console.log(response)
         })
       },
       onReject() {
-        console.log(this.job.jobId)
-        this.saving=true;
+        this.$Modal.confirm({
+          title: this.$t("common.tipTitleQuestion"),
+          content: this.$t("admin.tip1"),
+          okText: this.$t("common.ok"),
+          cancelText: this.$t("common.cancel"),
+          onOk: () => {
+            console.log(this.job.jobId)
+            this.saving = true;
+            rejectNewJob({
+              jobId: this.job.jobId
+            }).then((response) => {
+              console.log(response)
+            })
+          },
+          onCancel: () => {
+            return false;
+          }
+        })
       }
     },
     mounted() {

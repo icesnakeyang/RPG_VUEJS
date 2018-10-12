@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Layout from '@/pages/layout/Layout'
-import JobPlaza from '@/pages/job/jobPlaza'
+import JobPlaza from '@/pages/job/plaza/jobPlaza'
 
 import HeadBarBase from '@/pages/layout/header/HeaderBarBase'
 import FooterBar from '@/pages/layout/FooterBar'
@@ -18,8 +18,8 @@ import taskEdit from '@/pages/task/taskEdit'
 import taskFreelancer from '@/pages/task/taskFreelancer'
 
 import jobDetail from '@/pages/job/jobDetail'
-import jobApplyForm from '@/pages/job/jobApplyForm'
-import applyJobSuccess from '@/pages/job/applyJobSuccess'
+import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
+import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
 import myJobPage from '@/pages/job/myJob/myJobPage'
 import myMatchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
 
@@ -224,7 +224,8 @@ const router = new Router({
           },
           meta:{
             title:"MyMatchJobPage",
-            token:true
+            token:true,
+            menuType:"job"
           }
         },
         {
