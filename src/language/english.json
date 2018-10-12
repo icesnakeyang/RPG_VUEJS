@@ -94,8 +94,10 @@
     "matchTime":"Job Assign Time",
     "processRemark":"Process Remark",
     "processResult":"Process Result",
-    "processTime":"Process Time"
-
+    "processTime":"Process Time",
+    "tipReject":"Are you sure you want to reject this job?",
+    "tipAccept":"Are you sure you want to take this job?",
+    "rejectRemark":"Please describe why you reject this job"
   },
   "user":{
     "username":"Username",
@@ -174,7 +176,8 @@
     "10047":"Save user real name failed.",
     "10048":"Save user contact information error.",
     "10049":"RPG Secretary has assigned this job to you already.",
-    "10050":"Reject job failed."
+    "10050":"Reject job failed.",
+    "10051":"Read my jobs failed"
 
   }
 }

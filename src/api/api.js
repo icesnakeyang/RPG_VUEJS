@@ -15,7 +15,6 @@ export const publishNewJob=params=>{
 export const loadJobDetail = params => {
   return axios.get(`${host}/job/detail/`+params);
 };
-
 export const saveContactInfo = params => {
   return axios.post(`${host}/user/info/saveContactInfo`, params, {
     headers: {
@@ -23,7 +22,6 @@ export const saveContactInfo = params => {
     }
   })
 };
-
 export const applyJob = params => {
   return axios.post(`${host}/job/myApply/applyJob`, params, {
     headers: {
@@ -31,7 +29,6 @@ export const applyJob = params => {
     }
   })
 };
-
 export const loadMyApplyJob=params=>{
   return axios.get(`${host}/job/myApply/loadMyApplyJob`,{
     headers:{
@@ -39,7 +36,6 @@ export const loadMyApplyJob=params=>{
     }
   })
 };
-
 export const loadJobToMatch=params=>{
   return axios.post(`${host}/secretary/loadJobToMatch`,params,{
     headers:{
@@ -47,7 +43,6 @@ export const loadJobToMatch=params=>{
     }
   })
 };
-
 export const loadUsersAppliedJobAndWaiting=params=>{
   return axios.post(`${host}/secretary/loadUserApplyJob`, params,{
     headers:{
@@ -55,7 +50,6 @@ export const loadUsersAppliedJobAndWaiting=params=>{
     }
   })
 };
-
 export const addNewJobMatch=params=>{
   return axios.post(`${host}/secretary/matchJobToUser`, params, {
     headers:{
@@ -63,7 +57,6 @@ export const addNewJobMatch=params=>{
     }
   })
 };
-
 export const loadMyNewJob=params=>{
   return axios.get(`${host}/job/myMatch/loadJobMatchToMe`,{
     headers:{
@@ -71,7 +64,6 @@ export const loadMyNewJob=params=>{
     }
   })
 };
-
 export const acceptNewJob=params=>{
   return axios.post(`${host}/job/myMatch/acceptNewJob`,params,{
     headers:{
@@ -79,7 +71,6 @@ export const acceptNewJob=params=>{
     }
   })
 };
-
 export const rejectNewJob=params=>{
   return axios.post(`${host}/job/myMatch/rejectNewJob`, params,{
     headers:{
@@ -87,7 +78,17 @@ export const rejectNewJob=params=>{
     }
   })
 }
+export const loadPublicJobs=params=>{
+  return axios.post(`${host}/job/plaza/publicJob`, params)
+}
 
+export const loadMyPartyAJob=params=>{
+  return axios.post(`${host}/job/partyA/loadMyPartyAJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

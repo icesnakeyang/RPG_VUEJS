@@ -33,6 +33,8 @@ import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
 import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
 import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
 
+import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
+
 
 
 import store from '../store/index'
@@ -318,6 +320,20 @@ const router = new Router({
           meta:{
             title:'userTopUpPage',
             token:true
+          }
+        },
+        {
+          path:'partyAJobPage',
+          name:'partyAJobPage',
+          components:{
+            head:HeadBarBase,
+            content:partyAJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'PartyAJobPage',
+            token:true,
+            menuType:"job"
           }
         }
       ]
