@@ -39,6 +39,9 @@
       publishTime(){
         return rpgFormat.formatTime(this.job.createdTime)
       }
+    },
+    mounted(){
+      console.log(this.job)
     }
   }
 </script>

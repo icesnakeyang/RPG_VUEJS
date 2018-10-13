@@ -34,6 +34,11 @@ import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
 import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
 
 import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
+import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
+import partyBJobPage from '@/pages/job/myJob/partyB/partyBJobPage'
+import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
+import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
+import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
 
 
 
@@ -332,6 +337,76 @@ const router = new Router({
           },
           meta:{
             title:'PartyAJobPage',
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'partyBJobPage',
+          name:'partyBJobPage',
+          components:{
+            head:HeadBarBase,
+            content:partyBJobPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'PartyBJobPage',
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'partyAJobDetail',
+          name:'partyAJobDetail',
+          components:{
+            head:HeadBarBase,
+            content:partyAJobDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:'PartyAJobDetail',
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'partyBJobDetail',
+          name:'partyBJobDetail',
+          components:{
+            head:HeadBarBase,
+            content:partyBJobDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:'PartyBJobDetail',
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'jobLogPage',
+          name:'jobLogPage',
+          components:{
+            head:HeadBarBase,
+            content:jobLogPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'JobLogPage',
+            token:true,
+            menuType:"job"
+          }
+        },
+        {
+          path:'createJobLog',
+          name:'createJobLog',
+          components:{
+            head:HeadBarBase,
+            content:createJobLog,
+            footer:FooterBar
+          },
+          meta:{
+            title:'CreateJobLog',
             token:true,
             menuType:"job"
           }

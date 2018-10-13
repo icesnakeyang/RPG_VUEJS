@@ -15,6 +15,7 @@ export const publishNewJob=params=>{
 export const loadJobDetail = params => {
   return axios.get(`${host}/job/detail/`+params);
 };
+
 export const saveContactInfo = params => {
   return axios.post(`${host}/user/info/saveContactInfo`, params, {
     headers: {
@@ -84,6 +85,30 @@ export const loadPublicJobs=params=>{
 
 export const loadMyPartyAJob=params=>{
   return axios.post(`${host}/job/partyA/loadMyPartyAJob`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const loadMyPartyBJob=params=>{
+  return axios.post(`${host}/job/partyB/loadMyPartyBJob`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const createLog=params=>{
+  return axios.post(`${host}/job/log/createLog`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const jobLog=params=>{
+  return axios.post(`${host}/job/log/jobLog`, params,{
     headers:{
       token:store.state.token
     }

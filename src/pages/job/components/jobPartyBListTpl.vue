@@ -43,24 +43,24 @@
   import {rpgFormat} from "../../../common/rpgfun";
 
   export default {
-    name: "jobPartyAListTpl",
-    props: {
-      job: {}
+    name: "jobPartyBListTpl",
+    props:{
+      job:{}
     },
-    computed:{
-      publishTime(){
+    computed: {
+      publishTime() {
         return rpgFormat.formatTime(this.job.createdTime)
       },
-      contractTime(){
+      contractTime() {
         return rpgFormat.formatTime(this.job.contractTime)
       }
     },
-    methods:{
-      goJobDetail(jobId){
+    methods: {
+      goJobDetail(jobId) {
         this.$router.push({
-          name:'partyAJobDetail',
-          params:{
-            jobId:jobId
+          name: 'partyBJobDetail',
+          params: {
+            jobId: jobId
           }
         })
       }
@@ -69,8 +69,5 @@
 </script>
 
 <style scoped>
-  .card{
-    margin: 20px;
-  }
 
 </style>

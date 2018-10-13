@@ -123,6 +123,9 @@
         }
         if (name === "3-2-3") {
           console.log('party b')
+          this.$router.push({
+            name:'partyBJobPage'
+          })
         }
         if (name === "3-6") {
           this.$router.push({

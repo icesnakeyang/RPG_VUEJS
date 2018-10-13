@@ -77,6 +77,8 @@
     "detail":"Requirement",
     "days":"Term(days)",
     "publishUserName":"Published By",
+    "partyAName":"Party A",
+    "partyBName":"Party B",
     "publishTime":"Published Time",
     "price":"Commission",
     "apply":"Apply this job",
@@ -98,6 +100,15 @@
     "tipReject":"Are you sure you want to reject this job?",
     "tipAccept":"Are you sure you want to take this job?",
     "rejectRemark":"Please describe why you reject this job"
+  },
+  "partyA":{
+    "contractTime":"Contract Time"
+  },
+  "jobLog":{
+    "content":"Content",
+    "create":"Create Log",
+    "createdTime":"Created Time",
+    "readTime":"Read Time"
   },
   "user":{
     "username":"Username",

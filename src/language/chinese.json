@@ -77,6 +77,8 @@
     "detail": "任务需求",
     "days": "任务期限（天）",
     "publishUserName": "任务发布者",
+    "partyAName":"甲方",
+    "partyBName":"乙方",
     "publishTime": "发布时间",
     "price": "任务报酬",
     "apply": "申请任务",
@@ -98,6 +100,15 @@
     "tipReject":"你要拒绝该任务吗？",
     "tipAccept":"确定要接受该任务吗？",
     "rejectRemark":"请说明你拒绝该任务的理由"
+  },
+  "partyA":{
+    "contractTime":"签约时间"
+  },
+  "jobLog":{
+    "content":"日志内容",
+    "create":"创建日志",
+    "createdTime":"创建时间",
+    "readTime":"对方阅读时间"
   },
   "user": {
     "username": "用户名",
