@@ -11,6 +11,8 @@ export default new Vuex.Store({
 
     roleType:''||localStorage.roleType,
     loginName:'',
+
+    jobId:''||localStorage.jobId
   },
   actions:{
     saveToken(ctx, user){
@@ -21,6 +23,9 @@ export default new Vuex.Store({
     },
     saveToUrl(ctx, url){
       ctx.commit('saveToUrl', url)
+    },
+    saveJobId(ctx, jobId){
+      ctx.commit('jobId', jobId)
     }
   },
   mutations:{
@@ -47,6 +52,10 @@ export default new Vuex.Store({
     saveToUrl(state, url){
       state.toUrl=url;
       localStorage.toUrl=url;
+    },
+    saveJobId(state, jobId){
+      state.jobId=jobId;
+      localStorage.jobId=jobId
     }
   }
 })

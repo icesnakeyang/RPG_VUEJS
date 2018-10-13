@@ -20,7 +20,7 @@
     },
     methods: {
       loadData() {
-        loadJobDetail(this.$route.params.jobId).then((response) => {
+        loadJobDetail(this.$store.state.jobId).then((response) => {
           console.log(response);
           if(response.data.errorCode===0){
             this.job=response.data.data.job
