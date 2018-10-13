@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ToolBar></ToolBar>
     <JobDetailTpl v-bind:job="job"></JobDetailTpl>
   </div>
 </template>
@@ -7,11 +8,13 @@
 <script>
   import JobDetailTpl from '../../../job/components/jobDetailTpl'
   import {loadJobDetail} from "../../../../api/api";
+  import ToolBar from '../component/toolbar'
 
   export default {
     name: "partyAJobDetail",
     components: {
-      JobDetailTpl
+      JobDetailTpl,
+      ToolBar
     },
     data() {
       return {

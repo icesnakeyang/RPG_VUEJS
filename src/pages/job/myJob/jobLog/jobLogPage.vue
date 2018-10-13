@@ -25,7 +25,7 @@
     methods:{
       loadData(){
         jobLog({
-          jobId:this.$route.params.jobId,
+          jobId:this.$store.state.jobId,
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
@@ -45,7 +45,7 @@
       }
     },
     mounted() {
-      console.log(this.$route.params)
+      console.log(this.$store.state.jobId)
       this.loadData()
     }
   }

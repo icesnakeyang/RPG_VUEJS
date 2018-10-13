@@ -25,7 +25,7 @@ export default new Vuex.Store({
       ctx.commit('saveToUrl', url)
     },
     saveJobId(ctx, jobId){
-      ctx.commit('jobId', jobId)
+      ctx.commit('saveJobId', jobId)
     }
   },
   mutations:{
