@@ -5,7 +5,8 @@
         {{log.createdUserName}}
       </p>
       <p>{{$t("jobLog.createdTime")}}: {{createdTime}}</p>
-      <p>{{$t("jobLog.readTime")}}: {{readTime}}</p>
+      <p v-if="readTime">{{$t("jobLog.readTime")}}: {{readTime}}</p>
+      <p v-else="readTime">{{$t("jobLog.readTime")}}: <Tag color="error">unread</Tag></p>
       <Input type="textarea" v-model="log.content"
              :autosize="{minRows: 5,maxRows: 15}"
       />
@@ -29,7 +30,7 @@
         if(this.log.readTime){
           return rpgFormat.formatTime(this.log.readTime)
         }else{
-          return "Unread"
+          return false
         }
       }
     }
