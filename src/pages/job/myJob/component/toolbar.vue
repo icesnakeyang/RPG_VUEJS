@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     {{unlog}}
-    <Badge :count=badgeInfo.unreadJobLog type="error">
+    <Badge :count="tt1" type="error">
       <Button type="info" @click="onLog" class="gogo_badge">{{$t("job.tabLog")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
@@ -22,6 +22,12 @@
     props: {
       badgeInfo: {
         unreadJobLog:0
+      },
+      acount:0
+    },
+    data(){
+      return{
+        tt1:0
       }
     },
     methods: {
@@ -42,6 +48,8 @@
     },
     mounted(){
       console.log(this.badgeInfo.unreadJobLog)
+      this.tt1=this.badgeInfo.unreadJobLog
+      this.tt1=9
     }
   }
 </script>
