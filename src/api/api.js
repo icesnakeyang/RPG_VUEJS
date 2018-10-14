@@ -114,6 +114,14 @@ export const jobLog=params=>{
     }
   })
 }
+
+export const jobDeailPage=params=>{
+  return axios.post(`${host}/job/detail/jobDeailPage`,params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

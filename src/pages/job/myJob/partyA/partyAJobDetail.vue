@@ -1,14 +1,14 @@
 <template>
   <div>
-    <ToolBar></ToolBar>
-    <JobDetailTpl v-bind:job="job"></JobDetailTpl>
+    <ToolBar v-bind:badgeInfo="jobInfo.badgeInfo"></ToolBar>
+    <JobDetailTpl v-bind:job="jobInfo.job"></JobDetailTpl>
   </div>
 </template>
 
 <script>
   import JobDetailTpl from '../../../job/components/jobDetailTpl'
-  import {loadJobDetail} from "../../../../api/api";
   import ToolBar from '../component/toolbar'
+  import {jobDeailPage} from "../../../../api/api";
 
   export default {
     name: "partyAJobDetail",
@@ -18,15 +18,25 @@
     },
     data() {
       return {
-        job: {}
+        jobInfo:{
+          badgeInfo:{},
+          job:{}
+        }
       }
     },
     methods: {
       loadData() {
-        loadJobDetail(this.$store.state.jobId).then((response) => {
+        jobDeailPage({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
           console.log(response);
-          if(response.data.errorCode===0){
-            this.job=response.data.data.job
+          if (response.data.errorCode === 0) {
+
+            this.jobInfo.job = response.data.data.job
+
+            this.jobInfo.badgeInfo.unreadJobLog=response.data.data.unreadJobLog
+            console.log("ok")
+          console.log(this.jobInfo.badgeInfo)
           }
         })
       }

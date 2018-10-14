@@ -1,6 +1,7 @@
 <template>
   <div class="card">
-    <Badge :count="5" type="error">
+    {{unlog}}
+    <Badge :count=badgeInfo.unreadJobLog type="error">
       <Button type="info" @click="onLog" class="gogo_badge">{{$t("job.tabLog")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
@@ -18,6 +19,11 @@
 <script>
   export default {
     name: "toolbar",
+    props: {
+      badgeInfo: {
+        unreadJobLog:0
+      }
+    },
     methods: {
       onLog() {
         this.$router.push({
@@ -27,6 +33,15 @@
           }
         })
       }
+    },
+    computed:{
+      unlog(){
+        console.log(this.badgeInfo.unreadJobLog);
+        return this.badgeInfo.unreadJobLog;
+      }
+    },
+    mounted(){
+      console.log(this.badgeInfo.unreadJobLog)
     }
   }
 </script>
