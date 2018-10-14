@@ -86,7 +86,11 @@
     "matchingUserNum":"Matching Users",
     "btAcceptJob":"Accept Job",
     "btRejectJob":"Reject Job",
-    "rejectJobRemark":"Reject Description"
+    "rejectJobRemark":"Reject Description",
+    "tabLog":"Log",
+    "tabComplete":"Complete",
+    "tabStop":"Stop",
+    "tabSpotlight":"Spotlight"
   },
   "apply":{
     "applyTime":"Apply Time",

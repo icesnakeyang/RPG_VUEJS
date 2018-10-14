@@ -86,7 +86,12 @@
     "matchingUserNum": "分配人数",
     "btAcceptJob": "接受任务",
     "btRejectJob": "拒绝任务",
-    "rejectJobRemark": "拒绝任务说明"
+    "rejectJobRemark": "拒绝任务说明",
+    "tabLog":"日志",
+    "tabComplete":"验收",
+    "tabStop":"终止",
+    "tabSpotlight":"申诉"
+
   },
   "apply": {
     "applyTime": "申请时间",
