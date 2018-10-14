@@ -64,7 +64,6 @@
         }
       },
       isSecretary(){
-        console.log(this.$store.state)
         if(this.$store.state.roleType==='SECRETARY'){
           return true;
         }
@@ -116,13 +115,11 @@
           })
         }
         if (name === "3-2-2") {
-          console.log('party a')
           this.$router.push({
             name:'partyAJobPage'
           })
         }
         if (name === "3-2-3") {
-          console.log('party b')
           this.$router.push({
             name:'partyBJobPage'
           })

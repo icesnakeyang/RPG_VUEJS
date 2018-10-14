@@ -59,7 +59,6 @@
 
       getData(res) {
         this.jobs = res.data.data;
-        console.log(this.jobs)
       },
 
       changeLangToEn(hand){

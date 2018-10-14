@@ -11,6 +11,7 @@
 <script>
   import {jobLog} from "../../../../api/api";
   import JobLogRow from "./jobLogRow"
+  import {setJobLogReadTime} from "../../../../api/api";
 
   export default {
     name: "jobLogPage",
@@ -29,12 +30,19 @@
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
-          console.log(response);
           if(response.data.errorCode===0){
             this.jobLogList=response.data.data.content
+            this.setReadTime()
           }
         })
       },
+      setReadTime(){
+        setJobLogReadTime({
+          jobId:this.$store.state.jobId
+        }).then((response)=>{
+        })
+      },
+
       onCreateJobLog(){
         this.$router.push({
           name:'createJobLog',
@@ -45,7 +53,6 @@
       }
     },
     mounted() {
-      console.log(this.$store.state.jobId)
       this.loadData()
     }
   }

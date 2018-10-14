@@ -35,9 +35,7 @@
         pageIndex:0,
         pageSize:100
       }).then((data)=>{
-        console.log(data);
         this.jobs=data.data.data.jobs.content
-        console.log(this.jobs)
       });
 
     }

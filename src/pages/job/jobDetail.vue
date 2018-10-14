@@ -27,7 +27,6 @@
     },
     methods:{
       applyJob(){
-        console.log(this.$route.params);
         this.$router.push({
           name:'jobApplyForm',
           params:{
@@ -40,7 +39,6 @@
     mounted() {
       loadJobDetail(this.$route.params.jobId).then((response) => {
         this.job = response.data.data.job
-        console.log(this.job)
       })
     }
   }

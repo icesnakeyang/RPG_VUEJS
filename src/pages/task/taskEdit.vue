@@ -50,16 +50,12 @@
     },
     methods: {
       getAllData() {
-        console.log(1);
         loadTaskDetail(this.$route.params.taskId)
           .then((response) => {
             this.task = response.data.data;
-            console.log(this.task)
           })
       },
       clickUpdate(){
-        console.log(this.$route.params.taskId)
-
         createTask({
           taskId:this.$route.params.taskId,
           title:this.task.title,

@@ -32,9 +32,7 @@
                   },
                   on: {
                     click: () => {
-                      console.log(params.row.userId + "/" + this.jobId);
                       this.confirmMatch(params.row.userId, this.jobId)
-
                     }
                   }
                 }, this.$t("admin.match"))
@@ -78,7 +76,6 @@
         loadUsersAppliedJobAndWaiting({
           jobId:this.jobId
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.users=response.data.data.users
           }
@@ -96,7 +93,6 @@
               jobId: jobId,
               userId: userId
             }).then((response) => {
-              console.log(response)
               if (response.data.errorCode !== 0) {
                 this.$Message.error({
                   content: this.$t("syserr." + response.data.errorCode),

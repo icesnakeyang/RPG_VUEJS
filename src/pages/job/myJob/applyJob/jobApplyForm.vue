@@ -55,20 +55,16 @@
     },
     methods: {
       clickConfirm() {
-        console.log(this.userInfo)
         this.saving = true;
         saveContactInfo({
           realName: this.userInfo.realName,
           phone: this.userInfo.phone,
           email: this.userInfo.email
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
-            console.log(this.$route.params)
             applyJob({
               jobId: this.$route.params.jobId
             }).then((response) => {
-              console.log(response)
               if (response.data.errorCode === 0) {
                 this.$router.push({
                   name: 'applyJobSuccess'
@@ -87,10 +83,6 @@
       }
     },
     mounted() {
-      console.log('mounted')
-      console.log(this.$route.params)
-
-
       loadUserInfo().then((response) => {
         this.userInfo = response.data.data
       })

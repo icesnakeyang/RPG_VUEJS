@@ -38,23 +38,26 @@
     },
     methods:{
       onCreateLog(){
-        if(!this.$route.params.jobId){
+        if(!this.$store.state.jobId){
           return
         }
         if(!this.jobLog.content){
           return;
         }
-
         createLog({
-          jobId:this.$route.params.jobId,
+          jobId:this.$store.state.jobId,
           content:this.jobLog.content
         }).then((response)=>{
-          console.log(response)
+          if(response.data.errorCode===0){
+            this.$router.push({
+              name: 'jobLogPage',
+              params: {
+                jobId: this.$store.state.jobId
+              }
+            })
+          }
         })
       }
-    },
-    mounted() {
-      console.log(this.$route.params.jobId)
     }
   }
 </script>

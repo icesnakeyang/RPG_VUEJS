@@ -14,7 +14,6 @@
     name: "taskHeader",
     methods: {
       clickUpdate() {
-        console.log(this.$route.params.taskId)
         this.$router.push({
           name: 'taskEdit', params: {
             taskId: this.$route.params.taskId

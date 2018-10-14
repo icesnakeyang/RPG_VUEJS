@@ -37,19 +37,16 @@
         if (!this.checkInput()) {
           return;
         }
-        console.log('login')
         adminLogin({
           loginName: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
-          console.log(response);
           if (response.data.errorCode !== 0) {
             this.errMsg = this.$t("syserr." + response.data.errorCode)
             this.showErr = true;
             return;
           }
           this.$store.dispatch('saveToken', response.data.data.admin);
-          console.log(this.$store.state)
           if (this.$store.state.toUrl) {
             const theUrl = this.$store.state.toUrl;
             this.$store.dispatch('saveToUrl', '');

@@ -54,12 +54,10 @@
           okText: this.$t("common.ok"),
           cancelText: this.$t("common.cancel"),
           onOk: () => {
-            console.log(this.job.jobId)
             this.saving = true;
             acceptNewJob({
               jobId: this.job.jobId
             }).then((response) => {
-              console.log(response)
             })
           },
           onCancel: () => {
@@ -73,7 +71,6 @@
           jobId: this.job.jobId,
           remark:this.rejectRemark
         }).then((response) => {
-          console.log(response)
         })
       },
       onRejectCancel(){
@@ -82,7 +79,6 @@
     },
     mounted() {
       loadJobDetail(this.$route.params.jobId).then((response) => {
-        console.log(response);
         if (response.data.errorCode == 0) {
           this.job = response.data.data.job;
         }

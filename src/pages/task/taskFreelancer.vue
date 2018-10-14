@@ -59,7 +59,6 @@
     },
     methods: {
       clickPublish() {
-        console.log(this.task)
         if (this.inputCheck()) {
           return;
         }
@@ -72,11 +71,9 @@
           price: this.task.price,
           jobDetail:this.task.detail
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode===0) {
             this.$Message.success(this.$t("task.succPublish"));
             // jump to job detail
-            console.log(response.data.data.job.jobId)
             this.$router.push({
               name:"jobDetail",
               params:{
@@ -99,7 +96,6 @@
       },
       inputCheck() {
         this.errInput = false;
-        console.log(this.task.taskId)
         if (!this.task.taskId) {
           this.errInput = true;
           this.errMsg = "1";

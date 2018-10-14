@@ -3,7 +3,7 @@
     <p slot="title">
       {{admin.role}}
     </p>
-    <AdminPageRow v-for="row in admin.admin"
+    <AdminPageRow v-for="row in admin.admin" :key="row.adminId"
                   v-bind:row="row">
     </AdminPageRow>
   </Card>
@@ -20,7 +20,6 @@
       admin: {}
     },
     mounted(){
-      console.log(this.admin)
     }
   }
 </script>

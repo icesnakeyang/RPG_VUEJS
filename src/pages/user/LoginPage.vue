@@ -38,12 +38,10 @@
         if (!this.checkInput()) {
           return;
         }
-        console.log('login')
         loadUser({
           username: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
-          console.log(response);
           if (response.data.errorCode !== 0) {
             this.errMsg = this.$t("syserr." + response.data.errorCode)
             this.showErr = true;

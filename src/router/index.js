@@ -418,7 +418,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to) {
-    console.log(to);
     if (!to.name) {
       if (to.path === '/') {
         next({

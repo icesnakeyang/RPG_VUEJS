@@ -115,8 +115,16 @@ export const jobLog=params=>{
   })
 }
 
-export const jobDeailPage=params=>{
-  return axios.post(`${host}/job/detail/jobDeailPage`,params, {
+export const loadUnreadByJobId=params=>{
+  return axios.post(`${host}/job/detail/loadUnreadByJobId`,params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const setJobLogReadTime=params=>{
+  return axios.post(`${host}/job/log/setJobLogReadTime`,params,{
     headers:{
       token:store.state.token
     }
@@ -231,44 +239,6 @@ export const saveProfile = params => {
 };
 
 
-
-
-export const loadUsers = params => {
-  console.log(params);
-  return axios.post(`${host}/user/loadUsers`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
-
-
-
-export const loadSecretary = params => {
-  console.log(params);
-  return axios.post(`${host}/user/loadSecretary`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
-
-export const loadUnSecretary = params => {
-  console.log(params);
-  return axios.post(`${host}/user/loadUnSecretary`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
-
-export const setSecretary = params => {
-  return axios.post(`${host}/user/setSecretary`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-};
 
 
 

@@ -48,7 +48,6 @@
       }
     },
     mounted(){
-      console.log(this.job)
     }
   }
 </script>

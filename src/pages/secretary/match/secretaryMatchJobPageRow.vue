@@ -47,12 +47,10 @@
     },
     methods: {
       clickJobCard(jobId) {
-        console.log('match job' + jobId)
 
       }
     },
     mounted() {
-      console.log(this.job)
     }
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Card class="card" v-for="item in jobs">
+    <Card class="card" v-for="item in jobs" :key="item.jobId">
       <p slot="title"><a @click="goTask(item.taskId)">{{item.title}}</a></p>
       <p>{{$t("label.price")}}: {{item.price}}</p>
       <p>{{$t("label.days")}}: {{item.days}}</p>

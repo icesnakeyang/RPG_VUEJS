@@ -1,7 +1,6 @@
 <template>
   <div class="card">
-    {{unlog}}
-    <Badge :count="tt1" type="error">
+    <Badge :count="badgeInfo.unReadJobLog" type="error">
       <Button type="info" @click="onLog" class="gogo_badge">{{$t("job.tabLog")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
@@ -17,17 +16,15 @@
 </template>
 
 <script>
+  import {loadUnreadByJobId} from "../../../../api/api";
+
   export default {
     name: "toolbar",
-    props: {
-      badgeInfo: {
-        unreadJobLog:0
-      },
-      acount:0
-    },
-    data(){
-      return{
-        tt1:0
+    data() {
+      return {
+        badgeInfo: {
+          unReadJobLog: 0
+        }
       }
     },
     methods: {
@@ -35,21 +32,19 @@
         this.$router.push({
           name: 'jobLogPage',
           params: {
-            jobId: this.$route.params.jobId
+            jobId: this.$store.state.jobId
           }
         })
       }
     },
-    computed:{
-      unlog(){
-        console.log(this.badgeInfo.unreadJobLog);
-        return this.badgeInfo.unreadJobLog;
-      }
-    },
-    mounted(){
-      console.log(this.badgeInfo.unreadJobLog)
-      this.tt1=this.badgeInfo.unreadJobLog
-      this.tt1=9
+    mounted() {
+      loadUnreadByJobId({
+        jobId: this.$store.state.jobId
+      }).then((response) => {
+        if (response.data.errorCode === 0) {
+          this.badgeInfo.unReadJobLog = response.data.data.unReadJobLog
+        }
+      })
     }
   }
 </script>
@@ -58,14 +53,7 @@
   .card {
     margin: 20px;
   }
-
   .gogo_badge {
-    /*width: 42px;*/
-    /*height: 42px;*/
-    /*background: #eee;*/
-    /*border-radius: 6px;*/
-    /*display: inline-block;*/
-    /*font-size: 14px;*/
     margin-left: 20px;
   }
 </style>

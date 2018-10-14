@@ -76,14 +76,11 @@
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
-          console.log(response);
           this.jobs=response.data.data.jobs
-          console.log(this.jobs)
         })
       }
     },
     mounted(){
-      console.log(12);
       this.loadJobToMatchMethod();
     }
   }

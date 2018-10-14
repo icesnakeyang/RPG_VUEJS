@@ -55,7 +55,6 @@
         loadTaskDetail(this.$route.params.taskId)
           .then((response) => {
             this.task = response.data.data;
-            console.log(this.task)
           })
       }
     }

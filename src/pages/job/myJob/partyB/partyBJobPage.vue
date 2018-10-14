@@ -24,7 +24,6 @@
     methods: {
       loadData() {
         loadMyPartyBJob({}).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.jobList = response.data.data.content
           }

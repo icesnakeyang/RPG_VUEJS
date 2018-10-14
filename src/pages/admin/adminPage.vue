@@ -5,6 +5,7 @@
         <Button type="primary" @click="addAdmin">{{$t("admin.addAdmin")}}</Button>
       </FormItem>
       <AdminPageRoleBar v-for="admin in admins"
+                        :key="admin.adminId"
                            v-bind:admin="admin">
       </AdminPageRoleBar>
     </Form>
@@ -95,13 +96,11 @@
 
     methods: {
       addAdmin() {
-        console.log('add admin')
         this.addNewAdminModal=true;
 
       },
       loadAdminUsers() {
         loadAdmins({}).then((response) => {
-          console.log(response);
           if (response.data.data) {
             this.admins = response.data.data;
           }
@@ -109,7 +108,6 @@
       },
 
       createAdminUser(){
-        console.log(this.formItem)
         createAdmin({
           loginName:this.formItem.loginName,
           password:this.formItem.password,
@@ -131,7 +129,6 @@
       this.loadAdminUsers();
       loadRoleType({}).then((response)=>{
         this.roleTypes=response.data.data
-        console.log(this.roleTypes)
         if(response.data.errorCode!==0){
           this.errInput=true;
           this.errMsg=this.$t("syserr."+response.data.errorCode);

@@ -62,7 +62,6 @@
           if(response.data.errorCode!==0){
             alert('Register error')
           }else {
-            console.log(response.data.data)
             this.$store.dispatch('saveToken', response.data.data);
             if(this.$store.state.toUrl){
               const theUrl=this.$store.state.toUrl;

@@ -21,7 +21,6 @@
     name: "topupPage",
     methods: {
       onAccept() {
-        console.log('accept')
         this.$Modal.confirm({
           title: 'Title',
           content: '<p>Content of dialog</p><p>Content of dialog</p>',
@@ -34,7 +33,6 @@
         });
       },
       onReject() {
-        console.log('reject')
         this.$Modal.confirm({
           title: 'title',
           content: "lskdjflsdkjf",

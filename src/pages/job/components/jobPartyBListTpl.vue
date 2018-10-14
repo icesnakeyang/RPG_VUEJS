@@ -57,9 +57,7 @@
     },
     methods: {
       goJobDetail(jobId) {
-        console.log(jobId);
         this.$store.dispatch('saveJobId', jobId);
-        console.log(this.$store.state);
         this.$router.push({
           name: 'partyBJobDetail',
           params: {

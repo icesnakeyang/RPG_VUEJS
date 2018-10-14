@@ -44,7 +44,6 @@
           pageSize:100
         }).then((response)=>{
           this.profile=response.data.data;
-          console.log(this.profile)
         })
       },
       submitProfile(){
@@ -53,7 +52,6 @@
           email:this.profile.email,
           phone:this.profile.phone
         }).then((response)=>{
-          console.log(response);
         })
       }
     },
