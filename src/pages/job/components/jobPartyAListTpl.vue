@@ -1,8 +1,9 @@
 <template>
   <Card class="card">
     <p slot="title">
-      <a @click="goJobDetail(job.jobId)">
-        {{job.title}}</a>
+      <Badge :count="job.unRead"></Badge>
+        <a @click="goJobDetail(job.jobId)">
+          {{job.title}}</a>
     </p>
     <p>{{$t("job.code")}}:{{job.code}}</p>
     <Row>
@@ -47,21 +48,21 @@
     props: {
       job: {}
     },
-    computed:{
-      publishTime(){
+    computed: {
+      publishTime() {
         return rpgFormat.formatTime(this.job.createdTime)
       },
-      contractTime(){
+      contractTime() {
         return rpgFormat.formatTime(this.job.contractTime)
       }
     },
-    methods:{
-      goJobDetail(jobId){
+    methods: {
+      goJobDetail(jobId) {
         this.$store.dispatch('saveJobId', jobId);
         this.$router.push({
-          name:'partyAJobDetail',
-          params:{
-            jobId:jobId
+          name: 'partyAJobDetail',
+          params: {
+            jobId: jobId
           }
         })
       }
@@ -70,7 +71,7 @@
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 

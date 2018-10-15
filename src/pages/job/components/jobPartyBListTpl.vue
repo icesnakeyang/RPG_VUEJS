@@ -2,6 +2,7 @@
   <Card class="card">
     <p slot="title">
       <a @click="goJobDetail(job.jobId)">
+        <Badge :count="job.unRead" />
         {{job.title}}</a>
     </p>
     <p>{{$t("job.code")}}:{{job.code}}</p>
