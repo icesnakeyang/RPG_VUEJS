@@ -10,6 +10,9 @@
       <Input type="textarea" v-model="complete.content"
              :autosize="{minRows: 5,maxRows: 15}"
       />
+      <Divider></Divider>
+      <p>process result: {{complete.result}}</p>
+      <p>process time: {{processTime}}</p>
     </Card>
   </div>
 </template>
@@ -32,10 +35,16 @@
         }else{
           return false
         }
+      },
+      processTime(){
+        if(this.complete.processTime){
+          return rpgFormat.formatTime(this.complete.processTime)
+        }else {
+          return false
+        }
       }
     },
     mounted(){
-      console.log(this.complete)
     }
   }
 </script>

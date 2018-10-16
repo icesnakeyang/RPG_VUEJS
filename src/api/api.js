@@ -154,6 +154,22 @@ export const setCompleteReadTime=params=>{
     }
   })
 }
+
+export const rejectComplete=params=>{
+  return axios.post(`${host}/job/complete/rejectComplete`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const acceptComplete=params=>{
+  return axios.post(`${host}/job/complete/acceptComplete`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

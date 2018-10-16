@@ -118,7 +118,11 @@
     "content":"Complete description",
     "create":"Create complete log",
     "createdTime":"Created time",
-    "readTime":"Read time"
+    "readTime":"Read time",
+    "reject":"Reject",
+    "accept":"Accept",
+    "rejectRemark":"Description for reject",
+    "acceptRemark":"Description for accept"
   },
   "user":{
     "username":"Username",
@@ -206,7 +210,10 @@
     "10056":"Read complete log failed",
     "10057":"Create job complete log failed",
     "10058":"Set job complete log read time error",
-    "10059":"Update job complete log error"
+    "10059":"Update job complete log error",
+    "10060":"Reject job complete error",
+    "10061":"Accept job complete error",
+    "10062":"Save honor point failed"
 
   }
 }
