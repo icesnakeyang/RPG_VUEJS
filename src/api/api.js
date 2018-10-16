@@ -130,6 +130,30 @@ export const setJobLogReadTime=params=>{
     }
   })
 }
+
+export const loadCompletList=params=>{
+  return axios.post(`${host}/job/complete/loadCompleteList`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const createCompleteApi=params=>{
+  return axios.post(`${host}/job/complete/createComplete`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const setCompleteReadTime=params=>{
+  return axios.post(`${host}/job/complete/setCompleteReadTime`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

@@ -47,7 +47,7 @@
         this.$router.push({
           name:'createJobLog',
           params:{
-            jobId:this.$route.params.jobId
+            jobId:this.$store.state.jobId
           }
         })
       }

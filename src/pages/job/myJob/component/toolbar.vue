@@ -4,7 +4,7 @@
       <Button type="info" @click="onLog" class="gogo_badge">{{$t("job.tabLog")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
-      <Button type="success" class="gogo_badge">{{$t("job.tabComplete")}}</Button>
+      <Button type="success" @click="onComplete" class="gogo_badge">{{$t("job.tabComplete")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
       <Button type="warning" class="gogo_badge">{{$t("job.tabStop")}}</Button>
@@ -33,6 +33,14 @@
           name: 'jobLogPage',
           params: {
             jobId: this.$store.state.jobId
+          }
+        })
+      },
+      onComplete(){
+        this.$router.push({
+          name:'completePage',
+          params:{
+            jobId:this.$store.state.jobId
           }
         })
       }

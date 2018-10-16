@@ -40,6 +40,8 @@ import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
 import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
 import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
 
+import completePage from '@/pages/job/myJob/complete/completePage'
+import createComplete from '@/pages/job/myJob/complete/createComplete'
 
 
 import store from '../store/index'
@@ -131,284 +133,312 @@ const router = new Router({
           }
         },
         {
-          path:'taskEdit/:taskId',
-          name:'taskEdit',
-          components:{
-            head:HeadBarBase,
-            content:taskEdit,
-            footer:FooterBar
+          path: 'taskEdit/:taskId',
+          name: 'taskEdit',
+          components: {
+            head: HeadBarBase,
+            content: taskEdit,
+            footer: FooterBar
           },
-          meta:{
-            title:'TaskEdit',
-            token:true
+          meta: {
+            title: 'TaskEdit',
+            token: true
           }
         },
         {
-          path:'taskFreelancer/:taskId',
-          name:'taskFreelancer',
-          components:{
-            head:HeadBarBase,
-            content:taskFreelancer,
-            footer:FooterBar
+          path: 'taskFreelancer/:taskId',
+          name: 'taskFreelancer',
+          components: {
+            head: HeadBarBase,
+            content: taskFreelancer,
+            footer: FooterBar
           },
-          meta:{
-            title:'TaskFreelancer',
-            token:true
+          meta: {
+            title: 'TaskFreelancer',
+            token: true
           }
         },
         {
-          path:'jobDetail/:jobId',
-          name:'jobDetail',
-          components:{
-            head:HeadBarBase,
-            content:jobDetail,
-            footer:FooterBar
+          path: 'jobDetail/:jobId',
+          name: 'jobDetail',
+          components: {
+            head: HeadBarBase,
+            content: jobDetail,
+            footer: FooterBar
           },
-          meta:{
-            title:'JobDetail',
-            token:false
+          meta: {
+            title: 'JobDetail',
+            token: false
           }
         },
         {
-          path:'jobApplyForm',
-          name:'jobApplyForm',
-          components:{
-            head:HeadBarBase,
-            content:jobApplyForm,
-            footer:FooterBar
+          path: 'jobApplyForm',
+          name: 'jobApplyForm',
+          components: {
+            head: HeadBarBase,
+            content: jobApplyForm,
+            footer: FooterBar
           },
-          meta:{
-            title:'JobApplyForm',
-            token:true
+          meta: {
+            title: 'JobApplyForm',
+            token: true
           }
         },
         {
-          path:'applyJobSuccess',
-          name:'applyJobSuccess',
-          components:{
-            head:HeadBarBase,
-            content:applyJobSuccess,
-            footer:FooterBar
+          path: 'applyJobSuccess',
+          name: 'applyJobSuccess',
+          components: {
+            head: HeadBarBase,
+            content: applyJobSuccess,
+            footer: FooterBar
           },
-          meta:{
-            title:'ApplyJobSuccess',
-            token:true
+          meta: {
+            title: 'ApplyJobSuccess',
+            token: true
           }
         },
         {
-          path:'adminPage',
-          name:'adminPage',
-          components:{
-            head:HeadBarBase,
-            content:adminPage,
-            foot:FooterBar
+          path: 'adminPage',
+          name: 'adminPage',
+          components: {
+            head: HeadBarBase,
+            content: adminPage,
+            foot: FooterBar
           },
-          meta:{
-            title:'AdminPage',
-            token:true
+          meta: {
+            title: 'AdminPage',
+            token: true
           }
         },
         {
-          path:'myProfile',
-          name:'myProfile',
-          components:{
-            head:HeadBarBase,
-            content:myProfile,
-            footer:FooterBar
+          path: 'myProfile',
+          name: 'myProfile',
+          components: {
+            head: HeadBarBase,
+            content: myProfile,
+            footer: FooterBar
           },
-          meta:{
-            title:'MyProfile',
-            token:true
+          meta: {
+            title: 'MyProfile',
+            token: true
           }
         },
         {
-          path:'myMatchJobPage',
-          name:'myMatchJobPage',
-          components:{
-            head:HeadBarBase,
-            content:myMatchJobPage,
-            footer:FooterBar
+          path: 'myMatchJobPage',
+          name: 'myMatchJobPage',
+          components: {
+            head: HeadBarBase,
+            content: myMatchJobPage,
+            footer: FooterBar
           },
-          meta:{
-            title:"MyMatchJobPage",
-            token:true,
-            menuType:"job"
+          meta: {
+            title: "MyMatchJobPage",
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'secretaryMatchJobPage',
-          name:'secretaryMatchJobPage',
-          components:{
-            head:HeadBarBase,
-            content:secretaryMatchJobPage,
-            footer:FooterBar
+          path: 'secretaryMatchJobPage',
+          name: 'secretaryMatchJobPage',
+          components: {
+            head: HeadBarBase,
+            content: secretaryMatchJobPage,
+            footer: FooterBar
           },
-          meta:{
-            title:"SecretaryMatchJobPage",
-            token:true
+          meta: {
+            title: "SecretaryMatchJobPage",
+            token: true
           }
         },
         {
-          path:'myJobPage',
-          name:'myJobPage',
-          components:{
-            head:HeadBarBase,
-            content:myJobPage,
-            footer:FooterBar
+          path: 'myJobPage',
+          name: 'myJobPage',
+          components: {
+            head: HeadBarBase,
+            content: myJobPage,
+            footer: FooterBar
           },
-          meta:{
-            title:"MyJobPage",
-            token:true,
-            menuType:"job"
+          meta: {
+            title: "MyJobPage",
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'myApplyJob',
-          name:'myApplyJob',
-          components:{
-            head:HeadBarBase,
-            content:myApplyJob,
-            footer:FooterBar
+          path: 'myApplyJob',
+          name: 'myApplyJob',
+          components: {
+            head: HeadBarBase,
+            content: myApplyJob,
+            footer: FooterBar
           },
-          meta:{
-            title:"MyApplyJob",
-            token:true
+          meta: {
+            title: "MyApplyJob",
+            token: true
           }
         },
         {
-          path:'adminLogin',
-          name:"adminLogin",
-          components:{
-            head:HeadBarBase,
-            content:adminLogin,
-            footer:FooterBar
+          path: 'adminLogin',
+          name: "adminLogin",
+          components: {
+            head: HeadBarBase,
+            content: adminLogin,
+            footer: FooterBar
           },
-          meta:{
-            title:"AdminLogin",
-            token:false
+          meta: {
+            title: "AdminLogin",
+            token: false
           }
         },
         {
-          path:'myMatchJobDetail',
-          name:'myMatchJobDetail',
-          components:{
-            head:HeadBarBase,
-            content:myMatchJobDetail,
-            footer:FooterBar
+          path: 'myMatchJobDetail',
+          name: 'myMatchJobDetail',
+          components: {
+            head: HeadBarBase,
+            content: myMatchJobDetail,
+            footer: FooterBar
           },
-          meta:{
-            title:'MyMatchJobDetail',
-            token:true
+          meta: {
+            title: 'MyMatchJobDetail',
+            token: true
           }
         },
         {
-          path:'secretaryTopUpPage',
-          name:'secretaryTopUpPage',
-          components:{
-            head:HeadBarBase,
-            content:secretaryTopUpPage,
-            footer:FooterBar
+          path: 'secretaryTopUpPage',
+          name: 'secretaryTopUpPage',
+          components: {
+            head: HeadBarBase,
+            content: secretaryTopUpPage,
+            footer: FooterBar
           },
-          meta:{
-            title:'SecretaryTopUpPage',
-            token:true
+          meta: {
+            title: 'SecretaryTopUpPage',
+            token: true
           }
         },
         {
-          path:'userTopUpPage',
-          name:'userTopUpPage',
-          components:{
-            head:HeadBarBase,
-            content:userTopUpPage,
-            footer:FooterBar
+          path: 'userTopUpPage',
+          name: 'userTopUpPage',
+          components: {
+            head: HeadBarBase,
+            content: userTopUpPage,
+            footer: FooterBar
           },
-          meta:{
-            title:'userTopUpPage',
-            token:true
+          meta: {
+            title: 'userTopUpPage',
+            token: true
           }
         },
         {
-          path:'partyAJobPage',
-          name:'partyAJobPage',
-          components:{
-            head:HeadBarBase,
-            content:partyAJobPage,
-            footer:FooterBar
+          path: 'partyAJobPage',
+          name: 'partyAJobPage',
+          components: {
+            head: HeadBarBase,
+            content: partyAJobPage,
+            footer: FooterBar
           },
-          meta:{
-            title:'PartyAJobPage',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'PartyAJobPage',
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'partyBJobPage',
-          name:'partyBJobPage',
-          components:{
-            head:HeadBarBase,
-            content:partyBJobPage,
-            footer:FooterBar
+          path: 'partyBJobPage',
+          name: 'partyBJobPage',
+          components: {
+            head: HeadBarBase,
+            content: partyBJobPage,
+            footer: FooterBar
           },
-          meta:{
-            title:'PartyBJobPage',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'PartyBJobPage',
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'partyAJobDetail',
-          name:'partyAJobDetail',
-          components:{
-            head:HeadBarBase,
-            content:partyAJobDetail,
-            footer:FooterBar
+          path: 'partyAJobDetail',
+          name: 'partyAJobDetail',
+          components: {
+            head: HeadBarBase,
+            content: partyAJobDetail,
+            footer: FooterBar
           },
-          meta:{
-            title:'PartyAJobDetail',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'PartyAJobDetail',
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'partyBJobDetail',
-          name:'partyBJobDetail',
-          components:{
-            head:HeadBarBase,
-            content:partyBJobDetail,
-            footer:FooterBar
+          path: 'partyBJobDetail',
+          name: 'partyBJobDetail',
+          components: {
+            head: HeadBarBase,
+            content: partyBJobDetail,
+            footer: FooterBar
           },
-          meta:{
-            title:'PartyBJobDetail',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'PartyBJobDetail',
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'jobLogPage',
-          name:'jobLogPage',
-          components:{
-            head:HeadBarBase,
-            content:jobLogPage,
-            footer:FooterBar
+          path: 'jobLogPage',
+          name: 'jobLogPage',
+          components: {
+            head: HeadBarBase,
+            content: jobLogPage,
+            footer: FooterBar
           },
-          meta:{
-            title:'JobLogPage',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'JobLogPage',
+            token: true,
+            menuType: "job"
           }
         },
         {
-          path:'createJobLog',
-          name:'createJobLog',
-          components:{
-            head:HeadBarBase,
-            content:createJobLog,
-            footer:FooterBar
+          path: 'createJobLog',
+          name: 'createJobLog',
+          components: {
+            head: HeadBarBase,
+            content: createJobLog,
+            footer: FooterBar
           },
-          meta:{
-            title:'CreateJobLog',
-            token:true,
-            menuType:"job"
+          meta: {
+            title: 'CreateJobLog',
+            token: true,
+            menuType: "job"
+          }
+        },
+        {
+          path: 'completePage',
+          name: 'completePage',
+          components: {
+            head: HeadBarBase,
+            content: completePage,
+            footer: FooterBar
+          },
+          meta: {
+            title: 'CompletePage',
+            token: true,
+            menuType: "job"
+          }
+        },
+        {
+          path: 'createComplete',
+          name: 'createComplete',
+          components: {
+            head: HeadBarBase,
+            content: createComplete,
+            footer: FooterBar
+          },
+          meta: {
+            title: 'CreateComplete',
+            token: true,
+            menuType: "job"
           }
         }
       ]
@@ -421,7 +451,7 @@ router.beforeEach((to, from, next) => {
     if (!to.name) {
       if (to.path === '/') {
         next({
-          name:'jobPlaza'
+          name: 'jobPlaza'
         })
       }
     } else {
@@ -430,9 +460,9 @@ router.beforeEach((to, from, next) => {
           if (to.name === 'login') {
             store.dispatch('saveToUrl', '');
           } else {
-            const toPath={
-              name:to.name,
-              params:to.params
+            const toPath = {
+              name: to.name,
+              params: to.params
             };
             store.dispatch('saveToUrl', toPath);
           }

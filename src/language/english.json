@@ -114,6 +114,12 @@
     "createdTime":"Created Time",
     "readTime":"Read Time"
   },
+  "jobComplete":{
+    "content":"Complete description",
+    "create":"Create complete log",
+    "createdTime":"Created time",
+    "readTime":"Read time"
+  },
   "user":{
     "username":"Username",
     "realName":"Real Name",
@@ -196,7 +202,11 @@
     "10052":"Create job log failed",
     "10053":"Update job log failed",
     "10054":"Read job log failed",
-    "10055":"Set job read time error"
+    "10055":"Set job read time error",
+    "10056":"Read complete log failed",
+    "10057":"Create job complete log failed",
+    "10058":"Set job complete log read time error",
+    "10059":"Update job complete log error"
 
   }
 }
