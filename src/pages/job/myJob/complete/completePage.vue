@@ -1,12 +1,16 @@
 <template>
   <div>
-    <Button type="info" @click="onCreateJobComplete" class="card">{{$t("jobComplete.create")}}</Button>
-    <Button type="error" @click="rejectModal=true" class="card">{{$t("jobComplete.reject")}}</Button>
-    <Button type="success" @click="onAcceptComplete" class="card">{{$t("jobComplete.accept")}}</Button>
-    <CompleteRow v-for="row in jobCompleteList"
-                 v-bind:key="row.completeId"
-                 v-bind:complete="row"
-    ></CompleteRow>
+    <div v-if="isProgress">
+      <Button type="info" @click="onCreateJobComplete" class="card">{{$t("jobComplete.create")}}</Button>
+      <Button type="error" @click="rejectModal=true" class="card">{{$t("jobComplete.reject")}}</Button>
+      <Button type="success" @click="acceptModal=true" class="card">{{$t("jobComplete.accept")}}</Button>
+    </div>
+    <div>
+      <CompleteRow v-for="row in jobCompleteList"
+                   v-bind:key="row.completeId"
+                   v-bind:complete="row"
+      ></CompleteRow>
+    </div>
 
     <div>
       <Modal
@@ -40,6 +44,7 @@
   import CompleteRow from "./completeRow"
   import {rejectComplete} from "../../../../api/api";
   import {acceptComplete} from "../../../../api/api";
+  import {loadJobTiny} from "../../../../api/api";
 
   export default {
     name: "completePage",
@@ -50,9 +55,19 @@
       return {
         jobCompleteList: [],
         rejectModal: false,
-        acceptModal:false,
+        acceptModal: false,
         rejectRemark: '',
-        acceptRemark:''
+        acceptRemark: '',
+        job: {}
+      }
+    },
+    computed: {
+      isProgress() {
+        if (this.job.status === "PROGRESS") {
+          return true
+        } else {
+          return false
+        }
       }
     },
     methods: {
@@ -65,6 +80,13 @@
           if (response.data.errorCode === 0) {
             this.jobCompleteList = response.data.data.content
             this.setReadTime()
+          }
+        })
+
+        loadJobTiny(this.$store.state.jobId).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.job = response.data.data.job
+            console.log(this.job)
           }
         })
       },
@@ -85,9 +107,12 @@
       onRejectComplete() {
         rejectComplete({
           jobId: this.$store.state.jobId,
-          processRemark:this.processRemark
+          processRemark: this.processRemark
         }).then((response) => {
           console.log(response)
+          if (response.data.errorCode !== 0) {
+            this.$Message.error(this.$t("syserr." + response.data.errorCode))
+          }
 
         })
       },
@@ -98,9 +123,12 @@
 
       onAcceptComplete() {
         acceptComplete({
-          jobId:this.$store.state.jobId
-        }).then((response)=>{
+          jobId: this.$store.state.jobId
+        }).then((response) => {
           console.log(response)
+          if (response.data.errorCode !== 0) {
+            this.$Message.error(this.$t("syserr." + response.data.errorCode));
+          }
         })
       }
     },

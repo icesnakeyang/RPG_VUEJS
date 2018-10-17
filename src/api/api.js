@@ -170,6 +170,14 @@ export const acceptComplete=params=>{
     }
   })
 }
+
+export const loadJobTiny=params=>{
+  return axios.get(`${host}/job/detail/tiny/`+params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
