@@ -43,6 +43,8 @@ import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
 import completePage from '@/pages/job/myJob/complete/completePage'
 import createComplete from '@/pages/job/myJob/complete/createComplete'
 
+import stopPage from '@/pages/job/myJob/stop/stopPage'
+
 
 import store from '../store/index'
 
@@ -437,6 +439,20 @@ const router = new Router({
           },
           meta: {
             title: 'CreateComplete',
+            token: true,
+            menuType: "job"
+          }
+        },
+        {
+          path: 'stopPage',
+          name: 'stopPage',
+          components: {
+            head: HeadBarBase,
+            content: stopPage,
+            footer: FooterBar
+          },
+          meta: {
+            title: 'StopPage',
             token: true,
             menuType: "job"
           }

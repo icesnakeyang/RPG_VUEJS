@@ -124,6 +124,16 @@
     "rejectRemark":"Description for reject",
     "acceptRemark":"Description for accept"
   },
+  "jobStop":{
+    "content":"Stop description",
+    "create":"Propose Stop",
+    "createdTime":"Create time",
+    "readTime":"Read time",
+    "reject":"Reject Stop",
+    "accept":"Accept Stop",
+    "rejectRemark":"Reject describe",
+    "acceptRemark":"Accept describe"
+  },
   "user":{
     "username":"Username",
     "realName":"Real Name",
@@ -214,7 +224,16 @@
     "10060":"Reject job complete error",
     "10061":"Accept job complete error",
     "10062":"Save honor point failed",
-    "10063":"This job has been accepted by party a already"
+    "10063":"This job has been accepted by party a already",
+    "10064":"Create stop job application failed",
+    "10065":"Read stop list failed",
+    "10066":"Set read time failed",
+    "10067":"Reject job stop failed",
+    "10068":"Accept job stop failed",
+    "10069":"You cannot create new stop application since you already have a stop application for this job",
+    "10070":"This job has been accepted already, cannot stop anymore!",
+    "10071":"Job is not in progress, cannot stop",
+    "10072":"Update job stop application failed"
 
   }
 }

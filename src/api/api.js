@@ -178,6 +178,14 @@ export const loadJobTiny=params=>{
     }
   })
 }
+
+export const loadStopList=params=>{
+  return axios.post(`${host}/job/stop/loadStopList`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

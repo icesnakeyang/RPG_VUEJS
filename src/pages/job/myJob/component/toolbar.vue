@@ -3,11 +3,11 @@
     <Badge :count="badgeInfo.unReadJobLog" type="error">
       <Button type="info" @click="onLog" class="gogo_badge">{{$t("job.tabLog")}}</Button>
     </Badge>
-    <Badge :count="5" type="error">
+    <Badge :count="badgeInfo.unReadComplete" type="error">
       <Button type="success" @click="onComplete" class="gogo_badge">{{$t("job.tabComplete")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
-      <Button type="warning" class="gogo_badge">{{$t("job.tabStop")}}</Button>
+      <Button type="warning" @click="onStop" class="gogo_badge">{{$t("job.tabStop")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
       <Button type="error" class="gogo_badge">{{$t("job.tabSpotlight")}}</Button>
@@ -23,7 +23,8 @@
     data() {
       return {
         badgeInfo: {
-          unReadJobLog: 0
+          unReadJobLog: 0,
+          unReadComplete:0
         }
       }
     },
@@ -43,6 +44,14 @@
             jobId:this.$store.state.jobId
           }
         })
+      },
+      onStop(){
+        this.$router.push({
+          name:'stopPage',
+          params:{
+            jobId:this.$store.state.jobId
+          }
+        })
       }
     },
     mounted() {
@@ -51,6 +60,7 @@
       }).then((response) => {
         if (response.data.errorCode === 0) {
           this.badgeInfo.unReadJobLog = response.data.data.unReadJobLog
+          this.badgeInfo.unReadComplete=response.data.data.unReadComplete
         }
       })
     }

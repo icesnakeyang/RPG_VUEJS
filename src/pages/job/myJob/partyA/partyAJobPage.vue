@@ -25,7 +25,6 @@
       loadMyPartyAJob({}).then((response)=>{
         if(response.data.errorCode===0){
           this.jobList=response.data.data.content
-          console.log(this.jobList)
         }
       })
     }
