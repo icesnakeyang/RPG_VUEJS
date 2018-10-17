@@ -213,7 +213,8 @@
     "10059":"Update job complete log error",
     "10060":"Reject job complete error",
     "10061":"Accept job complete error",
-    "10062":"Save honor point failed"
+    "10062":"Save honor point failed",
+    "10063":"This job has been accepted by party a already"
 
   }
 }
