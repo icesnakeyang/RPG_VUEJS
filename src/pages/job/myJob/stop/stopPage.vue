@@ -1,9 +1,12 @@
 <template>
   <div>
     <div v-if="isProgress">
-      <Button type="info" @click="onCreateJobStop" class="card">{{$t("jobStop.create")}}</Button>
-      <Button type="error" @click="rejectModal=true" class="card">{{$t("jobStop.reject")}}</Button>
-      <Button type="success" @click="acceptModal=true" class="card">{{$t("jobStop.accept")}}</Button>
+      <Button v-if="action.canCreate" type="info" @click="onCreateJobStop" class="card">{{$t("jobStop.create")}}
+      </Button>
+      <Button v-if="action.canReject" type="error" @click="rejectModal=true" class="card">{{$t("jobStop.reject")}}
+      </Button>
+      <Button v-if="action.canAccept" type="success" @click="acceptModal=true" class="card">{{$t("jobStop.accept")}}
+      </Button>
     </div>
     <div>
       <StopRow v-for="row in jobStopList"
@@ -42,6 +45,8 @@
   import StopRow from "./stopRow"
   import {loadStopList} from "../../../../api/api";
   import {loadJobTiny} from "../../../../api/api";
+  import {rejectStop} from "../../../../api/api";
+  import {acceptStop} from "../../../../api/api";
 
   export default {
     name: "stopPage",
@@ -53,30 +58,51 @@
         jobStopList: [],
         rejectModal: false,
         acceptModal: false,
-        rejectRemark:'',
-        acceptRemark:'',
-        job:{}
+        rejectRemark: '',
+        acceptRemark: '',
+        job: {}
       }
     },
-    computed:{
-      isProgress(){
+    computed: {
+      isProgress() {
         if (this.job.status === "PROGRESS") {
           return true
         } else {
           return false
         }
+      },
+      action() {
+        let canCreate = true
+        let canReject = false
+        let canAccept = false
+        for (let row of this.jobStopList) {
+          if (!row.result) {
+            canCreate = false
+            if (row.createdUserId !== this.$store.state.userId) {
+              canReject = true
+              canAccept = true
+            }
+          }
+        }
+        const action = {
+          canCreate: canCreate,
+          canReject: canReject,
+          canAccept: canAccept
+        }
+        console.log(action)
+        return action
       }
     },
     methods: {
       loadData() {
         loadStopList({
-          jobId:this.$store.state.jobId,
-          pageIndex:0,
-          pageSize:100
-        }).then((response)=>{
+          jobId: this.$store.state.jobId,
+          pageIndex: 0,
+          pageSize: 100
+        }).then((response) => {
           console.log(response)
-          if(response.data.errorCode===0){
-            this.jobStopList=response.data.data.content
+          if (response.data.errorCode === 0) {
+            this.jobStopList = response.data.data.content
             console.log(this.jobStopList)
           }
         })
@@ -87,16 +113,41 @@
         })
       },
       onCreateJobStop() {
-
+        this.$router.push({
+          name: 'createStop',
+          params: {
+            jobId: this.$store.state.jobId
+          }
+        })
       },
       onRejectCancel() {
 
       },
       onAcceptStop() {
-
+        acceptStop({
+          jobId: this.$store.state.jobId,
+          processRemark: this.acceptRemark
+        }).then((response) => {
+          console.log(response)
+          if (response.data.errorCode !== 0) {
+            this.$Message.error(this.$t("syserr." + response.data.errorCode));
+          } else {
+            this.$Message.success(this.$t("syserr.10075"))
+          }
+        })
       },
-      onRejectStop(){
-
+      onRejectStop() {
+        rejectStop({
+          jobId: this.$store.state.jobId,
+          processRemark: this.rejectRemark
+        }).then((response) => {
+          console.log(response)
+          if (response.data.errorCode !== 0) {
+            this.$Message.error(this.$t("syserr." + response.data.errorCode))
+          } else {
+            this.$Message.success(this.$t("syserr.10073"))
+          }
+        })
       }
     },
     mounted() {
@@ -106,7 +157,7 @@
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 </style>

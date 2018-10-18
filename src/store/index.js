@@ -12,7 +12,8 @@ export default new Vuex.Store({
     roleType:''||localStorage.roleType,
     loginName:'',
 
-    jobId:''||localStorage.jobId
+    jobId:''||localStorage.jobId,
+    userId:''||localStorage.userId
   },
   actions:{
     saveToken(ctx, user){
@@ -39,6 +40,9 @@ export default new Vuex.Store({
 
       state.roleType=user.roleType;
       localStorage.roleType=user.roleType;
+
+      state.userId=user.userId;
+      localStorage.userId=user.userId;
     },
     logout(state){
       state.token='';
@@ -48,6 +52,8 @@ export default new Vuex.Store({
       state.roleType='';
       localStorage.roleType='';
       state.loginName='';
+      state.userId='';
+      localStorage.userId='';
     },
     saveToUrl(state, url){
       state.toUrl=url;
