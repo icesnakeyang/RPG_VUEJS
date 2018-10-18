@@ -5,8 +5,8 @@
         {{stop.createdUserName}}
       </p>
       <p>{{$t("jobStop.createdTime")}}: {{createdTime}}</p>
-      <p>{{$t("jobStop.readTime")}}: {{readTime}}</p>
-      <p>{{$t("jobStop.readTime")}}:
+      <p v-if="readTime">{{$t("jobStop.readTime")}}: {{readTime}}</p>
+      <p v-else-if="readTime">{{$t("jobStop.readTime")}}:
         <Tag color="error">{{$t("common.unRead")}}</Tag>
       </p>
       <p>{{$t("jobStop.refund")}}:

@@ -47,6 +47,7 @@
   import {loadJobTiny} from "../../../../api/api";
   import {rejectStop} from "../../../../api/api";
   import {acceptStop} from "../../../../api/api";
+  import {setStopReadTime} from "../../../../api/api";
 
   export default {
     name: "stopPage",
@@ -103,7 +104,7 @@
           console.log(response)
           if (response.data.errorCode === 0) {
             this.jobStopList = response.data.data.content
-            console.log(this.jobStopList)
+            this.setReadTime()
           }
         })
         loadJobTiny(this.$store.state.jobId).then((response) => {
@@ -148,7 +149,13 @@
             this.$Message.success(this.$t("syserr.10073"))
           }
         })
-      }
+      },
+      setReadTime() {
+        setStopReadTime({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
+        })
+      },
     },
     mounted() {
       this.loadData()

@@ -193,6 +193,13 @@ export const acceptStop=params=>{
     }
   })
 }
+export const setStopReadTime=params=>{
+  return axios.post(`${host}/job/stop/setStopReadTime`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
