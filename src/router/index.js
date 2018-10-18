@@ -20,7 +20,7 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
 import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
-import myJobPage from '@/pages/job/myJob/myJobPage'
+import myJobPage from '@/pages/job/myJob/dashboard/myJobPage'
 import myMatchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'

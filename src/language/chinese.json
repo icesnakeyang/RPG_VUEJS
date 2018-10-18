@@ -20,7 +20,8 @@
     "myAccount": "我的账户",
     "myHonor": "我的荣誉",
     "myApply": "我申请的工作",
-    "myMatch":"分配给我的任务"
+    "myMatch":"分配给我的任务",
+    "dashboard":"控制台"
   },
   "common": {
     "tipTitleQuestion": "提问",

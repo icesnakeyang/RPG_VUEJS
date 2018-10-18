@@ -20,7 +20,8 @@
     "myAccount":"My Account",
     "myHonor":"My Honor",
     "myApply":"My Applied Job",
-    "myMatch":"My New Job"
+    "myMatch":"My New Job",
+    "dashboard":"Dashboard"
   },
   "common":{
     "tipTitleQuestion":"Question",

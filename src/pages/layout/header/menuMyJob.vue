@@ -4,6 +4,10 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("command.myJob")}}
     </template>
+    <MenuItem name="3-2-4">
+      <Icon type="ios-navigate"></Icon>
+      {{$t("command.dashboard")}}
+    </MenuItem>
     <MenuItem name="3-2-1">
       <Icon type="ios-navigate"></Icon>
       {{$t("command.myMatch")}}
