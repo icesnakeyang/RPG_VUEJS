@@ -6,7 +6,7 @@
     <Badge :count="badgeInfo.unReadComplete" type="error">
       <Button type="success" @click="onComplete" class="gogo_badge">{{$t("job.tabComplete")}}</Button>
     </Badge>
-    <Badge :count="5" type="error">
+    <Badge :count="badgeInfo.unReadStop" type="error">
       <Button type="warning" @click="onStop" class="gogo_badge">{{$t("job.tabStop")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
@@ -24,7 +24,8 @@
       return {
         badgeInfo: {
           unReadJobLog: 0,
-          unReadComplete:0
+          unReadComplete:0,
+          unReadStop:0
         }
       }
     },
@@ -61,6 +62,7 @@
         if (response.data.errorCode === 0) {
           this.badgeInfo.unReadJobLog = response.data.data.unReadJobLog
           this.badgeInfo.unReadComplete=response.data.data.unReadComplete
+          this.badgeInfo.unReadStop=response.data.data.unReadStop
         }
       })
     }

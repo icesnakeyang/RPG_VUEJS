@@ -20,7 +20,7 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
 import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
-import myJobPage from '@/pages/job/myJob/myJobPage'
+import myJobPage from '@/pages/job/myJob/dashboard/myJobPage'
 import myMatchJobDetail from '@/pages/job/myJob/matchJob/myMatchJobDetail'
 
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
@@ -44,6 +44,7 @@ import completePage from '@/pages/job/myJob/complete/completePage'
 import createComplete from '@/pages/job/myJob/complete/createComplete'
 
 import stopPage from '@/pages/job/myJob/stop/stopPage'
+import createStop from '@/pages/job/myJob/stop/createStop'
 
 
 import store from '../store/index'
@@ -453,6 +454,20 @@ const router = new Router({
           },
           meta: {
             title: 'StopPage',
+            token: true,
+            menuType: "job"
+          }
+        },
+        {
+          path: 'createStop',
+          name: 'createStop',
+          components: {
+            head: HeadBarBase,
+            content: createStop,
+            footer: FooterBar
+          },
+          meta: {
+            title: 'CreateStop',
             token: true,
             menuType: "job"
           }

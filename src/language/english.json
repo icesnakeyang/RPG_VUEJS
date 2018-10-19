@@ -20,13 +20,15 @@
     "myAccount":"My Account",
     "myHonor":"My Honor",
     "myApply":"My Applied Job",
-    "myMatch":"My New Job"
+    "myMatch":"My New Job",
+    "dashboard":"Dashboard"
   },
   "common":{
     "tipTitleQuestion":"Question",
     "ok":"Ok",
     "cancel":"Cancel",
-    "unRead":"Unread"
+    "unRead":"Unread",
+    "submit":"Submit"
   },
   "label": {
     "title": "Title",
@@ -132,7 +134,11 @@
     "reject":"Reject Stop",
     "accept":"Accept Stop",
     "rejectRemark":"Reject describe",
-    "acceptRemark":"Accept describe"
+    "acceptRemark":"Accept describe",
+    "refund":"Refund job price",
+    "processResult": "Process result",
+    "processTime": "Process time",
+    "processUserName":"Process user"
   },
   "user":{
     "username":"Username",
@@ -233,7 +239,10 @@
     "10069":"You cannot create new stop application since you already have a stop application for this job",
     "10070":"This job has been accepted already, cannot stop anymore!",
     "10071":"Job is not in progress, cannot stop",
-    "10072":"Update job stop application failed"
+    "10072":"Update job stop application failed",
+    "10073":"Reject stop successful",
+    "10074":"You cannot approve the stop created by yourself!",
+    "10075":"This job has been stopped successful"
 
   }
 }

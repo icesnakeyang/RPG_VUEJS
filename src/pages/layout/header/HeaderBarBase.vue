@@ -124,6 +124,11 @@
             name:'partyBJobPage'
           })
         }
+        if (name === "3-2-4") {
+          this.$router.push({
+            name:'myJobPage'
+          })
+        }
         if (name === "3-6") {
           this.$router.push({
             name:"myApplyJob"

@@ -15,7 +15,6 @@ export const publishNewJob=params=>{
 export const loadJobDetail = params => {
   return axios.get(`${host}/job/detail/`+params);
 };
-
 export const saveContactInfo = params => {
   return axios.post(`${host}/user/info/saveContactInfo`, params, {
     headers: {
@@ -82,7 +81,6 @@ export const rejectNewJob=params=>{
 export const loadPublicJobs=params=>{
   return axios.post(`${host}/job/plaza/publicJob`, params)
 }
-
 export const loadMyPartyAJob=params=>{
   return axios.post(`${host}/job/partyA/loadMyPartyAJob`, params,{
     headers:{
@@ -90,7 +88,6 @@ export const loadMyPartyAJob=params=>{
     }
   })
 }
-
 export const loadMyPartyBJob=params=>{
   return axios.post(`${host}/job/partyB/loadMyPartyBJob`,params,{
     headers:{
@@ -98,7 +95,6 @@ export const loadMyPartyBJob=params=>{
     }
   })
 }
-
 export const createLog=params=>{
   return axios.post(`${host}/job/log/createLog`, params,{
     headers:{
@@ -106,7 +102,6 @@ export const createLog=params=>{
     }
   })
 }
-
 export const jobLog=params=>{
   return axios.post(`${host}/job/log/jobLog`, params,{
     headers:{
@@ -114,7 +109,6 @@ export const jobLog=params=>{
     }
   })
 }
-
 export const loadUnreadByJobId=params=>{
   return axios.post(`${host}/job/detail/loadUnreadByJobId`,params, {
     headers:{
@@ -122,7 +116,6 @@ export const loadUnreadByJobId=params=>{
     }
   })
 }
-
 export const setJobLogReadTime=params=>{
   return axios.post(`${host}/job/log/setJobLogReadTime`,params,{
     headers:{
@@ -130,7 +123,6 @@ export const setJobLogReadTime=params=>{
     }
   })
 }
-
 export const loadCompletList=params=>{
   return axios.post(`${host}/job/complete/loadCompleteList`, params,{
     headers:{
@@ -138,7 +130,6 @@ export const loadCompletList=params=>{
     }
   })
 }
-
 export const createCompleteApi=params=>{
   return axios.post(`${host}/job/complete/createComplete`, params,{
     headers:{
@@ -146,7 +137,6 @@ export const createCompleteApi=params=>{
     }
   })
 }
-
 export const setCompleteReadTime=params=>{
   return axios.post(`${host}/job/complete/setCompleteReadTime`, params,{
     headers:{
@@ -154,7 +144,6 @@ export const setCompleteReadTime=params=>{
     }
   })
 }
-
 export const rejectComplete=params=>{
   return axios.post(`${host}/job/complete/rejectComplete`, params,{
     headers:{
@@ -162,7 +151,6 @@ export const rejectComplete=params=>{
     }
   })
 }
-
 export const acceptComplete=params=>{
   return axios.post(`${host}/job/complete/acceptComplete`, params,{
     headers:{
@@ -170,7 +158,6 @@ export const acceptComplete=params=>{
     }
   })
 }
-
 export const loadJobTiny=params=>{
   return axios.get(`${host}/job/detail/tiny/`+params,{
     headers:{
@@ -178,9 +165,36 @@ export const loadJobTiny=params=>{
     }
   })
 }
-
 export const loadStopList=params=>{
   return axios.post(`${host}/job/stop/loadStopList`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const createStopAPI=params=>{
+  return axios.post(`${host}/job/stop/createStop`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const rejectStop=params=>{
+  return axios.post(`${host}/job/stop/rejectStop`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const acceptStop=params=>{
+  return axios.post(`${host}/job/stop/acceptStop`,params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const setStopReadTime=params=>{
+  return axios.post(`${host}/job/stop/setStopReadTime`,params,{
     headers:{
       token:store.state.token
     }
