@@ -242,7 +242,9 @@
     "10072":"Update job stop application failed",
     "10073":"Reject stop successful",
     "10074":"You cannot approve the stop created by yourself!",
-    "10075":"This job has been stopped successful"
+    "10075":"This job has been stopped successful",
+    "10076":"Create Spotlight failed",
+    "10077":"Update spotlight failed"
 
   }
 }
