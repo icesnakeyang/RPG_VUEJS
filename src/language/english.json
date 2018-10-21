@@ -245,7 +245,12 @@
     "10075":"This job has been stopped successful",
     "10076":"Create Spotlight failed",
     "10077":"Update spotlight failed",
-    "10078":"Update repeal failed"
+    "10078":"Update repeal failed",
+    "10079":"Create repeal failed",
+    "10080":"Read repeal list failed",
+    "10081":"Set repeal read time failed",
+    "10082":"Reject repeal failed",
+    "10083":"Accept repeal failed"
 
   }
 }
