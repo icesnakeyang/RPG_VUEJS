@@ -2,8 +2,8 @@
   <div>
     <Card class="card" v-for="item in jobs" :key="item.jobId">
       <p slot="title"><a @click="goTask(item.taskId)">{{item.title}}</a></p>
-      <p>{{$t("label.price")}}: {{item.price}}</p>
-      <p>{{$t("label.days")}}: {{item.days}}</p>
+      <p>{{$t("task.code")}}: {{item.code}}</p>
+      <p>{{$t("task.days")}}: {{item.days}}</p>
     </Card>
   </div>
 </template>
@@ -18,26 +18,29 @@
         jobs: []
       }
     },
-    methods:{
-      goTask(id){
+    methods: {
+      goTask(id) {
         this.$router.push({
-          name:'taskDetail',
-          params:{
-            taskId:id
+          name: 'taskDetail',
+          params: {
+            taskId: id
           }
         })
       }
     },
     mounted() {
-      loadTask().then((data) => {
-        this.jobs = data.data.data;
+      loadTask({
+        pageIndex: 0,
+        pageSize: 100
+      }).then((data) => {
+        this.jobs = data.data.data.content;
       })
     }
   }
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 

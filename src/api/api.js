@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'http://gogorpg.com:9527';
-// let host = 'http://localhost:9527';
+// let host = 'http://gogorpg.com:9527';
+let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 export const publishNewJob=params=>{

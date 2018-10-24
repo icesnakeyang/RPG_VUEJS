@@ -82,8 +82,8 @@
             })
           }else {
             this.errInput=true;
-            this.errMsg=this.$t("task.errPublish");
-            this.$Message.error(this.$t("task.errPublish"));
+            this.errMsg=this.$t("syserr."+response.data.errorCode);
+            this.$Message.error(this.$t("syserr."+response.data.errorCode));
             this.saving=false;
           }
         })

@@ -52,7 +52,7 @@
       getAllData() {
         loadTaskDetail(this.$route.params.taskId)
           .then((response) => {
-            this.task = response.data.data;
+            this.task = response.data.data.task;
           })
       },
       clickUpdate(){

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Button type="info" @click="onCreateJobLog" class="card">Create</Button>
+    <Button type="info" @click="onCreateJobLog" class="card">
+      {{$t("jobLog.create")}}
+    </Button>
     <JobLogRow v-for="log in jobLogList"
                v-bind:key="log.jobLogId"
                v-bind:log="log"

@@ -46,6 +46,8 @@ import createComplete from '@/pages/job/myJob/complete/createComplete'
 import stopPage from '@/pages/job/myJob/stop/stopPage'
 import createStop from '@/pages/job/myJob/stop/createStop'
 
+import mySpotPage from '@/pages/job/myJob/mySpotlight/mySpotPage'
+
 
 import store from '../store/index'
 
@@ -470,6 +472,20 @@ const router = new Router({
             title: 'CreateStop',
             token: true,
             menuType: "job"
+          }
+        },
+        {
+          path:'mySpotPage',
+          name:'mySpotPage',
+          components:{
+            head:HeadBarBase,
+            content:mySpotPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'MySpotPage',
+            token:true,
+            menuType:"job"
           }
         }
       ]

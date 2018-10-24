@@ -10,7 +10,7 @@
       <Button type="warning" @click="onStop" class="gogo_badge">{{$t("job.tabStop")}}</Button>
     </Badge>
     <Badge :count="5" type="error">
-      <Button type="error" class="gogo_badge">{{$t("job.tabSpotlight")}}</Button>
+      <Button type="error" @click="onSpot" class="gogo_badge">{{$t("job.tabSpotlight")}}</Button>
     </Badge>
   </div>
 </template>
@@ -49,6 +49,14 @@
       onStop(){
         this.$router.push({
           name:'stopPage',
+          params:{
+            jobId:this.$store.state.jobId
+          }
+        })
+      },
+      onSpot(){
+        this.$router.push({
+          name:'mySpotPage',
           params:{
             jobId:this.$store.state.jobId
           }

@@ -5,6 +5,7 @@
       <p slot="title">
         {{task.title}}
       </p>
+      <Tag v-if="published" color="success">已发布</Tag>
       <p>{{$t("task.code")}}:{{task.code}}</p>
       <p>{{$t("task.createdUserName")}}: {{task.createdUserName}}</p>
       <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
@@ -27,6 +28,7 @@
     data() {
       return {
         task: {},
+        job: {},
         options: {
           modules: {
             toolbar: false
@@ -40,6 +42,12 @@
         var newDate = new Date();
         newDate.setTime(timestamp3);
         return newDate.toLocaleString()
+      },
+      published(){
+        if(this.job){
+          return true
+        }
+        return false
       }
     },
     components: {
@@ -47,15 +55,17 @@
       TaskHeader
     },
     props: {},
-    created() {
+    mounted() {
       this.getAllData();
     },
     methods: {
       getAllData() {
-        loadTaskDetail(this.$route.params.taskId)
-          .then((response) => {
-            this.task = response.data.data;
-          })
+        loadTaskDetail(this.$route.params.taskId).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.task = response.data.data.task
+            this.job = response.data.data.job
+          }
+        })
       }
     }
   }
