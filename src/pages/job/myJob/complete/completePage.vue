@@ -1,9 +1,17 @@
 <template>
   <div>
     <div v-if="isProgress">
-      <Button type="info" @click="onCreateJobComplete" class="card">{{$t("jobComplete.create")}}</Button>
-      <Button type="error" @click="rejectModal=true" class="card">{{$t("jobComplete.reject")}}</Button>
-      <Button type="success" @click="acceptModal=true" class="card">{{$t("jobComplete.accept")}}</Button>
+      <!--当前用户为乙方，可申请完成-->
+      <Button type="info" v-if="isPartyB" @click="onCreateJobComplete" class="card">{{$t("jobComplete.create")}}
+      </Button>
+
+      <!--当前用户为甲方，且乙方已经申请了完成，且未处理，可拒绝-->
+      <div v-if="isPartyA">
+        <Button type="error" v-if="isWaitingProcess" @click="rejectModal=true" class="card">
+          {{$t("jobComplete.reject")}}</Button>
+        <!--当前用户为甲方，可验收通过-->
+        <Button type="success" @click="acceptModal=true" class="card">{{$t("jobComplete.accept")}}</Button>
+      </div>
     </div>
     <div>
       <CompleteRow v-for="row in jobCompleteList"
@@ -67,6 +75,33 @@
           return true
         } else {
           return false
+        }
+      },
+
+      isPartyA() {
+        if (this.job.partyAId.toString() === this.$store.state.userId.toString()) {
+          return true
+        }
+        return false
+      },
+
+      isPartyB() {
+        if (this.job.partyBId.toString() === this.$store.state.userId.toString()) {
+          return true
+        }
+        return false
+      },
+
+      /**
+       * 是否有完成申请等待甲方处理
+       */
+      isWaitingProcess() {
+        if (this.jobCompleteList) {
+          for (let row of this.jobCompleteList) {
+            if (!row.result) {
+              return true
+            }
+          }
         }
       }
     },
