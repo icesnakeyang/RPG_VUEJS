@@ -1,11 +1,10 @@
 <template>
   <div style="padding: 20px">
-    <Button @click="clickUpdate">{{$t("task.update")}}</Button>
-    <Button to="/components/icon-en" replace>{{$t("task.logs")}}</Button>
-    <Button to="//iviewui.com" target="_blank">{{$t("task.subTask")}}</Button>
-    <Button @click="clickFreelancer">{{$t("task.freelancer")}}</Button>
-    <Button to="//iviewui.com" target="_blank">{{$t("task.complete")}}</Button>
-    <Button to="//iviewui.com" target="_blank">{{$t("task.delete")}}</Button>
+    <Button type="info" @click="clickUpdate">{{$t("task.update")}}</Button>
+    <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}</Button>
+    <Button type="warning" @click="clickFreelancer">{{$t("task.freelancer")}}</Button>
+    <Button type="success" @click="onComplete">{{$t("task.complete")}}</Button>
+    <Button type="error" @click="onDelete">{{$t("task.delete")}}</Button>
   </div>
 </template>
 
@@ -26,7 +25,23 @@
             taskId:this.$route.params.taskId
           }
         })
+      },
+      onSubTask(){
+        this.$router.push({
+          name:'createSubTask',
+          params:{
+            taskId:this.$route.params.taskId
+          }
+        })
+
+      },
+      onDelete(){
+
+      },
+      onComplete(){
+
       }
+
     }
   }
 </script>

@@ -5,7 +5,9 @@
       <p slot="title">
         {{task.title}}
       </p>
-      <Tag v-if="published" color="success">已发布</Tag>
+      <div v-if="published">
+        <Tag color="success">已发布</Tag>
+      </div>
       <p>{{$t("task.code")}}:{{task.code}}</p>
       <p>{{$t("task.createdUserName")}}: {{task.createdUserName}}</p>
       <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
@@ -33,7 +35,8 @@
           modules: {
             toolbar: false
           }
-        }
+        },
+        published:false
       }
     },
     computed: {
@@ -42,12 +45,6 @@
         var newDate = new Date();
         newDate.setTime(timestamp3);
         return newDate.toLocaleString()
-      },
-      published(){
-        if(this.job){
-          return true
-        }
-        return false
       }
     },
     components: {
@@ -64,6 +61,10 @@
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
             this.job = response.data.data.job
+            if(this.job){
+              this.published=true
+            }
+            this.$store.dispatch('saveTaskId', this.task.taskId)
           }
         })
       }

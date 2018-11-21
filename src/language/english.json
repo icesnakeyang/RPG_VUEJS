@@ -71,7 +71,9 @@
     "publish":"Publish",
     "succPublish":"Congratulation, publish successful! ",
     "errPublish":"Sorry, publish failed!",
-    "checkPrice":"Please input proper task price"
+    "checkPrice":"Please input proper task price",
+    "pidTile":"Parent task",
+    "subTaskTitleBar":"Create a sub task"
   },
   "job":{
     "title":"Job Title",

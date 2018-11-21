@@ -12,10 +12,12 @@
       </Col>
       <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
-          <MenuJob2 v-if="isJobMenu"></MenuJob2>
-          <MenuJob v-else="isJobMenu"></MenuJob>
-          <MenuAdmin v-if="isAdmin"></MenuAdmin>
-          <MenuSecretary v-if="isSecretary"></MenuSecretary>
+          <span v-if="token">
+            <MenuJob2 v-if="isJobMenu"></MenuJob2>
+            <MenuJob v-else="isJobMenu"></MenuJob>
+            <MenuAdmin v-if="isAdmin"></MenuAdmin>
+            <MenuSecretary v-if="isSecretary"></MenuSecretary>
+          </span>
           <MenuLogin></MenuLogin>
           <MenuLanguage></MenuLanguage>
         </div>
@@ -63,8 +65,8 @@
           return true;
         }
       },
-      isSecretary(){
-        if(this.$store.state.roleType==='SECRETARY'){
+      isSecretary() {
+        if (this.$store.state.roleType === 'SECRETARY') {
           return true;
         }
         return false;
@@ -111,42 +113,42 @@
         }
         if (name === "3-2-1") {
           this.$router.push({
-            name:"myMatchJobPage"
+            name: "myMatchJobPage"
           })
         }
         if (name === "3-2-2") {
           this.$router.push({
-            name:'partyAJobPage'
+            name: 'partyAJobPage'
           })
         }
         if (name === "3-2-3") {
           this.$router.push({
-            name:'partyBJobPage'
+            name: 'partyBJobPage'
           })
         }
         if (name === "3-2-4") {
           this.$router.push({
-            name:'myJobPage'
+            name: 'myJobPage'
           })
         }
         if (name === "3-6") {
           this.$router.push({
-            name:"myApplyJob"
+            name: "myApplyJob"
           })
         }
-        if(name==="7-1"){
+        if (name === "7-1") {
           this.$router.push({
-            name:"adminPage"
+            name: "adminPage"
           })
         }
-        if(name==="8-1"){
+        if (name === "8-1") {
           this.$router.push({
-            name:"secretaryMatchJobPage"
+            name: "secretaryMatchJobPage"
           })
         }
-        if(name==="8-2"){
+        if (name === "8-2") {
           this.$router.push({
-            name:"secretaryTopUpPage"
+            name: "secretaryTopUpPage"
           })
         }
       },

@@ -16,6 +16,7 @@ import taskPage from '@/pages/task/taskPage'
 import taskDetail from '@/pages/task/taskDetail'
 import taskEdit from '@/pages/task/taskEdit'
 import taskFreelancer from '@/pages/task/taskFreelancer'
+import createSubTask from '@/pages/task/createSubTask'
 
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
@@ -486,6 +487,19 @@ const router = new Router({
             title:'MySpotPage',
             token:true,
             menuType:"job"
+          }
+        },
+        {
+          path:'createSubTask',
+          name:'createSubTask',
+          components:{
+            head:HeadBarBase,
+            content:createSubTask,
+            footer:FooterBar
+          },
+          meta:{
+            title:'CreateSubTask',
+            token:true
           }
         }
       ]

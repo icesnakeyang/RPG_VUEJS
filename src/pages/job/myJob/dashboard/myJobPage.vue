@@ -4,7 +4,10 @@
 
 <script>
     export default {
-        name: "myJobPage"
+        name: "myJobPage",
+      mounted(){
+          console.log(this.$store.state)
+      }
     }
 </script>
 

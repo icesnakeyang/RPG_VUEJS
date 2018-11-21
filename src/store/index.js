@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {loadCompletList} from "../api/api";
 
 Vue.use(Vuex);
 
@@ -11,6 +12,8 @@ export default new Vuex.Store({
 
     roleType:''||localStorage.roleType,
     loginName:'',
+
+    taskId:''||localStorage.taskId,
 
     jobId:''||localStorage.jobId,
     userId:''||localStorage.userId
@@ -27,6 +30,12 @@ export default new Vuex.Store({
     },
     saveJobId(ctx, jobId){
       ctx.commit('saveJobId', jobId)
+    },
+    saveTaskId(ctx, taskId){
+      ctx.commit('saveTaskId', taskId)
+    },
+    clearTask(ctx){
+      ctx.commit('clearTask')
     }
   },
   mutations:{
@@ -62,6 +71,14 @@ export default new Vuex.Store({
     saveJobId(state, jobId){
       state.jobId=jobId;
       localStorage.jobId=jobId
+    },
+    saveTaskId(state, taskId){
+      state.taskId=taskId
+      localStorage.taskId=taskId
+    },
+    clearTask(state){
+      state.taskId=''
+      localStorage.taskId=''
     }
   }
 })

@@ -71,7 +71,9 @@
     "publish": "发布任务",
     "succPublish": "恭喜，发布任务成功！",
     "errPublish": "抱歉，发布任务失败!",
-    "checkPrice": "请输入正确的任务金额"
+    "checkPrice": "请输入正确的任务金额",
+    "pidTile":"父任务标题",
+    "subTaskTitleBar":"创建子任务：创建一个子任务"
   },
   "job": {
     "title": "任务标题",
