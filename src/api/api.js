@@ -200,6 +200,13 @@ export const setStopReadTime=params=>{
     }
   })
 }
+export const apiCountSubTask=params=>{
+  return axios.post(`${host}/task/countSubTask`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

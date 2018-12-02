@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 20px">
     <Button type="info" @click="clickUpdate">{{$t("task.update")}}</Button>
-    <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}</Button>
+    <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}({{totalSubTask}})</Button>
     <Button type="warning" @click="clickFreelancer">{{$t("task.freelancer")}}</Button>
     <Button type="success" @click="onComplete">{{$t("task.complete")}}</Button>
     <Button type="error" @click="onDelete">{{$t("task.delete")}}</Button>
@@ -9,8 +9,16 @@
 </template>
 
 <script>
+  import {apiCountSubTask} from "../../api/api";
+
   export default {
     name: "taskHeader",
+    data() {
+      return {
+        taskId: 0,
+        totalSubTask: 0
+      }
+    },
     methods: {
       clickUpdate() {
         this.$router.push({
@@ -19,29 +27,41 @@
           }
         })
       },
-      clickFreelancer(){
+      clickFreelancer() {
         this.$router.push({
-          name:'taskFreelancer', params:{
-            taskId:this.$route.params.taskId
+          name: 'taskFreelancer', params: {
+            taskId: this.$route.params.taskId
           }
         })
       },
-      onSubTask(){
+      onSubTask() {
         this.$router.push({
-          name:'createSubTask',
-          params:{
-            taskId:this.$route.params.taskId
+          name: 'subTaskPage',
+          params: {
+            taskId: this.$route.params.taskId
           }
         })
 
       },
-      onDelete(){
+      onDelete() {
 
       },
-      onComplete(){
+      onComplete() {
 
+      },
+      loadData() {
+        apiCountSubTask({
+          pid: this.taskId
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.totalSubTask = response.data.data.totalSub
+          }
+        })
       }
-
+    },
+    mounted() {
+      this.taskId = this.$store.state.taskId
+      this.loadData()
     }
   }
 </script>

@@ -53,6 +53,7 @@
     },
     props: {},
     mounted() {
+      this.taskId=this.$route.params.taskId
       this.getAllData();
     },
     methods: {

@@ -263,6 +263,7 @@
     "10091":"This job has been spotting, cannot spotlight again",
     "10092":"This job has published already, cannot publish duplicate",
     "10093":"Save private task failed",
-    "10094":"Delete private task failed"
+    "10094":"Delete private task failed",
+    "10095":"Count sub task error"
   }
 }

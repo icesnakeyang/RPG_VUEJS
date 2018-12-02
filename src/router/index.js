@@ -17,6 +17,7 @@ import taskDetail from '@/pages/task/taskDetail'
 import taskEdit from '@/pages/task/taskEdit'
 import taskFreelancer from '@/pages/task/taskFreelancer'
 import createSubTask from '@/pages/task/createSubTask'
+import subTaskPage from '@/pages/task/subTaskPage'
 
 import jobDetail from '@/pages/job/jobDetail'
 import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
@@ -499,6 +500,19 @@ const router = new Router({
           },
           meta:{
             title:'CreateSubTask',
+            token:true
+          }
+        },
+        {
+          path:'subTaskPage',
+          name:'subTaskPage',
+          components:{
+            head:HeadBarBase,
+            content:subTaskPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'SubTaskPage',
             token:true
           }
         }

@@ -20,6 +20,7 @@
     },
     methods: {
       goTask(id) {
+        this.$store.dispatch('saveTaskId', id)
         this.$router.push({
           name: 'taskDetail',
           params: {
