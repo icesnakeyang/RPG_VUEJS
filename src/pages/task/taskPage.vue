@@ -33,8 +33,11 @@
       loadTask({
         pageIndex: 0,
         pageSize: 100
-      }).then((data) => {
-        this.jobs = data.data.data.content;
+      }).then((response) => {
+        if(response.data.errorCode!==0){
+            this.$Message.error(this.$t("syserr." + response.data.errorCode));
+        }
+        this.jobs = response.data.data.content;
       })
     }
   }

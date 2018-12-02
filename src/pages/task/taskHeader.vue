@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 20px">
     <Button type="info" @click="clickUpdate">{{$t("task.update")}}</Button>
-    <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}({{totalSubTask}})</Button>
+    <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}({{theTotalSubTask}})</Button>
     <Button type="warning" @click="clickFreelancer">{{$t("task.freelancer")}}</Button>
     <Button type="success" @click="onComplete">{{$t("task.complete")}}</Button>
     <Button type="error" @click="onDelete">{{$t("task.delete")}}</Button>
@@ -9,14 +9,21 @@
 </template>
 
 <script>
-  import {apiCountSubTask} from "../../api/api";
+  import {apiDeleteTask} from "../../api/api";
 
   export default {
     name: "taskHeader",
     data() {
       return {
-        taskId: 0,
-        totalSubTask: 0
+        taskId: 0
+      }
+    },
+    props:{
+      totalSub:0
+    },
+    computed:{
+      theTotalSubTask(){
+        return this.totalSub;
       }
     },
     methods: {
@@ -41,27 +48,49 @@
             taskId: this.$route.params.taskId
           }
         })
+      },
+      onComplete(){
 
       },
-      onDelete() {
+      onDelete(){
+        this.$Modal.confirm({
+          title: this.$t("common.tipTitleQuestion"),
+          content: this.$t("task.qDelete"),
+          onOk: () => {
+            this.deleteTask()
+          },
+          onCancel: () => {
 
+          }
+        });
       },
-      onComplete() {
-
-      },
-      loadData() {
-        apiCountSubTask({
-          pid: this.taskId
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.totalSubTask = response.data.data.totalSub
+      deleteTask(){
+        console.log(this.task)
+        const pid=this.pid
+        apiDeleteTask({
+          taskId:this.taskId
+        }).then((response)=>{
+          if(response.data.errorCode===0){
+            if(pid){
+              this.$router.push({
+                name:'taskDetail',
+                params:{
+                  taskId:pid
+                }
+              })
+            }else{
+              this.$router.push({
+                name:'taskPage'
+              })
+            }
+          }else {
+            this.$Message.error(this.$t("syserr."+response.data.errorCode))
           }
         })
       }
     },
     mounted() {
       this.taskId = this.$store.state.taskId
-      this.loadData()
     }
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TaskHeader></TaskHeader>
+    <TaskHeader :totalSub="totalSub"></TaskHeader>
     <Card class="card">
       <p slot="title">
         {{task.title}}
@@ -22,6 +22,7 @@
 
 <script>
   import {loadTaskDetail} from "../../api/api";
+  import {apiCountSubTask} from "../../api/api";
   import {quillEditor} from 'vue-quill-editor'
   import TaskHeader from './taskHeader';
 
@@ -36,7 +37,12 @@
             toolbar: false
           }
         },
-        published:false
+        published:false,
+        totalSub:0,
+        taskBreadcrumb:[
+
+        ],
+        breadlist: ''
       }
     },
     computed: {
@@ -45,6 +51,9 @@
         var newDate = new Date();
         newDate.setTime(timestamp3);
         return newDate.toLocaleString()
+      },
+      pid(){
+        return this.task.pid
       }
     },
     components: {
@@ -54,11 +63,14 @@
     props: {},
     mounted() {
       this.taskId=this.$route.params.taskId
-      this.getAllData();
+      this.$store.dispatch('saveTaskId', this.taskId)
+      this.getAllData()
     },
     methods: {
       getAllData() {
-        loadTaskDetail(this.$route.params.taskId).then((response) => {
+        loadTaskDetail({
+          taskId: this.$route.params.taskId
+        }).then((response) => {
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
             this.job = response.data.data.job
@@ -66,6 +78,16 @@
               this.published=true
             }
             this.$store.dispatch('saveTaskId', this.task.taskId)
+          }else{
+            this.$Message.error(this.$t("syserr."+response.data.errorCode))
+          }
+        })
+
+        apiCountSubTask({
+          pid: this.taskId
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.totalSub = response.data.data.totalSub
           }
         })
       }

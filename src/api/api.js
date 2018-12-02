@@ -13,7 +13,11 @@ export const publishNewJob=params=>{
   })
 };
 export const loadJobDetail = params => {
-  return axios.get(`${host}/job/detail/`+params);
+  return axios.get(`${host}/job/detail/`+params, {
+    headers:{
+      token:store.state.token
+    }
+  });
 };
 export const saveContactInfo = params => {
   return axios.post(`${host}/user/info/saveContactInfo`, params, {
@@ -207,6 +211,27 @@ export const apiCountSubTask=params=>{
     }
   })
 }
+export const apiListSubTask=params=>{
+  return axios.post(`${host}/task/listSubTask`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiCreateSubTask=params=>{
+  return axios.post(`${host}/task/createSubTask`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiDeleteTask=params=>{
+  return axios.post(`${host}/task/deleteTask`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
@@ -244,8 +269,25 @@ export const loadTask = params => {
 };
 
 export const loadTaskDetail = params => {
-  return axios.get(`${host}/task/` + params)
+  return axios.post(`${host}/task/getTaskByTaskId`,  params, {
+    headers:{
+      token:store.state.token
+    }
+  })
 };
+
+/**
+ * read task tiny info from db, not contain detail
+ * @param params
+ * @returns {AxiosPromise<any>}
+ */
+export const ApiGetTaskTinyByTaskId=params=>{
+  return axios.post(`${host}/task/getTaskTinyByTaskId`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 
 export const publishTask = params => {
   return axios.post(`${host}/job/publish`, params, {

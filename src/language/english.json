@@ -73,7 +73,9 @@
     "errPublish":"Sorry, publish failed!",
     "checkPrice":"Please input proper task price",
     "pidTile":"Parent task",
-    "subTaskTitleBar":"Create a sub task"
+    "subTaskTitleBar":"Create a sub task",
+    "addSubTaskTitle":"Add",
+    "qDelete":"Are you sure you want to delete this task?"
   },
   "job":{
     "title":"Job Title",
@@ -264,6 +266,8 @@
     "10092":"This job has published already, cannot publish duplicate",
     "10093":"Save private task failed",
     "10094":"Delete private task failed",
-    "10095":"Count sub task error"
+    "10095":"Count sub task error",
+    "10096":"Create sub task failed",
+    "10097":"You cannot delete the task with sub tasks"
   }
 }
