@@ -65,6 +65,8 @@
       this.taskId=this.$route.params.taskId
       this.$store.dispatch('saveTaskId', this.taskId)
       this.getAllData()
+      console.log('detail router id'+this.$route.params.taskId)
+      console.log('detail store id'+this.$store.state.taskId)
     },
     methods: {
       getAllData() {

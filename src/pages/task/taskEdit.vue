@@ -50,8 +50,11 @@
     },
     methods: {
       getAllData() {
-        loadTaskDetail(this.$route.params.taskId)
-          .then((response) => {
+        console.log('header router id'+ this.$route.params.taskId)
+        console.log('header store id'+ this.$store.state.taskId)
+        loadTaskDetail({
+          taskId: this.$route.params.taskId
+        }).then((response) => {
             this.task = response.data.data.task;
           })
       },
