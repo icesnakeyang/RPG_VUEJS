@@ -32,7 +32,7 @@
 
 <script>
   import {loadTaskDetail} from "../../api/api";
-  import {createTask} from "../../api/api";
+  import {apiUpdateTask} from "../../api/api";
   import {quillEditor} from "vue-quill-editor";
 
   export default {
@@ -59,7 +59,7 @@
           })
       },
       clickUpdate(){
-        createTask({
+        apiUpdateTask({
           taskId:this.$route.params.taskId,
           title:this.task.title,
           detail:this.task.detail,

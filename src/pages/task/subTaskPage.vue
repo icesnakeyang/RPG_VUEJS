@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div>{{pTask.title}}</div>
+    <Breadcrumb>
+      <BreadcrumbItem v-for="(item, index) in pList"><a @click="onBreakTask(item.taskId)">{{item.title}}</a></BreadcrumbItem>
+    </Breadcrumb>
     <Form :label-width="80">
       <FormItem>
         <Input type="text" v-model="taskTitle" placeholder="Enter something..."></Input>
@@ -20,6 +22,7 @@
   import {ApiGetTaskTinyByTaskId} from "../../api/api";
   import {apiListSubTask} from "../../api/api";
   import {apiCreateSubTask} from "../../api/api";
+  import {apiListTaskBreadcrumb} from "../../api/api";
 
   export default {
     name: "subTaskPage",
@@ -27,7 +30,8 @@
       return{
         pTask:{},
         tasks:[],
-        taskTitle:''
+        taskTitle:'',
+        pList: []
       }
     },
     methods:{
@@ -48,6 +52,16 @@
             this.tasks=response.data.data.task
           }else{
             this.$Message.error(this.$t("syserr."+response.data.errorCode))
+          }
+        })
+
+        apiListTaskBreadcrumb({
+          taskId:this.$store.state.taskId
+        }).then((response)=>{
+          if(response.data.errorCode===0){
+            this.pList=response.data.data.breadList
+          }else{
+            this.$Message.eror(this.$t("syserr."+response.data.errorCode))
           }
         })
       },
@@ -82,6 +96,14 @@
           name:'taskDetail',
           params:{
             taskId:row.taskId
+          }
+        })
+      },
+      onBreakTask(data){
+        this.$router.push({
+          name:'taskDetail',
+          params:{
+            taskId:data
           }
         })
       }

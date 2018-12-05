@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Breadcrumb>
+      <BreadcrumbItem v-for="(item, index) in pList"><a @click="onTask(item.taskId)">{{item.title}}</a></BreadcrumbItem>
+    </Breadcrumb>
     <TaskHeader :totalSub="totalSub"></TaskHeader>
     <Card class="card">
       <p slot="title">
@@ -23,6 +26,7 @@
 <script>
   import {loadTaskDetail} from "../../api/api";
   import {apiCountSubTask} from "../../api/api";
+  import {apiListTaskBreadcrumb} from "../../api/api";
   import {quillEditor} from 'vue-quill-editor'
   import TaskHeader from './taskHeader';
 
@@ -37,12 +41,11 @@
             toolbar: false
           }
         },
-        published:false,
-        totalSub:0,
-        taskBreadcrumb:[
-
-        ],
-        breadlist: ''
+        published: false,
+        totalSub: 0,
+        taskBreadcrumb: [],
+        breadlist: '',
+        pList: []
       }
     },
     computed: {
@@ -52,7 +55,7 @@
         newDate.setTime(timestamp3);
         return newDate.toLocaleString()
       },
-      pid(){
+      pid() {
         return this.task.pid
       }
     },
@@ -62,26 +65,24 @@
     },
     props: {},
     mounted() {
-      this.taskId=this.$route.params.taskId
+      this.taskId = this.$route.params.taskId
       this.$store.dispatch('saveTaskId', this.taskId)
       this.getAllData()
-      console.log('detail router id'+this.$route.params.taskId)
-      console.log('detail store id'+this.$store.state.taskId)
     },
     methods: {
       getAllData() {
         loadTaskDetail({
-          taskId: this.$route.params.taskId
+          taskId: this.taskId
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
             this.job = response.data.data.job
-            if(this.job){
-              this.published=true
+            if (this.job) {
+              this.published = true
             }
             this.$store.dispatch('saveTaskId', this.task.taskId)
-          }else{
-            this.$Message.error(this.$t("syserr."+response.data.errorCode))
+          } else {
+            this.$Message.error(this.$t("syserr." + response.data.errorCode))
           }
         })
 
@@ -90,8 +91,24 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.totalSub = response.data.data.totalSub
+          }else {
+            this.$Message.error(this.$t("syserr."+response.data.errorCode))
           }
         })
+
+        apiListTaskBreadcrumb({
+          taskId:this.taskId
+        }).then((response)=>{
+          if(response.data.errorCode===0){
+            this.pList=response.data.data.breadList
+          }else{
+            this.$Message.eror(this.$t("syserr."+response.data.errorCode))
+          }
+        })
+      },
+      onTask(data){
+        this.taskId=data
+        this.getAllData()
       }
     }
   }

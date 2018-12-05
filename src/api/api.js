@@ -232,6 +232,20 @@ export const apiDeleteTask=params=>{
     }
   })
 }
+export const apiUpdateTask=params=>{
+  return axios.post(`${host}/task/update`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiListTaskBreadcrumb=params=>{
+  return axios.post(`${host}/task/listTaskBreadcrumb`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
