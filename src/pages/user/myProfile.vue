@@ -25,7 +25,7 @@
 
 <script>
   import {loadUserInfo} from "../../api/api";
-  import {saveProfile} from "../../api/api";
+  import {apiSaveContactInfo} from "../../api/api";
 
   export default {
     name: "myProfile",
@@ -47,11 +47,14 @@
         })
       },
       submitProfile(){
-        saveProfile({
+        apiSaveContactInfo({
           realName:this.profile.realName,
           email:this.profile.email,
           phone:this.profile.phone
         }).then((response)=>{
+          if(response.data.errorCode===0){
+            this.$Message
+          }
         })
       }
     },

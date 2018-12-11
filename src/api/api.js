@@ -232,6 +232,13 @@ export const apiDeleteTask=params=>{
     }
   })
 }
+export const apiSaveContactInfo=params=>{
+  return axios.post(`${host}/user/info/saveContactInfo`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
@@ -347,14 +354,6 @@ export const createAdmin = params => {
 
 export const loadUser = params => {
   return axios.post(`${host}/user/login`, params)
-};
-
-export const saveProfile = params => {
-  return axios.post(`${host}/user/saveProfile`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
 };
 
 
