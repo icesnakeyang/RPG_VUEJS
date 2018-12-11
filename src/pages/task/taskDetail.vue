@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {loadTaskDetail} from "../../api/api";
+  import {apiLoadTaskDetail} from "../../api/api";
   import {apiCountSubTask} from "../../api/api";
   import {apiListTaskBreadcrumb} from "../../api/api";
   import {quillEditor} from 'vue-quill-editor'
@@ -71,11 +71,12 @@
     },
     methods: {
       getAllData() {
-        loadTaskDetail({
+        apiLoadTaskDetail({
           taskId: this.taskId
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
+            console.log(this.task)
             this.job = response.data.data.job
             if (this.job) {
               this.published = true

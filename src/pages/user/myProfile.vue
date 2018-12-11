@@ -53,7 +53,6 @@
           phone:this.profile.phone
         }).then((response)=>{
           if(response.data.errorCode===0){
-            this.$Message
           }
         })
       }
