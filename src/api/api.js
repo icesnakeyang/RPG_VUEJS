@@ -232,8 +232,15 @@ export const apiDeleteTask=params=>{
     }
   })
 }
-export const apiSaveContactInfo=params=>{
-  return axios.post(`${host}/user/info/saveContactInfo`, params, {
+export const apiUpdateTask=params=>{
+  return axios.post(`${host}/task/update`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiListTaskBreadcrumb=params=>{
+  return axios.post(`${host}/task/listTaskBreadcrumb`, params,{
     headers:{
       token:store.state.token
     }
@@ -354,6 +361,14 @@ export const createAdmin = params => {
 
 export const loadUser = params => {
   return axios.post(`${host}/user/login`, params)
+};
+
+export const saveProfile = params => {
+  return axios.post(`${host}/user/saveProfile`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 };
 
 
