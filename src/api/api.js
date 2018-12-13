@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'http://gogorpg.com:9527';
-// let host = 'http://localhost:9527';
+// let host = 'http://gogorpg.com:9527';
+let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 export const publishNewJob=params=>{
@@ -18,13 +18,6 @@ export const loadJobDetail = params => {
       token:store.state.token
     }
   });
-};
-export const saveContactInfo = params => {
-  return axios.post(`${host}/user/info/saveContactInfo`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
 };
 export const applyJob = params => {
   return axios.post(`${host}/job/myApply/applyJob`, params, {
@@ -81,9 +74,6 @@ export const rejectNewJob=params=>{
       token:store.state.token
     }
   })
-}
-export const loadPublicJobs=params=>{
-  return axios.post(`${host}/job/plaza/publicJob`, params)
 }
 export const loadMyPartyAJob=params=>{
   return axios.post(`${host}/job/partyA/loadMyPartyAJob`, params,{
@@ -253,7 +243,7 @@ export const apiSaveContactInfo=params=>{
     }
   })
 }
-export const apiLoadTaskDetail = params => {
+export const apiGetTaskDetailByTaskId = params => {
   return axios.post(`${host}/task/getTaskByTaskId`,  params, {
     headers:{
       token:store.state.token
