@@ -275,6 +275,7 @@
     "10098":"Read my published new job failed",
     "10099":"Update my published new job failed",
     "10100":"The job you want to update is not exist",
-    "10101":"The job has been applied by others, cannot update anymore"
+    "10101":"The job has been applied by others, cannot update anymore",
+    "10102":"Sorry! you only can update the job published by yourself"
   }
 }
