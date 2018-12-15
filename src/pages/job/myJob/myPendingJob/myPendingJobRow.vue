@@ -26,9 +26,8 @@
     },
     methods:{
       onJob(){
-        console.log(this.job.jobId)
         this.$router.push({
-          name:'jobDetail',
+          name:'myPendingJobDetail',
           params:{
             jobId:this.job.jobId
           }
@@ -39,5 +38,7 @@
 </script>
 
 <style scoped>
-
+  .card{
+    margin: 20px;
+  }
 </style>

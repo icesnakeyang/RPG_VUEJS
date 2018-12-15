@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import {loadJobDetail} from "../../api/api";
+  import {apiGetJobDetail} from "../../api/api";
   import jobDetailCard from "./jobDetailCard";
 
   export default {
@@ -37,7 +37,7 @@
       }
     },
     mounted() {
-      loadJobDetail(this.$route.params.jobId).then((response) => {
+      apiGetJobDetail(this.$route.params.jobId).then((response) => {
         this.job = response.data.data.job
       })
     }

@@ -97,7 +97,9 @@
     "tabLog":"Log",
     "tabComplete":"Complete",
     "tabStop":"Stop",
-    "tabSpotlight":"Spotlight"
+    "tabSpotlight":"Spotlight",
+    "update":"Update",
+    "updateTipSucess":"Update job success"
   },
   "apply":{
     "applyTime":"Apply Time",
@@ -270,6 +272,9 @@
     "10095":"Count sub task error",
     "10096":"Create sub task failed",
     "10097":"You cannot delete the task with sub tasks",
-    "10098":"Read my published new job failed"
+    "10098":"Read my published new job failed",
+    "10099":"Update my published new job failed",
+    "10100":"The job you want to update is not exist",
+    "10101":"The job has been applied by others, cannot update anymore"
   }
 }

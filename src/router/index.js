@@ -51,7 +51,8 @@ import createStop from '@/pages/job/myJob/stop/createStop'
 import mySpotPage from '@/pages/job/myJob/mySpotlight/mySpotPage'
 
 import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
-
+import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
+import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdate'
 
 import store from '../store/index'
 
@@ -528,6 +529,32 @@ const router = new Router({
           },
           meta:{
             title:'MyPendingJobPage',
+            token:true
+          }
+        },
+        {
+          path:'myPendingJobDetail',
+          name:'myPendingJobDetail',
+          components:{
+            head:HeadBarBase,
+            content:myPendingJobDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:"myPendingJobDetail",
+            token:true
+          }
+        },
+        {
+          path:'myPendingJobUpdate',
+          name:'myPendingJobUpdate',
+          components:{
+            head:HeadBarBase,
+            content:myPendingJobUpdate,
+            footer:FooterBar
+          },
+          meta:{
+            title:"myPendingJobUpdate",
             token:true
           }
         }
