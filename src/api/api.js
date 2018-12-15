@@ -243,8 +243,8 @@ export const apiSaveContactInfo=params=>{
     }
   })
 }
-export const apiGetTaskDetailByTaskId = params => {
-  return axios.post(`${host}/task/getTaskByTaskId`,  params, {
+export const apiListMyPendingJob = params => {
+  return axios.post(`${host}/job/apiListMyPendingJob`,  params, {
     headers:{
       token:store.state.token
     }

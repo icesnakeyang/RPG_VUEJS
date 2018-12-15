@@ -131,6 +131,11 @@
             name: 'myJobPage'
           })
         }
+        if (name === "3-2-5") {
+          this.$router.push({
+            name: 'myPendingJobPage'
+          })
+        }
         if (name === "3-6") {
           this.$router.push({
             name: "myApplyJob"

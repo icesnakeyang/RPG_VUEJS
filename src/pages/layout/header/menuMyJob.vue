@@ -20,6 +20,10 @@
     <Icon type="ios-navigate"></Icon>
     {{$t("command.partyB")}}
     </MenuItem>
+    <MenuItem name="3-2-5">
+    <Icon type="ios-navigate"></Icon>
+    {{$t("command.myPendingJob")}}
+    </MenuItem>
   </Submenu>
 </template>
 

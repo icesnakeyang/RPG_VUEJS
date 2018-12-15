@@ -21,7 +21,8 @@
     "myHonor": "我的荣誉",
     "myApply": "我申请的工作",
     "myMatch":"分配给我的任务",
-    "dashboard":"控制台"
+    "dashboard":"控制台",
+    "myPendingJob":"我发布并等待成交的工作"
   },
   "common": {
     "tipTitleQuestion": "提问",

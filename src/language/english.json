@@ -21,7 +21,8 @@
     "myHonor":"My Honor",
     "myApply":"My Applied Job",
     "myMatch":"My New Job",
-    "dashboard":"Dashboard"
+    "dashboard":"Dashboard",
+    "myPendingJob":"Published & pending"
   },
   "common":{
     "tipTitleQuestion":"Question",

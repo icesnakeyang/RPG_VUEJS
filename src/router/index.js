@@ -50,6 +50,8 @@ import createStop from '@/pages/job/myJob/stop/createStop'
 
 import mySpotPage from '@/pages/job/myJob/mySpotlight/mySpotPage'
 
+import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
+
 
 import store from '../store/index'
 
@@ -504,15 +506,28 @@ const router = new Router({
           }
         },
         {
-          path:'subTaskPage',
-          name:'subTaskPage',
+          path: 'subTaskPage',
+          name: 'subTaskPage',
+          components: {
+            head: HeadBarBase,
+            content: subTaskPage,
+            footer: FooterBar
+          },
+          meta: {
+            title: 'SubTaskPage',
+            token: true
+          }
+        },
+        {
+          path:'myPendingJobPage',
+          name:'myPendingJobPage',
           components:{
             head:HeadBarBase,
-            content:subTaskPage,
+            content:myPendingJobPage,
             footer:FooterBar
           },
           meta:{
-            title:'SubTaskPage',
+            title:'MyPendingJobPage',
             token:true
           }
         }
