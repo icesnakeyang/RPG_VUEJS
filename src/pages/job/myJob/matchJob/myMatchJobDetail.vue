@@ -28,7 +28,7 @@
 
 <script>
   import JobDetailTpl from "../../components/jobDetailTpl"
-  import {loadJobDetail} from "../../../../api/api";
+  import {apiGetJobDetail} from "../../../../api/api";
   import {acceptNewJob} from "../../../../api/api";
   import {rejectNewJob} from "../../../../api/api";
 
@@ -78,7 +78,7 @@
       }
     },
     mounted() {
-      loadJobDetail(this.$route.params.jobId).then((response) => {
+      apiGetJobDetail(this.$route.params.jobId).then((response) => {
         if (response.data.errorCode == 0) {
           this.job = response.data.data.job;
         }

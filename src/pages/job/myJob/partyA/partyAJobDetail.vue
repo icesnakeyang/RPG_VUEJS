@@ -8,7 +8,7 @@
 <script>
   import JobDetailTpl from '../../../job/components/jobDetailTpl'
   import ToolBar from '../component/toolbar'
-  import {loadJobDetail} from "../../../../api/api";
+  import {apiGetJobDetail} from "../../../../api/api";
 
   export default {
     name: "partyAJobDetail",
@@ -26,7 +26,7 @@
     },
     methods: {
       loadData() {
-        loadJobDetail(this.$store.state.jobId).then((response) => {
+        apiGetJobDetail(this.$store.state.jobId).then((response) => {
           if (response.data.errorCode === 0) {
             this.jobInfo.job = response.data.data.job
           }
