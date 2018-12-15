@@ -1,7 +1,9 @@
 <template>
   <div>
     <Breadcrumb>
-      <BreadcrumbItem v-for="(item, index) in pList"><a @click="onBreakTask(item.taskId)">{{item.title}}</a></BreadcrumbItem>
+      <BreadcrumbItem v-for="(item, index) in pList" :key="index">
+        <a @click="onBreakTask(item.taskId)">{{item.title}}</a>
+      </BreadcrumbItem>
     </Breadcrumb>
     <Form :label-width="80">
       <FormItem>
@@ -9,7 +11,7 @@
         <Button type="primary" long @click="addTask" icon="md-add">{{$t('task.addSubTaskTitle')}}</Button>
       </FormItem>
     </Form>
-    <CellGroup v-for="row in tasks">
+    <CellGroup v-for="(row, index) in tasks" :key="index">
         <Cell>
           <span @click="onTask(row)">{{row.title}}</span>
         </Cell>

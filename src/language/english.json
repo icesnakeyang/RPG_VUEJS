@@ -269,6 +269,7 @@
     "10094":"Delete private task failed",
     "10095":"Count sub task error",
     "10096":"Create sub task failed",
-    "10097":"You cannot delete the task with sub tasks"
+    "10097":"You cannot delete the task with sub tasks",
+    "10098":"Read my published new job failed"
   }
 }

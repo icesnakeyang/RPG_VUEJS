@@ -39,7 +39,7 @@
 </template>
 
 <script>
-  import {loadTaskDetail} from "../../api/api";
+  import {apiGetTaskTinyByTaskId} from "../../api/api";
   import {createTask} from "../../api/api";
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
@@ -85,7 +85,7 @@
         })
       },
       loadData() {
-        loadTaskDetail(this.$store.state.taskId).then((response) => {
+        apiGetTaskTinyByTaskId(this.$store.state.taskId).then((response) => {
           if (response.data.errorCode === 0) {
             this.parentTask = response.data.data.task
           }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {loadPublicJobs} from '@/api/api'
+  import {apiListPublicJob} from "../../../api/api";
   import jobListCard from './jobListCard'
 
   export default {
@@ -31,7 +31,7 @@
     },
 
     mounted() {
-      loadPublicJobs({
+      apiListPublicJob({
         pageIndex:0,
         pageSize:100
       }).then((data)=>{

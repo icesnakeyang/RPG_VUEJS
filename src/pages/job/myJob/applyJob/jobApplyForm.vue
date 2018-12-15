@@ -35,7 +35,7 @@
 
 <script>
   import {loadUserInfo} from "../../../../api/api";
-  import {saveContactInfo} from "../../../../api/api";
+  import {apiSaveContactInfo} from "../../../../api/api";
   import {applyJob} from "../../../../api/api";
 
   export default {
@@ -56,7 +56,7 @@
     methods: {
       clickConfirm() {
         this.saving = true;
-        saveContactInfo({
+        apiSaveContactInfo({
           realName: this.userInfo.realName,
           phone: this.userInfo.phone,
           email: this.userInfo.email

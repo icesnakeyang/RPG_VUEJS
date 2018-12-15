@@ -5,8 +5,8 @@ import store from '../store/index'
 let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-export const publishNewJob=params=>{
-  return axios.post(`${host}/job/publish/publishNewJob`, params,{
+export const apiPublishNewJob=params=>{
+  return axios.post(`${host}/task/publish/publishNewJob`, params,{
     headers:{
       token:store.state.token
     }
@@ -244,12 +244,33 @@ export const apiSaveContactInfo=params=>{
   })
 }
 export const apiListMyPendingJob = params => {
-  return axios.post(`${host}/job/apiListMyPendingJob`,  params, {
+  return axios.post(`${host}/mypending/listMyPendingJob`,  params, {
     headers:{
       token:store.state.token
     }
   })
 };
+export const apiListPublicJob=params=>{
+  return axios.post(`${host}/job/plaza/publicJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiGetTaskDetailByTaskId=params=>{
+  return axios.post(`${host}/task/getTaskDetailByTaskId`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiGetTaskTinyByTaskId=params=>{
+  return axios.post(`${host}/task/getTaskTinyByTaskId`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

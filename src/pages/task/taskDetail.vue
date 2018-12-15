@@ -1,7 +1,9 @@
 <template>
   <div>
     <Breadcrumb>
-      <BreadcrumbItem v-for="(item, index) in pList"><a @click="onTask(item.taskId)">{{item.title}}</a></BreadcrumbItem>
+      <BreadcrumbItem v-for="(item, index) in pList" :key="index">
+        <a @click="onTask(item.taskId)">{{item.title}}</a>
+      </BreadcrumbItem>
     </Breadcrumb>
     <TaskHeader :totalSub="totalSub"></TaskHeader>
     <Card class="card">
@@ -24,11 +26,11 @@
 </template>
 
 <script>
-  import {apiLoadTaskDetail} from "../../api/api";
   import {apiCountSubTask} from "../../api/api";
   import {apiListTaskBreadcrumb} from "../../api/api";
   import {quillEditor} from 'vue-quill-editor'
   import TaskHeader from './taskHeader';
+  import {apiGetTaskDetailByTaskId} from "../../api/api";
 
   export default {
     name: "taskDetail",
@@ -71,7 +73,7 @@
     },
     methods: {
       getAllData() {
-        apiLoadTaskDetail({
+        apiGetTaskDetailByTaskId({
           taskId: this.taskId
         }).then((response) => {
           if (response.data.errorCode === 0) {

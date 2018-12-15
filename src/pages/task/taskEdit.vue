@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import {apiLoadTaskDetail} from "../../api/api";
+  import {apiGetTaskDetailByTaskId} from "../../api/api";
   import {apiUpdateTask} from "../../api/api";
   import {quillEditor} from "vue-quill-editor";
 
@@ -52,7 +52,7 @@
       getAllData() {
         console.log('header router id'+ this.$route.params.taskId)
         console.log('header store id'+ this.$store.state.taskId)
-        apiLoadTaskDetail({
+        apiGetTaskDetailByTaskId({
           taskId: this.$route.params.taskId
         }).then((response) => {
             this.task = response.data.data.task;

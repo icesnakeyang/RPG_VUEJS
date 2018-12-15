@@ -34,8 +34,8 @@
 </template>
 
 <script>
-  import {apiLoadTaskDetail} from "../../api/api";
-  import {publishNewJob} from "../../api/api";
+  import {apiGetTaskDetailByTaskId} from "../../api/api";
+  import {apiPublishNewJob} from "../../api/api";
   import {quillEditor} from "vue-quill-editor";
 
   export default {
@@ -63,7 +63,7 @@
           return;
         }
         this.saving = true;
-        publishNewJob({
+        apiPublishNewJob({
           taskId: this.task.taskId,
           title: this.task.title,
           code: this.task.code,
@@ -89,10 +89,9 @@
         })
       },
       getAllData() {
-        apiLoadTaskDetail({
+        apiGetTaskDetailByTaskId({
           taskId: this.$route.params.taskId
         }).then((response) => {
-          console.log(response)
             this.task = response.data.data.task;
           })
       },
