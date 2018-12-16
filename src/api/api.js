@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'http://gogorpg.com:9527';
-let host = 'http://localhost:9527';
+let host = 'http://gogorpg.com:9527';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 export const apiPublishNewJob = params => {
@@ -273,6 +273,13 @@ export const apiGetTaskTinyByTaskId = params => {
 }
 export const apiUpdatePendingJob = params => {
   return axios.post(`${host}/mypending/updatePendingJob`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+export const apiDeletePendingJob = params => {
+  return axios.post(`${host}/mypending/deletePendingJob`, params, {
     headers: {
       token: store.state.token
     }
