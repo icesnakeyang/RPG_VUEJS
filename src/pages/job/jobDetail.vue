@@ -25,19 +25,27 @@
         job: {}
       }
     },
-    methods:{
-      applyJob(){
+    methods: {
+      applyJob() {
         this.$router.push({
-          name:'jobApplyForm',
-          params:{
-            jobId:this.$route.params.jobId,
-            jobTitle:this.job.title
+          name: 'jobApplyForm',
+          params: {
+            jobId: this.$route.params.jobId,
+            jobTitle: this.job.title
           }
         })
       }
     },
     mounted() {
-      apiGetJobDetail(this.$route.params.jobId).then((response) => {
+      if (this.$route.params.jobId) {
+        if (this.$store.state.jobId === this.$route.params.jobId) {
+
+        } else {
+          this.$store.dispatch('saveJobId', this.$route.params.jobId)
+        }
+      }
+      console.log(this.$store.state.jobId)
+      apiGetJobDetail(this.$store.state.jobId).then((response) => {
         this.job = response.data.data.job
       })
     }

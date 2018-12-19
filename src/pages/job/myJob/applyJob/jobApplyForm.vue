@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Alert>管理员登录</Alert>
     <Card class="card">
       <p slot="title">
         {{jobTitle}}

@@ -2,7 +2,7 @@
   <div class="content">
     <Form>
       <FormItem>
-        <Button type="primary" @click="addSecretary">{{$t("admin.addSecretary")}}</Button>
+        <Button type="primary" @click="onAddSecretary">{{$t("admin.addSecretary")}}</Button>
       </FormItem>
       <MatchJobPageRow v-for="job in jobs"
                             v-bind:key="job.jobId"
@@ -15,7 +15,7 @@
       v-model="modal1"
       width="70%"
       :mask-closable="false"
-      @on-ok="handleSetSecretary">
+      @on-ok="onSetSecretary">
       <Table :columns="columns1" :data="users" height="200"
              highlight-row @on-current-change="selectedRow"></Table>
     </Modal>
@@ -72,12 +72,24 @@
       },
 
       loadJobToMatchMethod(){
+        console.log('load')
         loadJobToMatch({
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
+          console.log(response)
           this.jobs=response.data.data.jobs
         })
+      },
+
+      onAddSecretary(){
+
+      },
+      onSetSecretary(){
+
+      },
+      selectedRow(){
+
       }
     },
     mounted(){
