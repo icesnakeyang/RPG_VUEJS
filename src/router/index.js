@@ -54,6 +54,8 @@ import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
 import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
 import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdate'
 
+import myAccountPage from '@/pages/account/myAccountPage'
+
 import store from '../store/index'
 
 Vue.use(Router);
@@ -555,6 +557,19 @@ const router = new Router({
           },
           meta:{
             title:"myPendingJobUpdate",
+            token:true
+          }
+        },
+        {
+          path:'myAccountPage',
+          name:'myAccountPage',
+          components:{
+            head:HeadBarBase,
+            content:myAccountPage,
+            footer:FooterBar
+          },
+          meata:{
+            title:"myAccountPage",
             token:true
           }
         }

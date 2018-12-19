@@ -285,6 +285,13 @@ export const apiDeletePendingJob = params => {
     }
   })
 }
+export const apiListMyAccount=params=>{
+  return axios.post(`${host}/account/listMyAccount`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

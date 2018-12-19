@@ -156,6 +156,11 @@
             name: "secretaryTopUpPage"
           })
         }
+        if(name==="3-4"){
+          this.$router.push({
+            name:'myAccountPage'
+          })
+        }
       },
       createTask() {
         this.$router.push({name: 'createTask'})
