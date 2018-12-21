@@ -1,7 +1,7 @@
 <template>
   <Card class="card">
     <p slot="title">
-      <a @click="goJobDetail(jobApply.job.jobId)">
+      <a @click="onGoJobDetail(jobApply.job.jobId)">
         {{jobApply.job.title}}</a>
     </p>
     <p>{{$t("job.code")}}:{{jobApply.job.code}}</p>
@@ -59,6 +59,16 @@
         } else {
           return this.$t("common.unRead");
         }
+      }
+    },
+    methods:{
+      onGoJobDetail(item){
+        this.$router.push({
+          name:'jobDetail',
+          params:{
+            jobId:item
+          }
+        })
       }
     },
     mounted() {

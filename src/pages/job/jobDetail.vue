@@ -44,7 +44,6 @@
           this.$store.dispatch('saveJobId', this.$route.params.jobId)
         }
       }
-      console.log(this.$store.state.jobId)
       apiGetJobDetail(this.$store.state.jobId).then((response) => {
         this.job = response.data.data.job
       })
