@@ -33,8 +33,8 @@ export const loadMyApplyJob = params => {
     }
   })
 };
-export const loadJobToMatch = params => {
-  return axios.post(`${host}/secretary/loadJobToMatch`, params, {
+export const apiListJobToMatch = params => {
+  return axios.post(`${host}/secretary/listJobToMatch`, params, {
     headers: {
       token: store.state.token
     }

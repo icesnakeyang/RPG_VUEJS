@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import {loadJobToMatch} from "../../../api/api";
+  import {apiListJobToMatch} from "../../../api/api";
   import MatchJobPageRow from "./secretaryMatchJobPageRow"
 
   export default {
@@ -71,9 +71,9 @@
         this.modal1 = true
       },
 
-      loadJobToMatchMethod(){
+      loadAllData(){
         console.log('load')
-        loadJobToMatch({
+        apiListJobToMatch({
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
@@ -93,7 +93,7 @@
       }
     },
     mounted(){
-      this.loadJobToMatchMethod();
+      this.loadAllData()
     }
   }
 </script>
