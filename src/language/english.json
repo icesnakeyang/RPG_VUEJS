@@ -293,6 +293,7 @@
     "10103":"Delete job failed",
     "10104":"The job has been applied by others, cannot be delete",
     "10105":"Sorry! you only can delete the job published by yourself",
-    "10106":"Read my account data error"
+    "10106":"Read my account data error",
+    "10107":"Read users applied jobs error"
   }
 }
