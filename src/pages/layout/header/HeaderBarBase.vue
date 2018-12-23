@@ -148,7 +148,7 @@
         }
         if (name === "8-1") {
           this.$router.push({
-            name: "secretaryMatchJobPage"
+            name: "secretaryMatchPage"
           })
         }
         if (name === "8-2") {

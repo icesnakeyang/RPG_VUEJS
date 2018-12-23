@@ -299,6 +299,20 @@ export const apiListUserApplyJob=params=>{
     }
   })
 }
+export const apiListNewApply=params=>{
+  return axios.post(`${host}/secretary/listNewApply`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiListHistory=params=>{
+  return axios.post(`${host}/secretary/user/listApplyHistory`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

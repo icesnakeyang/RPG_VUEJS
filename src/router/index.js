@@ -32,6 +32,9 @@ import adminLogin from '@/pages/admin/adminLogin'
 import secretaryTopUpPage from '@/pages/secretary/topUp/topUpPage'
 import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
 
+import secretaryMatchPage from '@/pages/secretary/match/secretaryMatchPage'
+import applyJobsPage from '@/pages/secretary/match/user/applyJobsPage'
+
 import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
 import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
 
@@ -570,6 +573,32 @@ const router = new Router({
           },
           meata:{
             title:"myAccountPage",
+            token:true
+          }
+        },
+        {
+          path:'applyJobsPage',
+          name:'applyJobsPage',
+          components:{
+            head:HeadBarBase,
+            content:applyJobsPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'applyJobsPage',
+            token:true
+          }
+        },
+        {
+          path:'secretaryMatchPage',
+          name:'secretaryMatchPage',
+          components:{
+            head:HeadBarBase,
+            content:secretaryMatchPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'secretaryMatchPage',
             token:true
           }
         }
