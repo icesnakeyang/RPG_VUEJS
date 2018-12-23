@@ -292,6 +292,13 @@ export const apiListMyAccount=params=>{
     }
   })
 }
+export const apiListUserApplyJob=params=>{
+  return axios.post(`${host}/secretary/listUserApplyJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {
