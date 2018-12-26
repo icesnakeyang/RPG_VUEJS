@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SecretaryMatchRow v-for="(item, index) in applies" :apply="item">
+    <SecretaryMatchRow v-for="(item, index) in jobs" :job="item">
 
     </SecretaryMatchRow>
   </div>
@@ -17,7 +17,7 @@
     },
     data(){
       return{
-        applies:[]
+        jobs:[]
       }
     },
     methods: {
@@ -27,8 +27,7 @@
           "pageSize": 20
         }).then((response) => {
           if(response.data.errorCode===0){
-            this.applies=response.data.data.newApplyList
-            console.log(this.applies)
+            this.jobs=response.data.data.newApplyList.content
           }else {
             this.$Message.error(this.$t("syserr."+response.data.errorCode))
           }

@@ -179,7 +179,8 @@
     },
     "match":{
       "applyTime":"Apply time",
-      "applyUser":"Apply user"
+      "applyUser":"Apply user",
+      "applyUserNum":"Apply user number"
     }
   },
   "account": {

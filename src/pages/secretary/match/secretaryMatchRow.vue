@@ -1,16 +1,17 @@
 <template>
+
   <Card class="card">
-    <div @click="onApply(apply.applyId)">
-      <p slot="title">
-        {{apply.jobTitle}}
-      </p>
-      <p>{{$t("job.code")}}: {{apply.code}}</p>
-      <p>{{$t("job.days")}}: {{apply.days}}</p>
-      <p>{{$t("job.price")}}: {{apply.price}}</p>
-      <p>{{$t("secretary.match.applyUser")}}: {{apply.userName}}</p>
-      <p>{{$t("secretary.match.applyTime")}}: {{applyTime}}</p>
-    </div>
+    <p slot="title">
+    <a @click="onJob(job.jobId)">
+      {{job.title}}
+    </a>
+    </p>
+    <p>{{$t("job.code")}}: {{job.code}}</p>
+    <p>{{$t("job.days")}}: {{job.days}}</p>
+    <p>{{$t("job.price")}}: {{job.price}}</p>
+    <p>{{$t("secretary.match.applyUserNum")}}: {{job.jobApplyNum}}</p>
   </Card>
+
 </template>
 
 <script>
@@ -26,16 +27,16 @@
       return {}
     },
     props: {
-      apply: {}
+      job: {}
     },
     computed: {
       applyTime() {
-        return rpgFormat.formatTime(this.apply.applyTime);
+        return rpgFormat.formatTime(this.job.applyTime);
       }
     },
     methods: {
-      onApply(applyId) {
-        console.log(applyId)
+      onJob(jobId) {
+        console.log(jobId)
       }
     },
     mounted() {

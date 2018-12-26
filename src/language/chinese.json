@@ -179,7 +179,8 @@
     },
     "match":{
       "applyTime":"申请时间",
-      "applyUser":"申请人"
+      "applyUser":"申请人",
+      "applyUserNum":"申请人数"
     }
   },
   "account": {
