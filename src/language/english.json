@@ -176,6 +176,10 @@
       "topUpRemark": "Remark",
       "accept": "Accept",
       "reject": "Reject"
+    },
+    "match":{
+      "applyTime":"Apply time",
+      "applyUser":"Apply user"
     }
   },
   "account": {

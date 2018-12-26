@@ -40,7 +40,8 @@
         adminLogin({
           loginName: this.formItem.username,
           password: this.formItem.password
-        }).then((response) => {
+        }).then((response) =>{
+          console.log(response)
           if (response.data.errorCode !== 0) {
             this.errMsg = this.$t("syserr." + response.data.errorCode)
             this.showErr = true;

@@ -176,6 +176,10 @@
       "topUpRemark": "说明",
       "accept": "审核通过",
       "reject": "审核拒绝"
+    },
+    "match":{
+      "applyTime":"申请时间",
+      "applyUser":"申请人"
     }
   },
   "account": {

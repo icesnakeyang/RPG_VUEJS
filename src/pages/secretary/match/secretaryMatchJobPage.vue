@@ -24,7 +24,7 @@
 
 <script>
   import {apiListJobToMatch} from "../../../api/api";
-  import MatchJobPageRow from "./secretaryMatchJobPageRow"
+  import MatchJobPageRow from "./secretaryMatchRow"
 
   export default {
     name: "secretaryMatchJobPage",
