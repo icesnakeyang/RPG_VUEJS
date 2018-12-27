@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import {apiListNewApply} from "../../../api/api";
+  import {apiListJobMatching} from "../../../api/api";
   import SecretaryMatchRow from "./secretaryMatchRow"
 
   export default {
@@ -22,7 +22,7 @@
     },
     methods: {
       loadAllData() {
-        apiListNewApply({
+        apiListJobMatching({
           "pageIndex": 0,
           "pageSize": 20
         }).then((response) => {
@@ -35,6 +35,10 @@
       }
     },
     mounted() {
+      if(this.$route.params.jobId){
+        this.$store.dispatch('saveJobId', this.$route.params.jobId)
+      }
+      this.jobId=this.$store.state.jobId
       this.loadAllData()
     }
   }

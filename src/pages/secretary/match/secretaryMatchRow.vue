@@ -37,6 +37,12 @@
     methods: {
       onJob(jobId) {
         console.log(jobId)
+        this.$router.push({
+          name:'jobApplyUserList',
+          params:{
+            jobId: jobId
+          }
+        })
       }
     },
     mounted() {

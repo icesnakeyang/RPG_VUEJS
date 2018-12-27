@@ -292,15 +292,15 @@ export const apiListMyAccount=params=>{
     }
   })
 }
-export const apiListUserApplyJob=params=>{
-  return axios.post(`${host}/secretary/listUserApplyJob`, params, {
+export const apiListApplyByJobId=params=>{
+  return axios.post(`${host}/secretary/match/listApplyByJobId`, params, {
     headers:{
       token:store.state.token
     }
   })
 }
-export const apiListNewApply=params=>{
-  return axios.post(`${host}/secretary/match/listNewApply`, params, {
+export const apiListJobMatching=params=>{
+  return axios.post(`${host}/secretary/match/listJobMatching`, params, {
     headers:{
       token:store.state.token
     }

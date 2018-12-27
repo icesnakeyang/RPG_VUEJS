@@ -37,6 +37,7 @@ import applyJobsPage from '@/pages/secretary/match/user/applyJobsPage'
 
 import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
 import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
+import jobApplyUserList from '@/pages/secretary/match/jobApplyUserList'
 
 import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
 import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
@@ -599,6 +600,19 @@ const router = new Router({
           },
           meta:{
             title:'secretaryMatchPage',
+            token:true
+          }
+        },
+        {
+          path:'jobApplyUserList',
+          name:'jobApplyUserList',
+          components:{
+            head:HeadBarBase,
+            content:jobApplyUserList,
+            footer:FooterBar
+          },
+          meta:{
+            title:'jobApplyUserList',
             token:true
           }
         }
