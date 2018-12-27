@@ -34,10 +34,10 @@ import userTopUpPage from '@/pages/user/account/topUp/topUpPage'
 
 import secretaryMatchPage from '@/pages/secretary/match/secretaryMatchPage'
 import applyJobsPage from '@/pages/secretary/match/user/applyJobsPage'
+import applyPage from '@/pages/secretary/match/applyPage'
+import userApplyHistoryPage from '@/pages/secretary/match/userApplyHistoryPage'
 
 import myMatchJobPage from '@/pages/job/myJob/matchJob/myMatchJobPage'
-import secretaryMatchJobPage from '@/pages/secretary/match/secretaryMatchJobPage'
-import jobApplyUserList from '@/pages/secretary/match/jobApplyUserList'
 
 import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
 import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
@@ -251,19 +251,6 @@ const router = new Router({
             title: "MyMatchJobPage",
             token: true,
             menuType: "job"
-          }
-        },
-        {
-          path: 'secretaryMatchJobPage',
-          name: 'secretaryMatchJobPage',
-          components: {
-            head: HeadBarBase,
-            content: secretaryMatchJobPage,
-            footer: FooterBar
-          },
-          meta: {
-            title: "SecretaryMatchJobPage",
-            token: true
           }
         },
         {
@@ -604,15 +591,28 @@ const router = new Router({
           }
         },
         {
-          path:'jobApplyUserList',
-          name:'jobApplyUserList',
+          path:'applyPage',
+          name:'applyPage',
           components:{
             head:HeadBarBase,
-            content:jobApplyUserList,
+            content:applyPage,
             footer:FooterBar
           },
           meta:{
-            title:'jobApplyUserList',
+            title:'applyPage',
+            token:true
+          }
+        },
+        {
+          path:'userApplyHistoryPage',
+          name:'userApplyHistoryPage',
+          components:{
+            head:HeadBarBase,
+            content:userApplyHistoryPage,
+            footer:FooterBar
+          },
+          meta:{
+            title:'userApplyHistoryPage',
             token:true
           }
         }

@@ -102,11 +102,13 @@
     "updateTipSucess": "任务修改成功",
     "delete": "删除",
     "deleteTip": "任务删除后不可恢复，确定要删除吗？",
-    "deleteTipSuccess": "任务删除成功"
+    "deleteTipSuccess": "任务删除成功",
+    "status":"任务当前状态"
   },
   "apply": {
     "applyTime": "申请时间",
-    "readTime": "RPG秘书查看时间"
+    "readTime": "RPG秘书查看时间",
+    "applyProcessResult":"申请处理结果"
   },
   "jobMatchLog": {
     "matchTime": "工作分配时间",

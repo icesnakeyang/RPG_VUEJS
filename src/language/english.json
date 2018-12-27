@@ -102,11 +102,13 @@
     "updateTipSucess":"Update job success",
     "delete":"Delete",
     "deleteTip":"The job cannot be restored after delete, are you sure?",
-    "deleteTipSuccess":"The job has been deleted successfully"
+    "deleteTipSuccess":"The job has been deleted successfully",
+    "status":"Job Status"
   },
   "apply":{
     "applyTime":"Apply Time",
-    "readTime":"Read Time by RPG Secretary"
+    "readTime":"Read Time by RPG Secretary",
+    "applyProcessResult":"Process Result"
   },
   "jobMatchLog":{
     "matchTime":"Job Assign Time",

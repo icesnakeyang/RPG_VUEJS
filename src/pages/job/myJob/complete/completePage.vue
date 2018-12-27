@@ -52,7 +52,7 @@
   import CompleteRow from "./completeRow"
   import {rejectComplete} from "../../../../api/api";
   import {acceptComplete} from "../../../../api/api";
-  import {loadJobTiny} from "../../../../api/api";
+  import {apiGetJobDetailTiny} from "../../../../api/api";
 
   export default {
     name: "completePage",
@@ -118,7 +118,7 @@
           }
         })
 
-        loadJobTiny(this.$store.state.jobId).then((response) => {
+        apiGetJobDetailTiny(this.$store.state.jobId).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
             console.log(this.job)

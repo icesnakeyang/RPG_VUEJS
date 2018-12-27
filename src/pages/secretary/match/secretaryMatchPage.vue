@@ -1,7 +1,8 @@
 <template>
   <div>
-    <SecretaryMatchRow v-for="(item, index) in jobs" :job="item">
-
+    <SecretaryMatchRow v-for="(item, index) in jobs"
+                       :job="item"
+                       :key="index">
     </SecretaryMatchRow>
   </div>
 </template>

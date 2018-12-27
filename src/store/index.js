@@ -34,6 +34,9 @@ export default new Vuex.Store({
     saveTaskId(ctx, taskId){
       ctx.commit('saveTaskId', taskId)
     },
+    saveUserId(ctx, userId){
+      ctx.commit('saveUserId', userId)
+    },
     clearTask(ctx){
       ctx.commit('clearTask')
     }
@@ -75,6 +78,10 @@ export default new Vuex.Store({
     saveTaskId(state, taskId){
       state.taskId=taskId
       localStorage.taskId=taskId
+    },
+    saveUserId(state, userId){
+      state.userId=userId
+      localStorage.userId=userId
     },
     clearTask(state){
       state.taskId=''

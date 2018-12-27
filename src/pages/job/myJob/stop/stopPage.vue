@@ -44,7 +44,7 @@
 <script>
   import StopRow from "./stopRow"
   import {loadStopList} from "../../../../api/api";
-  import {loadJobTiny} from "../../../../api/api";
+  import {apiGetJobDetailTiny} from "../../../../api/api";
   import {rejectStop} from "../../../../api/api";
   import {acceptStop} from "../../../../api/api";
   import {setStopReadTime} from "../../../../api/api";
@@ -107,7 +107,7 @@
             this.setReadTime()
           }
         })
-        loadJobTiny(this.$store.state.jobId).then((response) => {
+        apiGetJobDetailTiny(this.$store.state.jobId).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
           }

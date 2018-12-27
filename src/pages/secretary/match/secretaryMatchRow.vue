@@ -38,7 +38,7 @@
       onJob(jobId) {
         console.log(jobId)
         this.$router.push({
-          name:'jobApplyUserList',
+          name:'applyPage',
           params:{
             jobId: jobId
           }
