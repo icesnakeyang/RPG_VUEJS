@@ -643,7 +643,7 @@ const router = new Router({
           },
           meta:{
             title:'spotlightDetail',
-            token:true
+            token:false
           }
         },
         {
@@ -656,7 +656,7 @@ const router = new Router({
           },
           meta:{
             title:'spotlightList',
-            token:true
+            token:false
           }
         }
       ]
