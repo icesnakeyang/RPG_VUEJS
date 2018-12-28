@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'http://gogorpg.com:9527';
-let host = 'http://localhost:9527';
+let host = 'http://gogorpg.com:9527';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 export const apiPublishNewJob = params => {
@@ -343,6 +343,9 @@ export const apiListSpotlight=params=>{
 }
 export const apiSpotlightDetail=params=>{
   return axios.get(`${host}/spotlight/detail/`+params)
+}
+export const apiListSpotlightPlaza=params=>{
+  return axios.post(`${host}/spotlight/list`, params)
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 

@@ -9,7 +9,7 @@
     "adminManager": "管理员设置",
     "matchJob": "匹配任务",
     "topUp": "充值",
-    "appealSquare": "申诉广场",
+    "spotlight": "申诉广场",
     "signOut": "退出登录",
     "settings": "设置",
     "signIn": "登录",
@@ -162,7 +162,8 @@
       "content":"申诉内容",
       "tipCreateSuccess":"创建申诉话题成功",
       "tipCreateConfirm":"确定要发布申诉话题吗？",
-      "createdTime":"申诉发布时间"
+      "createdTime":"申诉发布时间",
+      "createdUserName":"申诉发起人"
     }
   },
   "user": {

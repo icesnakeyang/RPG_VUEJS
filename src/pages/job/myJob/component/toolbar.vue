@@ -9,7 +9,7 @@
     <Badge :count="badgeInfo.unReadStop" type="error">
       <Button type="warning" @click="onStop" class="gogo_badge">{{$t("job.tabStop")}}</Button>
     </Badge>
-    <Badge :count="5" type="error">
+    <Badge type="error">
       <Button type="error" @click="onSpot" class="gogo_badge">{{$t("job.tabSpotlight")}}</Button>
     </Badge>
   </div>

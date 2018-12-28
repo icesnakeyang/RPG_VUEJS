@@ -20,6 +20,7 @@
           </span>
           <MenuLogin></MenuLogin>
           <MenuLanguage></MenuLanguage>
+          <MenuItem name="12-1">{{$t('command.spotlight')}}</MenuItem>
         </div>
       </Col>
     </Row>
@@ -159,6 +160,11 @@
         if(name==="3-4"){
           this.$router.push({
             name:'myAccountPage'
+          })
+        }
+        if(name==="12-1"){
+          this.$router.push({
+            name:'spotlightList'
           })
         }
       },

@@ -62,6 +62,7 @@ import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdat
 import myAccountPage from '@/pages/account/myAccountPage'
 
 import spotlightDetail from '@/pages/spotlight/spotlightDetail'
+import spotlightList from '@/pages/spotlight/spotlightList'
 
 import store from '../store/index'
 
@@ -642,6 +643,19 @@ const router = new Router({
           },
           meta:{
             title:'spotlightDetail',
+            token:true
+          }
+        },
+        {
+          path:'spotlightList',
+          name:'spotlightList',
+          components:{
+            head:HeadBarBase,
+            content:spotlightList,
+            footer:FooterBar
+          },
+          meta:{
+            title:'spotlightList',
             token:true
           }
         }

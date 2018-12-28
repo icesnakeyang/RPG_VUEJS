@@ -9,7 +9,7 @@
     "adminManager":"Admin Manger",
     "matchJob": "Match Jobs",
     "topUp": "Top Up",
-    "appealSquare": "Appeal Square",
+    "spotlight": "Spotlight",
     "signOut": "Sign Out",
     "settings": "Settings",
     "signIn": "Sign In",
@@ -162,7 +162,8 @@
       "content":"Content",
       "tipCreateSuccess":"Create spotlight success",
       "tipCreateConfirm":"Are you sure to create the spotlight?",
-      "createdTime":"Spot time"
+      "createdTime":"Spot time",
+      "createdUserName":"Created user"
     }
   },
   "user":{
