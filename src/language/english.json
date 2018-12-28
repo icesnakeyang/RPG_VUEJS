@@ -182,7 +182,11 @@
     "match":{
       "applyTime":"Apply time",
       "applyUser":"Apply user",
-      "applyUserNum":"Apply user number"
+      "applyUserNum":"Apply user number",
+      "tipAgreeMatch":"Are you sure to match this user？",
+      "tipRejectMatch":"Are you sure to reject this user's application？",
+      "btAgree":"Agree",
+      "btReject":"Reject"
     }
   },
   "account": {
@@ -303,6 +307,8 @@
     "10106":"Read my account data error",
     "10107":"Read users applied jobs error",
     "10108":"Read users history record error",
-    "10109":"Read new apply job failed"
+    "10109":"Read new apply job failed",
+    "10110":"Reject job apply error",
+    "10111":"Agree job apply error"
   }
 }

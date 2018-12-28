@@ -8,8 +8,8 @@
       </p>
       <p>{{createdTime}}</p>
       <Divider></Divider>
-      <Button type="primary" @click="onAgree(apply.applyId)">ok</Button>
-      <Button type="error" @click="onReject(apply.applyId)">reject</Button>
+      <Button type="primary" @click="onAgree(apply.applyId)">{{$t('secretary.match.btAgree')}}</Button>
+      <Button type="error" @click="onReject(apply.applyId)">{{$t('secretary.match.btReject')}}</Button>
     </Card>
   </div>
 </template>
@@ -39,9 +39,29 @@
       },
       onAgree(applyId) {
         console.log(applyId)
+        this.$Modal.confirm({
+          title: this.$t('common.tipTitleQuestion'),
+          content: this.$t('secretary.match.tipAgreeMatch'),
+          onOk: () => {
+            //match the job to user
+
+          },
+          onCancel: () => {
+          }
+        });
       },
       onReject(applyId) {
-        console.log(applyId)
+        this.$Modal.confirm({
+          title:this.$t('common.tipTitleQuestion'),
+          content:this.$t('secretary.match.tipRejectMatch'),
+          onOk:()=>{
+            //set the apply to reject
+
+          },
+          onCancel:()=>{
+
+          }
+        })
       }
     }
   }
