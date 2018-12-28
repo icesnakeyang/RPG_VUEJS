@@ -313,6 +313,37 @@ export const apiListApplyHistory=params=>{
     }
   })
 }
+export const apiRejectApply=params=>{
+  return axios.post(`${host}/secretary/match/rejectApply`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiAgreeApply=params=>{
+  return axios.post(`${host}/secretary/match/agreeApply`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiCreateSpotlight=params=>{
+  return axios.post(`${host}/job/mySpotlight/create`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiListSpotlight=params=>{
+  return axios.post(`${host}/job/mySpotlight/list`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+export const apiSpotlightDetail=params=>{
+  return axios.get(`${host}/spotlight/detail/`+params)
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const loadUserInfo = params => {

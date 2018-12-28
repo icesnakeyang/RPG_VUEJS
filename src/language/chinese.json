@@ -108,7 +108,10 @@
   "apply": {
     "applyTime": "申请时间",
     "readTime": "RPG秘书查看时间",
-    "applyProcessResult":"申请处理结果"
+    "applyProcessResult":"申请处理结果",
+    "applyTitle1":"申请任务",
+    "applyTitle2":"申请任务时请简要说明自己的优势，个人信息或作品链接，以便RPG秘书处理。",
+    "applyContent":"申请说明"
   },
   "jobMatchLog": {
     "matchTime": "工作分配时间",
@@ -152,6 +155,16 @@
     "processTime": "处理时间",
     "processUserName": "处理人"
   },
+  "spot":{
+    "spotlight":{
+      "btCreate":"创建申诉话题",
+      "title":"申诉标题",
+      "content":"申诉内容",
+      "tipCreateSuccess":"创建申诉话题成功",
+      "tipCreateConfirm":"确定要发布申诉话题吗？",
+      "createdTime":"申诉发布时间"
+    }
+  },
   "user": {
     "username": "用户名",
     "realName": "真实姓名",
@@ -186,7 +199,10 @@
       "tipAgreeMatch":"确定要把该任务分配给该用户吗？",
       "tipRejectMatch":"确定要拒绝该用户的的申请吗？",
       "btAgree":"同意申请",
-      "btReject":"拒绝申请"
+      "btReject":"拒绝申请",
+      "placeholderReject":"请说明拒绝该用户的理由",
+      "tipRejectSuccess":"拒绝用户申请成功",
+      "tipAgreeSuccess":"分配任务成功"
     }
   },
   "account": {
@@ -309,6 +325,8 @@
     "10108":"读取用户历史记录错误",
     "10109":"读取新申请的任务失败",
     "10110":"拒绝任务申请失败",
-    "10111":"同意任务申请失败"
+    "10111":"同意任务申请失败",
+    "10112":"你要处理的任务并不存在",
+    "10113":"创建留言失败"
   }
 }

@@ -5,87 +5,95 @@ import {loadCompletList} from "../api/api";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state:{
-    token:''||localStorage.token,
-    username:''||localStorage.username,
-    toUrl:''||localStorage.toUrl,
+  state: {
+    token: '' || localStorage.token,
+    username: '' || localStorage.username,
+    toUrl: '' || localStorage.toUrl,
 
-    roleType:''||localStorage.roleType,
-    loginName:'',
+    roleType: '' || localStorage.roleType,
+    loginName: '',
 
-    taskId:''||localStorage.taskId,
+    taskId: '' || localStorage.taskId,
 
-    jobId:''||localStorage.jobId,
-    userId:''||localStorage.userId
+    jobId: '' || localStorage.jobId,
+    userId: '' || localStorage.userId,
+    spotId: '' || localStorage.spotId
   },
-  actions:{
-    saveToken(ctx, user){
+  actions: {
+    saveToken(ctx, user) {
       ctx.commit('saveToken', user)
     },
-    logout(ctx){
+    logout(ctx) {
       ctx.commit('logout')
     },
-    saveToUrl(ctx, url){
+    saveToUrl(ctx, url) {
       ctx.commit('saveToUrl', url)
     },
-    saveJobId(ctx, jobId){
+    saveJobId(ctx, jobId) {
       ctx.commit('saveJobId', jobId)
     },
-    saveTaskId(ctx, taskId){
+    saveTaskId(ctx, taskId) {
       ctx.commit('saveTaskId', taskId)
     },
-    saveUserId(ctx, userId){
+    saveUserId(ctx, userId) {
       ctx.commit('saveUserId', userId)
     },
-    clearTask(ctx){
+    clearTask(ctx) {
       ctx.commit('clearTask')
+    },
+    saveSpotId(ctx, spotId) {
+      ctx.commit('saveSpotId', spotId)
     }
   },
-  mutations:{
-    saveToken(state,user){
-      state.token=user.token;
-      localStorage.token=user.token;
-      state.username=user.username;
-      localStorage.username=user.username;
+  mutations: {
+    saveToken(state, user) {
+      state.token = user.token;
+      localStorage.token = user.token;
+      state.username = user.username;
+      localStorage.username = user.username;
 
-      state.loginName=user.loginName;
+      state.loginName = user.loginName;
 
-      state.roleType=user.roleType;
-      localStorage.roleType=user.roleType;
+      state.roleType = user.roleType;
+      localStorage.roleType = user.roleType;
 
-      state.userId=user.userId;
-      localStorage.userId=user.userId;
+      state.userId = user.userId;
+      localStorage.userId = user.userId;
     },
-    logout(state){
-      state.token='';
-      localStorage.token='';
-      state.username='';
-      localStorage.username='';
-      state.roleType='';
-      localStorage.roleType='';
-      state.loginName='';
-      state.userId='';
-      localStorage.userId='';
+    logout(state) {
+      state.token = '';
+      localStorage.token = '';
+      state.username = '';
+      localStorage.username = '';
+      state.roleType = '';
+      localStorage.roleType = '';
+      state.loginName = '';
+      state.userId = '';
+      localStorage.userId = '';
     },
-    saveToUrl(state, url){
-      state.toUrl=url;
-      localStorage.toUrl=url;
+    saveToUrl(state, url) {
+      state.toUrl = url;
+      localStorage.toUrl = url;
     },
-    saveJobId(state, jobId){
-      state.jobId=jobId;
-      localStorage.jobId=jobId
+    saveJobId(state, jobId) {
+      state.jobId = jobId;
+      localStorage.jobId = jobId
     },
-    saveTaskId(state, taskId){
-      state.taskId=taskId
-      localStorage.taskId=taskId
+    saveTaskId(state, taskId) {
+      state.taskId = taskId
+      localStorage.taskId = taskId
     },
-    saveUserId(state, userId){
-      state.userId=userId
-      localStorage.userId=userId
+    saveUserId(state, userId) {
+      state.userId = userId
+      localStorage.userId = userId
     },
-    clearTask(state){
-      state.taskId=''
-      localStorage.taskId=''
+    saveSpotId(state, spotId) {
+      state.spotId = spotId
+      localStorage.spotId = spotId
+    },
+    clearTask(state) {
+      state.taskId = ''
+      localStorage.taskId = ''
     }
   }
 })

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Alert>管理员登录</Alert>
+    <Alert>
+      {{$t('apply.applyTitle1')}}
+      <template slot="desc">{{$t('apply.applyTitle2')}}</template>
+    </Alert>
     <Card class="card">
       <p slot="title">
         {{jobTitle}}
@@ -8,6 +11,10 @@
       <Form :model="userInfo" :label-width="140">
         <FormItem v-show="errInput">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
+        </FormItem>
+        <FormItem :label="$t('apply.applyContent')">
+          <Input v-model="applyContent" type="textarea"
+                 :autosize="{minRows: 2,maxRows: 10}"></Input>
         </FormItem>
         <FormItem :label="$t('user.realName')">
           <Input v-model="userInfo.realName"/>
@@ -46,7 +53,8 @@
         userInfo: {},
         errInput: false,
         errMsg: '',
-        saving: false
+        saving: false,
+        applyContent:''
       }
     },
     computed: {
@@ -64,7 +72,8 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             applyJob({
-              jobId: this.$route.params.jobId
+              jobId: this.$store.state.jobId,
+              content:this.applyContent
             }).then((response) => {
               if (response.data.errorCode === 0) {
                 this.$router.push({
@@ -84,6 +93,9 @@
       }
     },
     mounted() {
+      if(this.$route.params.jobId){
+        this.$store.dispatch('saveJobId', this.$route.params.jobId)
+      }
       loadUserInfo().then((response) => {
         this.userInfo = response.data.data
       })

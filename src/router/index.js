@@ -53,12 +53,15 @@ import stopPage from '@/pages/job/myJob/stop/stopPage'
 import createStop from '@/pages/job/myJob/stop/createStop'
 
 import mySpotPage from '@/pages/job/myJob/mySpotlight/mySpotPage'
+import createSpotlight from '@/pages/job/myJob/mySpotlight/createSpotlight'
 
 import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
 import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
 import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdate'
 
 import myAccountPage from '@/pages/account/myAccountPage'
+
+import spotlightDetail from '@/pages/spotlight/spotlightDetail'
 
 import store from '../store/index'
 
@@ -613,6 +616,32 @@ const router = new Router({
           },
           meta:{
             title:'userApplyHistoryPage',
+            token:true
+          }
+        },
+        {
+          path:'createSpotlight',
+          name:'createSpotlight',
+          components:{
+            head:HeadBarBase,
+            content:createSpotlight,
+            footer:FooterBar
+          },
+          meta:{
+            title:'createSpotlight',
+            token:true
+          }
+        },
+        {
+          path:'spotlightDetail',
+          name:'spotlightDetail',
+          components:{
+            head:HeadBarBase,
+            content:spotlightDetail,
+            footer:FooterBar
+          },
+          meta:{
+            title:'spotlightDetail',
             token:true
           }
         }

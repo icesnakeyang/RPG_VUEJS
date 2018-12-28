@@ -108,7 +108,10 @@
   "apply":{
     "applyTime":"Apply Time",
     "readTime":"Read Time by RPG Secretary",
-    "applyProcessResult":"Process Result"
+    "applyProcessResult":"Process Result",
+    "applyTitle1":"Apply This Job",
+    "applyTitle2":"Please subscribe your benefit, why you qualify for this job.",
+    "applyContent":"Apply content"
   },
   "jobMatchLog":{
     "matchTime":"Job Assign Time",
@@ -152,6 +155,16 @@
     "processTime": "Process time",
     "processUserName":"Process user"
   },
+  "spot":{
+    "spotlight":{
+      "btCreate":"Create New Spotlight",
+      "title":"Title",
+      "content":"Content",
+      "tipCreateSuccess":"Create spotlight success",
+      "tipCreateConfirm":"Are you sure to create the spotlight?",
+      "createdTime":"Spot time"
+    }
+  },
   "user":{
     "username":"Username",
     "realName":"Real Name",
@@ -186,7 +199,10 @@
       "tipAgreeMatch":"Are you sure to match this user？",
       "tipRejectMatch":"Are you sure to reject this user's application？",
       "btAgree":"Agree",
-      "btReject":"Reject"
+      "btReject":"Reject",
+      "placeholderReject":"Please describe why you reject the application",
+      "tipRejectSuccess":"Reject apply success",
+      "tipAgreeSuccess":"Agree apply success"
     }
   },
   "account": {
@@ -309,6 +325,8 @@
     "10108":"Read users history record error",
     "10109":"Read new apply job failed",
     "10110":"Reject job apply error",
-    "10111":"Agree job apply error"
+    "10111":"Agree job apply error",
+    "10112":"The job is not exist",
+    "10113":"Create spot book failed"
   }
 }
