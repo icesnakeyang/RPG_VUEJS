@@ -328,6 +328,10 @@
     "10110":"Reject job apply error",
     "10111":"Agree job apply error",
     "10112":"The job is not exist",
-    "10113":"Create spot book failed"
+    "10113":"Create spot book failed",
+    "10114": "Update email failed",
+    "10115": "Insert phone failed",
+    "10116": "Update phone failed",
+    "10117": "Your real name has been authorized already, cannot be changed. If you do need to change it, please contact the RPG secretary"
   }
 }
