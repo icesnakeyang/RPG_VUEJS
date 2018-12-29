@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     token: '' || localStorage.token,
     username: '' || localStorage.username,
+    realName:'' || localStorage.realName,
     toUrl: '' || localStorage.toUrl,
 
     roleType: '' || localStorage.roleType,
@@ -51,6 +52,8 @@ export default new Vuex.Store({
       localStorage.token = user.token;
       state.username = user.username;
       localStorage.username = user.username;
+      state.realName=user.realName
+      localStorage.realName=user.realName
 
       state.loginName = user.loginName;
 

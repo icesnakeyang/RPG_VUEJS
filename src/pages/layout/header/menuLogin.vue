@@ -1,7 +1,7 @@
 <template>
   <Submenu name="5">
     <template slot="title">
-      <Icon type="ios-paper"></Icon>
+      <Icon type="md-person" />
       <span v-if="token">{{username1}}</span>
       <span v-else>{{$t("command.signIn")}}</span>
     </template>

@@ -13,6 +13,7 @@
       <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
           <span v-if="token">
+            <MenuMyProfile></MenuMyProfile>
             <MenuJob2 v-if="isJobMenu"></MenuJob2>
             <MenuJob v-else="isJobMenu"></MenuJob>
             <MenuAdmin v-if="isAdmin"></MenuAdmin>
@@ -34,6 +35,7 @@
   import MenuLogin from './menuLogin'
   import MenuAdmin from './menuAdmin'
   import MenuSecretary from './menuSecretary'
+  import MenuMyProfile from './menuMyProfile'
 
   export default {
     name: "HeaderBarBase",
@@ -43,7 +45,8 @@
       MenuLanguage,
       MenuLogin,
       MenuAdmin,
-      MenuSecretary
+      MenuSecretary,
+      MenuMyProfile
     },
     computed: {
       token() {

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Layout from '@/pages/layout/Layout'
+import menuHeader1 from '@/pages/layout/header/menuHeader1'
 import JobPlaza from '@/pages/job/plaza/jobPlaza'
 
 import HeadBarBase from '@/pages/layout/header/HeaderBarBase'
@@ -78,7 +79,7 @@ const router = new Router({
           path: 'jobPlaza',
           name: 'jobPlaza',
           components: {
-            head: HeadBarBase,
+            head: menuHeader1,
             content: JobPlaza,
             footer: FooterBar
           },

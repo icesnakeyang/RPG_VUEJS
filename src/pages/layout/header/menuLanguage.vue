@@ -1,7 +1,7 @@
 <template>
   <Submenu name="6">
     <template slot="title">
-      <Icon type="ios-paper"></Icon>
+      <Icon type="ios-globe-outline" />
       {{$t("header.language")}}
     </template>
     <MenuItem name="6-1">中文</MenuItem>
