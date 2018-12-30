@@ -38,7 +38,7 @@
   import MenuMyProfile from './menuMyProfile'
 
   export default {
-    name: "HeaderBarBase",
+    name: "headerBarBase",
     components: {
       MenuJob,
       MenuJob2,

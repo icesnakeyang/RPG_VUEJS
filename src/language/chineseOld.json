@@ -1,38 +1,4 @@
 {
-  "menuItem":{},
-  "common": {
-    "tipTitleQuestion": "提问",
-    "ok": "确定",
-    "cancel": "取消",
-    "unRead": "未阅读",
-    "submit": "提交"
-  },
-
-  "user":{
-    "email":"Email",
-    "emailPlaceholder":"请输入Email",
-    "password":"密码",
-    "passwordPlaceholder":"请输入登录密码",
-    "password2":"确认密码",
-    "password2Placeholder":"请再次确认登录密码",
-    "btRegister":"注册",
-    "btLogin":"登录"
-  },
-  "account":{},
-  "honor":{},
-  "task":{
-
-  },
-  "job":{
-  },
-  "admin":{
-
-  },
-  "secretary":{
-
-  },
-  "spotlight":{},
-
   "command": {
     "createNewTask": "创建新项目",
     "myRPG": "我的RPG",
@@ -58,7 +24,13 @@
     "dashboard": "控制台",
     "myPendingJob": "我发布并等待成交的工作"
   },
-
+  "common": {
+    "tipTitleQuestion": "提问",
+    "ok": "确定",
+    "cancel": "取消",
+    "unRead": "未阅读",
+    "submit": "提交"
+  },
   "label": {
     "title": "标题",
     "days": "期限（天）",

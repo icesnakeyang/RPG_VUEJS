@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import {registerUser} from "../../api/api";
+  import {apiRegisterByEmail} from "../../api/api";
 
   export default {
     name: "RegisterPage",
@@ -55,7 +55,7 @@
           this.errMsg=this.$t('register.err1');
           return
         }
-        registerUser({
+        apiRegisterByEmail({
           username: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
