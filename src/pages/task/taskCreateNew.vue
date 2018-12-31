@@ -37,7 +37,7 @@
   import {createTask} from "../../api/api";
 
   export default {
-    name: "taskNew",
+    name: "taskCreateNew",
     components:{
       quillEditor
     },

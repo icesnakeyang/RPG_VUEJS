@@ -8,7 +8,7 @@
         <a herf="" class="gogo-title" @click="clickRPG">RPG</a>
       </Col>
       <Col :xs="8" :sm="2" :md="1" :lg="1">
-        <Button type="primary" @click="createTask">{{$t("command.createNewTask")}}</Button>
+        <Button type="primary" @click="createTask">{{$t("navigator.createTask")}}</Button>
       </Col>
       <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
@@ -21,7 +21,7 @@
           </span>
           <MenuLogin></MenuLogin>
           <MenuLanguage></MenuLanguage>
-          <MenuItem name="12-1">{{$t('command.spotlight')}}</MenuItem>
+          <MenuItem name="12-1">{{$t('navigator.spotlight')}}</MenuItem>
         </div>
       </Col>
     </Row>
@@ -94,7 +94,7 @@
           this.$store.dispatch('logout');
         }
         if (name === "5-2") {
-          this.$router.push({name: "login"})
+          this.$router.push({name: "loginPage"})
         }
         if (name === "3-1") {
           this.$router.push({name: "taskPage"})
@@ -172,10 +172,12 @@
         }
       },
       createTask() {
-        this.$router.push({name: 'createTask'})
+        this.$router.push({
+          name: 'taskCreateNew'
+        })
       },
       clickRPG() {
-        this.$router.push({name: 'jobPlaza'})
+        this.$router.push({name: 'publicJobPage'})
       }
     }
   }

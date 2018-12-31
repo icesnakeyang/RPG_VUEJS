@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     token: '' || localStorage.token,
     username: '' || localStorage.username,
-    realName:'' || localStorage.realName,
+    realName: '' || localStorage.realName,
     toUrl: '' || localStorage.toUrl,
 
     roleType: '' || localStorage.roleType,
@@ -29,6 +29,9 @@ export default new Vuex.Store({
     },
     saveToUrl(ctx, url) {
       ctx.commit('saveToUrl', url)
+    },
+    clearToUrl(ctx) {
+      ctx.commit('clearToUrl')
     },
     saveJobId(ctx, jobId) {
       ctx.commit('saveJobId', jobId)
@@ -52,8 +55,8 @@ export default new Vuex.Store({
       localStorage.token = user.token;
       state.username = user.username;
       localStorage.username = user.username;
-      state.realName=user.realName
-      localStorage.realName=user.realName
+      state.realName = user.realName
+      localStorage.realName = user.realName
 
       state.loginName = user.loginName;
 
@@ -77,6 +80,10 @@ export default new Vuex.Store({
     saveToUrl(state, url) {
       state.toUrl = url;
       localStorage.toUrl = url;
+    },
+    clearToUrl(state) {
+      state.toUrl = ''
+      localStorage.toUrl = ''
     },
     saveJobId(state, jobId) {
       state.jobId = jobId;

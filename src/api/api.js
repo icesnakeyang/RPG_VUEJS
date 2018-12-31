@@ -14,6 +14,18 @@ export const apiRegisterByEmail=params=>{
   return axios.post(`${host}/user/register/registerByEmail`, params)
 }
 
+export const apiListPublicJob=params=>{
+  return axios.post(`${host}/job/plaza/listPublicJob`, params)
+}
+
+export const apiLoginByEmail=params=>{
+  return axios.post(`${host}/user/login/loginByEmail`, params)
+}
+
+export const apiGetEmailByEmail=params=>{
+  return axios.post(`${host}/user/register/getEmailByEmail`, params)
+}
+
 
 
 

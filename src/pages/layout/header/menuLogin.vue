@@ -3,10 +3,10 @@
     <template slot="title">
       <Icon type="md-person" />
       <span v-if="token">{{username1}}</span>
-      <span v-else>{{$t("command.signIn")}}</span>
+      <span v-else>{{$t("navigator.signIn")}}</span>
     </template>
-    <MenuItem name="5-1" v-if="token">{{$t("command.signOut")}}</MenuItem>
-    <MenuItem name="5-2" v-else="token">{{$t("command.signIn")}}</MenuItem>
+    <MenuItem name="5-1" v-if="token">{{$t("navigator.signOut")}}</MenuItem>
+    <MenuItem name="5-2" v-else="token">{{$t("navigator.signIn")}}</MenuItem>
   </Submenu>
 </template>
 

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {apiListPublicJob} from "../../../api/api";
+  // import {apiListPublicJob} from "../../../api/api";
   import jobListCard from './jobListCard'
 
   export default {

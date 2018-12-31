@@ -1,73 +1,146 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from "../store";
 
 import baseLayout from '@/pages/layout/baseLayout'
-import jobPlaza from '@/pages/job/plaza/jobPlaza'
-import headerBarBase from '@/pages/layout/header/headerBarBase'
-import footerBar from '@/pages/layout/footerBar'
-import registerByEmail from '@/pages/user/register/registerByEmail'
-
 import publicJobPage from '@/pages/job/plaza/publicJobPage'
 
-Vue.use(Router)
+import headerBarBase from '@/pages/layout/header/headerBarBase'
+import footerBar from '@/pages/layout/footerBar'
 
-const router=new Router({
-  routes:[
+import loginPage from '@/pages/user/login/loginPage'
+import spotlightPage from '@/pages/spotlight/spotlightPage'
+
+import taskCreateNew from '@/pages/task/taskCreateNew'
+
+import registerByEmail from '@/pages/user/register/registerByEmail'
+
+
+import store from '../store/index'
+
+Vue.use(Router);
+
+const router = new Router({
+  routes: [
     {
-      path:'/',
-      components:baseLayout,
-      children:[
+      path: '/app',
+      component: baseLayout,
+      children: [
         {
-          path:'publicJobPage',
-          name:'publicJobPage',
+          path: 'publicJobPage',
+          name: 'publicJobPage',
           components: {
+            head: headerBarBase,
+            content: publicJobPage,
+            footer: footerBar
+          },
+          meta: {
+            title: 'publicJobPage',
+            token: false
+          }
+        },
+        {
+          path: 'loginPage',
+          name: 'loginPage',
+          components: {
+            head: headerBarBase,
+            content: loginPage,
+            footer: footerBar
+          },
+          meta: {
+            title: 'Login',
+            token: false
+          }
+        },
+        {
+          path:'spotlightPage',
+          name:'spotlightPage',
+          components:{
             head:headerBarBase,
-            content:publicJobPage,
-            footer:footerBar,
+            content:spotlightPage,
+            footerBar:footerBar
           },
           meta:{
-            title:'publicJobPage',
+            title:'spotlightPage',
+            token:false
+          }
+        },
+        {
+          path:'taskCreateNew',
+          name:'taskCreateNew',
+          components:{
+            head:headerBarBase,
+            content:taskCreateNew,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'taskCreateNew',
+            token:true
+          }
+        },
+        {
+          path:'registerByEmail',
+          name:'registerByEmail',
+          components:{
+            head:headerBarBase,
+            content:registerByEmail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'registerByEmail',
             token:false
           }
         }
       ]
     }
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
-  console.log(to)
   if (to) {
+    console.log(to)
     if (!to.name) {
+      console.log('no name')
+      //如果路由里name=null，即指用户是通过外部链接直接访问
+      //输入域名访问，直接跳转到任务广场
       if (to.path === '/') {
         next({
           name: 'publicJobPage'
         })
       }
+      //通过推广链接，直接访问任务详情页面
+      //通过推广链接，直接访问某个申诉详情页面
+      //用户直接访问申诉广场
+      // if(to.path==='spotlightPage'){
+      //   next()
+      // }
+
     } else {
+      console.log('has name')
+      //路由里name有指定值，则指用户是通过站内页面跳转访问
+      //检测该指定页面是否需要用户token。即登录状态
       if (to.meta.token) {
+        console.log('need token')
+        //需要token，检测token值是否存在
         if (!store.state.token) {
-          if (to.name === 'login') {
-            store.dispatch('saveToUrl', '');
-          } else {
-            const toPath = {
-              name: to.name,
-              params: to.params
-            };
-            store.dispatch('saveToUrl', toPath);
-          }
+          //不存在token，跳转到登录页面，跳转前先保存访问路劲
+          store.dispatch('saveToUrl', '');
           next({
-            path: '/login'
+            name: 'loginPage'
           })
         } else {
+          //存在token，直接访问
           next()
         }
       } else {
+        console.log('no need token')
+        //不需要token，直接访问
         next()
       }
     }
   }
+})
+
+router.afterEach((to, from, next) => {
 });
 
 export default router;

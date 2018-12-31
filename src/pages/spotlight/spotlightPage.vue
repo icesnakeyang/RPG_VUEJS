@@ -12,7 +12,7 @@
   import SpotlightListRow from "./spotlightListRow"
 
   export default {
-    name: "spotlightList",
+    name: "spotlightPage",
     components:{
       SpotlightListRow
     },
@@ -37,6 +37,7 @@
       }
     },
     mounted() {
+      console.log('im in')
       this.loadAllData()
     }
   }
