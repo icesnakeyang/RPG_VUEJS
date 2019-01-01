@@ -12,11 +12,14 @@
     <FormItem :label="$t('task.detail')">
       <quill-editor v-model="task.detail"></quill-editor>
     </FormItem>
+    <FormItem :label="$t('task.price')">
+      <Input v-model="task.price"/>
+    </FormItem>
     <FormItem :label="$t('task.days')">
       <Input v-model="task.days"/>
     </FormItem>
     <FormItem v-show="!saving">
-      <Button type="primary" @click="create">{{$t("task.create")}}</Button>
+      <Button type="primary" @click="create">{{$t("task.btCreate")}}</Button>
     </FormItem>
     <FormItem v-show="saving">
       <template>
@@ -62,7 +65,8 @@
           title:this.task.title,
           detail:this.task.detail,
           days:this.task.days,
-          code:this.task.code
+          code:this.task.code,
+          price:this.task.price
         }).then((response)=>{
           if(response.data.errorCode===0){
             this.$router.push({name:'taskPage'})

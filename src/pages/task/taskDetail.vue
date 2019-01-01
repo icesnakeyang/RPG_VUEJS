@@ -17,7 +17,7 @@
       <p>{{$t("task.createdUserName")}}: {{task.createdUserName}}</p>
       <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
       <p>{{$t("task.days")}}: {{task.days}}</p>
-      <p>{{task.price}}</p>
+      <p>{{$t("task.price")}}: {{task.price}}</p>
       <quill-editor v-model="task.detail"
                     :options="options">
       </quill-editor>
@@ -34,6 +34,11 @@
 
   export default {
     name: "taskDetail",
+    components: {
+      quillEditor,
+      TaskHeader
+    },
+    props: {},
     data() {
       return {
         task: {},
@@ -61,20 +66,10 @@
         return this.task.pid
       }
     },
-    components: {
-      quillEditor,
-      TaskHeader
-    },
-    props: {},
-    mounted() {
-      this.taskId = this.$route.params.taskId
-      this.$store.dispatch('saveTaskId', this.taskId)
-      this.getAllData()
-    },
     methods: {
-      getAllData() {
+      loadAllData() {
         apiGetTaskDetailByTaskId({
-          taskId: this.taskId
+          taskId: this.$store.state.taskId
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
@@ -89,7 +84,7 @@
         })
 
         apiCountSubTask({
-          pid: this.taskId
+          pid: this.$store.state.taskId
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.totalSub = response.data.data.totalSub
@@ -99,7 +94,7 @@
         })
 
         apiListTaskBreadcrumb({
-          taskId:this.taskId
+          taskId:this.$store.state.taskId
         }).then((response)=>{
           if(response.data.errorCode===0){
             this.pList=response.data.data.breadList
@@ -109,10 +104,16 @@
         })
       },
       onTask(data){
-        this.taskId=data
-        this.getAllData()
+        // this.taskId=data
+        // this.loadAllData()
       }
-    }
+    },
+    mounted() {
+      if(this.$route.params.taskId){
+        this.$store.dispatch('saveTaskId', this.$route.params.taskId)
+      }
+      this.loadAllData()
+    },
   }
 </script>
 

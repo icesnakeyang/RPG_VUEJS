@@ -1,12 +1,12 @@
 <template>
-  <Submenu name="13">
+  <Submenu name="5">
     <template slot="title">
       <Icon type="ios-navigate"></Icon>
-      my profile
+      {{$t('navigator.myProfile')}}
     </template>
-    <MenuItem name="13-1">
+    <MenuItem name="5-1">
       <Icon type="ios-navigate"></Icon>
-      menu12
+      {{$t('navigator.dashboard')}}
     </MenuItem>
   </Submenu>
 </template>

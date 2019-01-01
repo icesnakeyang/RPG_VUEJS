@@ -1,16 +1,16 @@
 <template>
-  <Submenu name="8">
+  <Submenu name="9">
     <template slot="title">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.rpgSecretary")}}
+      {{$t("navigator.secretary")}}
     </template>
-    <MenuItem name="8-1">
+    <MenuItem name="9-1">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.matchJob")}}
+      {{$t("navigator.matchJob")}}
     </MenuItem>
-    <MenuItem name="8-2">
+    <MenuItem name="9-2">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.topUp")}}
+      {{$t("navigator.topUp")}}
     </MenuItem>
   </Submenu>
 </template>

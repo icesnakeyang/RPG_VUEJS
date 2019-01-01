@@ -1,28 +1,28 @@
 <template>
-  <Submenu name="10">
+  <Submenu name="3">
     <template slot="title">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.myJob")}}
+      {{$t("navigator.myJob")}}
     </template>
-    <MenuItem name="3-2-4">
+    <MenuItem name="3-1">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.dashboard")}}
+      {{$t("navigator.dashboard")}}
     </MenuItem>
-    <MenuItem name="3-2-1">
+    <MenuItem name="3-2">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.myMatch")}}
+      {{$t("navigator.myApply")}}
     </MenuItem>
-    <MenuItem name="3-2-2">
+    <MenuItem name="3-3">
     <Icon type="ios-navigate"></Icon>
-    {{$t("command.partyA")}}
+    {{$t("navigator.partyA")}}
     </MenuItem>
-    <MenuItem name="3-2-3">
+    <MenuItem name="3-4">
     <Icon type="ios-navigate"></Icon>
-    {{$t("command.partyB")}}
+    {{$t("navigator.partyB")}}
     </MenuItem>
-    <MenuItem name="3-2-5">
+    <MenuItem name="3-5">
     <Icon type="ios-navigate"></Icon>
-    {{$t("command.myPendingJob")}}
+    {{$t("navigator.myPending")}}
     </MenuItem>
   </Submenu>
 </template>

@@ -1,16 +1,12 @@
 <template>
-  <Submenu name="7">
+  <Submenu name="8">
     <template slot="title">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.rpgAdministrator")}}
+      {{$t("navigator.administrator")}}
     </template>
-    <MenuItem name="7-1">
+    <MenuItem name="8-1">
       <Icon type="ios-navigate"></Icon>
-      {{$t("command.adminManager")}}
-    </MenuItem>
-    <MenuItem name="7-2" v-if="isSecretary">
-      <Icon type="ios-navigate"></Icon>
-      {{$t("command.rpgSecretary")}}
+      {{$t("navigator.administrator")}}
     </MenuItem>
   </Submenu>
 </template>

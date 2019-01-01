@@ -15,16 +15,15 @@
           <span v-if="token">
             <MenuJob></MenuJob>
             <MenuTask></MenuTask>
-            <MenuMyProfile></MenuMyProfile>
+            <MenuProfile></MenuProfile>
             <MenuAccount></MenuAccount>
             <MenuHonor></MenuHonor>
-            <MenuUser></MenuUser>
             <MenuAdmin v-if="isAdmin"></MenuAdmin>
             <MenuSecretary v-if="isSecretary"></MenuSecretary>
           </span>
-          <MenuLogin></MenuLogin>
+          <MenuUser></MenuUser>
           <MenuLanguage></MenuLanguage>
-          <MenuItem name="12-1">{{$t('navigator.spotlight')}}</MenuItem>
+          <Button type="error" @click="onSpotlight">{{$t('navigator.spotlight')}}</Button>
         </div>
       </Col>
     </Row>
@@ -67,23 +66,12 @@
       },
       isAdmin() {
         if (this.$store.state.roleType === 'ADMINISTRATOR') {
-          return true;
+          return true
         }
-        if (this.$store.state.roleType === 'SUPER_ADMIN') {
-          return true;
-        }
-        if (this.$store.state.roleType === 'ROOT_ADMIN') {
-          return true;
-        }
+        return false
       },
       isSecretary() {
         if (this.$store.state.roleType === 'SECRETARY') {
-          return true;
-        }
-        return false;
-      },
-      isJobMenu() {
-        if (this.$route.meta.menuType === 'job') {
           return true
         }
         return false
@@ -91,10 +79,10 @@
     },
     methods: {
       menuClick(name) {
-        if (name === "6-1") {
+        if (name === "2-1") {
           this.$i18n.locale = 'zh'
         }
-        if (name === "6-2") {
+        if (name === "2-2") {
           this.$i18n.locale = 'en'
         }
         if (name === "5-1") {
@@ -103,7 +91,7 @@
         if (name === "5-2") {
           this.$router.push({name: "loginPage"})
         }
-        if (name === "3-1") {
+        if (name === "4-2") {
           this.$router.push({name: "taskPage"})
         }
         if (name === "10-3") {
@@ -185,6 +173,9 @@
       },
       clickRPG() {
         this.$router.push({name: 'publicJobPage'})
+      },
+      onSpotlight(){
+
       }
     }
   }
@@ -210,5 +201,6 @@
 
   .layout-nav {
     float: right;
+    padding-right: 20px;
   }
 </style>

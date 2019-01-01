@@ -9,13 +9,13 @@ export default new Vuex.Store({
     token: '' || localStorage.token,
     username: '' || localStorage.username,
     realName: '' || localStorage.realName,
+    email: '' || localStorage.email,
+    phone: '' || localStorage.phone,
     toUrl: '' || localStorage.toUrl,
 
     roleType: '' || localStorage.roleType,
-    loginName: '',
 
     taskId: '' || localStorage.taskId,
-
     jobId: '' || localStorage.jobId,
     userId: '' || localStorage.userId,
     spotId: '' || localStorage.spotId
@@ -57,12 +57,12 @@ export default new Vuex.Store({
       localStorage.username = user.username;
       state.realName = user.realName
       localStorage.realName = user.realName
-
-      state.loginName = user.loginName;
-
+      state.email = user.email
+      localStorage.email=user.email
+      state.phone=user.phone
+      localStorage.user.phone
       state.roleType = user.roleType;
       localStorage.roleType = user.roleType;
-
       state.userId = user.userId;
       localStorage.userId = user.userId;
     },

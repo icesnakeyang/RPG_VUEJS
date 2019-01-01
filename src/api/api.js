@@ -39,8 +39,48 @@ export const apiCreateTask = params => {
  * @param params
  * @returns {AxiosPromise<any>}
  */
-export const apiListSpotlight=params=>{
+export const apiListSpotlight = params => {
   return axios.post(`${host}/spotlight/listSpotlight`, params)
+}
+
+export const apiListMyTask = params => {
+  return axios.post(`${host}/task/listMyTask`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiGetTaskDetailByTaskId = params => {
+  return axios.post(`${host}/task/getTaskDetailByTaskId`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiCountSubTask=params=>{
+  return axios.post(`${host}/task/countSubTask`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListTaskBreadcrumb=params=>{
+  return axios.post(`${host}/task/listTaskBreadcrumb`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiDeleteTask=params=>{
+  return axios.post(`${host}/task/deleteTask`, params,{
+    headers:{
+      token:store.state.token
+    }
+  })
 }
 
 

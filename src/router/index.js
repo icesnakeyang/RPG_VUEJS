@@ -1,21 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store/index'
 
+/**
+ * layout
+ */
 import baseLayout from '@/pages/layout/baseLayout'
-import publicJobPage from '@/pages/job/plaza/publicJobPage'
-
 import headerBarBase from '@/pages/layout/header/headerBarBase'
 import footerBar from '@/pages/layout/footerBar'
 
+/**
+ * user
+ */
 import loginPage from '@/pages/user/login/loginPage'
-import spotlightPage from '@/pages/spotlight/spotlightPage'
-
-import taskCreateNew from '@/pages/task/taskCreateNew'
-
 import registerByEmail from '@/pages/user/register/registerByEmail'
 
+/**
+ * task
+ */
+import taskCreateNew from '@/pages/task/taskCreateNew'
+import taskPage from '@/pages/task/taskPage'
+import taskDetail from '@/pages/task/taskDetail'
 
-import store from '../store/index'
+/**
+ * job
+ */
+import publicJobPage from '@/pages/job/plaza/publicJobPage'
+
+/**
+ * spotlight
+ */
+import spotlightPage from '@/pages/spotlight/spotlightPage'
 
 Vue.use(Router);
 
@@ -87,6 +102,32 @@ const router = new Router({
           },
           meta:{
             title:'registerByEmail',
+            token:false
+          }
+        },
+        {
+          path:'taskPage',
+          name:'taskPage',
+          components:{
+            head:headerBarBase,
+            content:taskPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'taskPage',
+            token:false
+          }
+        },
+        {
+          path:'taskDetail',
+          name:'taskDetail',
+          components:{
+            head:headerBarBase,
+            content:taskDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'taskDetail',
             token:false
           }
         }

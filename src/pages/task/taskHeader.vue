@@ -55,7 +55,7 @@
       onDelete(){
         this.$Modal.confirm({
           title: this.$t("common.tipTitleQuestion"),
-          content: this.$t("task.qDelete"),
+          content: this.$t("task.tipDelete"),
           onOk: () => {
             this.deleteTask()
           },

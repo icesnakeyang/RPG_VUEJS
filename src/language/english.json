@@ -1,10 +1,31 @@
 {
+  "common":{
+    "tipTitleQuestion":"Question",
+    "ok": "Ok",
+    "cancel": "Cancel",
+    "unRead": "Unread",
+    "submit": "Submit"
+  },
   "navigator":{
     "signIn":"Sign in",
     "signOut":"Sign out",
     "language":"Language",
     "createTask":"Create New Task",
-    "spotlight":"Spotlight"
+    "spotlight":"Spotlight",
+    "myJob":"Job",
+    "dashboard":"Dashboard",
+    "myApply":"My Applied Job",
+    "partyA":"My PartyA Job",
+    "partyB":"My PartyB Job",
+    "myPending":"My Publish",
+    "myTask":"Task",
+    "myProfile":"Profile",
+    "myAccount":"Account",
+    "myHonor":"Honor",
+    "administrator":"Administrator",
+    "secretary":"Secretary",
+    "matchJob":"Match",
+    "topUp":"Top Up"
   },
   "user": {
     "username":"Login name",
@@ -22,7 +43,25 @@
     "err1": "The two passwords are not same",
     "err4":"This email has been used by other user"
   },
+  "task":{
+    "btCreate":"Create Task",
+    "title":"Title",
+    "code":"Code",
+    "detail":"Detail",
+    "days":"Days",
+    "price":"Price",
+    "createdUserName":"Created User",
+    "createdTime":"Created Time",
+    "delete":"Delete",
+    "tipDelete":"Are you sure you want to delete this task?",
+    "update":"Update",
+    "subTask":"Sub task",
+    "freelancer":"Publish",
+    "complete":"Complete"
+  },
   "syserr":{
-    "10024":"Username or password error"
+    "10024":"Username or password error",
+    "10031":"Read task failed",
+    "10095":"Count sub task error"
   }
 }

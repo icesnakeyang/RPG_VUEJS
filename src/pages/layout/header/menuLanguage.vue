@@ -1,11 +1,11 @@
 <template>
-  <Submenu name="6">
+  <Submenu name="2">
     <template slot="title">
       <Icon type="ios-globe-outline" />
       {{$t("navigator.language")}}
     </template>
-    <MenuItem name="6-1">中文</MenuItem>
-    <MenuItem name="6-2">English</MenuItem>
+    <MenuItem name="2-1">中文</MenuItem>
+    <MenuItem name="2-2">English</MenuItem>
   </Submenu>
 </template>
 
