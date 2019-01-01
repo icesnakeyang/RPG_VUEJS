@@ -36,7 +36,6 @@
     },
     methods: {
       onJob(jobId) {
-        console.log(jobId)
         this.$router.push({
           name:'applyPage',
           params:{

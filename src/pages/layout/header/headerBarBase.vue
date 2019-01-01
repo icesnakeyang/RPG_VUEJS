@@ -13,9 +13,12 @@
       <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
           <span v-if="token">
+            <MenuJob></MenuJob>
+            <MenuTask></MenuTask>
             <MenuMyProfile></MenuMyProfile>
-            <MenuJob2 v-if="isJobMenu"></MenuJob2>
-            <MenuJob v-else="isJobMenu"></MenuJob>
+            <MenuAccount></MenuAccount>
+            <MenuHonor></MenuHonor>
+            <MenuUser></MenuUser>
             <MenuAdmin v-if="isAdmin"></MenuAdmin>
             <MenuSecretary v-if="isSecretary"></MenuSecretary>
           </span>
@@ -29,24 +32,28 @@
 </template>
 
 <script>
-  import MenuJob from './menuMyRpg'
-  import MenuJob2 from './menuMyJob'
-  import MenuLanguage from './menuLanguage'
-  import MenuLogin from './menuLogin'
+  import MenuAccount from './menuAccount'
   import MenuAdmin from './menuAdmin'
+  import MenuHonor from './menuHonor'
+  import MenuJob from './menuJob'
+  import MenuLanguage from './menuLanguage'
+  import MenuProfile from './menuProfile'
   import MenuSecretary from './menuSecretary'
-  import MenuMyProfile from './menuMyProfile'
+  import MenuTask from './menuTask'
+  import MenuUser from './menuUser'
 
   export default {
     name: "headerBarBase",
     components: {
       MenuJob,
-      MenuJob2,
       MenuLanguage,
-      MenuLogin,
       MenuAdmin,
       MenuSecretary,
-      MenuMyProfile
+      MenuAccount,
+      MenuHonor,
+      MenuProfile,
+      MenuTask,
+      MenuUser
     },
     computed: {
       token() {

@@ -24,7 +24,6 @@
     },
     methods: {
       onSpotlightDetail(spotId) {
-        console.log(spotId)
         this.$router.push({
           name: 'spotlightDetail',
           params: {

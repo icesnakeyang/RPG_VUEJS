@@ -30,9 +30,7 @@
     },
     methods: {
       loadAllData() {
-        console.log(this.$store.state.spotId)
         apiSpotlightDetail(this.$store.state.spotId).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.spotlight = response.data.data.spot
           } else {

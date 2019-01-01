@@ -24,7 +24,6 @@
           }
       },
       mounted(){
-          console.log(this.apply)
       }
     }
 </script>

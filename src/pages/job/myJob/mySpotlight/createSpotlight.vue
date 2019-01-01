@@ -44,8 +44,6 @@
     },
     methods: {
       onCreateSpotlight() {
-        console.log(this.$store.state.jobId)
-        console.log(this.spotlight)
         this.$Modal.confirm({
           title: this.$t('common.tipTitleQuestion'),
           content: this.$t('spot.spotlight.tipCreateConfirm'),

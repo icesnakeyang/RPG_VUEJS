@@ -121,7 +121,6 @@
         apiGetJobDetailTiny(this.$store.state.jobId).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
-            console.log(this.job)
           }
         })
       },
@@ -144,7 +143,6 @@
           jobId: this.$store.state.jobId,
           processRemark: this.processRemark
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode !== 0) {
             this.$Message.error(this.$t("syserr." + response.data.errorCode))
           }
@@ -160,7 +158,6 @@
         acceptComplete({
           jobId: this.$store.state.jobId
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode !== 0) {
             this.$Message.error(this.$t("syserr." + response.data.errorCode));
           }

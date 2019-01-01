@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: "menuLogin",
+    name: "menuUser",
     computed: {
       token() {
         return this.$store.state.token

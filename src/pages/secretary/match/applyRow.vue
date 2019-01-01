@@ -49,7 +49,6 @@
     },
     methods: {
       onApplyUser(applyUserId) {
-        console.log(applyUserId)
         this.$router.push({
           name: 'userApplyHistoryPage',
           params: {
@@ -58,7 +57,6 @@
         })
       },
       onAgree(applyId) {
-        console.log(applyId)
         this.$Modal.confirm({
           title: this.$t('common.tipTitleQuestion'),
           content: this.$t('secretary.match.tipAgreeMatch'),
@@ -87,7 +85,6 @@
           applyId: applyId,
           remark: this.remark
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.$Message.success(this.$t('secretary.match.tipRejectSuccess'))
             this.$router.push({

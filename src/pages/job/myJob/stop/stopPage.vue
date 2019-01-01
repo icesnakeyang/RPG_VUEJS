@@ -90,7 +90,6 @@
           canReject: canReject,
           canAccept: canAccept
         }
-        console.log(action)
         return action
       }
     },
@@ -101,7 +100,6 @@
           pageIndex: 0,
           pageSize: 100
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.jobStopList = response.data.data.content
             this.setReadTime()
@@ -129,7 +127,6 @@
           jobId: this.$store.state.jobId,
           processRemark: this.acceptRemark
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode !== 0) {
             this.$Message.error(this.$t("syserr." + response.data.errorCode));
           } else {
@@ -142,7 +139,6 @@
           jobId: this.$store.state.jobId,
           processRemark: this.rejectRemark
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode !== 0) {
             this.$Message.error(this.$t("syserr." + response.data.errorCode))
           } else {

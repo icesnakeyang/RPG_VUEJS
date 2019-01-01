@@ -29,7 +29,6 @@
           pageIndex:0,
           pageSize:100
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.spotlightList=response.data.data.content
           }else{
@@ -44,8 +43,6 @@
       }
     },
     mounted() {
-      console.log(this.$route.params.jobId)
-      console.log(this.$store.state.jobId)
       if(this.$route.params.jobId){
         this.$store.dispatch('saveJobId', this.$route.params.jobId)
       }

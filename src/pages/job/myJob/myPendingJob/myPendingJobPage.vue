@@ -38,7 +38,6 @@
       }
     },
     mounted() {
-      console.log(this.$store.state)
       this.loadData()
     }
   }

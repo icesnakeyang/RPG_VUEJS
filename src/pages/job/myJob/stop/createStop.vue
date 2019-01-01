@@ -39,14 +39,12 @@
       },
       methods:{
         onCreateStop() {
-          console.log(1)
           if (!this.$store.state.jobId) {
             return
           }
           if (!this.stop.content) {
             return;
           }
-          console.log(2)
           createStopAPI({
             jobId: this.$store.state.jobId,
             content: this.stop.content,

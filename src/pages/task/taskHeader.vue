@@ -65,7 +65,6 @@
         });
       },
       deleteTask(){
-        console.log(this.task)
         const pid=this.pid
         apiDeleteTask({
           taskId:this.taskId

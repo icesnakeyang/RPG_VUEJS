@@ -35,11 +35,9 @@
     },
     methods: {
       onLogin() {
-        console.log('click login')
         if (!this.checkInput()) {
           return;
         }
-        console.log('call login')
         /**
          * todo
          * 这里需要判断用户名是email，还是手机号码，或者别的可能的情况，
@@ -51,9 +49,9 @@
           email: this.username,
           password: this.password
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
-            this.$store.dispatch('saveToken', response.data.data.user);
+            let user=response.data.data;
+            this.$store.dispatch('saveToken', user);
             if (this.$store.state.toUrl) {
               const theUrl = this.$store.state.toUrl;
               this.$store.dispatch('clearToUrl');
@@ -64,6 +62,8 @@
             } else {
               this.$router.push({path: '/'})
             }
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
           }
         })
       },

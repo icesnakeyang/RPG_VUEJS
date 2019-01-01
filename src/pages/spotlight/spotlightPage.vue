@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {apiListSpotlightPlaza} from "../../api/api"
+  import {apiListSpotlight} from "../../api/api"
   import SpotlightListRow from "./spotlightListRow"
 
   export default {
@@ -23,12 +23,11 @@
     },
     methods: {
       loadAllData() {
-        apiListSpotlightPlaza({
+        apiListSpotlight({
           pageIndex:0,
           pageSize:20
         }).then((response)=>{
           if(response.data.errorCode===0){
-            console.log(response)
             this.spotList=response.data.data.spotlightList.content
           }else{
             this.$Message.error(this.$t('syserr.'+response.data.errorCode))
@@ -37,7 +36,6 @@
       }
     },
     mounted() {
-      console.log('im in')
       this.loadAllData()
     }
   }

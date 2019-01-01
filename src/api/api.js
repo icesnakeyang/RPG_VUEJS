@@ -34,6 +34,16 @@ export const apiCreateTask = params => {
   })
 }
 
+/**
+ * read all spotlight list
+ * @param params
+ * @returns {AxiosPromise<any>}
+ */
+export const apiListSpotlight=params=>{
+  return axios.post(`${host}/spotlight/listSpotlight`, params)
+}
+
+
 
 
 

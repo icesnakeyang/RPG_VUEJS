@@ -50,8 +50,6 @@
     },
     methods: {
       getAllData() {
-        console.log('header router id'+ this.$route.params.taskId)
-        console.log('header store id'+ this.$store.state.taskId)
         apiGetTaskDetailByTaskId({
           taskId: this.$route.params.taskId
         }).then((response) => {

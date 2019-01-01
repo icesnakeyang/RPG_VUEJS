@@ -78,7 +78,6 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.task = response.data.data.task
-            console.log(this.task)
             this.job = response.data.data.job
             if (this.job) {
               this.published = true

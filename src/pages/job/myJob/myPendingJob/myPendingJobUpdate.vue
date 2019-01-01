@@ -55,14 +55,11 @@
     },
     methods:{
       loadAllData(){
-        console.log(this.$store.state.jobId)
         apiGetJobDetail(this.$store.state.jobId).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.job=response.data.data.job
           }
         }).catch(error=>{
-          console.log(error)
         })
       },
       onUpdate(){
@@ -74,7 +71,6 @@
           price: this.job.price,
           jobDetail:this.job.detail
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.$Message.success(this.$t("job.updateTipSucess"))
             this.$router.push({
@@ -93,8 +89,6 @@
       }
     },
     mounted() {
-      console.log(this.$route.params.jobId)
-      console.log(this.$store.state.jobId)
       this.loadAllData()
     }
   }

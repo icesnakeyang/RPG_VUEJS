@@ -97,9 +97,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to) {
-    console.log(to)
     if (!to.name) {
-      console.log('no name')
       //如果路由里name=null，即指用户是通过外部链接直接访问
       //输入域名访问，直接跳转到任务广场
       if (to.path === '/') {
@@ -115,11 +113,9 @@ router.beforeEach((to, from, next) => {
       // }
 
     } else {
-      console.log('has name')
       //路由里name有指定值，则指用户是通过站内页面跳转访问
       //检测该指定页面是否需要用户token。即登录状态
       if (to.meta.token) {
-        console.log('need token')
         //需要token，检测token值是否存在
         if (!store.state.token) {
           //不存在token，跳转到登录页面，跳转前先保存访问路劲
@@ -132,7 +128,6 @@ router.beforeEach((to, from, next) => {
           next()
         }
       } else {
-        console.log('no need token')
         //不需要token，直接访问
         next()
       }
