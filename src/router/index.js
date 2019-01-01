@@ -123,7 +123,7 @@ router.beforeEach((to, from, next) => {
         //需要token，检测token值是否存在
         if (!store.state.token) {
           //不存在token，跳转到登录页面，跳转前先保存访问路劲
-          store.dispatch('saveToUrl', '');
+          store.dispatch('saveToUrl', to);
           next({
             name: 'loginPage'
           })

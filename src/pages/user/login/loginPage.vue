@@ -51,21 +51,23 @@
           email: this.username,
           password: this.password
         }).then((response) => {
-          if (response.data.errorCode !== 0) {
-            this.errMsg = this.$t("syserr." + response.data.errorCode)
-            this.showErr = true;
-            return;
-          }
-          this.$store.dispatch('saveToken', response.data.data);
-          if (this.$store.state.toUrl) {
-            const theUrl = this.$store.state.toUrl;
-            this.$store.dispatch('saveToUrl', '');
-            this.$router.push({name: theUrl.name, params: theUrl.params})
-          } else {
-            this.$router.push({path: '/'})
+          console.log(response)
+          if (response.data.errorCode === 0) {
+            this.$store.dispatch('saveToken', response.data.data.user);
+            if (this.$store.state.toUrl) {
+              const theUrl = this.$store.state.toUrl;
+              this.$store.dispatch('clearToUrl');
+              this.$router.push({
+                name: theUrl.name,
+                params: theUrl.params
+              })
+            } else {
+              this.$router.push({path: '/'})
+            }
           }
         })
       },
+
       onRegister() {
         this.$router.push({
           name: 'registerByEmail'

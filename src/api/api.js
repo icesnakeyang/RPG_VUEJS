@@ -10,20 +10,28 @@ let host = 'http://localhost:9527';
  * @param params
  * @returns {AxiosPromise<any>}
  */
-export const apiRegisterByEmail=params=>{
+export const apiRegisterByEmail = params => {
   return axios.post(`${host}/user/register/registerByEmail`, params)
 }
 
-export const apiListPublicJob=params=>{
+export const apiListPublicJob = params => {
   return axios.post(`${host}/job/plaza/listPublicJob`, params)
 }
 
-export const apiLoginByEmail=params=>{
+export const apiLoginByEmail = params => {
   return axios.post(`${host}/user/login/loginByEmail`, params)
 }
 
-export const apiGetEmailByEmail=params=>{
+export const apiGetEmailByEmail = params => {
   return axios.post(`${host}/user/register/getEmailByEmail`, params)
+}
+
+export const apiCreateTask = params => {
+  return axios.post(`${host}/task/createTask`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 }
 
 

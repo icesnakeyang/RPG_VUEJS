@@ -34,7 +34,7 @@
   import 'quill/dist/quill.bubble.css'
   import {quillEditor} from 'vue-quill-editor'
 
-  import {createTask} from "../../api/api";
+  import {apiCreateTask} from "../../api/api";
 
   export default {
     name: "taskCreateNew",
@@ -58,7 +58,7 @@
           return;
         }
         this.saving=true;
-        createTask({
+        apiCreateTask({
           title:this.task.title,
           detail:this.task.detail,
           days:this.task.days,
