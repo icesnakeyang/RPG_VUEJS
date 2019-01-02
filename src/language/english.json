@@ -57,11 +57,22 @@
     "update":"Update",
     "subTask":"Sub task",
     "freelancer":"Publish",
-    "complete":"Complete"
+    "complete":"Complete",
+    "addSubTaskTitle":"Create sub task",
+    "tipSubTask1":"You must input sub task title"
+  },
+  "job":{
+    "publish":"Publish",
+    "succPublish": "Publish success",
+    "partyAName": "Party A",
+    "publishTime": "Publish Time",
+    "applyUserNum": "Apply",
+    "btApplyJob":"Apply job"
   },
   "syserr":{
     "10024":"Username or password error",
     "10031":"Read task failed",
-    "10095":"Count sub task error"
+    "10095":"Count sub task error",
+    "10119":"Read un-read logs error"
   }
 }

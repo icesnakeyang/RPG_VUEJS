@@ -333,6 +333,7 @@
     "10115": "Insert phone failed",
     "10116": "Update phone failed",
     "10117": "Your real name has been authorized already, cannot be changed. If you do need to change it, please contact the RPG secretary",
-    "10118":"Read email error"
+    "10118":"Read email error",
+    "10119":"Read un-read logs error"
   }
 }

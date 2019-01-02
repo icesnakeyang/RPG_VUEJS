@@ -1,8 +1,8 @@
 <template>
   <div style="padding: 20px">
-    <Button type="info" @click="clickUpdate">{{$t("task.update")}}</Button>
+    <Button type="info" @click="onUpdate">{{$t("task.update")}}</Button>
     <Button type="primary" @click="onSubTask">{{$t("task.subTask")}}({{theTotalSubTask}})</Button>
-    <Button type="warning" @click="clickFreelancer">{{$t("task.freelancer")}}</Button>
+    <Button type="warning" @click="onFreelancer">{{$t("task.freelancer")}}</Button>
     <Button type="success" @click="onComplete">{{$t("task.complete")}}</Button>
     <Button type="error" @click="onDelete">{{$t("task.delete")}}</Button>
   </div>
@@ -27,17 +27,17 @@
       }
     },
     methods: {
-      clickUpdate() {
+      onUpdate() {
         this.$router.push({
           name: 'taskEdit', params: {
-            taskId: this.$route.params.taskId
+            taskId: this.$store.state.taskId
           }
         })
       },
-      clickFreelancer() {
+      onFreelancer() {
         this.$router.push({
           name: 'taskFreelancer', params: {
-            taskId: this.$route.params.taskId
+            taskId: this.$store.state.taskId
           }
         })
       },
@@ -45,7 +45,7 @@
         this.$router.push({
           name: 'subTaskPage',
           params: {
-            taskId: this.$route.params.taskId
+            taskId: this.$store.state.taskId
           }
         })
       },

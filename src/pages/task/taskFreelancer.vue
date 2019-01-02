@@ -21,7 +21,7 @@
     </FormItem>
 
     <FormItem v-show="!saving">
-      <Button type="primary" @click="clickPublish">{{$t("task.publish")}}</Button>
+      <Button type="primary" @click="clickPublish">{{$t("job.publish")}}</Button>
     </FormItem>
     <FormItem v-show="saving">
       <template>
@@ -58,6 +58,13 @@
       }
     },
     methods: {
+      loadAllData() {
+        apiGetTaskDetailByTaskId({
+          taskId: this.$store.state.taskId
+        }).then((response) => {
+          this.task = response.data.data.task;
+        })
+      },
       clickPublish() {
         if (this.inputCheck()) {
           return;
@@ -72,7 +79,7 @@
           jobDetail:this.task.detail
         }).then((response) => {
           if (response.data.errorCode===0) {
-            this.$Message.success(this.$t("task.succPublish"));
+            this.$Message.success(this.$t("job.succPublish"));
             // jump to job detail
             this.$router.push({
               name:"jobDetail",
@@ -87,13 +94,6 @@
             this.saving=false;
           }
         })
-      },
-      getAllData() {
-        apiGetTaskDetailByTaskId({
-          taskId: this.$route.params.taskId
-        }).then((response) => {
-            this.task = response.data.data.task;
-          })
       },
       inputCheck() {
         this.errInput = false;
@@ -117,7 +117,7 @@
       }
     },
     created() {
-      this.getAllData()
+      this.loadAllData()
     }
   }
 </script>

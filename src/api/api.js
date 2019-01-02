@@ -15,7 +15,7 @@ export const apiRegisterByEmail = params => {
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/job/plaza/listPublicJob`, params)
+  return axios.post(`${host}/job/public_common/listPublicJob`, params)
 }
 
 export const apiLoginByEmail = params => {
@@ -59,28 +59,72 @@ export const apiGetTaskDetailByTaskId = params => {
   })
 }
 
-export const apiCountSubTask=params=>{
-  return axios.post(`${host}/task/countSubTask`, params,{
+export const apiCountSubTask = params => {
+  return axios.post(`${host}/task/countSubTask`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiListTaskBreadcrumb = params => {
+  return axios.post(`${host}/task/listTaskBreadcrumb`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiDeleteTask = params => {
+  return axios.post(`${host}/task/deleteTask`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiUpdateTask = params => {
+  return axios.post(`${host}/task/updateTask`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiGetTaskTinyByTaskId = params => {
+  return axios.post(`${host}/task/getTaskTinyByTaskId`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiListSubTask=params=>{
+  return axios.post(`${host}/task/listSubTask`, params, {
     headers:{
       token:store.state.token
     }
   })
 }
 
-export const apiListTaskBreadcrumb=params=>{
-  return axios.post(`${host}/task/listTaskBreadcrumb`, params,{
+export const apiCreateSubTask=params=>{
+  return axios.post(`${host}/task/createSubTask`, params, {
     headers:{
       token:store.state.token
     }
   })
 }
 
-export const apiDeleteTask=params=>{
-  return axios.post(`${host}/task/deleteTask`, params,{
+export const apiPublishNewJob=params=>{
+  return axios.post(`${host}/job/common/publishNewJob`, params, {
     headers:{
       token:store.state.token
     }
   })
+}
+
+export const apiGetJobDetail=params=>{
+  return axios.get(`${host}/job/public_common/`+ params)
 }
 
 

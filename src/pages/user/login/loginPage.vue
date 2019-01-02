@@ -49,7 +49,6 @@
           email: this.username,
           password: this.password
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             let user=response.data.data;
             this.$store.dispatch('saveToken', user);

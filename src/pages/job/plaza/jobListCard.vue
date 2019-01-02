@@ -13,6 +13,8 @@
 </template>
 
 <script>
+  import {rpgFormat} from "../../../common/rpgfun";
+
   export default {
     name: "jobListCard",
     props: [
@@ -20,18 +22,15 @@
     ],
     computed: {
       createdTime() {
-        var timestamp3 = this.job.createdTime;
-        var newDate = new Date();
-        newDate.setTime(timestamp3);
-        return newDate.toLocaleString()
+        return rpgFormat.formatTime(this.job.createdTime);
       }
     },
     methods: {
       goJobDetail(jobId) {
         this.$router.push({
           name: 'jobDetail',
-          params: {
-            jobId: jobId
+          params:{
+            jobId:jobId
           }
         })
       }

@@ -12,7 +12,7 @@
 <script>
   import {apiGetJobDetail} from "../../../../api/api";
   import {apiDeletePendingJob} from "../../../../api/api";
-  import JobDetailCard from "../../jobDetailCard"
+  import JobDetailCard from "../../detail/jobDetailCard"
 
   export default {
     name: "myPendingJobDetail",

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import {ApiGetTaskTinyByTaskId} from "../../api/api";
+  import {apiGetTaskTinyByTaskId} from "../../api/api";
   import {apiListSubTask} from "../../api/api";
   import {apiCreateSubTask} from "../../api/api";
   import {apiListTaskBreadcrumb} from "../../api/api";
@@ -37,8 +37,8 @@
       }
     },
     methods:{
-      loadData(){
-        ApiGetTaskTinyByTaskId({
+      loadAllData(){
+        apiGetTaskTinyByTaskId({
           taskId:this.$store.state.taskId
         }).then((response)=>{
           if(response.data.errorCode===0){
@@ -68,6 +68,10 @@
         })
       },
       addTask () {
+        if(!this.taskTitle){
+          this.$Message.error(this.$t('task.tipSubTask1'))
+          return
+        }
         apiCreateSubTask({
           pid:this.$store.state.taskId,
           title:this.taskTitle,
@@ -111,7 +115,7 @@
       }
     },
     mounted() {
-      this.loadData()
+      this.loadAllData()
     }
   }
 </script>

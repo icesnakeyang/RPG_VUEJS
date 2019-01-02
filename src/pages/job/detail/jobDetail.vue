@@ -5,14 +5,14 @@
     ></job-detail-card>
     <div style="text-align: center">
       <br><br>
-      <Button type="primary" @click="applyJob">{{$t("job.apply")}}</Button>
+      <Button type="primary" @click="onApplyJob">{{$t("job.btApplyJob")}}</Button>
     </div>
 
   </div>
 </template>
 
 <script>
-  import {apiGetJobDetail} from "../../api/api";
+  import {apiGetJobDetail} from "../../../api/api";
   import jobDetailCard from "./jobDetailCard";
 
   export default {
@@ -26,27 +26,25 @@
       }
     },
     methods: {
-      applyJob() {
+      loadAllData() {
+        apiGetJobDetail(this.$store.state.jobId).then((response) => {
+          this.job = response.data.data.job
+        })
+      },
+      onApplyJob() {
         this.$router.push({
           name: 'jobApplyForm',
           params: {
-            jobId: this.$route.params.jobId,
-            jobTitle: this.job.title
+            jobId: this.$route.params.jobId
           }
         })
       }
     },
     mounted() {
-      if (this.$route.params.jobId) {
-        if (this.$store.state.jobId === this.$route.params.jobId) {
-
-        } else {
-          this.$store.dispatch('saveJobId', this.$route.params.jobId)
-        }
+      if(this.$route.params.jobId){
+        this.$store.dispatch('saveJobId', this.$route.params.jobId)
       }
-      apiGetJobDetail(this.$store.state.jobId).then((response) => {
-        this.job = response.data.data.job
-      })
+      this.loadAllData()
     }
   }
 </script>

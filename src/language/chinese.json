@@ -57,12 +57,23 @@
     "update":"修改",
     "subTask":"子任务",
     "freelancer":"发布",
-    "complete":"完成"
+    "complete":"完成",
+    "addSubTaskTitle":"创建子任务",
+    "tipSubTask1":"必须输入子任务名称"
+  },
+  "job":{
+    "publish":"发布任务",
+    "succPublish": "恭喜，发布任务成功！",
+    "partyAName": "甲方",
+    "publishTime": "发布时间",
+    "applyUserNum": "申请人数",
+    "btApplyJob":"申请任务"
   },
   "syserr":{
     "10024":"用户名或密码错误",
     "10031": "读取私有任务失败",
-    "10095": "统计子任务数量错误"
+    "10095": "统计子任务数量错误",
+    "10119":"读取未阅读日志错误"
   }
 
 }

@@ -104,8 +104,8 @@
         })
       },
       onTask(data){
-        // this.taskId=data
-        // this.loadAllData()
+        this.$store.dispatch('saveTaskId', data)
+        this.loadAllData()
       }
     },
     mounted() {

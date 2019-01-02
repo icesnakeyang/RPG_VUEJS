@@ -3,11 +3,11 @@
     <p slot="title">
       {{job.title}}
     </p>
-    <p>{{$t("job.code")}}: {{job.code}}</p>
-    <p>{{$t("job.publishUserName")}}: {{job.partyAName}}</p>
+    <p>{{$t("task.code")}}: {{job.code}}</p>
+    <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
     <p>{{$t("job.publishTime")}}: {{createdTime}}</p>
-    <p>{{$t("job.days")}}: {{job.days}}</p>
-    <p>{{$t("job.price")}}: {{job.price}}</p>
+    <p>{{$t("task.days")}}: {{job.days}}</p>
+    <p>{{$t("task.price")}}: {{job.price}}</p>
     <quill-editor v-model="job.detail"
                   :options="options">
     </quill-editor>
@@ -15,9 +15,6 @@
     <Row>
       <Col :xs="6" :sm="2" :md="2" :lg="2">
         <P>{{$t("job.applyUserNum")}}: {{job.jobApplyNum}}</P>
-      </Col>
-      <Col :xs="6" :sm="2" :md="2" :lg="2">
-        <P>{{$t("job.matchingUserNum")}}: {{job.jobMatchNum}}</P>
       </Col>
     </Row>
 

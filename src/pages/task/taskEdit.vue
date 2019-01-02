@@ -13,6 +13,9 @@
       <FormItem :label="$t('task.detail')">
         <quill-editor v-model="task.detail"></quill-editor>
       </FormItem>
+      <FormItem :label="$t('task.price')">
+        <Input v-model="task.price"/>
+      </FormItem>
       <FormItem :label="$t('task.days')">
         <Input v-model="task.days"/>
       </FormItem>
@@ -49,20 +52,21 @@
       }
     },
     methods: {
-      getAllData() {
+      loadAllData() {
         apiGetTaskDetailByTaskId({
-          taskId: this.$route.params.taskId
+          taskId: this.$store.state.taskId
         }).then((response) => {
             this.task = response.data.data.task;
           })
       },
       clickUpdate(){
         apiUpdateTask({
-          taskId:this.$route.params.taskId,
+          taskId:this.$store.state.taskId,
           title:this.task.title,
           detail:this.task.detail,
           days:this.task.days,
-          code:this.task.code
+          code:this.task.code,
+          price:this.task.price
         }).then((response)=>{
           if(response.data.errorCode===0){
             this.$router.push({name:'taskDetail',
@@ -79,7 +83,7 @@
       }
     },
     created() {
-      this.getAllData()
+      this.loadAllData()
     }
   }
 </script>

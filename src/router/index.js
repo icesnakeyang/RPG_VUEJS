@@ -21,11 +21,16 @@ import registerByEmail from '@/pages/user/register/registerByEmail'
 import taskCreateNew from '@/pages/task/taskCreateNew'
 import taskPage from '@/pages/task/taskPage'
 import taskDetail from '@/pages/task/taskDetail'
+import taskEdit from '@/pages/task/taskEdit'
+import subTaskPage from '@/pages/task/subTaskPage'
+import taskFreelancer from '@/pages/task/taskFreelancer'
 
 /**
  * job
  */
 import publicJobPage from '@/pages/job/plaza/publicJobPage'
+import jobDetail from '@/pages/job/detail/jobDetail'
+import jobApplyForm from '@/pages/job'
 
 /**
  * spotlight
@@ -128,6 +133,58 @@ const router = new Router({
           },
           meta:{
             title:'taskDetail',
+            token:false
+          }
+        },
+        {
+          path:'taskEdit',
+          name:'taskEdit',
+          components:{
+            head:headerBarBase,
+            content:taskEdit,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'taskEdit',
+            token:false
+          }
+        },
+        {
+          path:'subTaskPage',
+          name:'subTaskPage',
+          components:{
+            head:headerBarBase,
+            content:subTaskPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'subTaskPage',
+            token:false
+          }
+        },
+        {
+          path:'taskFreelancer',
+          name:'taskFreelancer',
+          components:{
+            head:headerBarBase,
+            content:taskFreelancer,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'taskFreelancer',
+            token:false
+          }
+        },
+        {
+          path:'jobDetail/:jobId',
+          name:'jobDetail',
+          components:{
+            head:headerBarBase,
+            content:jobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'jobDetail',
             token:false
           }
         }

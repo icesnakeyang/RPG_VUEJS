@@ -7,23 +7,17 @@
       <Col :xs="4" :sm="2" :md="1" :lg="1">
         <a herf="" class="gogo-title" @click="clickRPG">RPG</a>
       </Col>
-      <Col :xs="8" :sm="2" :md="1" :lg="1">
+      <Col :xs="8" :sm="3" :md="3" :lg="2">
         <Button type="primary" @click="createTask">{{$t("navigator.createTask")}}</Button>
       </Col>
-      <Col :xs="24" :sm="18" :md="20" :lg="20">
+      <Col :xs="24" :sm="18" :md="18" :lg="19">
         <div class="layout-nav">
           <span v-if="isNormal">
-            <Submenu>
-              <template slot="title">
-                <Icon type="ios-navigate"></Icon>
-                {{$t("navigator.myJob")}}
-              </template>
               <MenuJob></MenuJob>
               <MenuTask></MenuTask>
               <MenuProfile></MenuProfile>
               <MenuAccount></MenuAccount>
               <MenuHonor></MenuHonor>
-            </Submenu>
           </span>
           <span v-if="isAdmin">
             <MenuAdmin></MenuAdmin>
