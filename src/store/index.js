@@ -60,7 +60,7 @@ export default new Vuex.Store({
       state.email = user.email
       localStorage.email=user.email
       state.phone=user.phone
-      localStorage.user.phone
+      localStorage.phone=user.phone
       state.roleType = user.roleType;
       localStorage.roleType = user.roleType;
       state.userId = user.userId;

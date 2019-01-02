@@ -12,14 +12,24 @@
       </Col>
       <Col :xs="24" :sm="18" :md="20" :lg="20">
         <div class="layout-nav">
-          <span v-if="token">
-            <MenuJob></MenuJob>
-            <MenuTask></MenuTask>
-            <MenuProfile></MenuProfile>
-            <MenuAccount></MenuAccount>
-            <MenuHonor></MenuHonor>
-            <MenuAdmin v-if="isAdmin"></MenuAdmin>
-            <MenuSecretary v-if="isSecretary"></MenuSecretary>
+          <span v-if="isNormal">
+            <Submenu>
+              <template slot="title">
+                <Icon type="ios-navigate"></Icon>
+                {{$t("navigator.myJob")}}
+              </template>
+              <MenuJob></MenuJob>
+              <MenuTask></MenuTask>
+              <MenuProfile></MenuProfile>
+              <MenuAccount></MenuAccount>
+              <MenuHonor></MenuHonor>
+            </Submenu>
+          </span>
+          <span v-if="isAdmin">
+            <MenuAdmin></MenuAdmin>
+          </span>
+          <span v-if="isSecretary">
+            <MenuSecretary></MenuSecretary>
           </span>
           <MenuUser></MenuUser>
           <MenuLanguage></MenuLanguage>
@@ -75,6 +85,12 @@
           return true
         }
         return false
+      },
+      isNormal() {
+        if (this.$store.state.roleType === 'NORMAL') {
+          return true
+        }
+        return false
       }
     },
     methods: {
@@ -85,10 +101,10 @@
         if (name === "2-2") {
           this.$i18n.locale = 'en'
         }
-        if (name === "5-1") {
+        if (name === "1-1") {
           this.$store.dispatch('logout');
         }
-        if (name === "5-2") {
+        if (name === "1-2") {
           this.$router.push({name: "loginPage"})
         }
         if (name === "4-2") {
@@ -155,14 +171,14 @@
             name: "secretaryTopUpPage"
           })
         }
-        if(name==="3-4"){
+        if (name === "3-4") {
           this.$router.push({
-            name:'myAccountPage'
+            name: 'myAccountPage'
           })
         }
-        if(name==="12-1"){
+        if (name === "12-1") {
           this.$router.push({
-            name:'spotlightList'
+            name: 'spotlightList'
           })
         }
       },
@@ -174,7 +190,7 @@
       clickRPG() {
         this.$router.push({name: 'publicJobPage'})
       },
-      onSpotlight(){
+      onSpotlight() {
 
       }
     }
