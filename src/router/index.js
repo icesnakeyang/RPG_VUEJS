@@ -29,13 +29,11 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
  * job
  */
 import publicJobPage from '@/pages/job/plaza/publicJobPage'
-import jobDetail from '@/pages/job/detail/jobDetail'
-import jobApplyForm from '@/pages/job'
+import publicJobDetail from '@/pages/job/plaza/publicJobDetail'
 
 /**
  * spotlight
  */
-import spotlightPage from '@/pages/spotlight/spotlightPage'
 
 Vue.use(Router);
 
@@ -69,19 +67,6 @@ const router = new Router({
           meta: {
             title: 'Login',
             token: false
-          }
-        },
-        {
-          path:'spotlightPage',
-          name:'spotlightPage',
-          components:{
-            head:headerBarBase,
-            content:spotlightPage,
-            footerBar:footerBar
-          },
-          meta:{
-            title:'spotlightPage',
-            token:false
           }
         },
         {
@@ -176,15 +161,15 @@ const router = new Router({
           }
         },
         {
-          path:'jobDetail/:jobId',
-          name:'jobDetail',
+          path:'publicJobDetail/:jobId',
+          name:'publicJobDetail',
           components:{
             head:headerBarBase,
-            content:jobDetail,
+            content:publicJobDetail,
             footerBar:footerBar
           },
           meta:{
-            title:'jobDetail',
+            title:'publicJobDetail',
             token:false
           }
         }
@@ -206,9 +191,6 @@ router.beforeEach((to, from, next) => {
       //通过推广链接，直接访问任务详情页面
       //通过推广链接，直接访问某个申诉详情页面
       //用户直接访问申诉广场
-      // if(to.path==='spotlightPage'){
-      //   next()
-      // }
 
     } else {
       //路由里name有指定值，则指用户是通过站内页面跳转访问

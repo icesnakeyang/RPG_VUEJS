@@ -28,7 +28,7 @@
     methods: {
       goJobDetail(jobId) {
         this.$router.push({
-          name: 'jobDetail',
+          name: 'publicJobDetail',
           params:{
             jobId:jobId
           }

@@ -15,7 +15,7 @@ export const apiRegisterByEmail = params => {
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/job/public_common/listPublicJob`, params)
+  return axios.post(`${host}/public_job/listPublicJob`, params)
 }
 
 export const apiLoginByEmail = params => {
@@ -123,8 +123,8 @@ export const apiPublishNewJob=params=>{
   })
 }
 
-export const apiGetJobDetail=params=>{
-  return axios.get(`${host}/job/public_common/`+ params)
+export const apiGetPublicJobDetail=params=>{
+  return axios.get(`${host}/public_job/`+ params)
 }
 
 

@@ -42,9 +42,9 @@
 </template>
 
 <script>
-  import {loadUserInfo} from "../../../../api/api";
-  import {apiSaveContactInfo} from "../../../../api/api";
-  import {applyJob} from "../../../../api/api";
+  import {loadUserInfo} from "../../../api/api";
+  import {apiSaveContactInfo} from "../../../api/api";
+  import {applyJob} from "../../../api/api";
 
   export default {
     name: "jobApplyForm",
