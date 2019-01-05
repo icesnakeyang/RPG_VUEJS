@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import {rpgFormat} from "../../../common/rpgfun";
   import {quillEditor} from 'vue-quill-editor'
 
   export default {
@@ -44,10 +45,7 @@
     ],
     computed: {
       createdTime() {
-        var timestamp3 = this.job.createdTime;
-        var newDate = new Date();
-        newDate.setTime(timestamp3);
-        return newDate.toLocaleString()
+        return rpgFormat.formatTime(this.job.createdTime)
       }
     }
   }

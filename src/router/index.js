@@ -28,8 +28,10 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 /**
  * job
  */
-import publicJobPage from '@/pages/job/plaza/publicJobPage'
-import publicJobDetail from '@/pages/job/plaza/publicJobDetail'
+import publicJobPage from '@/pages/job/publicJob/publicJobPage'
+import publicJobDetail from '@/pages/job/publicJob/publicJobDetail'
+
+import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
 
 /**
  * spotlight
@@ -171,6 +173,19 @@ const router = new Router({
           meta:{
             title:'publicJobDetail',
             token:false
+          }
+        },
+        {
+          path:'jobApplyForm',
+          name:'jobApplyForm',
+          components:{
+            head:headerBarBase,
+            content:jobApplyForm,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'jobApplyForm',
+            token:true
           }
         }
       ]

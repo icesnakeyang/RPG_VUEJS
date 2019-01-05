@@ -1,8 +1,8 @@
 <template>
   <div>
     <Alert>
-      {{$t('apply.applyTitle1')}}
-      <template slot="desc">{{$t('apply.applyTitle2')}}</template>
+      {{$t('job.applyTitle1')}}
+      <template slot="desc">{{$t('job.applyTitle2')}}</template>
     </Alert>
     <Card class="card">
       <p slot="title">
@@ -12,7 +12,7 @@
         <FormItem v-show="errInput">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
         </FormItem>
-        <FormItem :label="$t('apply.applyContent')">
+        <FormItem :label="$t('job.applyContent')">
           <Input v-model="applyContent" type="textarea"
                  :autosize="{minRows: 2,maxRows: 10}"></Input>
         </FormItem>
@@ -26,7 +26,7 @@
           <Input v-model="userInfo.email"/>
         </FormItem>
         <FormItem v-show="!saving">
-          <Button type="primary" @click="clickConfirm">{{$t("user.confirm")}}</Button>
+          <Button type="primary" @click="clickConfirm">{{$t("user.btSaveUserInfo")}}</Button>
         </FormItem>
         <FormItem v-show="saving">
           <template>
@@ -42,9 +42,9 @@
 </template>
 
 <script>
-  import {loadUserInfo} from "../../../api/api";
-  import {apiSaveContactInfo} from "../../../api/api";
-  import {applyJob} from "../../../api/api";
+  import {apiGetUserInfo} from "../../../../api/api";
+  import {apiSaveContactInfo} from "../../../../api/api";
+  import {applyJob} from "../../../../api/api";
 
   export default {
     name: "jobApplyForm",
@@ -63,6 +63,13 @@
       }
     },
     methods: {
+      loadAllData(){
+        apiGetUserInfo({}).then((response) => {
+          this.userInfo = response.data.data.user
+          console.log(this.userInfo)
+        })
+      },
+
       clickConfirm() {
         this.saving = true;
         apiSaveContactInfo({
@@ -96,9 +103,7 @@
       if(this.$route.params.jobId){
         this.$store.dispatch('saveJobId', this.$route.params.jobId)
       }
-      loadUserInfo().then((response) => {
-        this.userInfo = response.data.data
-      })
+      this.loadAllData()
     }
   }
 </script>

@@ -22,22 +22,30 @@
         job: {}
       }
     },
-    method: {
-      onLoadthedata() {
-        console.log('here is ok')
+    methods:{
+      loadAllData(){
+        apiGetPublicJobDetail(this.$store.state.jobId).then((response)=>{
+          if(response.data.errorCode===0){
+            this.job=response.data.data.job
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
+          }
+        })
       },
-      onApplyJob() {
-        console.log('apply')
-      },
+      onApplyJob(){
+        this.$router.push({
+          name:'jobApplyForm',
+          params:{
+            jobId:this.$store.state.jobId
+          }
+        })
+      }
     },
-
     mounted() {
-      console.log(this.$route.params.jobId)
       if (this.$route.params.jobId) {
         this.$store.dispatch('saveJobId', this.$route.params.jobId)
       }
-      console.log(2)
-      this.onLoadthedata()
+      this.loadAllData()
     }
   }
 </script>

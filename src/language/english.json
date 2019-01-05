@@ -41,7 +41,10 @@
     "err2":"Please input email",
     "err3":"Email format error",
     "err1": "The two passwords are not same",
-    "err4":"This email has been used by other user"
+    "err4":"This email has been used by other user",
+    "realName":"Real Name",
+    "phone":"Contact Phone",
+    "btSaveUserInfo": "Confirm"
   },
   "task":{
     "btCreate":"Create Task",
@@ -67,12 +70,17 @@
     "partyAName": "Party A",
     "publishTime": "Publish Time",
     "applyUserNum": "Apply",
-    "btApplyJob":"Apply job"
+    "btApplyJob":"Apply job",
+    "applyTitle1":"Apply This Job",
+    "applyTitle2":"Please subscribe your benefit, why you qualify for this job.",
+    "applyContent":"Apply content"
   },
   "syserr":{
     "10024":"Username or password error",
     "10031":"Read task failed",
     "10095":"Count sub task error",
-    "10119":"Read un-read logs error"
+    "10119":"Read un-read logs error",
+    "10028":"Read user information failed",
+    "10048":"Save user contact information error."
   }
 }

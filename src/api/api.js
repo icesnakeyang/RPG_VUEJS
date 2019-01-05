@@ -127,6 +127,22 @@ export const apiGetPublicJobDetail=params=>{
   return axios.get(`${host}/public_job/`+ params)
 }
 
+export const apiGetUserInfo=params=>{
+  return axios.post(`${host}/user/profile/getUserInfo`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiSaveContactInfo=params=>{
+  return axios.post(`${host}/user/profile/saveContactInfo`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 
