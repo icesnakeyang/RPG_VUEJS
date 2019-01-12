@@ -1,34 +1,37 @@
 <template>
   <div>
-    <JobApplyList v-for="apply in applyJobList"
+    <MyApplyJobRow v-for="apply in applyJobList"
                   v-bind:key="apply.job.jobId"
-                  v-bind:jobApply="apply"></JobApplyList>
+                  v-bind:jobApply="apply"></MyApplyJobRow>
   </div>
 </template>
 
 <script>
-  import {loadMyApplyJob} from "../../../../api/api";
+  import {apiListMyApplyJob} from "../../../../api/api";
 
-  import JobApplyList from "../../components/jobApplyList";
+  import MyApplyJobRow from "./myApplyJobRow";
 
   export default {
     name: "myApplyJob",
     components: {
-      JobApplyList
+      MyApplyJobRow
     },
     data() {
       return {
         applyJobList: []
       }
     },
-    methods: {},
+    methods: {
+      loadAllData(){
+        apiListMyApplyJob({}).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.applyJobList = response.data.data.jobList;
+          }
+        })
+      }
+    },
     mounted() {
-      loadMyApplyJob({}).then((response) => {
-        if (response.data.errorCode === 0) {
-          this.applyJobList = response.data.data.jobList;
-        }
-      })
-
+      this.loadAllData()
     }
   }
 </script>

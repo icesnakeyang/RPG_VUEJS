@@ -59,10 +59,9 @@
           username: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
-          if(response.data.errorCode!==0){
-            alert('Register error')
-          }else {
-            this.$store.dispatch('saveToken', response.data.data);
+          console.log(response)
+          if(response.data.errorCode===0){
+            this.$store.dispatch('saveToken', response.data.data.user);
             if(this.$store.state.toUrl){
               const theUrl=this.$store.state.toUrl;
               this.$store.dispatch('saveToUrl','');
@@ -70,8 +69,8 @@
             }else {
               this.$router.push({path: '/'})
             }
-
-            // this.$router.push({name:'jobPlaza'})
+          }else {
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
           }
         });
       },

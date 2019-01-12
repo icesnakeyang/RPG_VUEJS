@@ -39,10 +39,10 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+  import {rpgFormat} from "../../../../common/rpgfun";
 
   export default {
-    name: "jobApplyList",
+    name: "myApplyJobRow",
     props: {
       jobApply: {}
     },
@@ -64,7 +64,7 @@
     methods:{
       onGoJobDetail(item){
         this.$router.push({
-          name:'jobDetail',
+          name:'myApplyJobDetail',
           params:{
             jobId:item
           }

@@ -11,10 +11,10 @@
 <script>
   import {apiListApplyByJobId} from "../../../api/api";
   import ApplyRow from "./applyRow"
-  import {apiGetJobDetailTiny} from "../../../api/api";
+  import {apiGetApplyJobTiny} from "../../../api/api";
 
   export default {
-    name: "applyPage",
+    name: "secretaryApplyPage",
     components:{
       ApplyRow
     },
@@ -37,7 +37,7 @@
             this.$Message.error(this.$t("syserr."+response.data.errorCode))
           }
         })
-        apiGetJobDetailTiny(this.$store.state.jobId).then((response)=>{
+        apiGetApplyJobTiny(this.$store.state.jobId).then((response)=>{
           if(response.data.errorCode===0){
             this.job=response.data.data.job
           }else{

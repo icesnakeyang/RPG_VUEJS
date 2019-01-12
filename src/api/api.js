@@ -143,6 +143,79 @@ export const apiSaveContactInfo=params=>{
   })
 }
 
+export const apiApplyJob=params=>{
+  return axios.post(`${host}/job/myApply/applyJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyApplyJob=params=>{
+  return axios.post(`${host}/job/myApply/listMyApplyJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyPendingJob=params=>{
+  return axios.post(`${host}/mypending/listMyPendingJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetMyPendingJob=params=>{
+  return axios.post(`${host}/mypending/getMyPendingJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiDeletePendingJob=params=>{
+  return axios.post(`${host}/mypending/deletePendingJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetMyApplyJob=params=>{
+  return axios.post(`${host}/job/myApply/getMyApplyJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListApplyByJobId=params=>{
+  return axios.post(`${host}/secretary/match/listApplyByJobId`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetApplyJobTiny=params=>{
+  return axios.post(`${host}/secretary/match/getApplyJobTiny`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetApplyJobDetail=params=>{
+  return axios.post(`${host}/secretary/match/getApplyJobDetail`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+
 
 
 

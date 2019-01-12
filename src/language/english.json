@@ -68,12 +68,16 @@
     "publish":"Publish",
     "succPublish": "Publish success",
     "partyAName": "Party A",
+    "partyBName": "Party B",
     "publishTime": "Publish Time",
     "applyUserNum": "Apply",
     "btApplyJob":"Apply job",
     "applyTitle1":"Apply This Job",
     "applyTitle2":"Please subscribe your benefit, why you qualify for this job.",
-    "applyContent":"Apply content"
+    "applyContent":"Apply content",
+    "btDelete":"Delete",
+    "btUpdate":"Update",
+    "contractTime":"Contract Time"
   },
   "syserr":{
     "10024":"Username or password error",
@@ -81,6 +85,13 @@
     "10095":"Count sub task error",
     "10119":"Read un-read logs error",
     "10028":"Read user information failed",
-    "10048":"Save user contact information error."
+    "10048":"Save user contact information error.",
+    "10037":"You cannot apply the job that created by yourself",
+    "10033":"Apply job failed",
+    "10007":"You have applied this job already, please waiting for the process.",
+    "10046":"This phone has been occupied by other users.",
+    "10120":"Read my published job information error",
+    "10121":"Read my applied job information error",
+    "10122":"Read job detail error"
   }
 }

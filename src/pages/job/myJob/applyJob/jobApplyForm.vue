@@ -44,7 +44,7 @@
 <script>
   import {apiGetUserInfo} from "../../../../api/api";
   import {apiSaveContactInfo} from "../../../../api/api";
-  import {applyJob} from "../../../../api/api";
+  import {apiApplyJob} from "../../../../api/api";
 
   export default {
     name: "jobApplyForm",
@@ -78,7 +78,7 @@
           email: this.userInfo.email
         }).then((response) => {
           if (response.data.errorCode === 0) {
-            applyJob({
+            apiApplyJob({
               jobId: this.$store.state.jobId,
               content:this.applyContent
             }).then((response) => {
@@ -89,11 +89,13 @@
               } else {
                 this.errMsg = this.$t("syserr." + response.data.errorCode);
                 this.errInput = true
+                this.saving=false
               }
             })
           } else {
             this.errMsg = this.$t("syserr." + response.data.errorCode);
             this.errInput = true
+            this.saving=false
           }
         })
 

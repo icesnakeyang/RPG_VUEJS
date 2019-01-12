@@ -1,16 +1,16 @@
 <template>
   <div>
     <JobDetailCard v-bind:job="job"></JobDetailCard>
-    <div style="text-align: center">
+    <div style="text-align: center" v-show="jobNotApplied">
       <br><br>
-      <Button type="primary" @click="onUpdateJob">{{$t("job.update")}}</Button>
-      <Button type="error" @click="onDeleteJob">{{$t("job.delete")}}</Button>
+      <Button type="primary" @click="onUpdateJob">{{$t("job.btUpdate")}}</Button>
+      <Button type="error" @click="onDeleteJob">{{$t("job.btDelete")}}</Button>
     </div>
   </div>
 </template>
 
 <script>
-  import {apiGetJobDetail} from "../../../../api/api";
+  import {apiGetMyPendingJob} from "../../../../api/api";
   import {apiDeletePendingJob} from "../../../../api/api";
   import JobDetailCard from "../detail/jobDetailCard"
 
@@ -24,11 +24,23 @@
         job: {}
       }
     },
+    computed:{
+      jobNotApplied(){
+        if(this.jobApplyNum===0){
+          return true
+        }
+        return false
+      }
+    },
+
     methods: {
       loadAllData() {
-        apiGetJobDetail(this.$store.state.jobId).then((response) => {
+        apiGetMyPendingJob({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
+            console.log(this.job)
           }
         })
       },

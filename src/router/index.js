@@ -28,14 +28,33 @@ import taskFreelancer from '@/pages/task/taskFreelancer'
 /**
  * job
  */
+// public
 import publicJobPage from '@/pages/job/publicJob/publicJobPage'
 import publicJobDetail from '@/pages/job/publicJob/publicJobDetail'
 
+// apply
 import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
+import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
+import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
+import myApplyJobDetail from '@/pages/job/myJob/applyJob/myApplyJobDetail'
+
+
+// detail
+import jobDetail from '@/pages/job/myJob/detail/jobDetail'
+
+// pending
+import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
+import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
+
 
 /**
  * spotlight
  */
+
+/**
+ * Secretary
+ */
+import secretaryApplyPage from '@/pages/secretary/match/secretaryApplyPage'
 
 Vue.use(Router);
 
@@ -185,6 +204,97 @@ const router = new Router({
           },
           meta:{
             title:'jobApplyForm',
+            token:true
+          }
+        },
+        {
+          path:'applyJobSuccess',
+          name:'applyJobSuccess',
+          components:{
+            head:headerBarBase,
+            content:applyJobSuccess,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'applyJobSuccess',
+            token:true
+          }
+        },
+        {
+          path:'myApplyJob',
+          name:'myApplyJob',
+          components:{
+            head:headerBarBase,
+            content:myApplyJob,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myApplyJob',
+            token:true
+          }
+        },
+        {
+          path:'jobDetail',
+          name:'jobDetail',
+          components:{
+            head:headerBarBase,
+            content:jobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'jobDetail',
+            token:true
+          }
+        },
+        {
+          path:'myPendingJobPage',
+          name:'myPendingJobPage',
+          components:{
+            head:headerBarBase,
+            content:myPendingJobPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myPendingJobPage',
+            token:true
+          }
+        },
+        {
+          path:'myPendingJobDetail',
+          name:'myPendingJobDetail',
+          components:{
+            head:headerBarBase,
+            content:myPendingJobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myPendingJobDetail',
+            token:true
+          }
+        },
+        {
+          path:'myApplyJobDetail',
+          name:'myApplyJobDetail',
+          components:{
+            head:headerBarBase,
+            content:myApplyJobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myApplyJobDetail',
+            token:true
+          }
+        },
+        {
+          path:'secretaryApplyPage',
+          name:'secretaryApplyPage',
+          components:{
+            head:headerBarBase,
+            content:secretaryApplyPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'secretaryApplyPage',
             token:true
           }
         }

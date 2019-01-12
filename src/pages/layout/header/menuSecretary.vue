@@ -1,7 +1,7 @@
 <template>
   <Submenu name="9">
     <template slot="title">
-      <Icon type="ios-navigate"></Icon>
+      <Icon class="gogoTitleBarIcon" type="ios-navigate"></Icon>
       {{$t("navigator.secretary")}}
     </template>
     <MenuItem name="9-1">
@@ -22,5 +22,7 @@
 </script>
 
 <style scoped>
-
+  .gogoTitleBarIcon{
+    font-size: 22px;
+  }
 </style>

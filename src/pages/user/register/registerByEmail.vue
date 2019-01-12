@@ -71,6 +71,7 @@
           email: this.emailStr,
           loginPassword: this.password
         }).then((response) => {
+          console.log(response)
           if (response.data.errorCode === 0) {
             let userInfo={}
             if(response.data.data.realName){
@@ -80,6 +81,7 @@
             }
             userInfo.userId=response.data.data.userId
             userInfo.token=response.data.data.token
+            userInfo.roleType=response.data.data.roleType
             this.$store.dispatch('saveToken', userInfo);
             if (this.$store.state.toUrl) {
               const theUrl = this.$store.state.toUrl;

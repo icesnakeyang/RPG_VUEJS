@@ -1,7 +1,7 @@
 <template>
   <Submenu name="1">
     <template slot="title">
-      <Icon type="md-person" />
+      <Icon class="gogoTitleBarIcon" type="md-person" />
       <span v-if="token">{{username}}</span>
       <span v-else>{{$t("navigator.signIn")}}</span>
     </template>
@@ -29,5 +29,7 @@
 </script>
 
 <style scoped>
-
+  .gogoTitleBarIcon{
+    font-size: 22px;
+  }
 </style>

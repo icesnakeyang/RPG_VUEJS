@@ -1,7 +1,7 @@
 <template>
   <Submenu name="2">
     <template slot="title">
-      <Icon type="ios-globe-outline" />
+      <Icon class="gogoTitleBarIcon" type="ios-globe-outline" />
       {{$t("navigator.language")}}
     </template>
     <MenuItem name="2-1">中文</MenuItem>
@@ -16,5 +16,7 @@
 </script>
 
 <style scoped>
-
+  .gogoTitleBarIcon{
+    font-size: 22px;
+  }
 </style>

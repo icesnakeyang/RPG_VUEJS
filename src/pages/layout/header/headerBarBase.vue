@@ -117,7 +117,7 @@
         }
         if (name === "3-2") {
           this.$router.push({
-            name: "myJobPage"
+            name: "myApplyJob"
           })
         }
         if (name === "3-2-1") {
@@ -140,7 +140,7 @@
             name: 'myJobPage'
           })
         }
-        if (name === "3-2-5") {
+        if (name === "3-5") {
           this.$router.push({
             name: 'myPendingJobPage'
           })
