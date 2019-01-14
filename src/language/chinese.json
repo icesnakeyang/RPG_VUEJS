@@ -99,6 +99,7 @@
     "secretary":{
       "btAgree":"同意",
       "btReject":"拒绝",
+      "tipAgreeMatch":"确定要把该任务分配给该用户吗？",
       "tipRejectMatch":"确定要拒绝该用户的的申请吗？",
       "placeholderReject":"请说明拒绝该用户的理由",
       "tipRejectSuccess":"拒绝用户申请成功",

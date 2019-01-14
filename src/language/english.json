@@ -98,6 +98,7 @@
     "secretary":{
       "btAgree":"Agree",
       "btReject":"Reject",
+      "tipAgreeMatch":"Are you sure to match this user？",
       "tipRejectMatch":"Are you sure to reject this user's application？",
       "placeholderReject":"Please describe why you reject the application",
       "tipRejectSuccess":"Reject apply success",
