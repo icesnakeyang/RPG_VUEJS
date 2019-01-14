@@ -247,6 +247,22 @@ export const apiListAppliedJob=params=>{
   })
 }
 
+export const apiListApplyHistory=params=>{
+  return axios.post(`${host}/secretary/match/listApplyHistory`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetApplyDetail=params=>{
+  return axios.post(`${host}/secretary/match/getApplyDetail`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

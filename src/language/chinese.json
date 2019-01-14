@@ -4,7 +4,13 @@
     "ok": "确定",
     "cancel": "取消",
     "unRead": "未阅读",
-    "submit": "提交"
+    "submit": "提交",
+    "status":{
+      "unProcess":"等待处理",
+      "reject":"拒绝",
+      "agree":"通过",
+      "matching":"等待匹配"
+    }
   },
   "navigator":{
     "signIn":"登录",
@@ -96,7 +102,12 @@
       "tipRejectMatch":"确定要拒绝该用户的的申请吗？",
       "placeholderReject":"请说明拒绝该用户的理由",
       "tipRejectSuccess":"拒绝用户申请成功",
-      "tipAgreeSuccess":"分配任务成功"
+      "tipAgreeSuccess":"分配任务成功",
+      "applyTime":"申请时间",
+      "price":"申请的任务金额",
+      "applyProcessResult":"申请处理结果",
+      "jobStatus":"申请任务当前的状态",
+      "applyUsername":"申请用户"
     }
   },
   "syserr":{
@@ -113,7 +124,8 @@
     "10120":"读取我发布的新任务错误",
     "10121":"读取我申请的新任务错误",
     "10122":"读取任务详情错误",
-    "10109":"读取新申请的任务失败"
+    "10109":"读取新申请的任务失败",
+    "10123":"读取任务申请详情错误"
   }
 
 }

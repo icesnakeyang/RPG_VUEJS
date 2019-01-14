@@ -1,11 +1,16 @@
 <template>
-	<div>
+  <div>
     <Card class="card">
-      <p slot="title">{{apply.title}}</p>
-      <p>{{$t("job.price")}}：{{apply.price}}</p>
-      <p>{{$t("apply.applyTime")}}：{{applyTime}}</p>
-      <p>{{$t("apply.applyProcessResult")}}：{{apply.result}}</p>
-      <p>{{$t("job.status")}}：{{apply.status}}</p>
+      <p slot="title">
+        <a @click="onDetail(apply.applyId)">
+          {{apply.title}}
+        </a>
+      </p>
+      <p>{{$t("admin.secretary.applyUsername")}}：{{apply.username}}</p>
+      <p>{{$t("admin.secretary.applyTime")}}：{{applyTime}}</p>
+      <p>{{$t("admin.secretary.price")}}：{{apply.price}}</p>
+      <p>{{$t("admin.secretary.applyProcessResult")}}：{{processResult}}</p>
+      <p>{{$t("admin.secretary.jobStatus")}}：{{jobStatus}}</p>
     </Card>
   </div>
 </template>
@@ -14,22 +19,46 @@
   import {rpgFormat} from "../../../common/rpgfun";
 
   export default {
-        name: "userApplyHistoryRow",
-      props:{
-          apply:{}
+    name: "userApplyHistoryRow",
+    props: {
+      apply: {}
+    },
+    computed: {
+      applyTime() {
+        return rpgFormat.formatTime(this.apply.applyTime)
       },
-      computed:{
-          applyTime(){
-            return rpgFormat.formatTime(this.apply.applyTime)
-          }
+      processResult() {
+        if (this.apply.processResult === null) {
+          return this.$t('common.status.unProcess')
+        }
+        if (this.apply.processResult === 'REJECT') {
+          return this.$t('common.status.reject')
+        }
       },
-      mounted(){
+      jobStatus() {
+        if (this.apply.jobStatus === 'MATCHING') {
+          return this.$t('common.status.matching')
+        }
       }
+    },
+    methods: {
+      onDetail(data) {
+        this.$router.push({
+          name:'userApplyHistoryDetail',
+          params:{
+            applyId:data
+          }
+        })
+      }
+    },
+
+    mounted() {
     }
+  }
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 </style>

@@ -18,7 +18,8 @@ export default new Vuex.Store({
     taskId: '' || localStorage.taskId,
     jobId: '' || localStorage.jobId,
     userId: '' || localStorage.userId,
-    spotId: '' || localStorage.spotId
+    spotId: '' || localStorage.spotId,
+    applyId: '' || localStorage.applyId
   },
   actions: {
     saveToken(ctx, user) {
@@ -48,8 +49,11 @@ export default new Vuex.Store({
     saveSpotId(ctx, spotId) {
       ctx.commit('saveSpotId', spotId)
     },
-    saveAdmin(ctx, admin){
+    saveAdmin(ctx, admin) {
       ctx.commit('saveAdmin', admin)
+    },
+    saveApplyId(ctx, applyId) {
+      ctx.commit('saveApplyId', applyId)
     }
   },
   mutations: {
@@ -115,6 +119,36 @@ export default new Vuex.Store({
       localStorage.username = admin.loginName
       state.roleType = admin.roleType
       localStorage.roleType = admin.roleType
+    },
+    saveApplyId(state, applyId) {
+      state.applyId = applyId
+      localStorage.applyId = applyId
+    },
+    clearAll(state) {
+      state.token = ''
+      localStorage.token = ''
+      state.username = ''
+      localStorage.username = ''
+      state.realName = ''
+      localStorage.realName = ''
+      state.email = ''
+      localStorage.email = ''
+      state.phone = ''
+      localStorage.phone = ''
+      state.toUrl = ''
+      localStorage.toUrl = ''
+      state.roleType = ''
+      localStorage.roleType = ''
+      state.taskId = ''
+      localStorage.taskId = ''
+      state.jobId = ''
+      localStorage.jobId = ''
+      state.userId = ''
+      localStorage.userId = ''
+      state.spotId = ''
+      localStorage.spotId = ''
+      state.applyId = ''
+      localStorage.applyId = ''
     }
   }
 })

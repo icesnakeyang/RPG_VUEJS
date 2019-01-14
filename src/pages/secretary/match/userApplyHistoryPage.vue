@@ -28,7 +28,7 @@
           userId:this.$store.state.userId
         }).then((response) => {
           if (response.data.errorCode === 0) {
-            this.applyHistoryList = response.data.data.applyHistoryList
+            this.applyHistoryList = response.data.data.jobApply
           } else {
             this.$Message.error(this.$t("syserr." + response.data.errorCode))
           }

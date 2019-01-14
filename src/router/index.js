@@ -62,6 +62,8 @@ import adminLogin from '@/pages/admin/adminLogin'
 import secretaryApplyPage from '@/pages/secretary/match/secretaryApplyPage'
 import secretaryDashboard from '@/pages/secretary/secretaryDashboard'
 import secretaryAppliedJobList from '@/pages/secretary/match/secretaryAppliedJobList'
+import userApplyHistoryPage from '@/pages/secretary/match/userApplyHistoryPage'
+import userApplyHistoryDetail from '@/pages/secretary/match/userApplyHistoryDetail'
 
 
 Vue.use(Router);
@@ -342,6 +344,32 @@ const router = new Router({
           },
           meta:{
             title:'secretaryAppliedJobList',
+            token:true
+          }
+        },
+        {
+          path:'userApplyHistoryPage',
+          name:'userApplyHistoryPage',
+          components:{
+            head:headerBarBase,
+            content:userApplyHistoryPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'userApplyHistoryPage',
+            token:true
+          }
+        },
+        {
+          path:'userApplyHistoryDetail',
+          name:'userApplyHistoryDetail',
+          components:{
+            head:headerBarBase,
+            content:userApplyHistoryDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'userApplyHistoryDetail',
             token:true
           }
         }

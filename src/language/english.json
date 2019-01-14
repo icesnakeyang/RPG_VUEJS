@@ -4,7 +4,13 @@
     "ok": "Ok",
     "cancel": "Cancel",
     "unRead": "Unread",
-    "submit": "Submit"
+    "submit": "Submit",
+    "status": {
+      "unProcess": "Waiting",
+      "reject":"Reject",
+      "agree":"Agree",
+      "matching":"Matching"
+    }
   },
   "navigator":{
     "signIn":"Sign in",
@@ -95,7 +101,12 @@
       "tipRejectMatch":"Are you sure to reject this user's application？",
       "placeholderReject":"Please describe why you reject the application",
       "tipRejectSuccess":"Reject apply success",
-      "tipAgreeSuccess":"Agree apply success"
+      "tipAgreeSuccess":"Agree apply success",
+      "applyTime":"Apply Time",
+      "price":"Job Price",
+      "applyProcessResult":"Apply Result",
+      "jobStatus":"Job Status",
+      "applyUsername":"Apply User"
     }
   },
   "syserr":{
@@ -112,6 +123,7 @@
     "10120":"Read my published job information error",
     "10121":"Read my applied job information error",
     "10122":"Read job detail error",
-    "10109":"Read new apply job failed"
+    "10109":"Read new apply job failed",
+    "10123":"Read job apply detail error"
   }
 }
