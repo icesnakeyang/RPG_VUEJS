@@ -9,18 +9,18 @@
       <p>{{createdTime}}</p>
       <Input type="textarea" v-model="apply.content" :autosize="{minRows: 2,maxRows: 10}" ></Input>
       <Divider></Divider>
-      <Button type="primary" @click="onAgree(apply.applyId)">{{$t('secretary.match.btAgree')}}</Button>
-      <Button type="error" @click="modal2=true">{{$t('secretary.match.btReject')}}</Button>
+      <Button type="primary" @click="onAgree(apply.applyId)">{{$t('admin.secretary.btAgree')}}</Button>
+      <Button type="error" @click="modal2=true">{{$t('admin.secretary.btReject')}}</Button>
     </Card>
 
     <Modal v-model="modal2">
       <p slot="header" style="color:#f60;text-align:center">
         <Icon type="ios-information-circle"></Icon>
-        <span>{{$t('secretary.match.tipRejectMatch')}}</span>
+        <span>{{$t('admin.secretary.tipRejectMatch')}}</span>
       </p>
-      <Input v-model="remark" type="textarea" :rows="4" :placeholder="$t('secretary.match.placeholderReject')"/>
+      <Input v-model="remark" type="textarea" :rows="4" :placeholder="$t('admin.secretary.placeholderReject')"/>
       <div slot="footer">
-        <Button type="error" size="large" @click="onReject(apply.applyId)">{{$t('secretary.match.btReject')}}</Button>
+        <Button type="error" size="large" @click="onReject(apply.applyId)">{{$t('admin.secretary.btReject')}}</Button>
       </div>
     </Modal>
   </div>
@@ -32,7 +32,7 @@
   import {apiRejectApply} from "../../../api/api";
 
   export default {
-    name: "applyRow",
+    name: "secretaryApplyPageRow",
     data() {
       return {
         modal2: false,
@@ -59,14 +59,14 @@
       onAgree(applyId) {
         this.$Modal.confirm({
           title: this.$t('common.tipTitleQuestion'),
-          content: this.$t('secretary.match.tipAgreeMatch'),
+          content: this.$t('admin.secretary.tipAgreeMatch'),
           onOk: () => {
             //match the job to user
             apiAgreeApply({
               applyId: applyId
             }).then((response) => {
               if (response.data.errorCode === 0) {
-                this.$Message.success(this.$t('secretary.match.tipAgreeSuccess'))
+                this.$Message.success(this.$t('admin.secretary.tipAgreeSuccess'))
                 this.$router.push({
                   name:'secretaryMatchPage'
                 })
@@ -86,9 +86,9 @@
           remark: this.remark
         }).then((response) => {
           if (response.data.errorCode === 0) {
-            this.$Message.success(this.$t('secretary.match.tipRejectSuccess'))
+            this.$Message.success(this.$t('admin.secretary.tipRejectSuccess'))
             this.$router.push({
-              name:'secretaryMatchPage'
+              name:'secretaryAppliedJobList'
             })
           } else {
             this.$Message.error(this.$t('syserr.' + response.data.errorCode))

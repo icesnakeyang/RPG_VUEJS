@@ -79,6 +79,25 @@
     "btUpdate":"Update",
     "contractTime":"Contract Time"
   },
+  "admin":{
+    "loginPage":{
+      "tip1":"Admin login page",
+      "username":"User name",
+      "usernamePlaceholder":"Please input username",
+      "password":"Password",
+      "passwordPlaceholder":"Please input password",
+      "btLogin":"Login"
+    },
+    "admin":{},
+    "secretary":{
+      "btAgree":"Agree",
+      "btReject":"Reject",
+      "tipRejectMatch":"Are you sure to reject this user's application？",
+      "placeholderReject":"Please describe why you reject the application",
+      "tipRejectSuccess":"Reject apply success",
+      "tipAgreeSuccess":"Agree apply success"
+    }
+  },
   "syserr":{
     "10024":"Username or password error",
     "10031":"Read task failed",
@@ -92,6 +111,7 @@
     "10046":"This phone has been occupied by other users.",
     "10120":"Read my published job information error",
     "10121":"Read my applied job information error",
-    "10122":"Read job detail error"
+    "10122":"Read job detail error",
+    "10109":"Read new apply job failed"
   }
 }

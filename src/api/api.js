@@ -18,8 +18,8 @@ export const apiListPublicJob = params => {
   return axios.post(`${host}/public_job/listPublicJob`, params)
 }
 
-export const apiLoginByEmail = params => {
-  return axios.post(`${host}/user/login/loginByEmail`, params)
+export const apiLogin = params => {
+  return axios.post(`${host}/user/login/login`, params)
 }
 
 export const apiGetEmailByEmail = params => {
@@ -209,6 +209,38 @@ export const apiGetApplyJobTiny=params=>{
 
 export const apiGetApplyJobDetail=params=>{
   return axios.post(`${host}/secretary/match/getApplyJobDetail`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiAdminLogin=params=>{
+  return axios.post(`${host}/admin/login`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiAgreeApply=params=>{
+  return axios.post(`${host}/secretary/match/agreeApply`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiRejectApply=params=>{
+  return axios.post(`${host}/secretary/match/rejectApply`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListAppliedJob=params=>{
+  return axios.post(`${host}/secretary/match/listAppliedJob`, params, {
     headers:{
       token:store.state.token
     }

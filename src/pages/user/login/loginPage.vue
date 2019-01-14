@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import {apiLoginByEmail} from "../../../api/api";
+  import {apiLogin} from "../../../api/api";
 
   export default {
     name: "loginPage",
@@ -45,7 +45,7 @@
          * 或者，不同的区域会调用不同的服务器等。
          */
         //目前暂时只考虑email登录
-        apiLoginByEmail({
+        apiLogin({
           email: this.username,
           password: this.password
         }).then((response) => {

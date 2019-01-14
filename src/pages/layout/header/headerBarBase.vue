@@ -155,9 +155,9 @@
             name: "adminPage"
           })
         }
-        if (name === "8-1") {
+        if (name === "9-1") {
           this.$router.push({
-            name: "secretaryMatchPage"
+            name: "secretaryAppliedJobList"
           })
         }
         if (name === "8-2") {

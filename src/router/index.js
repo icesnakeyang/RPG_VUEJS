@@ -52,9 +52,17 @@ import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetai
  */
 
 /**
+ * Admin
+ */
+import adminLogin from '@/pages/admin/adminLogin'
+
+/**
  * Secretary
  */
 import secretaryApplyPage from '@/pages/secretary/match/secretaryApplyPage'
+import secretaryDashboard from '@/pages/secretary/secretaryDashboard'
+import secretaryAppliedJobList from '@/pages/secretary/match/secretaryAppliedJobList'
+
 
 Vue.use(Router);
 
@@ -295,6 +303,45 @@ const router = new Router({
           },
           meta:{
             title:'secretaryApplyPage',
+            token:true
+          }
+        },
+        {
+          path:'adminLogin',
+          name:'adminLogin',
+          components:{
+            head:headerBarBase,
+            content:adminLogin,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'adminLogin',
+            token:false
+          }
+        },
+        {
+          path:'secretaryDashboard',
+          name:'secretaryDashboard',
+          components:{
+            head:headerBarBase,
+            content:secretaryDashboard,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'secretaryDashboard',
+            token:true
+          }
+        },
+        {
+          path:'secretaryAppliedJobList',
+          name:'secretaryAppliedJobList',
+          components:{
+            head:headerBarBase,
+            content:secretaryAppliedJobList,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'secretaryAppliedJobList',
             token:true
           }
         }

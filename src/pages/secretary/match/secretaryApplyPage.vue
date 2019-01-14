@@ -1,22 +1,22 @@
 <template>
   <div class="card">
     <Tag type="dot" color="primary">{{job.title}}</Tag>
-    <ApplyRow v-for="(item, index) in applies"
+    <SecretaryApplyPageRow v-for="(item, index) in applies"
               :apply="item"
               :key="index">
-    </ApplyRow>
+    </SecretaryApplyPageRow>
   </div>
 </template>
 
 <script>
   import {apiListApplyByJobId} from "../../../api/api";
-  import ApplyRow from "./applyRow"
+  import SecretaryApplyPageRow from "./secretaryApplyPageRow"
   import {apiGetApplyJobTiny} from "../../../api/api";
 
   export default {
     name: "secretaryApplyPage",
     components:{
-      ApplyRow
+      SecretaryApplyPageRow
     },
     data(){
       return{
@@ -33,11 +33,14 @@
         }).then((response) => {
           if(response.data.errorCode===0){
             this.applies=response.data.data.applyList
+            console.log(this.applies)
           }else{
             this.$Message.error(this.$t("syserr."+response.data.errorCode))
           }
         })
-        apiGetApplyJobTiny(this.$store.state.jobId).then((response)=>{
+        apiGetApplyJobTiny({
+          jobId: this.$store.state.jobId
+        }).then((response)=>{
           if(response.data.errorCode===0){
             this.job=response.data.data.job
           }else{

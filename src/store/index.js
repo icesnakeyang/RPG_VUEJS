@@ -47,6 +47,9 @@ export default new Vuex.Store({
     },
     saveSpotId(ctx, spotId) {
       ctx.commit('saveSpotId', spotId)
+    },
+    saveAdmin(ctx, admin){
+      ctx.commit('saveAdmin', admin)
     }
   },
   mutations: {
@@ -58,9 +61,9 @@ export default new Vuex.Store({
       state.realName = user.realName
       localStorage.realName = user.realName
       state.email = user.email
-      localStorage.email=user.email
-      state.phone=user.phone
-      localStorage.phone=user.phone
+      localStorage.email = user.email
+      state.phone = user.phone
+      localStorage.phone = user.phone
       state.roleType = user.roleType;
       localStorage.roleType = user.roleType;
       state.userId = user.userId;
@@ -104,6 +107,14 @@ export default new Vuex.Store({
     clearTask(state) {
       state.taskId = ''
       localStorage.taskId = ''
+    },
+    saveAdmin(state, admin) {
+      state.token = admin.token
+      localStorage.token = admin.token
+      state.username = admin.loginName
+      localStorage.username = admin.loginName
+      state.roleType = admin.roleType
+      localStorage.roleType = admin.roleType
     }
   }
 })
