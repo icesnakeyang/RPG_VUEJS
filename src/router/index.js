@@ -49,6 +49,13 @@ import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetai
 import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
 import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
 
+//partyB
+import partyBJobPage from '@/pages/job/myJob/partyB/partyBJobPage'
+import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
+
+//job log
+import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
+
 /**
  * spotlight
  */
@@ -398,6 +405,45 @@ const router = new Router({
           },
           meta:{
             title:'partyAJobDetail',
+            token:true
+          }
+        },
+        {
+          path:'partyBJobPage',
+          name:'partyBJobPage',
+          components:{
+            head:headerBarBase,
+            content:partyBJobPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'partyBJobPage',
+            token:true
+          }
+        },
+        {
+          path:'partyBJobDetail',
+          name:'partyBJobDetail',
+          components:{
+            head:headerBarBase,
+            content:partyBJobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'partyBJobDetail',
+            token:true
+          }
+        },
+        {
+          path:'jobLogPage',
+          name:'jobLogPage',
+          components:{
+            head:headerBarBase,
+            content:jobLogPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'jobLogPage',
             token:true
           }
         }

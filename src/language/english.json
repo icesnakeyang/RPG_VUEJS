@@ -83,7 +83,12 @@
     "applyContent":"Apply content",
     "btDelete":"Delete",
     "btUpdate":"Update",
-    "contractTime":"Contract Time"
+    "contractTime":"Contract Time",
+    "tabLog":"Log",
+    "tabComplete":"Complete",
+    "tabStop":"Stop",
+    "tabSpotlight":"Spotlight",
+    "tbCreateLog":"Create Log"
   },
   "admin":{
     "loginPage":{

@@ -279,6 +279,46 @@ export const apiGetPartyAJob=params=>{
   })
 }
 
+export const apiTotalUnreadByJobId=params=>{
+  return axios.post(`${host}/job/partyA/totalUnreadByJobId`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyPartyBJob=params=>{
+  return axios.post(`${host}/job/partyB/listMyPartyBJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetPartyBJobDetail=params=>{
+  return axios.post(`${host}/job/partyB/getPartyBJobDetail`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiJobLog=params=>{
+  return axios.post(`${host}/job/log/jobLog`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiSetJobLogReadTime=params=>{
+  return axios.post(`${host}/job/log/setJobLogReadTime`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

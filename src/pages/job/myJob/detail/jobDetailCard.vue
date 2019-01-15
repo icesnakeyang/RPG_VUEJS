@@ -17,8 +17,6 @@
         <P>{{$t("job.applyUserNum")}}: {{job.jobApplyNum}}</P>
       </Col>
     </Row>
-
-
   </Card>
 </template>
 

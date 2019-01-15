@@ -1,39 +1,69 @@
 <template>
   <div>
     <ToolBar></ToolBar>
-    <JobDetailTpl v-bind:job="job"></JobDetailTpl>
+    <Card class="card">
+      <p slot="title">
+        {{job.title}}
+      </p>
+      <p>{{$t("task.code")}}: {{job.code}}</p>
+      <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
+      <p>{{$t("job.partyBName")}}: {{job.partyBName}}</p>
+      <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
+      <p>{{$t("job.contractTime")}}: {{contractTime}}</p>
+      <p>{{$t("task.days")}}: {{job.days}}</p>
+      <p>{{$t("task.price")}}: {{job.price}}</p>
+      <quill-editor v-model="job.detail"
+                    :options="options">
+      </quill-editor>
+    </Card>
   </div>
 </template>
 
 <script>
-  import JobDetailTpl from "../partyA/jobDetailTpl"
-  import {apiGetJobDetail} from "../../../../api/api"
+  import {apiGetPartyBJobDetail} from "../../../../api/api"
   import ToolBar from "../component/toolbar"
+  import {quillEditor} from "vue-quill-editor"
+  import {rpgFormat} from "../../../../common/rpgfun";
 
   export default {
     name: "partyBJobDetail",
     components: {
-      JobDetailTpl,
-      ToolBar
+      ToolBar,
+      quillEditor
     },
     data() {
       return {
-        job:{}
+        job: {},
+        options:{
+          modules:{
+            toolbar:false
+          }
+        }
+      }
+    },
+    computed:{
+      publishTime(){
+        return rpgFormat.formatTime(this.job.createdTime)
+      },
+      contractTime(){
+        return rpgFormat.formatTime(this.job.contractTime)
       }
     },
     methods: {
-      loadData() {
-        apiGetJobDetail(this.$store.state.jobId).then((response) => {
+      loadAllData() {
+        apiGetPartyBJobDetail({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
           if (response.data.errorCode === 0) {
-            this.job = response.data.data.job
+            this.job = response.data.data
           }
         })
       },
-      onLog(){
+      onLog() {
       }
     },
-    mounted(){
-      this.loadData()
+    mounted() {
+      this.loadAllData()
     }
   }
 </script>

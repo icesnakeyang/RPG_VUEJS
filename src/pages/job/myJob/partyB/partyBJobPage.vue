@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  import JobPartyBListTpl from "../../components/jobPartyBListTpl"
-  import {loadMyPartyBJob} from "../../../../api/api";
+  import JobPartyBListTpl from "./jobPartyBListTpl"
+  import {apiListMyPartyBJob} from "../../../../api/api";
 
   export default {
     name: "partyBJobPage",
@@ -22,8 +22,10 @@
       }
     },
     methods: {
-      loadData() {
-        loadMyPartyBJob({}).then((response) => {
+      loadAllData() {
+        apiListMyPartyBJob({
+
+        }).then((response) => {
           if (response.data.errorCode === 0) {
             this.jobList = response.data.data.content
           }
@@ -31,7 +33,7 @@
       }
     },
     mounted() {
-      this.loadData()
+      this.loadAllData()
     }
   }
 </script>

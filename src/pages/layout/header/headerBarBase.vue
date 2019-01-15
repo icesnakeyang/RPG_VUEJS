@@ -130,7 +130,8 @@
             name: 'partyAJobPage'
           })
         }
-        if (name === "3-2-3") {
+        if (name === "3-4") {
+          console.log(34)
           this.$router.push({
             name: 'partyBJobPage'
           })
@@ -165,7 +166,7 @@
             name: "secretaryTopUpPage"
           })
         }
-        if (name === "3-4") {
+        if (name === "6-2") {
           this.$router.push({
             name: 'myAccountPage'
           })

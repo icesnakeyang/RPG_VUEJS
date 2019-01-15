@@ -2,20 +2,20 @@
   <div>
     <ToolBar v-bind:badgeInfo="badgeInfo"></ToolBar>
     <Card class="card">
-      <p slot="title">
-        {{job.title}}
-      </p>
-      <p>{{$t("task.code")}}: {{job.code}}</p>
-      <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
-      <p>{{$t("job.partyBName")}}: {{job.partyBName}}</p>
-      <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
-      <p>{{$t("job.contractTime")}}: {{contractTime}}</p>
-      <p>{{$t("task.days")}}: {{job.days}}</p>
-      <p>{{$t("task.price")}}: {{job.price}}</p>
-      <quill-editor v-model="job.detail"
-                    :options="options">
-      </quill-editor>
-    </Card>
+    <p slot="title">
+      {{job.title}}
+    </p>
+    <p>{{$t("task.code")}}: {{job.code}}</p>
+    <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
+    <p>{{$t("job.partyBName")}}: {{job.partyBName}}</p>
+    <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
+    <p>{{$t("job.contractTime")}}: {{contractTime}}</p>
+    <p>{{$t("task.days")}}: {{job.days}}</p>
+    <p>{{$t("task.price")}}: {{job.price}}</p>
+    <quill-editor v-model="job.detail"
+                  :options="options">
+    </quill-editor>
+  </Card>
   </div>
 </template>
 
@@ -33,7 +33,12 @@
     data() {
       return {
         badgeInfo: {},
-        job: {}
+        job: {},
+        options: {
+          modules: {
+            toolbar: false
+          }
+        }
       }
     },
     methods: {
@@ -43,7 +48,6 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data
-            console.log(this.job)
           }
         })
       }

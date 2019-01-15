@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import {loadUnreadByJobId} from "../../../../api/api";
+  import {apiTotalUnreadByJobId} from "../../../../api/api";
 
   export default {
     name: "toolbar",
@@ -64,7 +64,7 @@
       }
     },
     mounted() {
-      loadUnreadByJobId({
+      apiTotalUnreadByJobId({
         jobId: this.$store.state.jobId
       }).then((response) => {
         if (response.data.errorCode === 0) {

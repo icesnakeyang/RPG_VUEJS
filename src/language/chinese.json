@@ -83,8 +83,12 @@
     "applyContent":"申请说明",
     "btDelete":"删除",
     "btUpdate":"修改",
-    "contractTime":"签约时间"
-
+    "contractTime":"签约时间",
+    "tabLog": "日志",
+    "tabComplete": "验收",
+    "tabStop": "终止",
+    "tabSpotlight": "申诉",
+    "tbCreateLog":"创建日志"
   },
   "admin":{
     "loginPage":{

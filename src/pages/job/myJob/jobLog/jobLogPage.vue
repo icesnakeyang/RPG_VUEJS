@@ -1,7 +1,7 @@
 <template>
   <div>
     <Button type="info" @click="onCreateJobLog" class="card">
-      {{$t("jobLog.create")}}
+      {{$t("job.tbCreateLog")}}
     </Button>
     <JobLogRow v-for="log in jobLogList"
                v-bind:key="log.jobLogId"
@@ -11,9 +11,9 @@
 </template>
 
 <script>
-  import {jobLog} from "../../../../api/api";
+  import {apiJobLog} from "../../../../api/api";
   import JobLogRow from "./jobLogRow"
-  import {setJobLogReadTime} from "../../../../api/api";
+  import {apiSetJobLogReadTime} from "../../../../api/api";
 
   export default {
     name: "jobLogPage",
@@ -26,8 +26,8 @@
       }
     },
     methods:{
-      loadData(){
-        jobLog({
+      loadAllData(){
+        apiJobLog({
           jobId:this.$store.state.jobId,
           pageIndex:0,
           pageSize:100
@@ -39,7 +39,7 @@
         })
       },
       setReadTime(){
-        setJobLogReadTime({
+        apiSetJobLogReadTime({
           jobId:this.$store.state.jobId
         }).then((response)=>{
         })
@@ -55,7 +55,7 @@
       }
     },
     mounted() {
-      this.loadData()
+      this.loadAllData()
     }
   }
 </script>
