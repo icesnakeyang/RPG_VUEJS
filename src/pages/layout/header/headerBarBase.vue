@@ -125,7 +125,7 @@
             name: "myMatchJobPage"
           })
         }
-        if (name === "3-2-2") {
+        if (name === "3-3") {
           this.$router.push({
             name: 'partyAJobPage'
           })

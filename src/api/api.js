@@ -263,6 +263,22 @@ export const apiGetApplyDetail=params=>{
   })
 }
 
+export const apiListMyPartyAJob=params=>{
+  return axios.post(`${host}/job/partyA/listMyPartyAJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetPartyAJob=params=>{
+  return axios.post(`${host}/job/partyA/getPartyAJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

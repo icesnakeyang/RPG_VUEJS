@@ -5,7 +5,7 @@
         <a @click="goJobDetail(job.jobId)">
           {{job.title}}</a>
     </p>
-    <p>{{$t("job.code")}}:{{job.code}}</p>
+    <p>{{$t("task.code")}}:{{job.code}}</p>
     <Row>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
         <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
@@ -18,14 +18,14 @@
       </Col>
 
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.days")}}: {{job.days}}</p>
+        <p>{{$t("task.days")}}: {{job.days}}</p>
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.price")}}: {{job.price}}</p>
+        <p>{{$t("task.price")}}: {{job.price}}</p>
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("partyA.contractTime")}}: {{contractTime}}</p>
+        <p>{{$t("job.contractTime")}}: {{contractTime}}</p>
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+  import {rpgFormat} from "../../../../common/rpgfun";
 
   export default {
     name: "jobPartyAListTpl",

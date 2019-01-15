@@ -1,40 +1,58 @@
 <template>
   <div>
-    <ToolBar v-bind:badgeInfo="jobInfo.badgeInfo"></ToolBar>
-    <JobDetailTpl v-bind:job="jobInfo.job"></JobDetailTpl>
+    <ToolBar v-bind:badgeInfo="badgeInfo"></ToolBar>
+    <Card class="card">
+      <p slot="title">
+        {{job.title}}
+      </p>
+      <p>{{$t("task.code")}}: {{job.code}}</p>
+      <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
+      <p>{{$t("job.partyBName")}}: {{job.partyBName}}</p>
+      <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
+      <p>{{$t("job.contractTime")}}: {{contractTime}}</p>
+      <p>{{$t("task.days")}}: {{job.days}}</p>
+      <p>{{$t("task.price")}}: {{job.price}}</p>
+      <quill-editor v-model="job.detail"
+                    :options="options">
+      </quill-editor>
+    </Card>
   </div>
 </template>
 
 <script>
-  import JobDetailTpl from '../../../job/components/jobDetailTpl'
   import ToolBar from '../component/toolbar'
-  import {apiGetJobDetail} from "../../../../api/api";
+  import {apiGetPartyAJob} from "../../../../api/api";
+  import {quillEditor} from "vue-quill-editor"
 
   export default {
     name: "partyAJobDetail",
     components: {
-      JobDetailTpl,
-      ToolBar
+      ToolBar,
+      quillEditor
     },
     data() {
       return {
-        jobInfo:{
-          badgeInfo:{},
-          job:{}
-        }
+        badgeInfo: {},
+        job: {}
       }
     },
     methods: {
-      loadData() {
-        apiGetJobDetail(this.$store.state.jobId).then((response) => {
+      loadAllData() {
+        apiGetPartyAJob({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
           if (response.data.errorCode === 0) {
-            this.jobInfo.job = response.data.data.job
+            this.job = response.data.data
+            console.log(this.job)
           }
         })
       }
     },
     mounted() {
-      this.loadData()
+      if (this.$route.params.jobId) {
+        this.$store.dispatch('saveJobId', this.$route.params.jobId)
+      }
+      this.loadAllData()
     }
   }
 </script>

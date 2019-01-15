@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import JobDetailTpl from "../../components/jobDetailTpl"
+  import JobDetailTpl from "../partyA/jobDetailTpl"
   import {apiGetJobDetail} from "../../../../api/api"
   import ToolBar from "../component/toolbar"
 

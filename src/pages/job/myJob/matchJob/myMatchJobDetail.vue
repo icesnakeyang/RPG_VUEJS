@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import JobDetailTpl from "../../components/jobDetailTpl"
+  import JobDetailTpl from "../partyA/jobDetailTpl"
   import {apiGetJobDetail} from "../../../../api/api";
   import {acceptNewJob} from "../../../../api/api";
   import {rejectNewJob} from "../../../../api/api";

@@ -38,7 +38,6 @@ import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
 import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
 import myApplyJobDetail from '@/pages/job/myJob/applyJob/myApplyJobDetail'
 
-
 // detail
 import jobDetail from '@/pages/job/myJob/detail/jobDetail'
 
@@ -46,6 +45,9 @@ import jobDetail from '@/pages/job/myJob/detail/jobDetail'
 import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
 import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
 
+//partyA
+import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
+import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
 
 /**
  * spotlight
@@ -370,6 +372,32 @@ const router = new Router({
           },
           meta:{
             title:'userApplyHistoryDetail',
+            token:true
+          }
+        },
+        {
+          path:'partyAJobPage',
+          name:'partyAJobPage',
+          components:{
+            head:headerBarBase,
+            content:partyAJobPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'partyAJobPage',
+            token:true
+          }
+        },
+        {
+          path:'partyAJobDetail',
+          name:'partyAJobDetail',
+          components:{
+            head:headerBarBase,
+            content:partyAJobDetail,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'partyAJobDetail',
             token:true
           }
         }
