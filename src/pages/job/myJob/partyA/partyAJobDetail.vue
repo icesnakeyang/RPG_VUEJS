@@ -23,6 +23,7 @@
   import ToolBar from '../component/toolbar'
   import {apiGetPartyAJob} from "../../../../api/api";
   import {quillEditor} from "vue-quill-editor"
+  import {rpgFormat} from "../../../../common/rpgfun";
 
   export default {
     name: "partyAJobDetail",
@@ -39,6 +40,14 @@
             toolbar: false
           }
         }
+      }
+    },
+    computed:{
+      publishTime(){
+        return rpgFormat.formatTime(this.job.publishTime)
+      },
+      contractTime(){
+        return rpgFormat.formatTime(this.job.contractTime)
       }
     },
     methods: {

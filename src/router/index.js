@@ -14,6 +14,8 @@ import footerBar from '@/pages/layout/footerBar'
  */
 import loginPage from '@/pages/user/login/loginPage'
 import registerByEmail from '@/pages/user/register/registerByEmail'
+//profile
+import profileDashboard from '@/pages/user/profile/profileDashboard'
 
 /**
  * task
@@ -458,6 +460,19 @@ const router = new Router({
           },
           meta:{
             title:'createJobLog',
+            token:true
+          }
+        },
+        {
+          path:'profileDashboard',
+          name:'profileDashboard',
+          components:{
+            head:headerBarBase,
+            content:profileDashboard,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'profileDashboard',
             token:true
           }
         }

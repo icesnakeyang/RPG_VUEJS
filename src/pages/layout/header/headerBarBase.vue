@@ -151,6 +151,11 @@
             name: "myApplyJob"
           })
         }
+        if(name==="5-1"){
+          this.$router.push({
+            name:'profileDashboard'
+          })
+        }
         if (name === "7-1") {
           this.$router.push({
             name: "adminPage"
