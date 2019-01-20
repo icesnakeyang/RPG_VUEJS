@@ -91,7 +91,9 @@
     "tbCreateLog":"创建日志",
     "log": {
       "content": "日志内容",
-      "btCreate": "创建日志"
+      "btCreate": "创建日志",
+      "createdTime": "创建时间",
+      "readTime": "对方阅读时间"
     }
   },
   "admin":{

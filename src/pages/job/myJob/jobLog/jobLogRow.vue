@@ -4,9 +4,9 @@
       <p slot="title">
         {{log.createdUserName}}
       </p>
-      <p>{{$t("jobLog.createdTime")}}: {{createdTime}}</p>
-      <p v-if="readTime">{{$t("jobLog.readTime")}}: {{readTime}}</p>
-      <p v-else="readTime">{{$t("jobLog.readTime")}}: <Tag color="error">unread</Tag></p>
+      <p>{{$t("job.log.createdTime")}}: {{createdTime}}</p>
+      <p v-if="readTime">{{$t("job.log.readTime")}}: {{readTime}}</p>
+      <p v-else="readTime">{{$t("job.log.readTime")}}: <Tag color="error">{{unRead}}</Tag></p>
       <Input type="textarea" v-model="log.content"
              :autosize="{minRows: 5,maxRows: 15}"
       />
@@ -32,6 +32,9 @@
         }else{
           return false
         }
+      },
+      unRead(){
+        return this.$t('common.unRead')
       }
     }
   }

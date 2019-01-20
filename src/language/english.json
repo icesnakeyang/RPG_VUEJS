@@ -91,7 +91,9 @@
     "tbCreateLog":"Create Log",
     "log": {
       "content": "Content",
-      "btCreate": "Create"
+      "btCreate": "Create",
+      "createdTime": "Created Time",
+      "readTime": "Read Time"
     }
   },
   "admin":{
