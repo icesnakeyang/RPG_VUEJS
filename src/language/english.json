@@ -88,7 +88,11 @@
     "tabComplete":"Complete",
     "tabStop":"Stop",
     "tabSpotlight":"Spotlight",
-    "tbCreateLog":"Create Log"
+    "tbCreateLog":"Create Log",
+    "log": {
+      "content": "Content",
+      "btCreate": "Create"
+    }
   },
   "admin":{
     "loginPage":{

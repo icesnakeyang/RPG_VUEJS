@@ -55,6 +55,7 @@ import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
 
 //job log
 import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
+import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
 
 /**
  * spotlight
@@ -444,6 +445,19 @@ const router = new Router({
           },
           meta:{
             title:'jobLogPage',
+            token:true
+          }
+        },
+        {
+          path:'createJobLog',
+          name:'createJobLog',
+          components:{
+            head:headerBarBase,
+            content:createJobLog,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'createJobLog',
             token:true
           }
         }

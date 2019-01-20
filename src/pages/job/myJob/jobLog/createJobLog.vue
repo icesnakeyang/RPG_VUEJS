@@ -4,13 +4,13 @@
       <FormItem v-show="errInput">
         <Alert type="error" show-icon>{{errMsg}}</Alert>
       </FormItem>
-      <FormItem :label="$t('jobLog.content')">
+      <FormItem :label="$t('job.log.content')">
         <Input type="textarea" v-model="jobLog.content"
-               :autosize="{minRows: 5,maxRows: 15}" />
+               :autosize="{minRows: 5,maxRows: 15}"/>
       </FormItem>
 
       <FormItem v-show="!saving">
-        <Button type="primary" @click="onCreateLog">{{$t("jobLog.create")}}</Button>
+        <Button type="primary" @click="onCreateLog">{{$t("job.log.btCreate")}}</Button>
       </FormItem>
       <FormItem v-show="saving">
         <template>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {createLog} from "../../../../api/api";
+  import {apiCreateLog} from "../../../../api/api";
 
   export default {
     name: "createJobLog",
@@ -32,29 +32,31 @@
       return {
         jobLog: {},
         errInput: false,
-        errMsg:'',
-        saving:false
+        errMsg: '',
+        saving: false
       }
     },
-    methods:{
-      onCreateLog(){
-        if(!this.$store.state.jobId){
+    methods: {
+      onCreateLog() {
+        if (!this.$store.state.jobId) {
           return
         }
-        if(!this.jobLog.content){
+        if (!this.jobLog.content) {
           return;
         }
-        createLog({
-          jobId:this.$store.state.jobId,
-          content:this.jobLog.content
-        }).then((response)=>{
-          if(response.data.errorCode===0){
+        apiCreateLog({
+          jobId: this.$store.state.jobId,
+          content: this.jobLog.content
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
             this.$router.push({
               name: 'jobLogPage',
               params: {
                 jobId: this.$store.state.jobId
               }
             })
+          } else {
+            this.$Message.error(this.$t('syserr.' + response.data.errorCode))
           }
         })
       }

@@ -319,6 +319,14 @@ export const apiSetJobLogReadTime=params=>{
   })
 }
 
+export const apiCreateLog=params=>{
+  return axios.post(`${host}/job/log/createLog`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

@@ -88,7 +88,11 @@
     "tabComplete": "验收",
     "tabStop": "终止",
     "tabSpotlight": "申诉",
-    "tbCreateLog":"创建日志"
+    "tbCreateLog":"创建日志",
+    "log": {
+      "content": "日志内容",
+      "btCreate": "创建日志"
+    }
   },
   "admin":{
     "loginPage":{
