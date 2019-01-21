@@ -36,7 +36,6 @@
   "user": {
     "username":"Login name",
     "usernamePlaceholder":"Eail/Phone",
-    "email": "Email",
     "emailPlaceholder": "Please input email",
     "password": "Password",
     "passwordPlaceholder": "Please input password",
@@ -49,8 +48,26 @@
     "err1": "The two passwords are not same",
     "err4":"This email has been used by other user",
     "realName":"Real Name",
-    "phone":"Contact Phone",
-    "btSaveUserInfo": "Confirm"
+    "btSaveUserInfo": "Confirm",
+    "email":{
+      "email": "Email",
+      "title":"Email information"
+    },
+    "phone":{
+      "phone":"Contact Phone",
+      "title":"Phone information",
+      "verify":"Verify",
+      "unverifyTag":"Unverify",
+      "verifyTag":"Verified",
+      "createdTime":"Created Time",
+      "default":"Default",
+      "btSetDefault":"Set Default"
+    },
+    "realname":{
+      "title":"Real name information",
+      "realName":"Real Name",
+      "realNameCertify":"Certify"
+    }
   },
   "task":{
     "btCreate":"Create Task",
@@ -136,6 +153,7 @@
     "10121":"Read my applied job information error",
     "10122":"Read job detail error",
     "10109":"Read new apply job failed",
-    "10123":"Read job apply detail error"
+    "10123":"Read job apply detail error",
+    "10124":"Read phone error"
   }
 }

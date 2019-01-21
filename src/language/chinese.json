@@ -36,7 +36,6 @@
   "user": {
     "username":"登录名",
     "usernamePlaceholder":"Eail/Phone",
-    "email": "Email",
     "emailPlaceholder": "请输入Email",
     "password": "密码",
     "passwordPlaceholder": "请输入登录密码",
@@ -49,8 +48,25 @@
     "err1": "两次输入的密码不一致",
     "err4":"该Email已被其他用户使用了",
     "realName": "真实姓名",
-    "phone": "联系电话",
-    "btSaveUserInfo": "提交"
+    "btSaveUserInfo": "提交",
+    "email":{
+      "email": "Email",
+      "title":"Email信息"
+    },
+    "phone":{
+      "phone": "联系电话",
+      "verify":"是否认证",
+      "unverifyTag":"未认证",
+      "verifyTag":"已认证",
+      "createdTime":"创建时间",
+      "default":"默认电话",
+      "btSetDefault":"设为默认"
+    },
+    "realname":{
+      "title":"实名信息",
+      "realName":"真实姓名",
+      "realNameCertify":"实名认证"
+    }
   },
   "task":{
     "btCreate":"创建Task",
@@ -136,7 +152,8 @@
     "10121":"读取我申请的新任务错误",
     "10122":"读取任务详情错误",
     "10109":"读取新申请的任务失败",
-    "10123":"读取任务申请详情错误"
+    "10123":"读取任务申请详情错误",
+    "10124":"读取电话号码失败"
   }
 
 }

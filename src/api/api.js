@@ -327,8 +327,21 @@ export const apiCreateLog=params=>{
   })
 }
 
+export const apiListEmailOfUser=params=>{
+  return axios.post(`${host}/user/profile/listEmailOfUser`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 
-
+export const apiListPhoneOfUser=params=>{
+  return axios.post(`${host}/user/profile/listPhoneOfUser`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
 
 
 
