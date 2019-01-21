@@ -2,15 +2,15 @@
   <div>
     <div v-if="isProgress">
       <!--当前用户为乙方，可申请完成-->
-      <Button type="info" v-if="isPartyB" @click="onCreateJobComplete" class="card">{{$t("jobComplete.create")}}
+      <Button type="info" v-if="isPartyB" @click="onCreateJobComplete" class="card">{{$t("job.jobComplete.create")}}
       </Button>
 
       <!--当前用户为甲方，且乙方已经申请了完成，且未处理，可拒绝-->
       <div v-if="isPartyA">
         <Button type="error" v-if="isWaitingProcess" @click="rejectModal=true" class="card">
-          {{$t("jobComplete.reject")}}</Button>
+          {{$t("job.jobComplete.reject")}}</Button>
         <!--当前用户为甲方，可验收通过-->
-        <Button type="success" @click="acceptModal=true" class="card">{{$t("jobComplete.accept")}}</Button>
+        <Button type="success" @click="acceptModal=true" class="card">{{$t("job.jobComplete.accept")}}</Button>
       </div>
     </div>
     <div>
@@ -27,7 +27,7 @@
         :mask-closable="false"
         @on-ok="onRejectComplete"
         @on-cancel="onRejectCancel">
-        <p>{{$t("jobComplete.rejectRemark")}}</p>
+        <p>{{$t("job.jobComplete.rejectRemark")}}</p>
         <Input v-model="rejectRemark" type="textarea" :autosize="{minRows: 5,maxRows: 15}"></Input>
       </Modal>
     </div>
@@ -39,7 +39,7 @@
         :mask-closable="false"
         @on-ok="onAcceptComplete"
         @on-cancel="onRejectCancel">
-        <p>{{$t("jobComplete.acceptRemark")}}</p>
+        <p>{{$t("job.jobComplete.acceptRemark")}}</p>
         <Input v-model="acceptRemark" type="textarea" :autosize="{minRows: 5,maxRows: 15}"></Input>
       </Modal>
     </div>
@@ -47,12 +47,12 @@
 </template>
 
 <script>
-  import {loadCompletList} from "../../../../api/api";
-  import {setCompleteReadTime} from "../../../../api/api";
+  import {apiListMyComplete} from "../../../../api/api";
+  import {apiSetCompleteReadTime} from "../../../../api/api";
   import CompleteRow from "./completeRow"
-  import {rejectComplete} from "../../../../api/api";
-  import {acceptComplete} from "../../../../api/api";
-  import {apiGetJobDetailTiny} from "../../../../api/api";
+  import {apiRejectComplete} from "../../../../api/api";
+  import {apiAcceptComplete} from "../../../../api/api";
+  import {apiGetJobTinyByJobId} from "../../../../api/api";
 
   export default {
     name: "completePage",
@@ -106,8 +106,8 @@
       }
     },
     methods: {
-      loadData() {
-        loadCompletList({
+      loadAllData() {
+        apiListMyComplete({
           jobId: this.$store.state.jobId,
           pageIndex: 0,
           pageSize: 100
@@ -115,17 +115,20 @@
           if (response.data.errorCode === 0) {
             this.jobCompleteList = response.data.data.content
             this.setReadTime()
+            console.log(this.jobCompleteList)
           }
         })
 
-        apiGetJobDetailTiny(this.$store.state.jobId).then((response) => {
+        apiGetJobTinyByJobId({
+          jobId:this.$store.state.jobId
+        }).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
           }
         })
       },
       setReadTime() {
-        setCompleteReadTime({
+        apiSetCompleteReadTime({
           jobId: this.$store.state.jobId
         }).then((response) => {
         })
@@ -139,7 +142,7 @@
         })
       },
       onRejectComplete() {
-        rejectComplete({
+        apiRejectComplete({
           jobId: this.$store.state.jobId,
           processRemark: this.processRemark
         }).then((response) => {
@@ -155,7 +158,7 @@
       },
 
       onAcceptComplete() {
-        acceptComplete({
+        apiAcceptComplete({
           jobId: this.$store.state.jobId
         }).then((response) => {
           if (response.data.errorCode !== 0) {
@@ -165,7 +168,10 @@
       }
     },
     mounted() {
-      this.loadData()
+      if(this.$route.params.jobId){
+        this.$store.dispatch('saveJobId', (this.$route.params.jobId))
+      }
+      this.loadAllData()
     }
   }
 </script>

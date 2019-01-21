@@ -48,6 +48,7 @@
     "err1": "两次输入的密码不一致",
     "err4":"该Email已被其他用户使用了",
     "realName": "真实姓名",
+    "btVerifyRealname": "实名认证",
     "btSaveUserInfo": "提交",
     "email":{
       "email": "Email",
@@ -65,7 +66,14 @@
     "realname":{
       "title":"实名信息",
       "realName":"真实姓名",
-      "realNameCertify":"实名认证"
+      "realNameCertify":"实名认证",
+      "idCardNo": "身份证号码",
+      "sex": "性别",
+      "male": "男",
+      "female": "女",
+      "btSubmit": "提交",
+      "tipSaveSuccess": "保存成功",
+      "tipSaveError": "保存失败"
     }
   },
   "task":{
@@ -110,6 +118,16 @@
       "btCreate": "创建日志",
       "createdTime": "创建时间",
       "readTime": "对方阅读时间"
+    },
+    "jobComplete": {
+      "content": "完成说明",
+      "create": "创建验收日志",
+      "createdTime": "创建时间",
+      "readTime": "对方阅读时间",
+      "reject": "拒绝验收",
+      "accept": "验收通过",
+      "rejectRemark": "拒绝验收说明",
+      "acceptRemark": "通过验收说明"
     }
   },
   "admin":{
@@ -153,7 +171,9 @@
     "10122":"读取任务详情错误",
     "10109":"读取新申请的任务失败",
     "10123":"读取任务申请详情错误",
-    "10124":"读取电话号码失败"
+    "10124":"读取电话号码失败",
+    "10125": "读取用户详细信息错误",
+    "10126": "保存实习信息错误"
   }
 
 }

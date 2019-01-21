@@ -16,6 +16,7 @@ import loginPage from '@/pages/user/login/loginPage'
 import registerByEmail from '@/pages/user/register/registerByEmail'
 //profile
 import profileDashboard from '@/pages/user/profile/profileDashboard'
+import submitUserProfile from '@/pages/user/profile/submitUserProfile'
 
 /**
  * task
@@ -58,6 +59,9 @@ import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
 //job log
 import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
 import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
+
+//job complete
+import completePage from '@/pages/job/myJob/complete/completePage'
 
 /**
  * spotlight
@@ -473,6 +477,32 @@ const router = new Router({
           },
           meta:{
             title:'profileDashboard',
+            token:true
+          }
+        },
+        {
+          path:'submitUserProfile',
+          name:'submitUserProfile',
+          components:{
+            head:headerBarBase,
+            content:submitUserProfile,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'submitUserProfile',
+            token:true
+          }
+        },
+        {
+          path:'completePage',
+          name:'completePage',
+          components:{
+            head:headerBarBase,
+            content:completePage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'completePage',
             token:true
           }
         }

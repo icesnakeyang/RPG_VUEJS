@@ -48,6 +48,7 @@
     "err1": "The two passwords are not same",
     "err4":"This email has been used by other user",
     "realName":"Real Name",
+    "btVerifyRealname": "Certify Real Name",
     "btSaveUserInfo": "Confirm",
     "email":{
       "email": "Email",
@@ -66,7 +67,14 @@
     "realname":{
       "title":"Real name information",
       "realName":"Real Name",
-      "realNameCertify":"Certify"
+      "realNameCertify":"Certify",
+      "idCardNo": "ID Card No.",
+      "sex": "Sex",
+      "male": "Male",
+      "female": "Female",
+      "btSubmit": "Submit",
+      "tipSaveSuccess": "Save profile success",
+      "tipSaveError": "Save profile error"
     }
   },
   "task":{
@@ -111,6 +119,16 @@
       "btCreate": "Create",
       "createdTime": "Created Time",
       "readTime": "Read Time"
+    },
+    "jobComplete":{
+      "content":"Complete description",
+      "create":"Create complete log",
+      "createdTime":"Created time",
+      "readTime":"Read time",
+      "reject":"Reject",
+      "accept":"Accept",
+      "rejectRemark":"Description for reject",
+      "acceptRemark":"Description for accept"
     }
   },
   "admin":{
@@ -154,6 +172,8 @@
     "10122":"Read job detail error",
     "10109":"Read new apply job failed",
     "10123":"Read job apply detail error",
-    "10124":"Read phone error"
+    "10124":"Read phone error",
+    "10125": "Read user profile error",
+    "10126": "Save real name error"
   }
 }

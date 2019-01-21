@@ -343,6 +343,62 @@ export const apiListPhoneOfUser=params=>{
   })
 }
 
+export const apiGetUserProfile=params=>{
+  return axios.post(`${host}/user/profile/getUserProfile`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiSaveRealName=params=>{
+  return axios.post(`${host}/user/profile/saveRealName`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyComplete=params=>{
+  return axios.post(`${host}/job/complete/listMyComplete`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiGetJobTinyByJobId=params=>{
+  return axios.post(`${host}/job/my_common/getJobTinyByJobId`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiSetCompleteReadTime=params=>{
+  return axios.post(`${host}/job/complete/setCompleteReadTime`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiRejectComplete=params=>{
+  return axios.post(`${host}/job/complete/rejectComplete`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiAcceptComplete=params=>{
+  return axios.post(`${host}/job/complete/acceptComplete`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

@@ -339,6 +339,8 @@
     "10121":"Read my applied job information error",
     "10122":"Read job detail error",
     "10123":"Read job apply detail error",
-    "10124":"Read phone error"
+    "10124":"Read phone error",
+    "10125": "Read user profile error",
+    "10126": "Save real name error"
   }
 }

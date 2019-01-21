@@ -18,6 +18,8 @@
         {{$t('user.realname.title')}}
       </p>
       <p>{{$t('user.realname.realName')}}: {{user.realName}}</p>
+      <divider></divider>
+      <Button type="primary" @click="onCertify">{{$t('user.btVerifyRealname')}}</Button>
     </Card>
   </div>
 </template>
@@ -46,7 +48,6 @@
         apiGetUserInfo({
 
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.user=response.data.data.user
           }else{
@@ -57,10 +58,8 @@
         apiListPhoneOfUser({
 
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0) {
             this.phoneList = response.data.data.phones
-            console.log(this.phoneList)
           }else{
             this.$Message.error(this.$t('syserr.'+response.data.errorCode))
           }
@@ -70,6 +69,12 @@
 
         }).then((response)=>{
           this.emailList=response.data.emails
+        })
+      },
+
+      onCertify(){
+        this.$router.push({
+          name:'submitUserProfile'
         })
       }
     },
