@@ -4,13 +4,13 @@
       <FormItem v-show="errInput">
         <Alert type="error" show-icon>{{errMsg}}</Alert>
       </FormItem>
-      <FormItem :label="$t('jobComplete.content')">
+      <FormItem :label="$t('job.jobComplete.content')">
         <Input type="textarea" v-model="complete.content"
                :autosize="{minRows: 5,maxRows: 15}"/>
       </FormItem>
 
       <FormItem v-show="!saving">
-        <Button type="primary" @click="onCreateComplete">{{$t("jobComplete.create")}}</Button>
+        <Button type="primary" @click="onCreateComplete">{{$t("job.jobComplete.create")}}</Button>
       </FormItem>
       <FormItem v-show="saving">
         <template>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {createCompleteApi} from "../../../../api/api";
+  import {apiCreateComplete} from "../../../../api/api";
 
   export default {
     name: "createComplete",
@@ -44,7 +44,7 @@
         if (!this.complete.content) {
           return;
         }
-        createCompleteApi({
+        apiCreateComplete({
           jobId: this.$store.state.jobId,
           content: this.complete.content
         }).then((response) => {
@@ -55,6 +55,8 @@
                 jobId: this.$store.state.jobId
               }
             })
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
           }
         })
       }

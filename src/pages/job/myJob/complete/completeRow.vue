@@ -4,15 +4,38 @@
       <p slot="title">
         {{complete.createdUserName}}
       </p>
-      <p>{{$t("jobComplete.createdTime")}}: {{createdTime}}</p>
-      <p v-if="readTime">{{$t("jobComplete.readTime")}}: {{readTime}}</p>
-      <p v-else="readTime">{{$t("jobComplete.readTime")}}: <Tag color="error">unread</Tag></p>
+      <p>{{$t("job.jobComplete.createdTime")}}: {{createdTime}}</p>
+      <p v-if="readTime">{{$t("job.jobComplete.readTime")}}: {{readTime}}</p>
+      <p v-else="readTime">{{$t("job.jobComplete.readTime")}}:
+        <Tag color="error">{{$t('job.jobComplete.unRead')}}</Tag>
+      </p>
       <Input type="textarea" v-model="complete.content"
              :autosize="{minRows: 5,maxRows: 15}"
       />
       <Divider></Divider>
-      <p>process result: {{complete.result}}</p>
-      <p>process time: {{processTime}}</p>
+      <div v-if="isProcess">
+        <div v-if="processResult">
+          <p>{{$t('job.jobComplete.processResult')}}:
+            <Tag color="success">{{$t('job.jobComplete.accept')}}</Tag>
+          </p>
+          <p>{{$t('job.jobComplete.processTime')}}: {{processTime}}</p>
+          <Input type="textarea" v-model="complete.processRemark"
+                 :autosize="{minRows: 5, maxRows: 15}"></Input>
+        </div>
+        <div v-else>
+          <p>{{$t('job.jobComplete.processResult')}}:
+            <Tag color="error">{{$t('job.jobComplete.reject')}}</Tag>
+          </p>
+          <p>{{$t('job.jobComplete.processTime')}}: {{processTime}}</p>
+          <Input type="textarea" v-model="complete.processRemark"
+                 :autosize="{minRows:5, maxRows:15}"></Input>
+        </div>
+      </div>
+      <div v-else>
+        <p>{{$t('job.jobComplete.processResult')}}:
+          <Tag color="red">{{$t('job.jobComplete.unProcess')}}</Tag>
+        </p>
+      </div>
     </Card>
   </div>
 </template>
@@ -25,32 +48,47 @@
     props: {
       complete: {}
     },
-    computed:{
-      createdTime(){
+    computed: {
+      createdTime() {
         return rpgFormat.formatTime(this.complete.createdTime)
       },
-      readTime(){
-        if(this.complete.readTime){
+      readTime() {
+        if (this.complete.readTime) {
           return rpgFormat.formatTime(this.complete.readTime)
-        }else{
+        } else {
           return false
         }
       },
-      processTime(){
-        if(this.complete.processTime){
+      processTime() {
+        if (this.complete.processTime) {
           return rpgFormat.formatTime(this.complete.processTime)
-        }else {
+        } else {
+          return ''
+        }
+      },
+      isProcess() {
+        if (this.complete.result === null) {
           return false
+        }
+        return true
+      },
+      processResult() {
+        if (this.complete.result) {
+          if (this.complete.result === 'REJECT') {
+            return false
+          } else {
+            return true
+          }
         }
       }
     },
-    mounted(){
+    mounted() {
     }
   }
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 </style>

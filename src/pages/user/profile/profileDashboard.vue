@@ -4,10 +4,13 @@
       <p slot="title" >
         {{$t('user.email.title')}}
       </p>
+      <EmailRow v-for="(item, index) in emailList"
+                :key="index"
+                :email="item"></EmailRow>
     </Card>
     <Card class="card">
       <p slot="title">
-        {{$t('user.phone.title')}}
+        {{$t('user.phone.phone')}}
       </p>
       <PhoneRow v-for="(item, index) in phoneList"
                 :key="index"
@@ -29,11 +32,13 @@
   import {apiListEmailOfUser} from "../../../api/api";
   import {apiListPhoneOfUser} from "../../../api/api";
   import PhoneRow from './phoneRow'
+  import EmailRow from './emailRow'
 
   export default {
     name: "profileDashboard",
     components:{
-      PhoneRow
+      PhoneRow,
+      EmailRow
     },
     data(){
       return{
@@ -68,7 +73,12 @@
         apiListEmailOfUser({
 
         }).then((response)=>{
-          this.emailList=response.data.emails
+          if(response.data.errorCode===0) {
+            this.emailList = response.data.data.emails
+            console.log(this.emailList)
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
+          }
         })
       },
 

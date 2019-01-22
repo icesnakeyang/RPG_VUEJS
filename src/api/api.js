@@ -399,6 +399,14 @@ export const apiAcceptComplete=params=>{
   })
 }
 
+export const apiCreateComplete=params=>{
+  return axios.post(`${host}/job/complete/createComplete`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

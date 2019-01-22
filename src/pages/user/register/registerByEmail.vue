@@ -3,7 +3,7 @@
     <FormItem v-show="errInput">
       <Alert type="error" show-icon>{{errMsg}}</Alert>
     </FormItem>
-    <FormItem :label="$t('user.email')">
+    <FormItem :label="$t('user.email.email')">
       <Input @on-blur="onCheckEail" v-model="emailStr" :placeholder="$t('user.emailPlaceholder')"/>
     </FormItem>
     <FormItem :label="$t('user.password')">

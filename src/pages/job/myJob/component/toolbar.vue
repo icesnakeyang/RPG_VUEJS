@@ -30,6 +30,18 @@
       }
     },
     methods: {
+      loadAllData(){
+        apiTotalUnreadByJobId({
+          jobId: this.$store.state.jobId
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.badgeInfo.unReadJobLog = response.data.data.unReadJobLog
+            this.badgeInfo.unReadComplete=response.data.data.unReadComplete
+            this.badgeInfo.unReadStop=response.data.data.unReadStop
+          }
+        })
+      },
+
       onLog() {
         this.$router.push({
           name: 'jobLogPage',
@@ -64,15 +76,7 @@
       }
     },
     mounted() {
-      apiTotalUnreadByJobId({
-        jobId: this.$store.state.jobId
-      }).then((response) => {
-        if (response.data.errorCode === 0) {
-          this.badgeInfo.unReadJobLog = response.data.data.unReadJobLog
-          this.badgeInfo.unReadComplete=response.data.data.unReadComplete
-          this.badgeInfo.unReadStop=response.data.data.unReadStop
-        }
-      })
+      this.loadAllData()
     }
   }
 </script>

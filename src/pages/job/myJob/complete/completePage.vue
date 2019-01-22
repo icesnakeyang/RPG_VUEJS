@@ -114,8 +114,6 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.jobCompleteList = response.data.data.content
-            this.setReadTime()
-            console.log(this.jobCompleteList)
           }
         })
 
@@ -144,12 +142,13 @@
       onRejectComplete() {
         apiRejectComplete({
           jobId: this.$store.state.jobId,
-          processRemark: this.processRemark
+          processRemark: this.rejectRemark
         }).then((response) => {
-          if (response.data.errorCode !== 0) {
-            this.$Message.error(this.$t("syserr." + response.data.errorCode))
+          if (response.data.errorCode === 0) {
+            this.loadAllData()
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
           }
-
         })
       },
 
@@ -159,7 +158,8 @@
 
       onAcceptComplete() {
         apiAcceptComplete({
-          jobId: this.$store.state.jobId
+          jobId: this.$store.state.jobId,
+          processRemark:this.acceptRemark
         }).then((response) => {
           if (response.data.errorCode !== 0) {
             this.$Message.error(this.$t("syserr." + response.data.errorCode));
@@ -171,6 +171,7 @@
       if(this.$route.params.jobId){
         this.$store.dispatch('saveJobId', (this.$route.params.jobId))
       }
+      this.setReadTime()
       this.loadAllData()
     }
   }
