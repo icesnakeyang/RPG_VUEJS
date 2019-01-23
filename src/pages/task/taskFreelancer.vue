@@ -70,13 +70,14 @@
           return;
         }
         this.saving = true;
+        console.log(this.task)
         apiPublishNewJob({
           taskId: this.task.taskId,
           title: this.task.title,
           code: this.task.code,
           days: this.task.days,
           price: this.task.price,
-          jobDetail:this.task.detail
+          detail:this.task.detail
         }).then((response) => {
           if (response.data.errorCode===0) {
             this.$Message.success(this.$t("job.succPublish"));

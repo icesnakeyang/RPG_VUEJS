@@ -24,6 +24,10 @@
     <Icon type="ios-navigate"></Icon>
     {{$t("navigator.myPending")}}
     </MenuItem>
+    <MenuItem name="3-6">
+    <Icon type="ios-navigate"></Icon>
+    {{$t("navigator.myAcceptJob")}}
+    </MenuItem>
   </Submenu>
 </template>
 

@@ -116,7 +116,7 @@ export const apiCreateSubTask=params=>{
 }
 
 export const apiPublishNewJob=params=>{
-  return axios.post(`${host}/job/common/publishNewJob`, params, {
+  return axios.post(`${host}/task/publishNewJob`, params, {
     headers:{
       token:store.state.token
     }
@@ -401,6 +401,22 @@ export const apiAcceptComplete=params=>{
 
 export const apiCreateComplete=params=>{
   return axios.post(`${host}/job/complete/createComplete`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyPartyAAcceptJob=params=>{
+  return axios.post(`${host}/job/complete/listMyPartyAAcceptJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
+export const apiListMyPartyBAcceptJob=params=>{
+  return axios.post(`${host}/job/complete/listMyPartyBAcceptJob`, params, {
     headers:{
       token:store.state.token
     }

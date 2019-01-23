@@ -44,6 +44,7 @@
           idcardNo:this.realName.idcardNo
         }).then((response)=>{
           if(response.data.errorCode===0){
+            this.$store.dispatch('saveRealName', this.realName.realName)
             this.$Message.success(this.$t('user.realname.tipSaveSuccess'))
           }else{
             this.$Message.error(this.$t('user.realname.tipSaveError'))

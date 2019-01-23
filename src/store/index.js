@@ -25,6 +25,9 @@ export default new Vuex.Store({
     saveToken(ctx, user) {
       ctx.commit('saveToken', user)
     },
+    saveRealName(ctx, realName){
+      ctx.commit('saveRealName', realName)
+    },
     logout(ctx) {
       ctx.commit('logout')
     },
@@ -72,6 +75,12 @@ export default new Vuex.Store({
       localStorage.roleType = user.roleType;
       state.userId = user.userId;
       localStorage.userId = user.userId;
+    },
+    saveRealName(state, realName){
+      state.realName=realName
+      localStorage.realName=realName
+      state.username=realName
+      localStorage.username=realName
     },
     logout(state) {
       state.token = '';

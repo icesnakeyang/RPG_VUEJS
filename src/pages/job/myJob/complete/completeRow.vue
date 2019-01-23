@@ -30,20 +30,20 @@
           <Input type="textarea" v-model="complete.processRemark"
                  :autosize="{minRows:5, maxRows:15}"></Input>
         </div>
+        <div v-if="processRead">
+          <p>{{$t('job.jobComplete.processReadTime')}}:
+            {{processReadTime}}
+          </p>
+        </div>
+        <div v-else>
+          <p>{{$t('job.jobComplete.processReadTime')}}:
+            <Tag color="red">{{$t('job.jobComplete.unRead')}}</Tag>
+          </p>
+        </div>
       </div>
       <div v-else>
         <p>{{$t('job.jobComplete.processResult')}}:
           <Tag color="red">{{$t('job.jobComplete.unProcess')}}</Tag>
-        </p>
-      </div>
-      <div v-if="processRead">
-        <p>{{$t('job.jobComplete.processReadTime')}}:
-          {{complete.processReadTime}}
-        </p>
-      </div>
-      <div v-else>
-        <p>{{$t('job.jobComplete.processReadTime')}}:
-          <Tag color="red">{{$t('job.jobComplete.unRead')}}</Tag>
         </p>
       </div>
     </Card>
@@ -96,6 +96,9 @@
           return true
         }
         return false
+      },
+      processReadTime(){
+        return rpgFormat.formatTime(this.complete.processReadTime)
       }
     },
     mounted() {

@@ -161,7 +161,9 @@
           jobId: this.$store.state.jobId,
           processRemark:this.acceptRemark
         }).then((response) => {
-          if (response.data.errorCode !== 0) {
+          if (response.data.errorCode === 0) {
+            this.loadAllData()
+          }else {
             this.$Message.error(this.$t("syserr." + response.data.errorCode));
           }
         })

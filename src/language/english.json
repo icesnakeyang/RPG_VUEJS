@@ -31,7 +31,8 @@
     "administrator":"Administrator",
     "secretary":"Secretary",
     "matchJob":"Match",
-    "topUp":"Top Up"
+    "topUp":"Top Up",
+    "myAcceptJob": "Accepted Job"
   },
   "user": {
     "username":"Login name",
@@ -133,7 +134,8 @@
       "processTime": "Process time",
       "unRead": "Unread",
       "unProcess": "Un-process",
-      "processReadTime": "Process result read time"
+      "processReadTime": "Process result read time",
+      "acceptTime": "Accepted time"
     }
   },
   "admin":{
@@ -184,6 +186,9 @@
     "10128": "Only party A can accept the complete apply",
     "10129": "There is another un-processed complete apply already, cannot create again",
     "10130": "Sorry! You only can create complete apply for the job status in progress",
-    "10131": "Sorry! Only party B can create complete apply"
+    "10131": "Sorry! Only party B can create complete apply",
+    "10061":"Accept job complete error",
+    "10132": "Read accepted job error",
+    "10032":"Publish job failed"
   }
 }
