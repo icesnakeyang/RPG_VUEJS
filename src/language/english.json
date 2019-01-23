@@ -132,7 +132,8 @@
       "processResult": "Process result",
       "processTime": "Process time",
       "unRead": "Unread",
-      "unProcess": "Un-process"
+      "unProcess": "Un-process",
+      "processReadTime": "Process result read time"
     }
   },
   "admin":{

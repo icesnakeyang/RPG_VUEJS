@@ -131,7 +131,8 @@
       "processResult": "处理结果",
       "processTime": "处理时间",
       "unRead": "未阅读",
-      "unProcess": "未处理"
+      "unProcess": "未处理",
+      "processReadTime": "乙方查看处理结果时间"
     }
   },
   "admin":{

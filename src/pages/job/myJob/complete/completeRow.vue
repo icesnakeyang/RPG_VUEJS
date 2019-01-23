@@ -36,6 +36,16 @@
           <Tag color="red">{{$t('job.jobComplete.unProcess')}}</Tag>
         </p>
       </div>
+      <div v-if="processRead">
+        <p>{{$t('job.jobComplete.processReadTime')}}:
+          {{complete.processReadTime}}
+        </p>
+      </div>
+      <div v-else>
+        <p>{{$t('job.jobComplete.processReadTime')}}:
+          <Tag color="red">{{$t('job.jobComplete.unRead')}}</Tag>
+        </p>
+      </div>
     </Card>
   </div>
 </template>
@@ -80,9 +90,16 @@
             return true
           }
         }
+      },
+      processRead(){
+        if(this.complete.processReadTime){
+          return true
+        }
+        return false
       }
     },
     mounted() {
+      console.log(this.complete)
     }
   }
 </script>
