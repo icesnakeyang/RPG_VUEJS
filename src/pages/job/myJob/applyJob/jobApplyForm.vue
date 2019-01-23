@@ -6,7 +6,7 @@
     </Alert>
     <Card class="card">
       <p slot="title">
-        {{jobTitle}}
+        {{job.title}}
       </p>
       <Form :model="userInfo" :label-width="140">
         <FormItem v-show="errInput">
@@ -19,10 +19,10 @@
         <FormItem :label="$t('user.realName')">
           <Input v-model="userInfo.realName"/>
         </FormItem>
-        <FormItem :label="$t('user.phone')">
+        <FormItem :label="$t('user.phone.phone')">
           <Input v-model="userInfo.phone"/>
         </FormItem>
-        <FormItem :label="$t('user.email')">
+        <FormItem :label="$t('user.email.email')">
           <Input v-model="userInfo.email"/>
         </FormItem>
         <FormItem v-show="!saving">
@@ -45,6 +45,7 @@
   import {apiGetUserInfo} from "../../../../api/api";
   import {apiSaveContactInfo} from "../../../../api/api";
   import {apiApplyJob} from "../../../../api/api";
+  import {apiGetJobTinyByJobId} from "../../../../api/api";
 
   export default {
     name: "jobApplyForm",
@@ -54,19 +55,35 @@
         errInput: false,
         errMsg: '',
         saving: false,
-        applyContent:''
+        applyContent:'',
+        job:{}
       }
     },
     computed: {
-      jobTitle() {
-        return this.$route.params.jobTitle
-      }
+
     },
     methods: {
       loadAllData(){
-        apiGetUserInfo({}).then((response) => {
-          this.userInfo = response.data.data.user
-          console.log(this.userInfo)
+        apiGetUserInfo({
+
+        }).then((response) => {
+          if(response.data.errorCode===0) {
+            this.userInfo = response.data.data.user
+          }else {
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
+            return
+          }
+        })
+
+        apiGetJobTinyByJobId({
+          jobId:this.$store.state.jobId
+        }).then((response)=>{
+          if(response.data.errorCode===0){
+            this.job=response.data.data.job
+          }else{
+            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
+            return
+          }
         })
       },
 

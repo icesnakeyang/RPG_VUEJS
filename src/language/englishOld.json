@@ -349,6 +349,7 @@
     "10129": "There is another un-processed complete apply already, cannot create again",
     "10130": "Sorry! You only can create complete apply for the job status in progress",
     "10131": "Sorry! Only party B can create complete apply",
-    "10132": "Read accepted job error"
+    "10132": "Read accepted job error",
+    "10133": "Count new job badge error"
   }
 }

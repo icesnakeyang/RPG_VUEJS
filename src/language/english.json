@@ -102,6 +102,7 @@
     "partyAName": "Party A",
     "partyBName": "Party B",
     "publishTime": "Publish Time",
+    "applyTime": "Apply Time",
     "applyUserNum": "Apply",
     "btApplyJob":"Apply job",
     "applyTitle1":"Apply This Job",
@@ -189,6 +190,7 @@
     "10131": "Sorry! Only party B can create complete apply",
     "10061":"Accept job complete error",
     "10132": "Read accepted job error",
-    "10032":"Publish job failed"
+    "10032":"Publish job failed",
+    "10133": "Count new job badge error"
   }
 }

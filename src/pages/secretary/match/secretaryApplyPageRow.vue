@@ -68,7 +68,7 @@
               if (response.data.errorCode === 0) {
                 this.$Message.success(this.$t('admin.secretary.tipAgreeSuccess'))
                 this.$router.push({
-                  name:'secretaryMatchPage'
+                  name:'secretaryAppliedJobList'
                 })
               } else {
                 this.$Message.error(this.$t('syserr.' + response.data.errorCode))
