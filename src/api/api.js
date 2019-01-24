@@ -423,8 +423,8 @@ export const apiListMyPartyBAcceptJob=params=>{
   })
 }
 
-export const apiTotalUnreadNewJob=params=>{
-  return axios.post(`${host}/job/partyB/totalUnreadNewJob`, params, {
+export const apiTotalMyUnread=params=>{
+  return axios.post(`${host}/job/my_common/totalMyUnread`, params, {
     headers:{
       token:store.state.token
     }

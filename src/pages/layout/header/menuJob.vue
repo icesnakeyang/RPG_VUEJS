@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import {apiTotalUnreadNewJob} from "../../../api/api";
+  import {apiTotalMyUnread} from "../../../api/api";
 
   export default {
     name: "menuMyJob",
@@ -49,9 +49,9 @@
     methods: {
       loadAllData() {
         console.log(this.$store.state.token)
-        apiTotalUnreadNewJob({}).then((response) => {
+        apiTotalMyUnread({}).then((response) => {
           if(response.data.errorCode===0){
-            this.totalNewJob=response.data.data.unreadNewJob
+            console.log(response)
           }
         })
       }
