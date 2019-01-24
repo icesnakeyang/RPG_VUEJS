@@ -431,6 +431,14 @@ export const apiTotalMyUnread=params=>{
   })
 }
 
+export const apiSetAcceptReadTime=params=>{
+  return axios.post(`${host}/job/complete/setAcceptReadTime`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

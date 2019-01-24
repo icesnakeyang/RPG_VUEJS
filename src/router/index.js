@@ -63,7 +63,7 @@ import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
 //job complete
 import completePage from '@/pages/job/myJob/complete/completePage'
 import createComplete from '@/pages/job/myJob/complete/createComplete'
-import myCompleteJobPage from '@/pages/job/myJob/complete/myCompleteJobPage'
+import myAcceptJobPage from '@/pages/job/myJob/complete/myAcceptJobPage'
 
 /**
  * spotlight
@@ -522,15 +522,15 @@ const router = new Router({
           }
         },
         {
-          path:'myCompleteJobPage',
-          name:'myCompleteJobPage',
+          path:'myAcceptJobPage',
+          name:'myAcceptJobPage',
           components:{
             head:headerBarBase,
-            content:myCompleteJobPage,
+            content:myAcceptJobPage,
             footerBar:footerBar
           },
           meta:{
-            title:'myCompleteJobPage',
+            title:'myAcceptJobPage',
             token:true
           }
         }

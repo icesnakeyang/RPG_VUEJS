@@ -19,9 +19,10 @@
   import {apiListMyPartyAAcceptJob} from "../../../../api/api";
   import JobRow from './jobRow'
   import {apiListMyPartyBAcceptJob} from "../../../../api/api";
+  import {apiSetAcceptReadTime} from "../../../../api/api";
 
   export default {
-    name: "myCompleteJobPage",
+    name: "myAcceptJobPage",
     components:{
       JobRow
     },
@@ -51,6 +52,12 @@
           if(response.data.errorCode===0){
             this.jobsB=response.data.data.jobs
           }
+        })
+
+        apiSetAcceptReadTime({
+
+        }).then((response)=>{
+
         })
       }
     },

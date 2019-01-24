@@ -191,6 +191,7 @@
     "10061":"Accept job complete error",
     "10132": "Read accepted job error",
     "10032":"Publish job failed",
-    "10133": "Count new job badge error"
+    "10133": "Count new job badge error",
+    "10058":"Set job complete log read time error"
   }
 }

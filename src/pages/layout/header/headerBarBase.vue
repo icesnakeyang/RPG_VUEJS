@@ -148,7 +148,7 @@
         }
         if (name === "3-6") {
           this.$router.push({
-            name: "myCompleteJobPage"
+            name: "myAcceptJobPage"
           })
         }
         if(name==="5-1"){
