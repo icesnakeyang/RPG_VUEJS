@@ -26,10 +26,12 @@
     },
     computed:{
       jobNotApplied(){
-        if(this.jobApplyNum===0){
-          return true
+        if(this.job.jobApplyNum) {
+          if (this.job.jobApplyNum !== 0) {
+            return false
+          }
         }
-        return false
+        return true
       }
     },
 

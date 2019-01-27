@@ -22,7 +22,7 @@
       </FormItem>
 
       <FormItem v-show="!saving">
-        <Button type="primary" @click="onUpdate">{{$t("job.update")}}</Button>
+        <Button type="primary" @click="onUpdate">{{$t("job.btUpdate")}}</Button>
       </FormItem>
       <FormItem v-show="saving">
         <template>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import {apiGetJobDetail} from "../../../../api/api";
+  import {apiGetPartyAJob} from "../../../../api/api";
   import {apiUpdatePendingJob} from "../../../../api/api";
   import {quillEditor} from "vue-quill-editor";
 
@@ -55,9 +55,13 @@
     },
     methods:{
       loadAllData(){
-        apiGetJobDetail(this.$store.state.jobId).then((response)=>{
+        console.log(this.$store.state.jobId)
+        apiGetPartyAJob({
+          jobId: this.$store.state.jobId
+        }).then((response)=>{
+          console.log(response)
           if(response.data.errorCode===0){
-            this.job=response.data.data.job
+            this.job=response.data.data
           }
         }).catch(error=>{
         })

@@ -439,6 +439,14 @@ export const apiSetAcceptReadTime=params=>{
   })
 }
 
+export const apiUpdatePendingJob=params=>{
+  return axios.post(`${host}/mypending/updatePendingJob`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

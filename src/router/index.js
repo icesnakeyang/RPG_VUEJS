@@ -47,6 +47,7 @@ import jobDetail from '@/pages/job/myJob/detail/jobDetail'
 // pending
 import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
 import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
+import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdate'
 
 //partyA
 import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
@@ -531,6 +532,19 @@ const router = new Router({
           },
           meta:{
             title:'myAcceptJobPage',
+            token:true
+          }
+        },
+        {
+          path:'myPendingJobUpdate',
+          name:'myPendingJobUpdate',
+          components:{
+            head:headerBarBase,
+            content:myPendingJobUpdate,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myPendingJobUpdate',
             token:true
           }
         }
