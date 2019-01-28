@@ -76,6 +76,25 @@
       "btSubmit": "Submit",
       "tipSaveSuccess": "Save profile success",
       "tipSaveError": "Save profile error"
+    },
+    "account": {
+      "createdTime":"Created Time",
+      "TOP_UP": "Top up",
+      "WITHDRAW": "Withdraw",
+      "PUBLISH": "Publish",
+      "ACCEPT": "Accept job",
+      "REFUND": "Refund",
+      "amount":"Amount",
+      "type":"Type",
+      "balance": "Balance",
+      "income": "Income",
+      "outgoing": "Costing"
+    },
+    "honor": {
+      "myHonorList": "My Honor",
+      "balance": "Honor",
+      "balanceIn": "Honor In",
+      "balanceOut": "Honor Out"
     }
   },
   "task":{
@@ -192,6 +211,7 @@
     "10132": "Read accepted job error",
     "10032":"Publish job failed",
     "10133": "Count new job badge error",
-    "10058":"Set job complete log read time error"
+    "10058":"Set job complete log read time error",
+    "10134": "Read honor information error"
   }
 }

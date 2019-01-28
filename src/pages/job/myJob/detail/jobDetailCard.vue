@@ -14,7 +14,7 @@
     <Divider></Divider>
     <Row>
       <Col :xs="6" :sm="2" :md="2" :lg="2">
-        <P>{{$t("job.applyUserNum")}}: {{job.jobApplyNum}}</P>
+      {{$t("job.applyUserNum")}}: {{job.jobApplyNum}}
       </Col>
     </Row>
   </Card>

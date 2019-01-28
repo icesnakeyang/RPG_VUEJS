@@ -60,7 +60,6 @@
         console.log(this.$store.state.token)
         apiTotalMyUnread({}).then((response) => {
           if(response.data.errorCode===0){
-            console.log(response)
             this.totalPartyAUnread=response.data.data.totalPartyAUnread
             this.totalPartyBUnread=response.data.data.totalPartyBUnread
             this.totalUnreadAccept=response.data.data.totalUnreadAccept

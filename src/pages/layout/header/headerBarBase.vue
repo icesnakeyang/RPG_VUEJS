@@ -156,9 +156,24 @@
             name:'profileDashboard'
           })
         }
+        if(name==="6-1"){
+          this.$router.push({
+            name:'myAccountDashboard'
+          })
+        }
+        if(name==="6-2"){
+          this.$router.push({
+            name:'myAccountPage'
+          })
+        }
         if (name === "7-1") {
           this.$router.push({
-            name: "adminPage"
+            name: "myHonorDashboard"
+          })
+        }
+        if(name==="7-2"){
+          this.$router.push({
+            name:'myHonorList'
           })
         }
         if (name === "9-1") {

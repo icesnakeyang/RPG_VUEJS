@@ -83,6 +83,17 @@ import secretaryAppliedJobList from '@/pages/secretary/match/secretaryAppliedJob
 import userApplyHistoryPage from '@/pages/secretary/match/userApplyHistoryPage'
 import userApplyHistoryDetail from '@/pages/secretary/match/userApplyHistoryDetail'
 
+/**
+ * my account
+ */
+import myAccountPage from '@/pages/account/myAccountPage'
+import myAccountDashboard from '@/pages/account/myAccountDashboard'
+
+/**
+ * my honor
+ */
+import myHonorDashboard from '@/pages/honor/myHonorDashboard'
+import myHonorList from '@/pages/honor/myHonorList'
 
 Vue.use(Router);
 
@@ -531,6 +542,58 @@ const router = new Router({
           },
           meta:{
             title:'myAcceptJobPage',
+            token:true
+          }
+        },
+        {
+          path:'myAccountPage',
+          name:'myAccountPage',
+          components:{
+            head:headerBarBase,
+            content:myAccountPage,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myAccountPage',
+            token:true
+          }
+        },
+        {
+          path: 'myAccountDashboard',
+          name: 'myAccountDashboard',
+          components: {
+            head: headerBarBase,
+            content: myAccountDashboard,
+            footerBar: footerBar
+          },
+          meta: {
+            title: 'myAccountDashboard',
+            token: true
+          }
+        },
+        {
+          path:'myHonorList',
+          name:'myHonorList',
+          components:{
+            head:headerBarBase,
+            content:myHonorList,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myHonorList',
+            token:true
+          }
+        },
+        {
+          path:'myHonorDashboard',
+          name:'myHonorDashboard',
+          components:{
+            head:headerBarBase,
+            content:myHonorDashboard,
+            footerBar:footerBar
+          },
+          meta:{
+            title:'myHonorDashboard',
             token:true
           }
         }

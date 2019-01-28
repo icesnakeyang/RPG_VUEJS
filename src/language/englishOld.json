@@ -350,6 +350,7 @@
     "10130": "Sorry! You only can create complete apply for the job status in progress",
     "10131": "Sorry! Only party B can create complete apply",
     "10132": "Read accepted job error",
-    "10133": "Count new job badge error"
+    "10133": "Count new job badge error",
+    "10134": "Read honor information error"
   }
 }

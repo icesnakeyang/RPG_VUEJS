@@ -8,6 +8,10 @@
       <Icon type="ios-navigate"></Icon>
       {{$t('navigator.dashboard')}}
     </MenuItem>
+    <MenuItem name="6-2">
+      <Icon type="ios-navigate"></Icon>
+      {{$t('navigator.myAccount')}}
+    </MenuItem>
   </Submenu>
 </template>
 

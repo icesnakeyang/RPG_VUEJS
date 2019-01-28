@@ -17,22 +17,22 @@
       return {
         columns5: [
           {
-            title: this.$t("account.createdTime"),
+            title: this.$t("user.account.createdTime"),
             key: 'cratedTime',
             render: (h, params) => {
               return h('div', rpgFormat.formatTime(params.row.createdTime))
             }
           },
           {
-            title: this.$t("account.amount"),
+            title: this.$t("user.account.amount"),
             key: 'amount',
             sortable: true
           },
           {
-            title: this.$t("account.type"),
+            title: this.$t("user.account.type"),
             key: 'type',
             render:(h, params)=>{
-              return h('div', this.$t("account."+params.row.type))
+              return h('div', this.$t("user.account."+params.row.type))
             }
           }
         ],
@@ -115,7 +115,7 @@
       }
     },
     methods: {
-      loadData() {
+      loadAllData() {
         apiListMyAccount({
           pageIndex: 0,
           pageSize: 20
@@ -136,7 +136,7 @@
       }
     },
     mounted() {
-      this.loadData()
+      this.loadAllData()
     }
   }
 </script>

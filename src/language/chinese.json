@@ -75,6 +75,25 @@
       "btSubmit": "提交",
       "tipSaveSuccess": "保存成功",
       "tipSaveError": "保存失败"
+    },
+    "account": {
+      "createdTime":"发生时间",
+      "TOP_UP": "充值",
+      "WITHDRAW": "取现",
+      "PUBLISH": "发布任务",
+      "ACCEPT": "接受任务",
+      "REFUND": "退还任务款",
+      "amount":"金额",
+      "type":"类别",
+      "balance": "余额",
+      "income": "收入",
+      "outgoing": "支出"
+    },
+    "honor": {
+      "myHonorList": "我的荣誉",
+      "balance": "荣誉值",
+      "balanceIn": "获得荣誉值",
+      "balanceOut": "扣除荣誉值"
     }
   },
   "task":{
@@ -191,6 +210,7 @@
     "10132": "读取已验收任务失败",
     "10032": "创建任务失败",
     "10133": "统计任务变更情况错误",
-    "10058": "设置验收日志的阅读时间错误"
+    "10058": "设置验收日志的阅读时间错误",
+    "10134": "读取荣誉信息错误"
   }
 }
