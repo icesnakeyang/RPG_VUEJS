@@ -471,6 +471,14 @@ export const apiListMyHonor=params=>{
   })
 }
 
+export const apiLoadUserHonorBalance=params=>{
+  return axios.post(`${host}/honor/loadUserHonorBalance`, params, {
+    headers:{
+      token:store.state.token
+    }
+  })
+}
+
 
 
 

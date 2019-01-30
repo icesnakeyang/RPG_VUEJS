@@ -93,7 +93,12 @@
       "myHonorList": "我的荣誉",
       "balance": "荣誉值",
       "balanceIn": "获得荣誉值",
-      "balanceOut": "扣除荣誉值"
+      "balanceOut": "扣除荣誉值",
+      "createdTime":"发生时间",
+      "honorPoint": "荣誉值",
+      "honorType": "类别",
+      "JOB_ACCEPTED": "验收和合格",
+      "CREATE_SPOTLIGHT": "被甲方申诉"
     }
   },
   "task":{

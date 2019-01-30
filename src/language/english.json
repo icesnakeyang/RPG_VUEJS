@@ -94,7 +94,12 @@
       "myHonorList": "My Honor",
       "balance": "Honor",
       "balanceIn": "Honor In",
-      "balanceOut": "Honor Out"
+      "balanceOut": "Honor Out",
+      "createdTime":"Created Time",
+      "honorPoint": "Honor Point",
+      "honorType": "Type",
+      "JOB_ACCEPTED": "Job Acceptance",
+      "CREATE_SPOTLIGHT": "Spotlight"
     }
   },
   "task":{
