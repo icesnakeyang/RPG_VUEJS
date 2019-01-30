@@ -3,7 +3,9 @@
 </template>
 
 <script>
-    export default {
+  import {apiListMyHonor} from "../../api/api";
+
+  export default {
         name: "myHonorList"
     }
 </script>

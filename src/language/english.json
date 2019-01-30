@@ -216,8 +216,7 @@
     "10133": "Count new job badge error",
     "10058":"Set job complete log read time error",
     "10092":"This job has published already, cannot publish duplicate",
-    "10099":"Update my published new job failed"
-    "10058":"Set job complete log read time error",
+    "10099":"Update my published new job failed",
     "10134": "Read honor information error"
   }
 }
