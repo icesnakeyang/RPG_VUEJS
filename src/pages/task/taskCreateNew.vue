@@ -10,7 +10,8 @@
       <Input v-model="task.code"/>
     </FormItem>
     <FormItem :label="$t('task.detail')">
-      <quill-editor v-model="task.detail"></quill-editor>
+      <quill-editor v-model="task.detail"
+                    :options="editorOption"></quill-editor>
     </FormItem>
     <FormItem :label="$t('task.price')">
       <Input v-model="task.price"/>
@@ -36,6 +37,7 @@
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
   import {quillEditor} from 'vue-quill-editor'
+  import {ImageResize} from 'quill-image-resize-module'
 
   import {apiCreateTask} from "../../api/api";
 
@@ -49,7 +51,12 @@
         task:{},
         errInput:false,
         errMsg:'',
-        saving:false
+        saving:false,
+        editorOption:{
+          modules:{
+            imageResize:true
+          }
+        }
       }
     },
     methods: {

@@ -17,7 +17,9 @@
     </FormItem>
 
     <FormItem :label="$t('task.detail')">
-      <quill-editor v-model="task.detail"></quill-editor>
+      <quill-editor v-model="task.detail"
+                    :options="editorOptions"
+      ></quill-editor>
     </FormItem>
 
     <FormItem v-show="!saving">
@@ -37,6 +39,7 @@
   import {apiGetTaskDetailByTaskId} from "../../api/api";
   import {apiPublishNewJob} from "../../api/api";
   import {quillEditor} from "vue-quill-editor";
+  import {ImageResize} from "quill-image-resize-module"
 
   export default {
     name: "taskFreelancer",
@@ -48,7 +51,12 @@
         task: {},
         errInput: false,
         errMsg: '',
-        saving: false
+        saving: false,
+        editorOptions:{
+          modules:{
+            imageResize:true
+          }
+        }
       }
     },
     computed: {

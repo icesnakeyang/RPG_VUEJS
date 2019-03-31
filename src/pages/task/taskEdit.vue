@@ -11,7 +11,9 @@
         <Input v-model="task.code"/>
       </FormItem>
       <FormItem :label="$t('task.detail')">
-        <quill-editor v-model="task.detail"></quill-editor>
+        <quill-editor v-model="task.detail"
+                      :options="editorOption"
+        ></quill-editor>
       </FormItem>
       <FormItem :label="$t('task.price')">
         <Input v-model="task.price"/>
@@ -37,6 +39,7 @@
   import {apiGetTaskDetailByTaskId} from "../../api/api";
   import {apiUpdateTask} from "../../api/api";
   import {quillEditor} from "vue-quill-editor";
+  import {ImageResize} from 'quill-image-resize-module'
 
   export default {
     name: "taskEdit",
@@ -48,7 +51,12 @@
         task:{},
         errInput:false,
         errMsg:false,
-        saving:false
+        saving:false,
+        editorOption:{
+          modules:{
+            imageResize:true
+          }
+        }
       }
     },
     methods: {
