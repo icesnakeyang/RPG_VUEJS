@@ -1,11 +1,13 @@
 <template>
   <Card>
-    <p>{{$t('user.email.email')}}: {{email.email}} {{defaultTag}}</p>
+    <p>{{$t('user.email.email')}}: {{email.email}}
+      <Tag color="blue">{{defaultTag}}</Tag>
+    </p>
     <p>{{$t('user.phone.verify')}}: {{verify}}</p>
     <p>{{$t('user.phone.createdTime')}}: {{createdTime}}</p>
     <divider></divider>
     <div v-if="!email.default">
-      <Button type="error">设为默认</Button>
+      <Button type="error">{{$t('user.phone.btSetDefault')}}</Button>
     </div>
   </Card>
 </template>
@@ -30,7 +32,7 @@
       },
       defaultTag(){
         if (this.email.default) {
-          return this.$t('user.phone.default')
+          return this.$t('user.email.default')
         }
       }
     }

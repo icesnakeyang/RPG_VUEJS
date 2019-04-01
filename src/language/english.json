@@ -53,7 +53,8 @@
     "btSaveUserInfo": "Confirm",
     "email":{
       "email": "Email",
-      "title":"Email information"
+      "title":"Email information",
+      "default":"Default"
     },
     "phone":{
       "phone":"Contact Phone",

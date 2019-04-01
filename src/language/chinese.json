@@ -53,7 +53,8 @@
     "btSaveUserInfo": "提交",
     "email":{
       "email": "Email",
-      "title":"Email信息"
+      "title":"Email信息",
+      "default":"默认邮箱"
     },
     "phone":{
       "phone": "联系电话",
