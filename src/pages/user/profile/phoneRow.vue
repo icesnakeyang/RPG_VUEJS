@@ -1,15 +1,11 @@
 <template>
   <Card class="card">
-    <p>{{$t('user.phone.phone')}}: {{phone.phone}}
-      <span v-show="defaultTag">
-        <Tag color="blue">{{defaultTag}}</Tag>
-      </span>
-    </p>
+    <p>{{$t('user.phone.phone')}}: {{phone.phone}} {{defaultTag}}</p>
     <p>{{$t('user.phone.verify')}}: {{verify}}</p>
     <p>{{$t('user.phone.createdTime')}}: {{createdTime}}</p>
     <divider></divider>
     <div v-if="!phone.default">
-      <Button type="error">{{$t('user.phone.btSetDefault')}}</Button>
+      <Button type="error">设为默认</Button>
     </div>
   </Card>
 </template>
@@ -35,8 +31,6 @@
       defaultTag() {
         if (this.phone.default) {
           return this.$t('user.phone.default')
-        }else{
-          return null
         }
       }
     }
