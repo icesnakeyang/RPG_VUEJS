@@ -1,22 +1,27 @@
 <template>
   <div>
-    <Form :label-width="200">
-      <FormItem v-show="showErr">
-        <Alert type="error" show-icon>{{errMsg}}</Alert>
-      </FormItem>
-      <FormItem :label="$t('user.username')">
-        <!--<div @click="onBlurUsername">lsdkfj</div>-->
-        <Input v-model="username"
-               :placeholder="$t('user.usernamePlaceholder')"/>
-      </FormItem>
-      <FormItem :label="$t('user.password')">
-        <Input type="password" v-model="password" :placeholder="$t('user.passwordPlaceholder')"/>
-      </FormItem>
-      <FormItem>
-        <Button type="primary" @click="onLogin">{{$t('user.btLogin')}}</Button>
-        <Button type="text" @click="onRegister">{{$t("user.btRegister")}}</Button>
-      </FormItem>
-    </Form>
+    <Breadcrumb :style="{margin: '24px 0'}">
+      <BreadcrumbItem>{{$t('navigator.signIn')}}</BreadcrumbItem>
+    </Breadcrumb>
+    <Content :style="{minHeight: '450px'}">
+      <Form :label-width="200">
+        <FormItem v-show="showErr">
+          <Alert type="error" show-icon>{{errMsg}}</Alert>
+        </FormItem>
+        <FormItem :label="$t('user.username')">
+          <!--<div @click="onBlurUsername">lsdkfj</div>-->
+          <Input v-model="username"
+                 :placeholder="$t('user.usernamePlaceholder')"/>
+        </FormItem>
+        <FormItem :label="$t('user.password')">
+          <Input type="password" v-model="password" :placeholder="$t('user.passwordPlaceholder')"/>
+        </FormItem>
+        <FormItem>
+          <Button type="primary" @click="onLogin">{{$t('user.btLogin')}}</Button>
+          <Button type="text" @click="onRegister">{{$t("user.btRegister")}}</Button>
+        </FormItem>
+      </Form>
+    </Content>
   </div>
 </template>
 

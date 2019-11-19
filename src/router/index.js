@@ -96,528 +96,558 @@ import myAccountDashboard from '@/pages/account/myAccountDashboard'
 import myHonorDashboard from '@/pages/honor/myHonorDashboard'
 import myHonorList from '@/pages/honor/myHonorList'
 
+import indexPage from '../pages/layout/index'
+import contentPage from "../pages/layout/contentPage";
+import baseHeader from "../pages/layout/header/baseHeader";
+import baseSider from "../pages/layout/header/baseSider";
+import guestLayout from "../pages/layout/guestLayout";
+
 Vue.use(Router);
 
 const router = new Router({
-  routes: [
-    {
-      path: '/app',
-      component: baseLayout,
-      children: [
-        {
-          path: 'publicJobPage',
-          name: 'publicJobPage',
-          components: {
-            head: headerBarBase,
-            content: publicJobPage,
-            footer: footerBar
+    routes: [
+      {
+        path: '/app',
+        component: indexPage,
+        children: [
+          {
+            path: 'loginPage',
+            name: 'loginPage',
+            components: {
+              head: baseHeader,
+              content: loginPage,
+              footer: footerBar
+            },
+            meta: {
+              title: 'Login',
+              token: false
+            }
           },
-          meta: {
-            title: 'publicJobPage',
-            token: false
-          }
-        },
-        {
-          path: 'loginPage',
-          name: 'loginPage',
-          components: {
-            head: headerBarBase,
-            content: loginPage,
-            footer: footerBar
+          {
+            path: 'publicJobPage',
+            name: 'publicJobPage',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: publicJobPage,
+              footer: footerBar
+            },
+            meta: {
+              title: 'publicJobPage',
+              token: false
+            }
           },
-          meta: {
-            title: 'Login',
-            token: false
-          }
-        },
-        {
-          path:'taskCreateNew',
-          name:'taskCreateNew',
-          components:{
-            head:headerBarBase,
-            content:taskCreateNew,
-            footerBar:footerBar
+          {
+            path: 'taskCreateNew',
+            name: 'taskCreateNew',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: taskCreateNew,
+              footer: footerBar
+            },
+            meta: {
+              title: 'taskCreateNew',
+              token: true
+            }
           },
-          meta:{
-            title:'taskCreateNew',
-            token:true
-          }
-        },
-        {
-          path:'registerByEmail',
-          name:'registerByEmail',
-          components:{
-            head:headerBarBase,
-            content:registerByEmail,
-            footerBar:footerBar
+          {
+            path: 'registerByEmail',
+            name: 'registerByEmail',
+            components: {
+              head: baseHeader,
+              content: registerByEmail,
+              footer: footerBar
+            },
+            meta: {
+              title: 'registerByEmail',
+              token: false
+            }
           },
-          meta:{
-            title:'registerByEmail',
-            token:false
-          }
-        },
-        {
-          path:'taskPage',
-          name:'taskPage',
-          components:{
-            head:headerBarBase,
-            content:taskPage,
-            footerBar:footerBar
+          {
+            path: 'taskPage',
+            name: 'taskPage',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: taskPage,
+              footer: footerBar
+            },
+            meta: {
+              title: 'taskPage',
+              token: false
+            }
           },
-          meta:{
-            title:'taskPage',
-            token:false
-          }
-        },
-        {
-          path:'taskDetail',
-          name:'taskDetail',
-          components:{
-            head:headerBarBase,
-            content:taskDetail,
-            footerBar:footerBar
+          {
+            path: 'taskDetail',
+            name: 'taskDetail',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: taskDetail,
+              footer: footerBar
+            },
+            meta: {
+              title: 'taskDetail',
+              token: false
+            }
           },
-          meta:{
-            title:'taskDetail',
-            token:false
-          }
-        },
-        {
-          path:'taskEdit',
-          name:'taskEdit',
-          components:{
-            head:headerBarBase,
-            content:taskEdit,
-            footerBar:footerBar
+          {
+            path: 'taskEdit',
+            name: 'taskEdit',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: taskEdit,
+              footer: footerBar
+            },
+            meta: {
+              title: 'taskEdit',
+              token: false
+            }
           },
-          meta:{
-            title:'taskEdit',
-            token:false
-          }
-        },
-        {
-          path:'subTaskPage',
-          name:'subTaskPage',
-          components:{
-            head:headerBarBase,
-            content:subTaskPage,
-            footerBar:footerBar
+          {
+            path: 'subTaskPage',
+            name: 'subTaskPage',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: subTaskPage,
+              footer: footerBar
+            },
+            meta: {
+              title: 'subTaskPage',
+              token: false
+            }
           },
-          meta:{
-            title:'subTaskPage',
-            token:false
-          }
-        },
-        {
-          path:'taskFreelancer',
-          name:'taskFreelancer',
-          components:{
-            head:headerBarBase,
-            content:taskFreelancer,
-            footerBar:footerBar
+          {
+            path: 'taskFreelancer',
+            name: 'taskFreelancer',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: taskFreelancer,
+              footer: footerBar
+            },
+            meta: {
+              title: 'taskFreelancer',
+              token: false
+            }
           },
-          meta:{
-            title:'taskFreelancer',
-            token:false
-          }
-        },
-        {
-          path:'publicJobDetail/:jobId',
-          name:'publicJobDetail',
-          components:{
-            head:headerBarBase,
-            content:publicJobDetail,
-            footerBar:footerBar
+          {
+            path: 'publicJobDetail/:jobId',
+            name: 'publicJobDetail',
+            components: {
+              head: baseHeader,
+              sider:baseSider,
+              content: publicJobDetail,
+              footer: footerBar
+            },
+            meta: {
+              title: 'publicJobDetail',
+              token: false
+            }
           },
-          meta:{
-            title:'publicJobDetail',
-            token:false
-          }
-        },
-        {
-          path:'jobApplyForm',
-          name:'jobApplyForm',
-          components:{
-            head:headerBarBase,
-            content:jobApplyForm,
-            footerBar:footerBar
+          {
+            path: 'jobApplyForm',
+            name: 'jobApplyForm',
+            components: {
+              head: headerBarBase,
+              content: jobApplyForm,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'jobApplyForm',
+              token: true
+            }
           },
-          meta:{
-            title:'jobApplyForm',
-            token:true
-          }
-        },
-        {
-          path:'applyJobSuccess',
-          name:'applyJobSuccess',
-          components:{
-            head:headerBarBase,
-            content:applyJobSuccess,
-            footerBar:footerBar
+          {
+            path: 'applyJobSuccess',
+            name: 'applyJobSuccess',
+            components: {
+              head: headerBarBase,
+              content: applyJobSuccess,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'applyJobSuccess',
+              token: true
+            }
           },
-          meta:{
-            title:'applyJobSuccess',
-            token:true
-          }
-        },
-        {
-          path:'myApplyJob',
-          name:'myApplyJob',
-          components:{
-            head:headerBarBase,
-            content:myApplyJob,
-            footerBar:footerBar
+          {
+            path: 'myApplyJob',
+            name: 'myApplyJob',
+            components: {
+              head: headerBarBase,
+              content: myApplyJob,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myApplyJob',
+              token: true
+            }
           },
-          meta:{
-            title:'myApplyJob',
-            token:true
-          }
-        },
-        {
-          path:'jobDetail',
-          name:'jobDetail',
-          components:{
-            head:headerBarBase,
-            content:jobDetail,
-            footerBar:footerBar
+          {
+            path: 'jobDetail',
+            name: 'jobDetail',
+            components: {
+              head: headerBarBase,
+              content: jobDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'jobDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'jobDetail',
-            token:true
-          }
-        },
-        {
-          path:'myPendingJobPage',
-          name:'myPendingJobPage',
-          components:{
-            head:headerBarBase,
-            content:myPendingJobPage,
-            footerBar:footerBar
+          {
+            path: 'myPendingJobPage',
+            name: 'myPendingJobPage',
+            components: {
+              head: headerBarBase,
+              content: myPendingJobPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myPendingJobPage',
+              token: true
+            }
           },
-          meta:{
-            title:'myPendingJobPage',
-            token:true
-          }
-        },
-        {
-          path:'myPendingJobDetail',
-          name:'myPendingJobDetail',
-          components:{
-            head:headerBarBase,
-            content:myPendingJobDetail,
-            footerBar:footerBar
+          {
+            path: 'myPendingJobDetail',
+            name: 'myPendingJobDetail',
+            components: {
+              head: headerBarBase,
+              content: myPendingJobDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myPendingJobDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'myPendingJobDetail',
-            token:true
-          }
-        },
-        {
-          path:'myApplyJobDetail',
-          name:'myApplyJobDetail',
-          components:{
-            head:headerBarBase,
-            content:myApplyJobDetail,
-            footerBar:footerBar
+          {
+            path: 'myApplyJobDetail',
+            name: 'myApplyJobDetail',
+            components: {
+              head: headerBarBase,
+              content: myApplyJobDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myApplyJobDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'myApplyJobDetail',
-            token:true
-          }
-        },
-        {
-          path:'secretaryApplyPage',
-          name:'secretaryApplyPage',
-          components:{
-            head:headerBarBase,
-            content:secretaryApplyPage,
-            footerBar:footerBar
+          {
+            path: 'secretaryApplyPage',
+            name: 'secretaryApplyPage',
+            components: {
+              head: headerBarBase,
+              content: secretaryApplyPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'secretaryApplyPage',
+              token: true
+            }
           },
-          meta:{
-            title:'secretaryApplyPage',
-            token:true
-          }
-        },
-        {
-          path:'adminLogin',
-          name:'adminLogin',
-          components:{
-            head:headerBarBase,
-            content:adminLogin,
-            footerBar:footerBar
+          {
+            path: 'adminLogin',
+            name: 'adminLogin',
+            components: {
+              head: headerBarBase,
+              content: adminLogin,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'adminLogin',
+              token: false
+            }
           },
-          meta:{
-            title:'adminLogin',
-            token:false
-          }
-        },
-        {
-          path:'secretaryDashboard',
-          name:'secretaryDashboard',
-          components:{
-            head:headerBarBase,
-            content:secretaryDashboard,
-            footerBar:footerBar
+          {
+            path: 'secretaryDashboard',
+            name: 'secretaryDashboard',
+            components: {
+              head: headerBarBase,
+              content: secretaryDashboard,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'secretaryDashboard',
+              token: true
+            }
           },
-          meta:{
-            title:'secretaryDashboard',
-            token:true
-          }
-        },
-        {
-          path:'secretaryAppliedJobList',
-          name:'secretaryAppliedJobList',
-          components:{
-            head:headerBarBase,
-            content:secretaryAppliedJobList,
-            footerBar:footerBar
+          {
+            path: 'secretaryAppliedJobList',
+            name: 'secretaryAppliedJobList',
+            components: {
+              head: headerBarBase,
+              content: secretaryAppliedJobList,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'secretaryAppliedJobList',
+              token: true
+            }
           },
-          meta:{
-            title:'secretaryAppliedJobList',
-            token:true
-          }
-        },
-        {
-          path:'userApplyHistoryPage',
-          name:'userApplyHistoryPage',
-          components:{
-            head:headerBarBase,
-            content:userApplyHistoryPage,
-            footerBar:footerBar
+          {
+            path: 'userApplyHistoryPage',
+            name: 'userApplyHistoryPage',
+            components: {
+              head: headerBarBase,
+              content: userApplyHistoryPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'userApplyHistoryPage',
+              token: true
+            }
           },
-          meta:{
-            title:'userApplyHistoryPage',
-            token:true
-          }
-        },
-        {
-          path:'userApplyHistoryDetail',
-          name:'userApplyHistoryDetail',
-          components:{
-            head:headerBarBase,
-            content:userApplyHistoryDetail,
-            footerBar:footerBar
+          {
+            path: 'userApplyHistoryDetail',
+            name: 'userApplyHistoryDetail',
+            components: {
+              head: headerBarBase,
+              content: userApplyHistoryDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'userApplyHistoryDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'userApplyHistoryDetail',
-            token:true
-          }
-        },
-        {
-          path:'partyAJobPage',
-          name:'partyAJobPage',
-          components:{
-            head:headerBarBase,
-            content:partyAJobPage,
-            footerBar:footerBar
+          {
+            path: 'partyAJobPage',
+            name: 'partyAJobPage',
+            components: {
+              head: headerBarBase,
+              content: partyAJobPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'partyAJobPage',
+              token: true
+            }
           },
-          meta:{
-            title:'partyAJobPage',
-            token:true
-          }
-        },
-        {
-          path:'partyAJobDetail',
-          name:'partyAJobDetail',
-          components:{
-            head:headerBarBase,
-            content:partyAJobDetail,
-            footerBar:footerBar
+          {
+            path: 'partyAJobDetail',
+            name: 'partyAJobDetail',
+            components: {
+              head: headerBarBase,
+              content: partyAJobDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'partyAJobDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'partyAJobDetail',
-            token:true
-          }
-        },
-        {
-          path:'partyBJobPage',
-          name:'partyBJobPage',
-          components:{
-            head:headerBarBase,
-            content:partyBJobPage,
-            footerBar:footerBar
+          {
+            path: 'partyBJobPage',
+            name: 'partyBJobPage',
+            components: {
+              head: headerBarBase,
+              content: partyBJobPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'partyBJobPage',
+              token: true
+            }
           },
-          meta:{
-            title:'partyBJobPage',
-            token:true
-          }
-        },
-        {
-          path:'partyBJobDetail',
-          name:'partyBJobDetail',
-          components:{
-            head:headerBarBase,
-            content:partyBJobDetail,
-            footerBar:footerBar
+          {
+            path: 'partyBJobDetail',
+            name: 'partyBJobDetail',
+            components: {
+              head: headerBarBase,
+              content: partyBJobDetail,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'partyBJobDetail',
+              token: true
+            }
           },
-          meta:{
-            title:'partyBJobDetail',
-            token:true
-          }
-        },
-        {
-          path:'jobLogPage',
-          name:'jobLogPage',
-          components:{
-            head:headerBarBase,
-            content:jobLogPage,
-            footerBar:footerBar
+          {
+            path: 'jobLogPage',
+            name: 'jobLogPage',
+            components: {
+              head: headerBarBase,
+              content: jobLogPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'jobLogPage',
+              token: true
+            }
           },
-          meta:{
-            title:'jobLogPage',
-            token:true
-          }
-        },
-        {
-          path:'createJobLog',
-          name:'createJobLog',
-          components:{
-            head:headerBarBase,
-            content:createJobLog,
-            footerBar:footerBar
+          {
+            path: 'createJobLog',
+            name: 'createJobLog',
+            components: {
+              head: headerBarBase,
+              content: createJobLog,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'createJobLog',
+              token: true
+            }
           },
-          meta:{
-            title:'createJobLog',
-            token:true
-          }
-        },
-        {
-          path:'profileDashboard',
-          name:'profileDashboard',
-          components:{
-            head:headerBarBase,
-            content:profileDashboard,
-            footerBar:footerBar
+          {
+            path: 'profileDashboard',
+            name: 'profileDashboard',
+            components: {
+              head: headerBarBase,
+              content: profileDashboard,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'profileDashboard',
+              token: true
+            }
           },
-          meta:{
-            title:'profileDashboard',
-            token:true
-          }
-        },
-        {
-          path:'submitUserProfile',
-          name:'submitUserProfile',
-          components:{
-            head:headerBarBase,
-            content:submitUserProfile,
-            footerBar:footerBar
+          {
+            path: 'submitUserProfile',
+            name: 'submitUserProfile',
+            components: {
+              head: headerBarBase,
+              content: submitUserProfile,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'submitUserProfile',
+              token: true
+            }
           },
-          meta:{
-            title:'submitUserProfile',
-            token:true
-          }
-        },
-        {
-          path:'completePage',
-          name:'completePage',
-          components:{
-            head:headerBarBase,
-            content:completePage,
-            footerBar:footerBar
+          {
+            path: 'completePage',
+            name: 'completePage',
+            components: {
+              head: headerBarBase,
+              content: completePage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'completePage',
+              token: true
+            }
           },
-          meta:{
-            title:'completePage',
-            token:true
-          }
-        },
-        {
-          path:'createComplete',
-          name:'createComplete',
-          components:{
-            head:headerBarBase,
-            content:createComplete,
-            footerBar:footerBar
+          {
+            path: 'createComplete',
+            name: 'createComplete',
+            components: {
+              head: headerBarBase,
+              content: createComplete,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'createComplete',
+              token: true
+            }
           },
-          meta:{
-            title:'createComplete',
-            token:true
-          }
-        },
-        {
-          path:'myAcceptJobPage',
-          name:'myAcceptJobPage',
-          components:{
-            head:headerBarBase,
-            content:myAcceptJobPage,
-            footerBar:footerBar
+          {
+            path: 'myAcceptJobPage',
+            name: 'myAcceptJobPage',
+            components: {
+              head: headerBarBase,
+              content: myAcceptJobPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myAcceptJobPage',
+              token: true
+            }
           },
-          meta:{
-            title:'myAcceptJobPage',
-            token:true
-          }
-        },
-        {
-          path:'myPendingJobUpdate',
-          name:'myPendingJobUpdate',
-          components:{
-            head:headerBarBase,
-            content:myPendingJobUpdate,
-            footerBar:footerBar
+          {
+            path: 'myPendingJobUpdate',
+            name: 'myPendingJobUpdate',
+            components: {
+              head: headerBarBase,
+              content: myPendingJobUpdate,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myPendingJobUpdate',
+              token: true
+            }
           },
-          meta:{
-            title:'myPendingJobUpdate',
-            token:true
-          }
-        },
-        {
-          path:'myAccountPage',
-          name:'myAccountPage',
-          components:{
-            head:headerBarBase,
-            content:myAccountPage,
-            footerBar:footerBar
+          {
+            path: 'myAccountPage',
+            name: 'myAccountPage',
+            components: {
+              head: headerBarBase,
+              content: myAccountPage,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myAccountPage',
+              token: true
+            }
           },
-          meta:{
-            title:'myAccountPage',
-            token:true
-          }
-        },
-        {
-          path: 'myAccountDashboard',
-          name: 'myAccountDashboard',
-          components: {
-            head: headerBarBase,
-            content: myAccountDashboard,
-            footerBar: footerBar
+          {
+            path: 'myAccountDashboard',
+            name: 'myAccountDashboard',
+            components: {
+              head: headerBarBase,
+              content: myAccountDashboard,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myAccountDashboard',
+              token: true
+            }
           },
-          meta: {
-            title: 'myAccountDashboard',
-            token: true
-          }
-        },
-        {
-          path:'myHonorList',
-          name:'myHonorList',
-          components:{
-            head:headerBarBase,
-            content:myHonorList,
-            footerBar:footerBar
+          {
+            path: 'myHonorList',
+            name: 'myHonorList',
+            components: {
+              head: headerBarBase,
+              content: myHonorList,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myHonorList',
+              token: true
+            }
           },
-          meta:{
-            title:'myHonorList',
-            token:true
-          }
-        },
-        {
-          path:'myHonorDashboard',
-          name:'myHonorDashboard',
-          components:{
-            head:headerBarBase,
-            content:myHonorDashboard,
-            footerBar:footerBar
+          {
+            path: 'myHonorDashboard',
+            name: 'myHonorDashboard',
+            components: {
+              head: headerBarBase,
+              content: myHonorDashboard,
+              footerBar: footerBar
+            },
+            meta: {
+              title: 'myHonorDashboard',
+              token: true
+            }
           },
-          meta:{
-            title:'myHonorDashboard',
-            token:true
+          {
+            path: 'contentPage',
+            name: 'contentPage',
+            components: {
+              header: baseHeader,
+              sider: baseSider,
+              content: contentPage,
+              footer: footerBar
+            },
+            meta: {
+              title: 'contentPage',
+              token: false
+            }
           }
-        }
-      ]
-    }
-  ]
-});
+        ]
+      }
+    ]
+  })
+;
 
 router.beforeEach((to, from, next) => {
   if (to) {
+    console.log(to)
     if (!to.name) {
       //如果路由里name=null，即指用户是通过外部链接直接访问
       //输入域名访问，直接跳转到任务广场

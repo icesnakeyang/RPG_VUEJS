@@ -1,120 +1,125 @@
 <template>
   <div>
-    <Breadcrumb>
+    <Breadcrumb :style="{margin:'24px 0'}">
+      <BreadcrumbItem to="taskPage">{{$t('navigator.myTask')}}</BreadcrumbItem>
+<!--      <BreadcrumbItem>{{// $t('navigator.taskDetail')}}</BreadcrumbItem>-->
+
       <BreadcrumbItem v-for="(item, index) in pList" :key="index">
         <a @click="onTask(item.taskId)">{{item.title}}</a>
       </BreadcrumbItem>
     </Breadcrumb>
-    <TaskHeader :totalSub="totalSub"></TaskHeader>
-    <Card class="card">
-      <p slot="title">
-        {{task.title}}
-      </p>
-      <div v-if="published">
-        <Tag color="success">已发布</Tag>
-      </div>
-      <p>{{$t("task.code")}}:{{task.code}}</p>
-      <p>{{$t("task.createdUserName")}}: {{task.createdUserName}}</p>
-      <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
-      <p>{{$t("task.days")}}: {{task.days}}</p>
-      <p>{{$t("task.price")}}: {{task.price}}</p>
-      <quill-editor v-model="task.detail"
-                    :options="options">
-      </quill-editor>
-    </Card>
+    <Content>
+      <TaskHeader :totalSub="totalSub"></TaskHeader>
+      <Card class="card">
+        <p slot="title">
+          {{task.title}}
+        </p>
+        <div v-if="published">
+          <Tag color="success">已发布</Tag>
+        </div>
+        <p>{{$t("task.code")}}:{{task.code}}</p>
+        <p>{{$t("task.createdUserName")}}: {{task.createdUserName}}</p>
+        <p>{{$t("task.createdTime")}}: {{createdTime}}</p>
+        <p>{{$t("task.days")}}: {{task.days}}</p>
+        <p>{{$t("task.price")}}: {{task.price}}</p>
+        <quill-editor v-model="task.detail"
+                      :options="options">
+        </quill-editor>
+      </Card>
+    </Content>
   </div>
 </template>
 
 <script>
-  import {apiCountSubTask} from "../../api/api";
-  import {apiListTaskBreadcrumb} from "../../api/api";
-  import {quillEditor} from 'vue-quill-editor'
-  import TaskHeader from './taskHeader';
-  import {apiGetTaskDetailByTaskId} from "../../api/api";
+    import {apiCountSubTask} from "../../api/api";
+    import {apiListTaskBreadcrumb} from "../../api/api";
+    import {quillEditor} from 'vue-quill-editor'
+    import TaskHeader from './taskHeader';
+    import {apiGetTaskDetailByTaskId} from "../../api/api";
 
-  export default {
-    name: "taskDetail",
-    components: {
-      quillEditor,
-      TaskHeader
-    },
-    props: {},
-    data() {
-      return {
-        task: {},
-        job: {},
-        options: {
-          modules: {
-            toolbar: false
-          }
+    export default {
+        name: "taskDetail",
+        components: {
+            quillEditor,
+            TaskHeader
         },
-        published: false,
-        totalSub: 0,
-        taskBreadcrumb: [],
-        breadlist: '',
-        pList: []
-      }
-    },
-    computed: {
-      createdTime() {
-        var timestamp3 = this.task.createdTime;
-        var newDate = new Date();
-        newDate.setTime(timestamp3);
-        return newDate.toLocaleString()
-      },
-      pid() {
-        return this.task.pid
-      }
-    },
-    methods: {
-      loadAllData() {
-        apiGetTaskDetailByTaskId({
-          taskId: this.$store.state.taskId
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.task = response.data.data.task
-            this.job = response.data.data.job
-            if (this.job) {
-              this.published = true
+        props: {},
+        data() {
+            return {
+                task: {},
+                job: {},
+                options: {
+                    modules: {
+                        toolbar: false
+                    }
+                },
+                published: false,
+                totalSub: 0,
+                taskBreadcrumb: [],
+                breadlist: '',
+                pList: []
             }
-            this.$store.dispatch('saveTaskId', this.task.taskId)
-          } else {
-            this.$Message.error(this.$t("syserr." + response.data.errorCode))
-          }
-        })
+        },
+        computed: {
+            createdTime() {
+                var timestamp3 = this.task.createdTime;
+                var newDate = new Date();
+                newDate.setTime(timestamp3);
+                return newDate.toLocaleString()
+            },
+            pid() {
+                return this.task.pid
+            }
+        },
+        methods: {
+            loadAllData() {
+                apiGetTaskDetailByTaskId({
+                    taskId: this.$store.state.taskId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.task = response.data.data.task
+                        this.job = response.data.data.job
+                        if (this.job) {
+                            this.published = true
+                        }
+                        this.$store.dispatch('saveTaskId', this.task.taskId)
+                    } else {
+                        this.$Message.error(this.$t("syserr." + response.data.errorCode))
+                    }
+                })
 
-        apiCountSubTask({
-          pid: this.$store.state.taskId
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.totalSub = response.data.data.totalSub
-          }else {
-            this.$Message.error(this.$t("syserr."+response.data.errorCode))
-          }
-        })
+                apiCountSubTask({
+                    pid: this.$store.state.taskId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.totalSub = response.data.data.totalSub
+                    } else {
+                        this.$Message.error(this.$t("syserr." + response.data.errorCode))
+                    }
+                })
 
-        apiListTaskBreadcrumb({
-          taskId:this.$store.state.taskId
-        }).then((response)=>{
-          if(response.data.errorCode===0){
-            this.pList=response.data.data.breadList
-          }else{
-            this.$Message.eror(this.$t("syserr."+response.data.errorCode))
-          }
-        })
-      },
-      onTask(data){
-        this.$store.dispatch('saveTaskId', data)
-        this.loadAllData()
-      }
-    },
-    mounted() {
-      if(this.$route.params.taskId){
-        this.$store.dispatch('saveTaskId', this.$route.params.taskId)
-      }
-      this.loadAllData()
-    },
-  }
+                apiListTaskBreadcrumb({
+                    taskId: this.$store.state.taskId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.pList = response.data.data.breadList
+                    } else {
+                        this.$Message.eror(this.$t("syserr." + response.data.errorCode))
+                    }
+                })
+            },
+            onTask(data) {
+                this.$store.dispatch('saveTaskId', data)
+                this.loadAllData()
+            }
+        },
+        mounted() {
+            if (this.$route.params.taskId) {
+                this.$store.dispatch('saveTaskId', this.$route.params.taskId)
+            }
+            this.loadAllData()
+        },
+    }
 </script>
 
 <style scoped>

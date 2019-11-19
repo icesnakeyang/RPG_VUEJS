@@ -4,14 +4,16 @@
       <Icon class="gogoTitleBarIcon" type="ios-globe-outline" />
       {{$t("navigator.language")}}
     </template>
-    <MenuItem name="2-1">中文</MenuItem>
-    <MenuItem name="2-2">English</MenuItem>
+    <MenuItem name="lanChinese">中文</MenuItem>
+    <MenuItem name="lanEnglish">English</MenuItem>
   </Submenu>
 </template>
 
 <script>
     export default {
-        name: "menuLanguage"
+        name: "menuLanguage",
+        methods:{
+        }
     }
 </script>
 

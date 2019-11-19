@@ -8,7 +8,7 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.dashboard")}}
     </MenuItem>
-    <MenuItem name="4-2">
+    <MenuItem name="menuTaskPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.myTask")}}
     </MenuItem>

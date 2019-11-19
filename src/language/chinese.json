@@ -12,7 +12,7 @@
       "matching":"等待匹配"
     }
   },
-  "navigator":{
+  "navigator": {
     "signIn":"登录",
     "signOut":"退出登录",
     "language":"语言",
@@ -32,7 +32,14 @@
     "secretary":"RPG秘书",
     "matchJob":"匹配任务",
     "topUp":"充值",
-    "myAcceptJob": "验收合格任务"
+    "myAcceptJob": "验收合格任务",
+    "publicJobBoard":"任务广场",
+    "editTask": "编辑任务",
+    "taskDetail": "任务详情",
+    "subTaskPage": "子任务",
+    "publishTask": "发布任务",
+    "registerByEmail": "注册",
+    "jobDetail": "任务详情"
   },
   "user": {
     "username":"登录名",

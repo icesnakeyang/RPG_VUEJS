@@ -4,7 +4,7 @@
       <Icon class="gogoTitleBarIcon" type="ios-navigate"></Icon>
       {{$t("navigator.secretary")}}
     </template>
-    <MenuItem name="9-1">
+    <MenuItem name="menuSecretaryAppliedJobList">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.matchJob")}}
     </MenuItem>

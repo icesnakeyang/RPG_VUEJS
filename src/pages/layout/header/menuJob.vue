@@ -11,26 +11,26 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.dashboard")}}
     </MenuItem>
-    <MenuItem name="3-2">
+    <MenuItem name="menuMyApplyJob">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.myApply")}}
     </MenuItem>
-    <MenuItem name="3-3">
+    <MenuItem name="menuPartyAJobPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.partyA")}}
       <Badge :count="totalPartyAUnread"></Badge>
     </MenuItem>
-    <MenuItem name="3-4">
+    <MenuItem name="menuPartyBJobPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.partyB")}}
       <Badge :count="totalPartyBUnread">
       </Badge>
     </MenuItem>
-    <MenuItem name="3-5">
+    <MenuItem name="menuMyPendingJobPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.myPending")}}
     </MenuItem>
-    <MenuItem name="3-6">
+    <MenuItem name="menuMyAcceptJobPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.myAcceptJob")}}
       <Badge :count="totalUnreadAccept"></Badge>

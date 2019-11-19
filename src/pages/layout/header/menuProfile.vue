@@ -4,7 +4,7 @@
       <Icon class="gogoTitleBarIcon" type="md-ribbon" />
       {{$t('navigator.myProfile')}}
     </template>
-    <MenuItem name="5-1">
+    <MenuItem name="menuProfileDashboard">
       <Icon type="ios-navigate"></Icon>
       {{$t('navigator.dashboard')}}
     </MenuItem>

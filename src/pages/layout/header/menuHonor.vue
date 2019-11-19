@@ -4,11 +4,11 @@
       <Icon class="gogoTitleBarIcon" type="ios-star" />
       {{$t('navigator.myHonor')}}
     </template>
-    <MenuItem name="7-1">
+    <MenuItem name="menuMyHonorDashboard">
       <Icon type="ios-navigate"></Icon>
       {{$t('navigator.dashboard')}}
     </MenuItem>
-    <MenuItem name="7-2">
+    <MenuItem name="menuMyHonorList">
       <Icon type="ios-navigate"></Icon>
       {{$t('navigator.myHonor')}}
     </MenuItem>
