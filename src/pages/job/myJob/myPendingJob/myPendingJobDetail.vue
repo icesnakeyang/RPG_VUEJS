@@ -1,5 +1,9 @@
 <template>
   <div>
+    <Breadcrumb :style="{margin: '24px 0'}">
+      <BreadcrumbItem to="myPendingJobPage">{{$t('navigator.myPending')}}</BreadcrumbItem>
+      <BreadcrumbItem>{{$t('navigator.jobDetail')}}</BreadcrumbItem>
+    </Breadcrumb>
     <JobDetailCard v-bind:job="job"></JobDetailCard>
     <div style="text-align: center" v-show="jobNotApplied">
       <br><br>

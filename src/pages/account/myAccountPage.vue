@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Breadcrumb class="gogo_breadcrumb">
+      <BreadcrumbItem>{{$t('navigator.myAccountLedger')}}</BreadcrumbItem>
+    </Breadcrumb>
       <Table border :columns="columns5" :data="data5">
 
       </Table>
@@ -142,5 +145,5 @@
 </script>
 
 <style scoped>
-
+  @import "../../assets/gogoStyles.css";
 </style>

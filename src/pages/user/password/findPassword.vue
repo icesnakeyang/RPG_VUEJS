@@ -1,20 +1,20 @@
 <template>
   <div>
     <Breadcrumb class="gogo_breadcrumb">
-      <BreadcrumbItem>{{$t('navigator.applyJob')}}</BreadcrumbItem>
+      <BreadcrumbItem>{{$t('navigator.findPassword')}}</BreadcrumbItem>
     </Breadcrumb>
     <Content class="gogo_content">
-      <div>{{$t('job.applyTitle3')}}</div>
+      <div>找回密码</div>
     </Content>
   </div>
 </template>
 
 <script>
     export default {
-        name: "applyJobSuccess"
+        name: "findPassword"
     }
 </script>
 
 <style scoped>
-  @import "../../../../assets/gogoStyles.css";
+  @import "../../../assets/gogoStyles.css";
 </style>

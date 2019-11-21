@@ -15,7 +15,8 @@
         <FormItem :label="$t('task.code')">
           <Input v-model="task.code"/>
         </FormItem>
-        <FormItem :label="$t('task.detail')">
+        <div>{{$t('task.detail')}}</div>
+        <FormItem>
           <quill-editor v-model="task.detail"
                         :options="editorOption"
           ></quill-editor>

@@ -39,7 +39,13 @@
     "subTaskPage": "Sub Tasks",
     "publishTask": "Publish Task",
     "registerByEmail": "Register",
-    "jobDetail": "Job Detail"
+    "jobDetail": "Job Detail",
+    "submitUserProfile": "Real name verification",
+    "myAccountLedger": "My Account Ledger",
+    "myHonorLedger": "My Honor Ledger",
+    "applyJob": "Apply Job",
+    "adminLogin": "Administrator login",
+    "findPassword": "Find Password"
   },
   "user": {
     "username": "Login name",
@@ -138,6 +144,7 @@
     "btApplyJob": "Apply job",
     "applyTitle1": "Apply This Job",
     "applyTitle2": "Please subscribe your benefit, why you qualify for this job.",
+    "applyTitle3":"Thanks for your application. We will assign a RPG secretary to help you immediately.",
     "applyContent": "Apply content",
     "btDelete": "Delete",
     "deleteTip": "The job cannot be restored after delete, are you sure?",
@@ -180,7 +187,8 @@
       "usernamePlaceholder": "Please input username",
       "password": "Password",
       "passwordPlaceholder": "Please input password",
-      "btLogin": "Login"
+      "btLogin": "Login",
+      "forgetPassword": "Forget password?"
     },
     "admin": {},
     "secretary": {
@@ -230,6 +238,8 @@
     "10092": "This job has published already, cannot publish duplicate",
     "10099": "Update my published new job failed",
     "10134": "Read honor information error",
-    "10104": "The job has been applied by others, cannot be delete"
+    "10104": "The job has been applied by others, cannot be delete",
+    "10105": "Please input correct phone number",
+    "10106": "Send verify code error"
   }
 }

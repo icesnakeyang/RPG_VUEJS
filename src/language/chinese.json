@@ -39,7 +39,13 @@
     "subTaskPage": "子任务",
     "publishTask": "发布任务",
     "registerByEmail": "注册",
-    "jobDetail": "任务详情"
+    "jobDetail": "任务详情",
+    "submitUserProfile":"实名认证",
+    "myAccountLedger": "我的账户流水",
+    "myHonorLedger": "我的荣誉值流水",
+    "applyJob": "申请任务",
+    "adminLogin": "管理员登录",
+    "findPassword": "找回密码"
   },
   "user": {
     "username":"登录名",
@@ -137,6 +143,7 @@
     "btApplyJob":"申请任务",
     "applyTitle1":"申请任务",
     "applyTitle2":"申请任务时请简要说明自己的优势，个人信息或作品链接，以便RPG秘书处理。",
+    "applyTitle3":"感谢您的申请，我们将立即分配RPG秘书为您提供后续服务。",
     "applyContent":"申请说明",
     "btDelete":"删除",
     "deleteTip": "任务删除后不可恢复，确定要删除吗？",
@@ -179,7 +186,8 @@
       "usernamePlaceholder":"请输入用户名",
       "password":"密码",
       "passwordPlaceholder":"请输入密码",
-      "btLogin":"登录"
+      "btLogin":"登录",
+      "forgetPassword": "忘记密码？"
     },
     "admin":{},
     "secretary":{
@@ -229,6 +237,8 @@
     "10092": "该任务已经发布过了，且正在进行中，不能重复发布",
     "10099": "修改已发布的新任务失败",
     "10134": "读取荣誉信息错误",
-    "10104": "该任务已被其他用户处理，不能修改了"
+    "10104": "该任务已被其他用户处理，不能修改了",
+    "10105": "请填写正确的手机号码",
+    "10106": "发送验证码失败"
   }
 }

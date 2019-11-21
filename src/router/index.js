@@ -101,6 +101,7 @@ import contentPage from "../pages/layout/contentPage";
 import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
 import guestLayout from "../pages/layout/guestLayout";
+import findPassword from "../pages/user/password/findPassword";
 
 Vue.use(Router);
 
@@ -169,7 +170,7 @@ const router = new Router({
             name: 'taskPage',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: taskPage,
               footer: footerBar
             },
@@ -183,7 +184,7 @@ const router = new Router({
             name: 'taskDetail',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: taskDetail,
               footer: footerBar
             },
@@ -197,7 +198,7 @@ const router = new Router({
             name: 'taskEdit',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: taskEdit,
               footer: footerBar
             },
@@ -211,7 +212,7 @@ const router = new Router({
             name: 'subTaskPage',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: subTaskPage,
               footer: footerBar
             },
@@ -225,7 +226,7 @@ const router = new Router({
             name: 'taskFreelancer',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: taskFreelancer,
               footer: footerBar
             },
@@ -239,7 +240,7 @@ const router = new Router({
             name: 'publicJobDetail',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: publicJobDetail,
               footer: footerBar
             },
@@ -252,9 +253,10 @@ const router = new Router({
             path: 'jobApplyForm',
             name: 'jobApplyForm',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: jobApplyForm,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'jobApplyForm',
@@ -265,9 +267,10 @@ const router = new Router({
             path: 'applyJobSuccess',
             name: 'applyJobSuccess',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: applyJobSuccess,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'applyJobSuccess',
@@ -278,9 +281,10 @@ const router = new Router({
             path: 'myApplyJob',
             name: 'myApplyJob',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myApplyJob,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myApplyJob',
@@ -304,9 +308,10 @@ const router = new Router({
             path: 'myPendingJobPage',
             name: 'myPendingJobPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myPendingJobPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myPendingJobPage',
@@ -317,9 +322,10 @@ const router = new Router({
             path: 'myPendingJobDetail',
             name: 'myPendingJobDetail',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myPendingJobDetail,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myPendingJobDetail',
@@ -330,9 +336,10 @@ const router = new Router({
             path: 'myApplyJobDetail',
             name: 'myApplyJobDetail',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myApplyJobDetail,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myApplyJobDetail',
@@ -356,9 +363,10 @@ const router = new Router({
             path: 'adminLogin',
             name: 'adminLogin',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: adminLogin,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'adminLogin',
@@ -421,9 +429,10 @@ const router = new Router({
             path: 'partyAJobPage',
             name: 'partyAJobPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: partyAJobPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'partyAJobPage',
@@ -447,9 +456,10 @@ const router = new Router({
             path: 'partyBJobPage',
             name: 'partyBJobPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: partyBJobPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'partyBJobPage',
@@ -499,9 +509,10 @@ const router = new Router({
             path: 'profileDashboard',
             name: 'profileDashboard',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: profileDashboard,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'profileDashboard',
@@ -512,9 +523,10 @@ const router = new Router({
             path: 'submitUserProfile',
             name: 'submitUserProfile',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: submitUserProfile,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'submitUserProfile',
@@ -551,9 +563,10 @@ const router = new Router({
             path: 'myAcceptJobPage',
             name: 'myAcceptJobPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myAcceptJobPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myAcceptJobPage',
@@ -577,9 +590,10 @@ const router = new Router({
             path: 'myAccountPage',
             name: 'myAccountPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myAccountPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myAccountPage',
@@ -590,9 +604,10 @@ const router = new Router({
             path: 'myAccountDashboard',
             name: 'myAccountDashboard',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myAccountDashboard,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myAccountDashboard',
@@ -603,9 +618,10 @@ const router = new Router({
             path: 'myHonorList',
             name: 'myHonorList',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myHonorList,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myHonorList',
@@ -616,9 +632,10 @@ const router = new Router({
             path: 'myHonorDashboard',
             name: 'myHonorDashboard',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: myHonorDashboard,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'myHonorDashboard',
@@ -637,6 +654,16 @@ const router = new Router({
             meta: {
               title: 'contentPage',
               token: false
+            }
+          },
+          {
+            path: 'findPassword',
+            name: 'findPassword',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: findPassword,
+              footer: footerBar
             }
           }
         ]
