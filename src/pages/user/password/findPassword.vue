@@ -28,27 +28,59 @@
 </template>
 
 <script>
-  export default {
-    name: "findPassword",
-    data() {
-      return {
-        phone: '',
-        code: '',
-        wait: false,
-        newPassword: ''
-      }
-    },
-    methods: {
-      btSendSms() {
-        this.wait = true
-      },
-      btSubmit(){
-        console.log(this.phone)
-        console.log(this.code)
-        console.log(this.newPassword)
-      }
+    import {apiGetPhoneVerifyCode, apiResetPassword} from "../../../api/api";
+
+    export default {
+        name: "findPassword",
+        data() {
+            return {
+                phone: '',
+                code: '',
+                wait: false,
+                newPassword: ''
+            }
+        },
+        methods: {
+            btSendSms() {
+                console.log('send sms')
+                let params = {
+                    phone: this.phone
+                }
+                apiGetPhoneVerifyCode(params).then((response) => {
+                    console.log(response)
+                    if (response.data.errorCode === 0) {
+                        this.$Message.success('Send sms code successful')
+                        this.wait = true
+                    } else {
+                        this.wait = false
+                        this.$Message.error('Send sms code failed')
+                    }
+                })
+            },
+            btSubmit() {
+                console.log(this.phone)
+                console.log(this.code)
+                console.log(this.newPassword)
+
+                const params = {
+                    phone: this.phone,
+                    code: this.code,
+                    newPass: this.newPassword
+                }
+
+                apiResetPassword(params).then((response) => {
+                    console.log(response)
+                    if (response.data.errorCode === 0) {
+                        this.$Message.success(this.$t('user.phone.tipResetPasswordSuccess'))
+                    } else {
+                        this.$Message.error(this.$t('user.phone.tipResetPasswordFail'))
+                    }
+                })
+
+
+            }
+        }
     }
-  }
 </script>
 
 <style scoped>

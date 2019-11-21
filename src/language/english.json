@@ -45,7 +45,8 @@
     "myHonorLedger": "My Honor Ledger",
     "applyJob": "Apply Job",
     "adminLogin": "Administrator login",
-    "findPassword": "Find Password"
+    "findPassword": "Find Password",
+    "secretaryDashboard": "RPG Secretary Dashboard"
   },
   "user": {
     "username": "Login name",
@@ -83,7 +84,9 @@
       "sendVerifyCode": "Send code",
       "waiting": "Waiting...",
       "newPassword": "New password",
-      "tipNewPassword": "Please input new password"
+      "tipNewPassword": "Please input new password",
+      "tipResetPasswordSuccess": "Change password success",
+      "tipResetPasswordFail": "Change password failed"
     },
     "realname": {
       "title": "Real name information",
@@ -247,6 +250,9 @@
     "10134": "Read honor information error",
     "10104": "The job has been applied by others, cannot be delete",
     "10105": "Please input correct phone number",
-    "10106": "Send verify code error"
+    "10106": "Send verify code error",
+    "10107": "Reset password failed",
+    "10108": "Verify code error",
+    "10109": "Verify code overdue"
   }
 }

@@ -45,7 +45,8 @@
     "myHonorLedger": "我的荣誉值流水",
     "applyJob": "申请任务",
     "adminLogin": "管理员登录",
-    "findPassword": "找回密码"
+    "findPassword": "找回密码",
+    "secretaryDashboard": "RPG秘书首页"
   },
   "user": {
     "username":"登录名",
@@ -82,7 +83,9 @@
       "sendVerifyCode": "发送验证码",
       "waiting": "等待...",
       "newPassword": "新密码",
-      "tipNewPassword": "请输入新的密码"
+      "tipNewPassword": "请输入新的密码",
+      "tipResetPasswordSuccess": "修改密码成功",
+      "tipResetPasswordFail": "修改密码失败"
     },
     "realname":{
       "title":"实名信息",
@@ -246,6 +249,9 @@
     "10134": "读取荣誉信息错误",
     "10104": "该任务已被其他用户处理，不能修改了",
     "10105": "请填写正确的手机号码",
-    "10106": "发送验证码失败"
+    "10106": "发送验证码失败",
+    "10107": "修改密码失败",
+    "10108": "验证码错误",
+    "10109": "验证码已经过期"
   }
 }

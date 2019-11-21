@@ -486,10 +486,12 @@ export const apiLoadUserHonorBalance = params => {
  * @returns {AxiosPromise<any>}
  */
 export const apiGetPhoneVerifyCode = params => {
-  return axios.post(`${host}/admin/getPhoneVerifyCode`, params)
+  return axios.post(`${host}/sms/getPhoneVerifyCode`, params)
 }
 
-
+export const apiResetPassword = params => {
+  return axios.post(`${host}/admin/resetPassword`, params)
+}
 
 
 

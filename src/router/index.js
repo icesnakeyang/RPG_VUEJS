@@ -377,9 +377,10 @@ const router = new Router({
             path: 'secretaryDashboard',
             name: 'secretaryDashboard',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: secretaryDashboard,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'secretaryDashboard',
