@@ -76,7 +76,14 @@
       "verifyTag": "Verified",
       "createdTime": "Created Time",
       "default": "Default",
-      "btSetDefault": "Set Default"
+      "btSetDefault": "Set Default",
+      "phone2": "phone",
+      "tipFindPasswordPhone": "Please input your phone number",
+      "verifyCode": "Code",
+      "sendVerifyCode": "Send code",
+      "waiting": "Waiting...",
+      "newPassword": "New password",
+      "tipNewPassword": "Please input new password"
     },
     "realname": {
       "title": "Real name information",
@@ -144,7 +151,7 @@
     "btApplyJob": "Apply job",
     "applyTitle1": "Apply This Job",
     "applyTitle2": "Please subscribe your benefit, why you qualify for this job.",
-    "applyTitle3":"Thanks for your application. We will assign a RPG secretary to help you immediately.",
+    "applyTitle3": "Thanks for your application. We will assign a RPG secretary to help you immediately.",
     "applyContent": "Apply content",
     "btDelete": "Delete",
     "deleteTip": "The job cannot be restored after delete, are you sure?",
