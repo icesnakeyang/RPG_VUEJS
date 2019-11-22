@@ -38,7 +38,7 @@
     "taskDetail": "任务详情",
     "subTaskPage": "子任务",
     "publishTask": "发布任务",
-    "registerByEmail": "注册",
+    "registerByEmail": "Email注册",
     "jobDetail": "任务详情",
     "submitUserProfile":"实名认证",
     "myAccountLedger": "我的账户流水",
@@ -48,7 +48,8 @@
     "findPassword": "找回密码",
     "secretaryDashboard": "RPG秘书首页",
     "secretaryApplyJobList": "等待处理的Job申请",
-    "secretaryApplyPage": "处理Job申请"
+    "secretaryApplyPage": "处理Job申请",
+    "registerByPhone": "手机号码注册"
   },
   "user": {
     "username":"登录名",
@@ -72,7 +73,7 @@
       "title":"Email信息"
     },
     "phone": {
-      "phone": "联系电话",
+      "phone": "手机号码",
       "verify":"是否认证",
       "unverifyTag":"未认证",
       "verifyTag":"已认证",
@@ -87,7 +88,11 @@
       "newPassword": "新密码",
       "tipNewPassword": "请输入新的密码",
       "tipResetPasswordSuccess": "修改密码成功",
-      "tipResetPasswordFail": "修改密码失败"
+      "tipResetPasswordFail": "修改密码失败",
+      "phoneHolder": "请输入注册的手机号码",
+      "phoneOccupied": "手机号码重复了",
+      "tipSendSMSSuccess": "发送验证码成功，请等待查看您的手机短信",
+      "tipSendSMSFail": "发送验证码失败"
     },
     "realname":{
       "title":"实名信息",

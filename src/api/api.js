@@ -493,6 +493,14 @@ export const apiResetPassword = params => {
   return axios.post(`${host}/admin/resetPassword`, params)
 }
 
+export const apiGetPhone = params => {
+  return axios.post(`${host}/user/register/getPhone`, params)
+}
+
+export const apiRegisterByPhone = params => {
+  return axios.post(`${host}/user/register/registerByPhone`, params)
+}
+
 
 
 

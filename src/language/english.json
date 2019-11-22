@@ -38,7 +38,7 @@
     "taskDetail": "Task Detail",
     "subTaskPage": "Sub Tasks",
     "publishTask": "Publish Task",
-    "registerByEmail": "Register",
+    "registerByEmail": "Register By Email",
     "jobDetail": "Job Detail",
     "submitUserProfile": "Real name verification",
     "myAccountLedger": "My Account Ledger",
@@ -48,7 +48,8 @@
     "findPassword": "Find Password",
     "secretaryDashboard": "RPG Secretary Dashboard",
     "secretaryApplyJobList": "Job Application List",
-    "secretaryApplyPage": "Process Job Application"
+    "secretaryApplyPage": "Process Job Application",
+    "registerByPhone": "Register By Phone"
   },
   "user": {
     "username": "Login name",
@@ -72,7 +73,7 @@
       "title": "Email information"
     },
     "phone": {
-      "phone": "Contact Phone",
+      "phone": "Phone",
       "title": "Phone information",
       "verify": "Verify",
       "unverifyTag": "Unverify",
@@ -88,7 +89,11 @@
       "newPassword": "New password",
       "tipNewPassword": "Please input new password",
       "tipResetPasswordSuccess": "Change password success",
-      "tipResetPasswordFail": "Change password failed"
+      "tipResetPasswordFail": "Change password failed",
+      "phoneHolder": "Please input phone number",
+      "phoneOccupied": "Sorry, the phone has been registered by others",
+      "tipSendSMSSuccess": "Send sms success, please check your sms",
+      "tipSendSMSFail": "Send sms failed"
     },
     "realname": {
       "title": "Real name information",

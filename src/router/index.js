@@ -101,6 +101,7 @@ import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
 import guestLayout from "../pages/layout/guestLayout";
 import findPassword from "../pages/user/password/findPassword";
+import registerByPhone from "../pages/user/register/registerByPhone";
 
 Vue.use(Router);
 
@@ -350,7 +351,7 @@ const router = new Router({
             name: 'secretaryApplyPage',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: secretaryApplyPage,
               footer: footerBar
             },
@@ -378,7 +379,7 @@ const router = new Router({
             name: 'secretaryDashboard',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: secretaryDashboard,
               footer: footerBar
             },
@@ -392,7 +393,7 @@ const router = new Router({
             name: 'secretaryAppliedJobList',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: secretaryAppliedJobList,
               footer: footerBar
             },
@@ -665,6 +666,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: findPassword,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'registerByPhone',
+            name: 'registerByPhone',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: registerByPhone,
               footer: footerBar
             }
           }

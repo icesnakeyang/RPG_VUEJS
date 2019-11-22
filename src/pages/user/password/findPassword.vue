@@ -49,11 +49,11 @@
                 apiGetPhoneVerifyCode(params).then((response) => {
                     console.log(response)
                     if (response.data.errorCode === 0) {
-                        this.$Message.success('Send sms code successful')
+                        this.$Message.success(this.$t('user.phone.tipSendSMSSuccess'))
                         this.wait = true
                     } else {
                         this.wait = false
-                        this.$Message.error('Send sms code failed')
+                        this.$Message.error(this.$t('user.phone.tipSendSMSFail'))
                     }
                 })
             },

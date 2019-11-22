@@ -1,25 +1,33 @@
 <template>
   <div>
     <Breadcrumb class="gogo_breadcrumb">
-      <BreadcrumbItem>{{$t('navigator.registerByEmail')}}</BreadcrumbItem>
+      <BreadcrumbItem>{{$t('navigator.registerByPhone')}}</BreadcrumbItem>
     </Breadcrumb>
-
     <Content class="gogo_content">
       <Form :label-width="200">
-        <FormItem>
-          <Button type="text" @click="btPhone">{{$t('navigator.registerByPhone')}}</Button>
-        </FormItem>
         <FormItem v-show="errInput">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
         </FormItem>
-        <FormItem :label="$t('user.email.email')">
-          <Input @on-blur="onCheckEail" v-model="emailStr" :placeholder="$t('user.emailPlaceholder')"/>
+        <FormItem>
+          <Button type="text" @click="btEmail">{{$t('navigator.registerByEmail')}}</Button>
+        </FormItem>
+        <FormItem :label="$t('user.phone.phone')">
+          <Input @on-blur="onCheckPhone" v-model="phone" :placeholder="$t('user.phone.phoneHolder')"/>
+        </FormItem>
+        <FormItem :label="$t('user.phone.verifyCode')">
+          <Input v-model="code">
+            <span v-if="wait" slot="append">{{$t('user.phone.waiting')}}</span>
+            <span v-else="wait" slot="append"><a @click="btSendSms">{{$t('user.phone.sendVerifyCode')}}</a></span>
+          </Input>
         </FormItem>
         <FormItem :label="$t('user.password')">
           <Input type="password" v-model="password" :placeholder="$t('user.passwordPlaceholder')"/>
         </FormItem>
         <FormItem :label="$t('user.password2')">
           <Input type="password" v-model="password2" :placeholder="$t('user.password2Placeholder')"/>
+        </FormItem>
+        <FormItem :label="$t('user.realName')">
+          <Input type="text" v-model="realName"></Input>
         </FormItem>
         <FormItem>
           <Button type="primary" @click="onRegister">{{$t("user.btRegister")}}</Button>
@@ -31,29 +39,32 @@
 </template>
 
 <script>
-    import {apiRegisterByEmail} from "../../../api/api";
-    import {apiGetEmailByEmail} from "../../../api/api";
+    import {apiGetPhone, apiGetPhoneVerifyCode, apiRegisterByPhone} from "../../../api/api";
 
     export default {
-        name: "registerByEmail",
+        name: "registerByPhone",
         data() {
             return {
                 errInput: false,
                 errMsg: '',
-                emailStr: '',
+                phone: '',
                 password: '',
-                password2: ''
+                password2: '',
+                code: '',
+                wait: false,
+                realName: ''
             }
         },
         methods: {
-            onCheckEail() {
-                apiGetEmailByEmail({
-                    email: this.emailStr
+            onCheckPhone() {
+                apiGetPhone({
+                    phone: this.phone
                 }).then((response) => {
+                    console.log(response)
                     if (response.data.errorCode === 0) {
-                        if (response.data.data.email) {
+                        if (response.data.data.user) {
                             this.errInput = true
-                            this.errMsg = this.$t('user.err4')
+                            this.errMsg = this.$t('user.phone.phoneOccupied')
                         } else {
                             this.errInput = false
                             this.errMsg = ''
@@ -61,16 +72,26 @@
                     }
                 })
             },
-            onRegister() {
-                if (!this.emailStr) {
-                    this.errInput = true;
-                    this.errMsg = this.$t('user.err2');
-                    return
+            btSendSms() {
+                console.log('send sms')
+                let params = {
+                    phone: this.phone
                 }
-                const reg = /^[a-zA-Z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
-                if (!reg.test(this.emailStr)) {
+                apiGetPhoneVerifyCode(params).then((response) => {
+                    console.log(response)
+                    if (response.data.errorCode === 0) {
+                        this.$Message.success(this.$t('user.phone.tipSendSMSSuccess'))
+                        this.wait = true
+                    } else {
+                        this.wait = false
+                        this.$Message.error(this.$t('user.phone.tipSendSMSFail'))
+                    }
+                })
+            },
+            onRegister() {
+                if (!this.phone) {
                     this.errInput = true;
-                    this.errMsg = this.$t('user.err3')
+                    this.errMsg = this.$t('user.phone.phoneHolder');
                     return
                 }
                 if (this.password !== this.password2) {
@@ -78,20 +99,21 @@
                     this.errMsg = this.$t('user.err1');
                     return
                 }
-                apiRegisterByEmail({
-                    email: this.emailStr,
-                    loginPassword: this.password
-                }).then((response) => {
+                let params={
+                    phone: this.phone,
+                    code:this.code,
+                    loginPassword: this.password,
+                    realName: this.realName
+                }
+                console.log(params)
+                apiRegisterByPhone(params).then((response) => {
                     console.log(response)
                     if (response.data.errorCode === 0) {
                         let userInfo = {}
-                        if (response.data.data.realName) {
-                            userInfo.username = response.data.data.realName
-                        } else {
-                            userInfo.username = response.data.data.email
-                        }
+                        userInfo.username = response.data.data.username
                         userInfo.userId = response.data.data.userId
                         userInfo.token = response.data.data.token
+                        userInfo.phone = response.data.data.phone
                         userInfo.roleType = response.data.data.roleType
                         this.$store.dispatch('saveToken', userInfo);
                         if (this.$store.state.toUrl) {
@@ -115,9 +137,9 @@
                     name: 'loginPage'
                 })
             },
-            btPhone() {
+            btEmail() {
                 this.$router.push({
-                    name: 'registerByPhone'
+                    name: 'registerByEmail'
                 })
             }
         }
