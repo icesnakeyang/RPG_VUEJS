@@ -8,7 +8,7 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.matchJob")}}
     </MenuItem>
-    <MenuItem name="9-2">
+    <MenuItem name="menuSecretaryTopUpPage">
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.topUp")}}
     </MenuItem>

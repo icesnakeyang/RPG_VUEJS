@@ -46,7 +46,9 @@
     "applyJob": "申请任务",
     "adminLogin": "管理员登录",
     "findPassword": "找回密码",
-    "secretaryDashboard": "RPG秘书首页"
+    "secretaryDashboard": "RPG秘书首页",
+    "secretaryApplyJobList": "等待处理的Job申请",
+    "secretaryApplyPage": "处理Job申请"
   },
   "user": {
     "username":"登录名",

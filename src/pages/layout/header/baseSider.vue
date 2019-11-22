@@ -25,7 +25,6 @@
     import MenuAdmin from './menuAdmin'
     import MenuSecretary from './menuSecretary'
 
-
     export default {
         name: "baseSider",
         components: {

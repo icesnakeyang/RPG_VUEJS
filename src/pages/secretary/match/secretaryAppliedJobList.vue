@@ -1,7 +1,12 @@
 <template>
   <div>
-    <SecretaryAppliedJobListRow v-for="(item, index) in jobs" :key="index" :job="item">
-    </SecretaryAppliedJobListRow>
+    <Breadcrumb class="gogo_breadcrumb">
+      <BreadcrumbItem>{{$t('navigator.secretaryApplyJobList')}}</BreadcrumbItem>
+    </Breadcrumb>
+    <Content class="gogo_content">
+      <SecretaryAppliedJobListRow v-for="(item, index) in jobs" :key="index" :job="item">
+      </SecretaryAppliedJobListRow>
+    </Content>
   </div>
 </template>
 
@@ -11,12 +16,12 @@
 
   export default {
     name: "secretaryAppliedJobList",
-    components:{
+    components: {
       SecretaryAppliedJobListRow
     },
-    data(){
-      return{
-        jobs:[]
+    data() {
+      return {
+        jobs: []
       }
     },
     methods: {
@@ -26,10 +31,10 @@
           pageSize: 20
         }).then((response) => {
           console.log(response)
-          if(response.data.errorCode===0){
-            this.jobs=response.data.data.newApplyList
-          }else{
-            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
+          if (response.data.errorCode === 0) {
+            this.jobs = response.data.data.newApplyList
+          } else {
+            this.$Message.error(this.$t('syserr.' + response.data.errorCode))
           }
         })
       }
@@ -41,5 +46,5 @@
 </script>
 
 <style scoped>
-
+  @import "../../../assets/gogoStyles.css";
 </style>

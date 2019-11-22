@@ -5,7 +5,6 @@ import store from '../store/index'
 /**
  * layout
  */
-import baseLayout from '@/pages/layout/baseLayout'
 import headerBarBase from '@/pages/layout/header/headerBarBase'
 import footerBar from '@/pages/layout/footerBar'
 
@@ -350,9 +349,10 @@ const router = new Router({
             path: 'secretaryApplyPage',
             name: 'secretaryApplyPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: secretaryApplyPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'secretaryApplyPage',
@@ -391,9 +391,10 @@ const router = new Router({
             path: 'secretaryAppliedJobList',
             name: 'secretaryAppliedJobList',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: secretaryAppliedJobList,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'secretaryAppliedJobList',

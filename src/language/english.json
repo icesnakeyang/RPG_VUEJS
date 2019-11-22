@@ -46,7 +46,9 @@
     "applyJob": "Apply Job",
     "adminLogin": "Administrator login",
     "findPassword": "Find Password",
-    "secretaryDashboard": "RPG Secretary Dashboard"
+    "secretaryDashboard": "RPG Secretary Dashboard",
+    "secretaryApplyJobList": "Job Application List",
+    "secretaryApplyPage": "Process Job Application"
   },
   "user": {
     "username": "Login name",
