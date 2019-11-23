@@ -57,7 +57,6 @@
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.job = response.data.data.job
-                        console.log(this.job)
                     } else {
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }

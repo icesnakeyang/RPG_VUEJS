@@ -87,7 +87,6 @@
                     return;
                 }
                 this.saving = true;
-                console.log(this.task)
                 apiPublishNewJob({
                     taskId: this.task.taskId,
                     title: this.task.title,

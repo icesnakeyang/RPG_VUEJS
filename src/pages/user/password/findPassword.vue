@@ -42,12 +42,10 @@
         },
         methods: {
             btSendSms() {
-                console.log('send sms')
                 let params = {
                     phone: this.phone
                 }
                 apiGetPhoneVerifyCode(params).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.$Message.success(this.$t('user.phone.tipSendSMSSuccess'))
                         this.wait = true
@@ -58,10 +56,6 @@
                 })
             },
             btSubmit() {
-                console.log(this.phone)
-                console.log(this.code)
-                console.log(this.newPassword)
-
                 const params = {
                     phone: this.phone,
                     code: this.code,
@@ -69,7 +63,6 @@
                 }
 
                 apiResetPassword(params).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.$Message.success(this.$t('user.phone.tipResetPasswordSuccess'))
                     } else {

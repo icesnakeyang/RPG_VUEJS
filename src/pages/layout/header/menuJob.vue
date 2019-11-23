@@ -57,7 +57,6 @@
     },
     methods: {
       loadAllData() {
-        console.log(this.$store.state.token)
         apiTotalMyUnread({}).then((response) => {
           if(response.data.errorCode===0){
             this.totalPartyAUnread=response.data.data.totalPartyAUnread

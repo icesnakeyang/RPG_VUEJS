@@ -25,11 +25,12 @@
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-<!--        <p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
+        <!--        <p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
+        <p>{{processResult}}</p>
       </Col>
     </Row>
     <Input type="textarea" v-model="jobApply.apply.content" readonly></Input>
-    <Divider />
+    <Divider/>
     <Row>
       <Col :xs="12" :sm="6" :md="6" :lg="6">
         <p>{{$t("job.applyUserNum")}}: {{jobApply.applyNum}}</p>
@@ -42,45 +43,57 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+    import {rpgFormat} from "../../../../common/rpgfun";
 
-  export default {
-    name: "myApplyJobRow",
-    props: {
-      jobApply: {}
-    },
-    computed: {
-      publishTime() {
-        return rpgFormat.formatTime(this.jobApply.job.createdTime)
-      },
-      applyTime() {
-        return rpgFormat.formatTime(this.jobApply.apply.applyTime)
-      },
-      readTime() {
-        if (this.jobApply.apply.readTime) {
-          return rpgFormat.formatTime(this.jobApply.apply.readTime)
-        } else {
-          return this.$t("common.unRead");
+    export default {
+        name: "myApplyJobRow",
+        props: {
+            jobApply: {}
+        },
+        computed: {
+            publishTime() {
+                return rpgFormat.formatTime(this.jobApply.job.createdTime)
+            },
+            applyTime() {
+                return rpgFormat.formatTime(this.jobApply.apply.applyTime)
+            },
+            readTime() {
+                if (this.jobApply.apply.readTime) {
+                    return rpgFormat.formatTime(this.jobApply.apply.readTime)
+                } else {
+                    return this.$t("common.unRead");
+                }
+            },
+            processResult() {
+                console.log(this.jobApply.apply.processResult)
+                if (!this.jobApply.apply.processResult) {
+                    return this.$t('common.status.unProcess')
+                }
+                if (this.jobApply.apply.processResult === 'REJECT') {
+                    return this.$t('common.status.reject')
+                }
+                if (this.jobApply.apply.processResult === 'ACCEPT') {
+                    return this.$t('common.status.agree')
+                }
+            }
+        },
+        methods: {
+            onGoJobDetail(item) {
+                this.$router.push({
+                    name: 'myApplyJobDetail',
+                    params: {
+                        jobId: item
+                    }
+                })
+            }
+        },
+        mounted() {
         }
-      }
-    },
-    methods:{
-      onGoJobDetail(item){
-        this.$router.push({
-          name:'myApplyJobDetail',
-          params:{
-            jobId:item
-          }
-        })
-      }
-    },
-    mounted() {
     }
-  }
 </script>
 
 <style scoped>
-  .card{
+  .card {
     margin: 20px;
   }
 </style>

@@ -30,7 +30,6 @@
           pageIndex: 0,
           pageSize: 20
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.jobs = response.data.data.newApplyList
           } else {

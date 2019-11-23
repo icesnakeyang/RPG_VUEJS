@@ -46,7 +46,6 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
-            console.log(this.job)
           }
         })
       },

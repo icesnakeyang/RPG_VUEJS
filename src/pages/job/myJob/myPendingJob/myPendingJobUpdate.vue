@@ -55,11 +55,9 @@
     },
     methods:{
       loadAllData(){
-        console.log(this.$store.state.jobId)
         apiGetPartyAJob({
           jobId: this.$store.state.jobId
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.job=response.data.data
           }

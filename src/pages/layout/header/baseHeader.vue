@@ -43,7 +43,6 @@
                 })
             },
             onSpotlight() {
-                console.log('spotlight')
             },
             clickRPG() {
                 this.$router.push({
@@ -52,11 +51,9 @@
             },
             menuClick(name) {
                 if (name === "lanChinese") {
-                    console.log('lan chinese')
                     this.$i18n.locale = 'zh'
                 }
                 if (name === 'lanEnglish') {
-                    console.log('lan english')
                     this.$i18n.locale = 'en'
                 }
                 if (name === "menuSignOut") {

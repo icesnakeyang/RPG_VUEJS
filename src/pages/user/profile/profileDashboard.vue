@@ -64,7 +64,6 @@
                 })
 
                 apiListPhoneOfUser({}).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.phoneList = response.data.data.phones
                     } else {
@@ -75,7 +74,6 @@
                 apiListEmailOfUser({}).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.emailList = response.data.data.emails
-                        console.log(this.emailList)
                     } else {
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }

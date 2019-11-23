@@ -41,7 +41,6 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.applies = response.data.data.applyList
-            console.log(this.applies)
           } else {
             this.$Message.error(this.$t("syserr." + response.data.errorCode))
           }

@@ -59,7 +59,6 @@
           username: this.formItem.username,
           password: this.formItem.password
         }).then((response) => {
-          console.log(response)
           if(response.data.errorCode===0){
             this.$store.dispatch('saveToken', response.data.data.user);
             if(this.$store.state.toUrl){

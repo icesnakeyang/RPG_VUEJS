@@ -131,7 +131,6 @@
           })
         }
         if (name === "3-4") {
-          console.log(34)
           this.$router.push({
             name: 'partyBJobPage'
           })

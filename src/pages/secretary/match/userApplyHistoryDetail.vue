@@ -45,7 +45,6 @@
         apiGetApplyDetail({
           applyId:this.$store.state.applyId
         }).then((response)=>{
-          console.log(response)
           if(response.data.errorCode===0){
             this.apply=response.data.data
           }else{

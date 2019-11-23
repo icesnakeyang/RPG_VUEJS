@@ -82,7 +82,6 @@
                     email: this.emailStr,
                     loginPassword: this.password
                 }).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         let userInfo = {}
                         if (response.data.data.realName) {

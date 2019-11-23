@@ -102,7 +102,6 @@
       }
     },
     mounted() {
-      console.log(this.complete)
     }
   }
 </script>

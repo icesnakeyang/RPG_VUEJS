@@ -51,7 +51,6 @@
                     pageIndex: 0,
                     pageSize: 100
                 }).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.honorList = response.data.data.list
                     } else {
