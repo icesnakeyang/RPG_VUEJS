@@ -26,67 +26,68 @@
 </template>
 
 <script>
-  import {apiLogin} from "../../../api/api";
+    import {apiLogin} from "../../../api/api";
 
-  export default {
-    name: "loginPage",
-    data() {
-      return {
-        showErr: false,
-        errMsg: '',
-        username: '',
-        password: ''
-      }
-    },
-    methods: {
-      onLogin() {
-        if (!this.checkInput()) {
-          return;
-        }
-        /**
-         * todo
-         * 这里需要判断用户名是email，还是手机号码，或者别的可能的情况，
-         * 不同地区，同国家的用户，可能需要不同的登录策略，
-         * 或者，不同的区域会调用不同的服务器等。
-         */
-        //目前暂时只考虑email登录
-        apiLogin({
-          email: this.username,
-          password: this.password
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            let user=response.data.data;
-            this.$store.dispatch('saveToken', user);
-            if (this.$store.state.toUrl) {
-              const theUrl = this.$store.state.toUrl;
-              this.$store.dispatch('clearToUrl');
-              this.$router.push({
-                name: theUrl.name,
-                params: theUrl.params
-              })
-            } else {
-              this.$router.push({path: '/'})
+    export default {
+        name: "loginPage",
+        data() {
+            return {
+                showErr: false,
+                errMsg: '',
+                username: '',
+                password: ''
             }
-          }else{
-            this.$Message.error(this.$t('syserr.'+response.data.errorCode))
-          }
-        })
-      },
+        },
+        methods: {
+            onLogin() {
+                if (!this.checkInput()) {
+                    return;
+                }
+                /**
+                 * todo
+                 * 这里需要判断用户名是email，还是手机号码，或者别的可能的情况，
+                 * 不同地区，同国家的用户，可能需要不同的登录策略，
+                 * 或者，不同的区域会调用不同的服务器等。
+                 */
+                //目前暂时只考虑email登录
+                apiLogin({
+                    email: this.username,
+                    phone: this.username,
+                    password: this.password
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        let user = response.data.data;
+                        this.$store.dispatch('saveToken', user);
+                        if (this.$store.state.toUrl) {
+                            const theUrl = this.$store.state.toUrl;
+                            this.$store.dispatch('clearToUrl');
+                            this.$router.push({
+                                name: theUrl.name,
+                                params: theUrl.params
+                            })
+                        } else {
+                            this.$router.push({path: '/'})
+                        }
+                    } else {
+                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+                    }
+                })
+            },
 
-      onRegister() {
-        this.$router.push({
-          name: 'registerByEmail'
-        })
-      },
+            onRegister() {
+                this.$router.push({
+                    name: 'registerByEmail'
+                })
+            },
 
-      checkInput() {
-        if (this.username === '') {
-          return false
+            checkInput() {
+                if (this.username === '') {
+                    return false
+                }
+                return true
+            }
         }
-        return true
-      }
     }
-  }
 </script>
 
 <style scoped>

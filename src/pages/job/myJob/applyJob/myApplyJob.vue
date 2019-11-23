@@ -29,7 +29,10 @@
         },
         methods: {
             loadAllData() {
-                apiListMyApplyJob({}).then((response) => {
+                apiListMyApplyJob({
+                    pageIndex: 0,
+                    pageSize: 100
+                }).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.applyJobList = response.data.data.jobList;
                     }

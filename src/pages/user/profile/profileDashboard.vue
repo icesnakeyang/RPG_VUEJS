@@ -64,6 +64,7 @@
                 })
 
                 apiListPhoneOfUser({}).then((response) => {
+                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.phoneList = response.data.data.phones
                     } else {
