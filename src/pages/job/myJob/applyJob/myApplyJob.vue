@@ -5,7 +5,7 @@
     </Breadcrumb>
     <Content style="min-height: 450px">
       <MyApplyJobRow v-for="apply in applyJobList"
-                     v-bind:key="apply.job.jobId"
+                     v-bind:key="apply.apply.jobApplyId"
                      v-bind:jobApply="apply">
       </MyApplyJobRow>
     </Content>

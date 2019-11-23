@@ -25,10 +25,10 @@
 
       </Col>
       <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <!--<p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
+<!--        <p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
       </Col>
     </Row>
-    <Input type="textarea" v-model="jobApply.apply.content"></Input>
+    <Input type="textarea" v-model="jobApply.apply.content" readonly></Input>
     <Divider />
     <Row>
       <Col :xs="12" :sm="6" :md="6" :lg="6">
