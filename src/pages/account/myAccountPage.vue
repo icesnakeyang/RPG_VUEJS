@@ -1,18 +1,19 @@
 <template>
   <div>
     <Breadcrumb class="gogo_breadcrumb">
+      <BreadcrumbItem to="myAccountDashboard">{{$t('navigator.myAccount')}}</BreadcrumbItem>
       <BreadcrumbItem>{{$t('navigator.myAccountLedger')}}</BreadcrumbItem>
     </Breadcrumb>
+    <Content class="gogo_content">
       <Table border :columns="columns5" :data="data5">
-
       </Table>
-
+    </Content>
   </div>
 </template>
 
 <script>
   import {apiListMyAccount} from "../../api/api"
-  import {rpgFormat} from "../../common/rpgfun";
+  import moment from "moment";
 
   export default {
     name: "myAccountPage",
@@ -23,7 +24,7 @@
             title: this.$t("user.account.createdTime"),
             key: 'cratedTime',
             render: (h, params) => {
-              return h('div', rpgFormat.formatTime(params.row.createdTime))
+              return h('div', moment(params.row.createdTime).format('YYYY-MM-DD HH:mm'))
             }
           },
           {
@@ -34,8 +35,8 @@
           {
             title: this.$t("user.account.type"),
             key: 'type',
-            render:(h, params)=>{
-              return h('div', this.$t("user.account."+params.row.type))
+            render: (h, params) => {
+              return h('div', this.$t("user.account." + params.row.type))
             }
           }
         ],
@@ -63,7 +64,7 @@
                     }
                   }
                 });
-              } else  {
+              } else {
 
                 return h('div', params.row.age);
               }
@@ -109,7 +110,7 @@
             $isEdit: false
           }
         ],
-        keyword:''
+        keyword: ''
       }
     },
     computed: {
@@ -130,11 +131,11 @@
           }
         })
       },
-      handleEdit (row) {
+      handleEdit(row) {
         this.$set(row, '$isEdit', true)
 
       },
-      handleSave (row) {
+      handleSave(row) {
         this.$set(row, '$isEdit', false)
       }
     },
