@@ -280,7 +280,7 @@ export const apiGetPartyAJob = params => {
 }
 
 export const apiTotalUnreadByJobId = params => {
-  return axios.post(`${host}/job/partyA/totalUnreadByJobId`, params, {
+  return axios.post(`${host}/job/my_common/totalUnreadByJobId`, params, {
     headers: {
       token: store.state.token
     }

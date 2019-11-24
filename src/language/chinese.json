@@ -49,7 +49,11 @@
     "secretaryDashboard": "RPG秘书首页",
     "secretaryApplyJobList": "等待处理的Job申请",
     "secretaryApplyPage": "处理Job申请",
-    "registerByPhone": "手机号码注册"
+    "registerByPhone": "手机号码注册",
+    "jobLog": "任务日志",
+    "jobLogCreate": "创建日志",
+    "jobComplete": "验收日志",
+    "jobCompleteCreate": "创建验收日志"
   },
   "user": {
     "username":"登录名",
@@ -177,7 +181,8 @@
       "content": "日志内容",
       "btCreate": "创建日志",
       "createdTime": "创建时间",
-      "readTime": "对方阅读时间"
+      "readTime": "对方阅读时间",
+      "contentHolder": "请输入日志内容"
     },
     "jobComplete": {
       "content": "完成说明",
@@ -198,7 +203,8 @@
     "jobApply": {
       "process": {
         "result": "处理结果",
-        "remark": "处理说明"
+        "remark": "处理说明",
+        "time": "处理时间"
       }
     }
   },

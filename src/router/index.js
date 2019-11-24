@@ -446,9 +446,10 @@ const router = new Router({
             path: 'partyAJobDetail',
             name: 'partyAJobDetail',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: partyAJobDetail,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'partyAJobDetail',
@@ -473,9 +474,10 @@ const router = new Router({
             path: 'partyBJobDetail',
             name: 'partyBJobDetail',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: partyBJobDetail,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'partyBJobDetail',
@@ -486,9 +488,10 @@ const router = new Router({
             path: 'jobLogPage',
             name: 'jobLogPage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: jobLogPage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'jobLogPage',
@@ -499,9 +502,10 @@ const router = new Router({
             path: 'createJobLog',
             name: 'createJobLog',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider: baseSider,
               content: createJobLog,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'createJobLog',
@@ -540,9 +544,10 @@ const router = new Router({
             path: 'completePage',
             name: 'completePage',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: completePage,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'completePage',
@@ -553,9 +558,10 @@ const router = new Router({
             path: 'createComplete',
             name: 'createComplete',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: createComplete,
-              footerBar: footerBar
+              footer: footerBar
             },
             meta: {
               title: 'createComplete',

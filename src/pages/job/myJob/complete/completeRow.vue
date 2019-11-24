@@ -51,59 +51,63 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+    import moment from "moment";
 
-  export default {
-    name: "completeRow",
-    props: {
-      complete: {}
-    },
-    computed: {
-      createdTime() {
-        return rpgFormat.formatTime(this.complete.createdTime)
-      },
-      readTime() {
-        if (this.complete.readTime) {
-          return rpgFormat.formatTime(this.complete.readTime)
-        } else {
-          return false
+    export default {
+        name: "completeRow",
+        props: {
+            complete: {}
+        },
+        computed: {
+            createdTime() {
+                if (this.complete.createdTime) {
+                    return moment(this.complete.createdTime).format('YYYY-MM-DD HH:mm')
+                }
+            },
+            readTime() {
+                if (this.complete.readTime) {
+                    return moment(this.complete.readTime).format('YYYY-MM-DD HH:mm')
+                } else {
+                    return false
+                }
+            },
+            processTime() {
+                if (this.complete.processTime) {
+                    return moment(this.complete.processTime).format('YYYY-MM-DD HH:mm')
+                } else {
+                    return ''
+                }
+            },
+            isProcess() {
+                if (this.complete.result === null) {
+                    return false
+                }
+                return true
+            },
+            processResult() {
+                if (this.complete.result) {
+                    if (this.complete.result === 'REJECT') {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            },
+            processRead() {
+                if (this.complete.processReadTime) {
+                    return true
+                }
+                return false
+            },
+            processReadTime() {
+                if (this.complete.processReadTime) {
+                    return moment(this.complete.processReadTime).format('YYYY-MM-DD HH:mm')
+                }
+            }
+        },
+        mounted() {
         }
-      },
-      processTime() {
-        if (this.complete.processTime) {
-          return rpgFormat.formatTime(this.complete.processTime)
-        } else {
-          return ''
-        }
-      },
-      isProcess() {
-        if (this.complete.result === null) {
-          return false
-        }
-        return true
-      },
-      processResult() {
-        if (this.complete.result) {
-          if (this.complete.result === 'REJECT') {
-            return false
-          } else {
-            return true
-          }
-        }
-      },
-      processRead(){
-        if(this.complete.processReadTime){
-          return true
-        }
-        return false
-      },
-      processReadTime(){
-        return rpgFormat.formatTime(this.complete.processReadTime)
-      }
-    },
-    mounted() {
     }
-  }
 </script>
 
 <style scoped>

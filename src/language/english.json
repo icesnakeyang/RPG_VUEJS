@@ -49,7 +49,11 @@
     "secretaryDashboard": "RPG Secretary Dashboard",
     "secretaryApplyJobList": "Job Application List",
     "secretaryApplyPage": "Process Job Application",
-    "registerByPhone": "Register By Phone"
+    "registerByPhone": "Register By Phone",
+    "jobLog": "Job Log",
+    "jobLogCreate": "Create Job Log",
+    "jobComplete": "Complete",
+    "jobCompleteCreate": "Create Complete"
   },
   "user": {
     "username": "Login name",
@@ -178,7 +182,8 @@
       "content": "Content",
       "btCreate": "Create",
       "createdTime": "Created Time",
-      "readTime": "Read Time"
+      "readTime": "Read Time",
+      "contentHolder": "Please input job log content here"
     },
     "jobComplete": {
       "content": "Complete description",
@@ -199,7 +204,8 @@
     "jobApply": {
       "process": {
         "result": "Process result",
-        "remark": "Process remark"
+        "remark": "Process remark",
+        "time": "Process time"
       }
     }
   },

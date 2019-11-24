@@ -1,69 +1,75 @@
 <template>
   <div>
-    <Form :model="jobLog" :label-width="200">
-      <FormItem v-show="errInput">
-        <Alert type="error" show-icon>{{errMsg}}</Alert>
-      </FormItem>
-      <FormItem :label="$t('job.log.content')">
-        <Input type="textarea" v-model="jobLog.content"
-               :autosize="{minRows: 5,maxRows: 15}"/>
-      </FormItem>
+    <Breadcrumb class="gogo_breadcrumb">
+      <BreadcrumbItem>{{$t('navigator.jobLogCreate')}}</BreadcrumbItem>
+    </Breadcrumb>
+    <Content class="gogo_content">
+      <Form :model="jobLog" :label-width="80">
+        <FormItem v-show="errInput">
+          <Alert type="error" show-icon>{{errMsg}}</Alert>
+        </FormItem>
+        <FormItem :label="$t('job.log.content')">
+          <Input type="textarea" v-model="jobLog.content"
+                 :placeholder="$t('job.log.contentHolder')"
+                 :autosize="{minRows: 5,maxRows: 15}"/>
+        </FormItem>
 
-      <FormItem v-show="!saving">
-        <Button type="primary" @click="onCreateLog">{{$t("job.log.btCreate")}}</Button>
-      </FormItem>
-      <FormItem v-show="saving">
-        <template>
-          <!--<Spin size="small"></Spin>-->
-          <!--<Spin></Spin>-->
-          <Spin size="large"></Spin>
-        </template>
-      </FormItem>
-    </Form>
+        <FormItem v-show="!saving">
+          <Button type="primary" @click="onCreateLog">{{$t("job.log.btCreate")}}</Button>
+        </FormItem>
+        <FormItem v-show="saving">
+          <template>
+            <!--<Spin size="small"></Spin>-->
+            <!--<Spin></Spin>-->
+            <Spin size="large"></Spin>
+          </template>
+        </FormItem>
+      </Form>
+    </Content>
   </div>
 </template>
 
 <script>
-  import {apiCreateLog} from "../../../../api/api";
+    import {apiCreateLog} from "../../../../api/api";
 
-  export default {
-    name: "createJobLog",
-    data() {
-      return {
-        jobLog: {},
-        errInput: false,
-        errMsg: '',
-        saving: false
-      }
-    },
-    methods: {
-      onCreateLog() {
-        if (!this.$store.state.jobId) {
-          return
+    export default {
+        name: "createJobLog",
+        data() {
+            return {
+                jobLog: {},
+                errInput: false,
+                errMsg: '',
+                saving: false
+            }
+        },
+        methods: {
+            onCreateLog() {
+                if (!this.$store.state.jobId) {
+                    return
+                }
+                if (!this.jobLog.content) {
+                    return;
+                }
+                apiCreateLog({
+                    jobId: this.$store.state.jobId,
+                    content: this.jobLog.content
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.$router.push({
+                            name: 'jobLogPage',
+                            params: {
+                                jobId: this.$store.state.jobId
+                            }
+                        })
+                    } else {
+                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+                    }
+                })
+            }
         }
-        if (!this.jobLog.content) {
-          return;
-        }
-        apiCreateLog({
-          jobId: this.$store.state.jobId,
-          content: this.jobLog.content
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.$router.push({
-              name: 'jobLogPage',
-              params: {
-                jobId: this.$store.state.jobId
-              }
-            })
-          } else {
-            this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-          }
-        })
-      }
     }
-  }
 </script>
 
 <style scoped>
-
+  @import "../../../../assets/gogoStyles.css";
 </style>

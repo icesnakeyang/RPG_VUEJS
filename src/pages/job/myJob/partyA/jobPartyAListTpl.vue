@@ -41,7 +41,7 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+  import moment from "moment";
 
   export default {
     name: "jobPartyAListTpl",
@@ -50,10 +50,10 @@
     },
     computed: {
       publishTime() {
-        return rpgFormat.formatTime(this.job.createdTime)
+        return moment(this.job.createdTime).format('YYYY-MM-DD HH:mm')
       },
       contractTime() {
-        return rpgFormat.formatTime(this.job.contractTime)
+        return moment(this.job.contractTime).format('YYYY-MM-DD HH:mm')
       }
     },
     methods: {

@@ -15,7 +15,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+
+  import moment from "moment";
 
   export default {
     name: "jobLogRow",
@@ -24,11 +25,11 @@
     },
     computed:{
       createdTime(){
-        return rpgFormat.formatTime(this.log.createdTime)
+        return moment(this.log.createdTime).format('YYYY-MM-DD HH:mm')
       },
       readTime(){
         if(this.log.readTime){
-          return rpgFormat.formatTime(this.log.readTime)
+          return moment(this.log.readTime).format('YYYY-MM-DD HH:mm')
         }else{
           return false
         }
