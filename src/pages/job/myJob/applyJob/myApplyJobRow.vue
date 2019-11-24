@@ -4,96 +4,116 @@
       <a @click="onGoJobDetail(jobApply.job.jobId)">
         {{jobApply.job.title}}</a>
     </p>
-    <p>{{$t("task.code")}}:{{jobApply.job.code}}</p>
-    <Row>
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.partyAName")}}: {{jobApply.job.partyAName}}</p>
-      </Col>
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.publishTime")}}: {{publishTime}}</p>
-      </Col>
-
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("task.days")}}: {{jobApply.job.days}}</p>
-
-      </Col>
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("task.price")}}: {{jobApply.job.price}}</p>
-      </Col>
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <p>{{$t("job.applyTime")}}: {{applyTime}}</p>
-
-      </Col>
-      <Col :xs="24" :sm="12" :md="12" :lg="12">
-        <!--        <p>{{$t("apply.readTime")}}: {{readTime}}</p>-->
-        <p>{{processResult}}</p>
-      </Col>
-    </Row>
+    <p>{{$t("job.applyTime")}}: {{applyTime}}</p>
     <Input type="textarea" v-model="jobApply.apply.content" readonly></Input>
     <Divider/>
-    <Row>
-      <Col :xs="12" :sm="6" :md="6" :lg="6">
-        <p>{{$t("job.applyUserNum")}}: {{jobApply.applyNum}}</p>
-      </Col>
-      <Col :xs="12" :sm="6" :md="6" :lg="6">
-
-      </Col>
-    </Row>
+    <div v-if="process">
+      <div v-if="reject">
+        <div class="gogo_row1">
+          <Tag color="error">{{$t('common.status.reject')}}</Tag>
+        </div>
+        <Input type="textarea" v-model="jobApply.apply.processRemark" readonly></Input>
+      </div>
+      <div v-if="accept">
+        <div class="gogo_row1">
+          <Tag color="primary">{{$t('common.status.agree')}}</Tag>
+        </div>
+        <Input type="textarea" v-model="jobApply.apply.processRemark" readonly></Input>
+      </div>
+    </div>
+    <div v-else="process">
+      <div class="gogo_row1">
+        <Tag color="blue">{{$t('common.status.unProcess')}}</Tag>
+      </div>
+    </div>
   </Card>
 </template>
 
 <script>
-    import {rpgFormat} from "../../../../common/rpgfun";
+  import {rpgFormat} from "../../../../common/rpgfun";
 
-    export default {
-        name: "myApplyJobRow",
-        props: {
-            jobApply: {}
-        },
-        computed: {
-            publishTime() {
-                return rpgFormat.formatTime(this.jobApply.job.createdTime)
-            },
-            applyTime() {
-                return rpgFormat.formatTime(this.jobApply.apply.applyTime)
-            },
-            readTime() {
-                if (this.jobApply.apply.readTime) {
-                    return rpgFormat.formatTime(this.jobApply.apply.readTime)
-                } else {
-                    return this.$t("common.unRead");
-                }
-            },
-            processResult() {
-                console.log(this.jobApply.apply.processResult)
-                if (!this.jobApply.apply.processResult) {
-                    return this.$t('common.status.unProcess')
-                }
-                if (this.jobApply.apply.processResult === 'REJECT') {
-                    return this.$t('common.status.reject')
-                }
-                if (this.jobApply.apply.processResult === 'ACCEPT') {
-                    return this.$t('common.status.agree')
-                }
-            }
-        },
-        methods: {
-            onGoJobDetail(item) {
-                this.$router.push({
-                    name: 'myApplyJobDetail',
-                    params: {
-                        jobId: item
-                    }
-                })
-            }
-        },
-        mounted() {
+  export default {
+    name: "myApplyJobRow",
+    props: {
+      jobApply: {}
+    },
+    computed: {
+      publishTime() {
+        return rpgFormat.formatTime(this.jobApply.job.createdTime)
+      },
+      applyTime() {
+        return rpgFormat.formatTime(this.jobApply.apply.applyTime)
+      },
+      readTime() {
+        if (this.jobApply.apply.readTime) {
+          return rpgFormat.formatTime(this.jobApply.apply.readTime)
+        } else {
+          return this.$t("common.unRead");
         }
+      },
+      process() {
+        console.log(this.jobApply.apply.processResult)
+        if (this.jobApply.apply.processResult) {
+          console.log('true')
+          return true
+        } else {
+          console.log('false')
+          return false
+        }
+      },
+      reject() {
+        if (this.jobApply.apply.processResult === 'REJECT') {
+          return true
+        } else {
+          return false
+        }
+      },
+      accept() {
+        if (this.jobApply.apply.processResult === 'ACCEPT') {
+          return true
+        } else {
+          return false
+        }
+      },
+      processResult() {
+        console.log(this.jobApply.apply.processResult)
+        if (!this.jobApply.apply.processResult) {
+          return this.$t('common.status.unProcess')
+        }
+        if (this.jobApply.apply.processResult === 'REJECT') {
+          return this.$t('common.status.reject')
+        }
+        if (this.jobApply.apply.processResult === 'ACCEPT') {
+          return this.$t('common.status.agree')
+        }
+      },
+    },
+    methods: {
+      onGoJobDetail(item) {
+        this.$router.push({
+          name: 'myApplyJobDetail',
+          params: {
+            jobId: item
+          }
+        })
+      }
+    },
+    mounted() {
     }
+  }
 </script>
 
 <style scoped>
   .card {
     margin: 20px;
+  }
+
+  .gogo_row1 {
+    padding: 5px;
+  }
+
+  .gogo_row2 {
+    padding-top: 4px;
+    text-align: left;
   }
 </style>

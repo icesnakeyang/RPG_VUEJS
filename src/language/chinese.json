@@ -194,6 +194,12 @@
       "unProcess": "未处理",
       "processReadTime": "乙方查看处理结果时间",
       "acceptTime": "验收合格时间"
+    },
+    "jobApply": {
+      "process": {
+        "result": "处理结果",
+        "remark": "处理说明"
+      }
     }
   },
   "admin":{

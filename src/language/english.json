@@ -195,6 +195,12 @@
       "unProcess": "Un-process",
       "processReadTime": "Process result read time",
       "acceptTime": "Accepted time"
+    },
+    "jobApply": {
+      "process": {
+        "result": "Process result",
+        "remark": "Process remark"
+      }
     }
   },
   "admin": {
