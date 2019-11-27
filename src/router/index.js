@@ -102,6 +102,8 @@ import baseSider from "../pages/layout/header/baseSider";
 import guestLayout from "../pages/layout/guestLayout";
 import findPassword from "../pages/user/password/findPassword";
 import registerByPhone from "../pages/user/register/registerByPhone";
+import homeLayout from "../pages/layout/homeLayout";
+import home from "../pages/home/home";
 
 Vue.use(Router);
 
@@ -545,7 +547,7 @@ const router = new Router({
             name: 'completePage',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: completePage,
               footer: footerBar
             },
@@ -559,7 +561,7 @@ const router = new Router({
             name: 'createComplete',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: createComplete,
               footer: footerBar
             },
@@ -682,6 +684,21 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: registerByPhone,
+              footer: footerBar
+            }
+          }
+        ]
+      },
+      {
+        path: '/home',
+        component: homeLayout,
+        children: [
+          {
+            path: 'home',
+            name: 'home',
+            components: {
+              head: baseHeader,
+              content: home,
               footer: footerBar
             }
           }
