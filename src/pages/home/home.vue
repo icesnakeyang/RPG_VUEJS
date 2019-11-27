@@ -1,70 +1,49 @@
 <template>
   <div>
-    <section class="gogoSector">
-      <Row :style="{marginTop:'20px'}">
-        <Col :xs="24" :sm="24" :md="12" :lg="12">
-          <div class="gogoline"><p></p></div>
-          <div class="gogoBar1">沟沟团RPG——创建你的网络虚拟项目团队</div>
-          <div class="gogoline"><p></p></div>
-          <div class="gogoBarList">
-            <div class="row">
-              <div class="col-xs-2 col-md-4 col-lg-6" style="text-align: right">
-                <span class="glyphicon glyphicon-ok"></span>
-              </div>
-              <div class="col-xs-10 col-md-8 col-lg-6">
-                <p>一个人也能运行大型项目</p>
-              </div>
+    <Content class="gogo_home_content">
+      <section class="gogoSector">
+        <Row>
+          <Col :xs="24" :sm="24" :md="12" :lg="12">
+            <div>
+              沟沟团RPG——创建你的网络虚拟项目团队
+            </div>
+            <div class="gogo_home_row_view">
+              <Icon type="md-star" class="gogo_home_row_icon"/>
+            </div>
+            <div class="gogo_home_row_view">
+              <span class="gogo_home_row_text">一个人也能运行大型项目</span>
             </div>
 
-            <div class="row">
-              <div class="col-xs-2 col-md-4 col-lg-6" style="text-align: right">
-                <span class="glyphicon glyphicon-ok"></span>
-              </div>
-              <div class="col-xs-10 col-md-8 col-lg-6">
-                <p>将项目分解成任务，让专业人士为你完成</p>
-              </div>
+            <div>
+              <p>
+                <Icon type="md-star" class="gogo_home_row_icon"/>
+                <span class="gogo_home_row_text">将项目分解成任务，让专业人士为你完成</span></p>
             </div>
 
-            <div class="row">
-              <div class="col-xs-2 col-md-4 col-lg-6" style="text-align: right">
-                <span class="glyphicon glyphicon-ok"></span>
-              </div>
-              <div class="col-xs-10 col-md-8 col-lg-6">
-                <p>效率提升一倍，成本降低一半</p>
-              </div>
-            </div>
 
-            <div class="row">
-              <div class="col-xs-2 col-md-4 col-lg-6" style="text-align: right">
-                <span class="glyphicon glyphicon-ok"></span>
-              </div>
-              <div class="col-xs-10 col-md-8 col-lg-6">
-                <p>将技能转化为价值</p>
-              </div>
-            </div>
+            <p>
+              <Icon type="md-star" class="gogo_home_row_icon"/>
+              <span class="gogo_home_row_text">效率提升一倍，成本降低一半</span></p>
+            <p>
+              <Icon type="md-star" class="gogo_home_row_icon"/>
+              <span class="gogo_home_row_text">将技能转化为价值</span></p>
+            <p>
+              <Icon type="md-star" class="gogo_home_row_icon"/>
+              <span class="gogo_home_row_text">想在哪里生活，就在哪里工作</span></p>
+          </Col>
+          <Col :xs="24" :sm="24" :md="12" :lg="12" style="text-align: center">
+            <img src="../../assets/p1.jpg" width="80%">
+            <p class="text-muted" style="font-size: 20px;color: red;">生活不止眼前的苟且，还有诗和远方的田野！</p>
+          </Col>
+        </Row>
+      </section>
+    </Content>
 
-            <div class="row">
-              <div class="col-xs-2 col-md-4 col-lg-6" style="text-align: right">
-                <span class="glyphicon glyphicon-ok"></span>
-              </div>
-              <div class="col-xs-10 col-md-8 col-lg-6">
-                <p>想在哪里生活，就在哪里工作</p>
-              </div>
-            </div>
-          </div>
-        </Col>
-        <Col :xs="24" :sm="24" :md="12" :lg="12" style="text-align: center">
-          <img src="../../assets/p1.jpg" width="80%">
-          <p class="text-muted" style="font-size: 20px;color: red;">生活不止眼前的苟且，还有诗和远方的田野！</p>
-        </Col>
-      </Row>
-
-    </section>
 
     <section class="gogoSector" style="background-color: #cecece;">
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-6" style="text-align: center">
-          <img src="imgs/p2.jpg" width="80%">
+          <img src="../../assets/p2.jpg" width="80%">
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6">
           <div class="gogoline"><p></p></div>
@@ -101,7 +80,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6" style="text-align: center">
-          <img src="imgs/p3.jpg" width="80%">
+          <img src="../../assets/p3.jpg" width="80%">
         </div>
       </div>
     </section>
@@ -109,7 +88,7 @@
     <section class="gogoSector" style="background-color: #dff0d8;">
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-6" style="text-align: center">
-          <img src="imgs/p4.jpg" width="80%">
+          <img src="../../assets/p4.jpg" width="80%">
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6">
           <div class="gogoline"><p></p></div>
@@ -151,7 +130,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6" style="text-align: center">
-          <img src="imgs/p5.jpg" width="80%">
+          <img src="../../assets/p5.jpg" width="80%">
         </div>
       </div>
     </section>
@@ -159,7 +138,7 @@
     <section class="gogoSector">
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-6" style="text-align: center">
-          <img src="imgs/p6.jpg" width="80%">
+          <img src="../../assets/p6.jpg" width="80%">
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6">
           <div class="gogoline"><p></p></div>
@@ -186,12 +165,15 @@
 </template>
 
 <script>
-  export default {
-    name: "home"
-  }
+    export default {
+        name: "home"
+    }
 </script>
 
 <style scoped>
+  @import "../../assets/gogoStyles.css";
+
+
   .gogoline {
     height: 30px;
   }

@@ -5,3 +5,35 @@
 .gogo_content {
   min-height: 450px;
 }
+
+.gogo_home_content {
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gogo_home_row_view{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gogo_home_row_view_right {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gogo_home_row_icon {
+  color: #ff7060;
+  font-size: 18px;
+  /*padding-bottom: 20px;*/
+}
+
+.gogo_home_row_text {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
