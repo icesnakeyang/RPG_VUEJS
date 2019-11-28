@@ -4,15 +4,21 @@
       <section class="gogoSector">
         <Row>
           <Col :xs="24" :sm="24" :md="12" :lg="12">
-            <div>
-              沟沟团RPG——创建你的网络虚拟项目团队
+            <div style="display: flex;justify-content: center">
+              <span style="font-size: 24px;color: #2b85e4">沟沟团RPG——创建你的网络虚拟项目团队</span>
             </div>
-            <div class="gogo_home_row_view">
-              <Icon type="md-star" class="gogo_home_row_icon"/>
-            </div>
-            <div class="gogo_home_row_view">
-              <span class="gogo_home_row_text">一个人也能运行大型项目</span>
-            </div>
+            <Row style="margin-top: 20px">
+              <Col :xs="24" :sm="24" :md="12" :lg="12">
+                <div style="display: flex;justify-content: flex-end">
+                  <Icon type="md-star" style="font-size: 24px;color: #f90c04;"/>
+                </div>
+              </Col>
+              <Col :xs="24" :sm="24" :md="12" :lg="12">
+                <div style="margin-left:10px;font-size: 20px">
+                  <span style="font-size: 20px">一个人也能运行大型项目</span>
+                </div>
+              </Col>
+            </Row>
 
             <div>
               <p>
@@ -165,9 +171,9 @@
 </template>
 
 <script>
-    export default {
-        name: "home"
-    }
+  export default {
+    name: "home"
+  }
 </script>
 
 <style scoped>
