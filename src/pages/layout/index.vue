@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Layout>
+    <Layout style="min-height: 100vh">
       <Header style="padding: 0px">
         <router-view name="head"></router-view>
       </Header>
