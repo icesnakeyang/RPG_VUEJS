@@ -1,5 +1,5 @@
 <template>
-  <Footer class="layout-footer-center">2007-2018 &copy; GOGOYANG DATATECH LIMITED</Footer>
+  <Footer class="layout-footer-center">2007-2019 &copy; GOGOYANG DATATECH LIMITED</Footer>
 </template>
 
 <script>

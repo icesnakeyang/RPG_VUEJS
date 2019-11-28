@@ -2,7 +2,7 @@
   <Menu mode="horizontal" theme="dark" active-name="1" @on-select="menuClick">
     <Row>
       <Col :xs="3" :sm="3" :md="3" :lg="2">
-        <img class="layout-logo" src="../../../assets/gogoyang.png"/>
+        <a @click="onLogo"><img class="layout-logo" src="../../../assets/gogoyang.png"/></a>
       </Col>
       <Col :xs="2" :sm="2" :md="2" :lg="2">
         <a herf="" style="color: azure" class="gogo-title" @click="clickRPG">RPG</a>
@@ -62,6 +62,11 @@
                 if (name === "menuSignIn") {
                     this.$router.push({name: "loginPage"})
                 }
+            },
+            onLogo() {
+                this.$router.push({
+                    name: 'home'
+                })
             }
         }
     }
