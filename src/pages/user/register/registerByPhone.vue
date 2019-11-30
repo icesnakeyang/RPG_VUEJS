@@ -99,7 +99,7 @@
                 let params={
                     phone: this.phone,
                     code:this.code,
-                    loginPassword: this.password,
+                    password: this.password,
                     realName: this.realName
                 }
                 apiRegisterByPhone(params).then((response) => {
