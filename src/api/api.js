@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'http://gogorpg.com:9527';
-let host = 'http://localhost:9527';
+let host = 'http://gogorpg.com:9527';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -15,7 +15,11 @@ export const apiRegisterByEmail = params => {
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/public_job/listPublicJob`, params)
+  return axios.post(`${host}/public_job/listPublicJob`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 }
 
 export const apiLogin = params => {
@@ -124,7 +128,11 @@ export const apiPublishNewJob = params => {
 }
 
 export const apiGetPublicJobDetail = params => {
-  return axios.get(`${host}/public_job/` + params)
+  return axios.post(`${host}/public_job/getJobDetail`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 }
 
 export const apiGetUserInfo = params => {
