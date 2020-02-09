@@ -53,7 +53,10 @@
     "jobLog": "Job Log",
     "jobLogCreate": "Create Job Log",
     "jobComplete": "Complete",
-    "jobCompleteCreate": "Create Complete"
+    "jobCompleteCreate": "Create Complete",
+    "userActionLog": "User Action",
+    "userActionLogStatistic": "Dashboard",
+    "userActionLogList": "User Action List"
   },
   "user": {
     "username": "Login name",

@@ -104,6 +104,8 @@ import findPassword from "../pages/user/password/findPassword";
 import registerByPhone from "../pages/user/register/registerByPhone";
 import homeLayout from "../pages/layout/homeLayout";
 import home from "../pages/home/home";
+import baseLayout from "../pages/layout/baseLayout";
+import userActionLogList from "../pages/admin/userActionLog/userActionLogList";
 
 Vue.use(Router);
 
@@ -703,6 +705,24 @@ const router = new Router({
             }
           }
         ]
+      },
+      {
+        path:'/admin',
+        name:'/admin',
+        component:indexPage,
+        children:[
+          {
+            path:'userActionLogList',
+            name:'userActionLogList',
+            components:{
+              head:baseHeader,
+              sider:baseSider,
+              content:userActionLogList,
+              footer:footerBar
+            }
+          }
+        ],
+
       }
     ]
   })

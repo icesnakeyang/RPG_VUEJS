@@ -116,6 +116,11 @@
                         name: "secretaryAppliedJobList"
                     })
                 }
+                if(name==='menuUserActionLogList'){
+                  this.$router.push({
+                    name:'userActionLogList'
+                  })
+                }
             }
         }
     }
