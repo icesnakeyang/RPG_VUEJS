@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'http://gogorpg.com:9527';
+let host = 'https://gogorpg.com';
 // let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -15,11 +15,15 @@ export const apiRegisterByEmail = params => {
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/public_job/listPublicJob`, params)
+  return axios.post(`${host}/public_job/listPublicJob`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 }
 
 export const apiLogin = params => {
-  return axios.post(`${host}/user/login/login`, params)
+  return axios.post(`${host}/user/login`, params)
 }
 
 export const apiGetEmailByEmail = params => {
@@ -124,7 +128,11 @@ export const apiPublishNewJob = params => {
 }
 
 export const apiGetPublicJobDetail = params => {
-  return axios.get(`${host}/public_job/` + params)
+  return axios.post(`${host}/public_job/getJobDetail`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
 }
 
 export const apiGetUserInfo = params => {
@@ -494,11 +502,11 @@ export const apiResetPassword = params => {
 }
 
 export const apiGetPhone = params => {
-  return axios.post(`${host}/user/register/getPhone`, params)
+  return axios.post(`${host}/user/getPhone`, params)
 }
 
 export const apiRegisterByPhone = params => {
-  return axios.post(`${host}/user/register/registerByPhone`, params)
+  return axios.post(`${host}/user/registerByPhone`, params)
 }
 
 

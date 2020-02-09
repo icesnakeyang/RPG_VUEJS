@@ -8,9 +8,6 @@
         <FormItem v-show="errInput">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
         </FormItem>
-        <FormItem>
-          <Button type="text" @click="btEmail">{{$t('navigator.registerByEmail')}}</Button>
-        </FormItem>
         <FormItem :label="$t('user.phone.phone')">
           <Input @on-blur="onCheckPhone" v-model="phone" :placeholder="$t('user.phone.phoneHolder')"/>
         </FormItem>
@@ -32,6 +29,9 @@
         <FormItem>
           <Button type="primary" @click="onRegister">{{$t("user.btRegister")}}</Button>
           <Button type="text" @click="onLogin">{{$t("user.btLogin")}}</Button>
+        </FormItem>
+        <FormItem>
+          <Button type="text" @click="btEmail">{{$t('navigator.registerByEmail')}}</Button>
         </FormItem>
       </Form>
     </Content>
@@ -99,7 +99,7 @@
                 let params={
                     phone: this.phone,
                     code:this.code,
-                    loginPassword: this.password,
+                    password: this.password,
                     realName: this.realName
                 }
                 apiRegisterByPhone(params).then((response) => {

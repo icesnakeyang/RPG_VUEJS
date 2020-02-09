@@ -6,9 +6,6 @@
 
     <Content class="gogo_content">
       <Form :label-width="200">
-        <FormItem>
-          <Button type="text" @click="btPhone">{{$t('navigator.registerByPhone')}}</Button>
-        </FormItem>
         <FormItem v-show="errInput">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
         </FormItem>
@@ -24,6 +21,9 @@
         <FormItem>
           <Button type="primary" @click="onRegister">{{$t("user.btRegister")}}</Button>
           <Button type="text" @click="onLogin">{{$t("user.btLogin")}}</Button>
+        </FormItem>
+        <FormItem>
+          <Button type="text" @click="btPhone">{{$t('navigator.registerByPhone')}}</Button>
         </FormItem>
       </Form>
     </Content>

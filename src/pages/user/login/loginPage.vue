@@ -3,13 +3,12 @@
     <Breadcrumb :style="{margin: '24px 0'}">
       <BreadcrumbItem>{{$t('navigator.signIn')}}</BreadcrumbItem>
     </Breadcrumb>
-    <Content :style="{minHeight: '450px'}">
+    <Content>
       <Form :label-width="200">
         <FormItem v-show="showErr">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
         </FormItem>
         <FormItem :label="$t('user.username')">
-          <!--<div @click="onBlurUsername">lsdkfj</div>-->
           <Input v-model="username"
                  :placeholder="$t('user.usernamePlaceholder')"/>
         </FormItem>
@@ -43,16 +42,9 @@
                 if (!this.checkInput()) {
                     return;
                 }
-                /**
-                 * todo
-                 * 这里需要判断用户名是email，还是手机号码，或者别的可能的情况，
-                 * 不同地区，同国家的用户，可能需要不同的登录策略，
-                 * 或者，不同的区域会调用不同的服务器等。
-                 */
-                //目前暂时只考虑email登录
+
                 apiLogin({
-                    email: this.username,
-                    phone: this.username,
+                    loginName: this.username,
                     password: this.password
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
