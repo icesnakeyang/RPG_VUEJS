@@ -275,6 +275,6 @@
     "10106": "Send verify code error",
     "10107": "Reset password failed",
     "10108": "Verify code error",
-    "10109": "Verify code overdue"
+    "20002":"Read user action log failed"
   }
 }

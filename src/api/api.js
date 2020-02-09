@@ -509,6 +509,14 @@ export const apiRegisterByPhone = params => {
   return axios.post(`${host}/user/registerByPhone`, params)
 }
 
+export const apiListUserActionLog = params => {
+  return axios.post(`${host}/api/admin/userActionLog/listUserActionLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 
