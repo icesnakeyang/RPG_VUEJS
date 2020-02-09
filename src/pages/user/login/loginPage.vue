@@ -3,7 +3,7 @@
     <Breadcrumb :style="{margin: '24px 0'}">
       <BreadcrumbItem>{{$t('navigator.signIn')}}</BreadcrumbItem>
     </Breadcrumb>
-    <Content :style="{minHeight: '450px'}">
+    <Content>
       <Form :label-width="200">
         <FormItem v-show="showErr">
           <Alert type="error" show-icon>{{errMsg}}</Alert>
