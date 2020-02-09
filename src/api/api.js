@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'https://gogorpg.com';
-let host = 'http://localhost:9527';
+let host = 'https://gogorpg.com';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -11,11 +11,11 @@ let host = 'http://localhost:9527';
  * @returns {AxiosPromise<any>}
  */
 export const apiRegisterByEmail = params => {
-  return axios.post(`${host}/user/register/registerByEmail`, params)
+  return axios.post(`${host}/rpgapi/user/register/registerByEmail`, params)
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/api/public_job/listPublicJob`, params, {
+  return axios.post(`${host}/rpgapi/public_job/listPublicJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -23,15 +23,15 @@ export const apiListPublicJob = params => {
 }
 
 export const apiLogin = params => {
-  return axios.post(`${host}/user/login`, params)
+  return axios.post(`${host}/rpgapi/user/login`, params)
 }
 
 export const apiGetEmailByEmail = params => {
-  return axios.post(`${host}/user/register/getEmailByEmail`, params)
+  return axios.post(`${host}/rpgapi/user/register/getEmailByEmail`, params)
 }
 
 export const apiCreateTask = params => {
-  return axios.post(`${host}/task/createTask`, params, {
+  return axios.post(`${host}/rpgapi/task/createTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -44,11 +44,11 @@ export const apiCreateTask = params => {
  * @returns {AxiosPromise<any>}
  */
 export const apiListSpotlight = params => {
-  return axios.post(`${host}/spotlight/listSpotlight`, params)
+  return axios.post(`${host}/rpgapi/spotlight/listSpotlight`, params)
 }
 
 export const apiListMyTask = params => {
-  return axios.post(`${host}/task/listMyTask`, params, {
+  return axios.post(`${host}/rpgapi/task/listMyTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -56,7 +56,7 @@ export const apiListMyTask = params => {
 }
 
 export const apiGetTaskDetailByTaskId = params => {
-  return axios.post(`${host}/task/getTaskDetailByTaskId`, params, {
+  return axios.post(`${host}/rpgapi/task/getTaskDetailByTaskId`, params, {
     headers: {
       token: store.state.token
     }
@@ -64,7 +64,7 @@ export const apiGetTaskDetailByTaskId = params => {
 }
 
 export const apiCountSubTask = params => {
-  return axios.post(`${host}/task/countSubTask`, params, {
+  return axios.post(`${host}/rpgapi/task/countSubTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -72,7 +72,7 @@ export const apiCountSubTask = params => {
 }
 
 export const apiListTaskBreadcrumb = params => {
-  return axios.post(`${host}/task/listTaskBreadcrumb`, params, {
+  return axios.post(`${host}/rpgapi/task/listTaskBreadcrumb`, params, {
     headers: {
       token: store.state.token
     }
@@ -80,7 +80,7 @@ export const apiListTaskBreadcrumb = params => {
 }
 
 export const apiDeleteTask = params => {
-  return axios.post(`${host}/task/deleteTask`, params, {
+  return axios.post(`${host}/rpgapi/task/deleteTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -88,7 +88,7 @@ export const apiDeleteTask = params => {
 }
 
 export const apiUpdateTask = params => {
-  return axios.post(`${host}/task/updateTask`, params, {
+  return axios.post(`${host}/rpgapi/task/updateTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -96,7 +96,7 @@ export const apiUpdateTask = params => {
 }
 
 export const apiGetTaskTinyByTaskId = params => {
-  return axios.post(`${host}/task/getTaskTinyByTaskId`, params, {
+  return axios.post(`${host}/rpgapi/task/getTaskTinyByTaskId`, params, {
     headers: {
       token: store.state.token
     }
@@ -104,7 +104,7 @@ export const apiGetTaskTinyByTaskId = params => {
 }
 
 export const apiListSubTask = params => {
-  return axios.post(`${host}/task/listSubTask`, params, {
+  return axios.post(`${host}/rpgapi/task/listSubTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -112,7 +112,7 @@ export const apiListSubTask = params => {
 }
 
 export const apiCreateSubTask = params => {
-  return axios.post(`${host}/task/createSubTask`, params, {
+  return axios.post(`${host}/rpgapi/task/createSubTask`, params, {
     headers: {
       token: store.state.token
     }
@@ -120,7 +120,7 @@ export const apiCreateSubTask = params => {
 }
 
 export const apiPublishNewJob = params => {
-  return axios.post(`${host}/task/publishNewJob`, params, {
+  return axios.post(`${host}/rpgapi/task/publishNewJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -128,15 +128,11 @@ export const apiPublishNewJob = params => {
 }
 
 export const apiGetPublicJobDetail = params => {
-  return axios.post(`${host}/public_job/getJobDetail`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
+  return axios.get(`${host}/rpgapi/public_job/getJobDetail/` + params.jobId)
 }
 
 export const apiGetUserInfo = params => {
-  return axios.post(`${host}/user/profile/getUserInfo`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/getUserInfo`, params, {
     headers: {
       token: store.state.token
     }
@@ -144,7 +140,7 @@ export const apiGetUserInfo = params => {
 }
 
 export const apiSaveContactInfo = params => {
-  return axios.post(`${host}/user/profile/saveContactInfo`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/saveContactInfo`, params, {
     headers: {
       token: store.state.token
     }
@@ -152,7 +148,7 @@ export const apiSaveContactInfo = params => {
 }
 
 export const apiApplyJob = params => {
-  return axios.post(`${host}/job/myApply/applyJob`, params, {
+  return axios.post(`${host}/rpgapi/job/myApply/applyJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -160,7 +156,7 @@ export const apiApplyJob = params => {
 }
 
 export const apiListMyApplyJob = params => {
-  return axios.post(`${host}/job/myApply/listMyApplyJob`, params, {
+  return axios.post(`${host}/rpgapi/job/myApply/listMyApplyJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -168,7 +164,7 @@ export const apiListMyApplyJob = params => {
 }
 
 export const apiListMyPendingJob = params => {
-  return axios.post(`${host}/mypending/listMyPendingJob`, params, {
+  return axios.post(`${host}/rpgapi/mypending/listMyPendingJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -176,7 +172,7 @@ export const apiListMyPendingJob = params => {
 }
 
 export const apiGetMyPendingJob = params => {
-  return axios.post(`${host}/mypending/getMyPendingJob`, params, {
+  return axios.post(`${host}/rpgapi/mypending/getMyPendingJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -184,7 +180,7 @@ export const apiGetMyPendingJob = params => {
 }
 
 export const apiDeletePendingJob = params => {
-  return axios.post(`${host}/mypending/deletePendingJob`, params, {
+  return axios.post(`${host}/rpgapi/mypending/deletePendingJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -192,7 +188,7 @@ export const apiDeletePendingJob = params => {
 }
 
 export const apiGetMyApplyJob = params => {
-  return axios.post(`${host}/job/myApply/getMyApplyJob`, params, {
+  return axios.post(`${host}/rpgapi/job/myApply/getMyApplyJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -200,7 +196,7 @@ export const apiGetMyApplyJob = params => {
 }
 
 export const apiListApplyByJobId = params => {
-  return axios.post(`${host}/secretary/match/listApplyByJobId`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/listApplyByJobId`, params, {
     headers: {
       token: store.state.token
     }
@@ -208,7 +204,7 @@ export const apiListApplyByJobId = params => {
 }
 
 export const apiGetApplyJobTiny = params => {
-  return axios.post(`${host}/secretary/match/getApplyJobTiny`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/getApplyJobTiny`, params, {
     headers: {
       token: store.state.token
     }
@@ -216,7 +212,7 @@ export const apiGetApplyJobTiny = params => {
 }
 
 export const apiGetApplyJobDetail = params => {
-  return axios.post(`${host}/secretary/match/getApplyJobDetail`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/getApplyJobDetail`, params, {
     headers: {
       token: store.state.token
     }
@@ -224,7 +220,7 @@ export const apiGetApplyJobDetail = params => {
 }
 
 export const apiAdminLogin = params => {
-  return axios.post(`${host}/admin/login`, params, {
+  return axios.post(`${host}/rpgapi/admin/login`, params, {
     headers: {
       token: store.state.token
     }
@@ -232,7 +228,7 @@ export const apiAdminLogin = params => {
 }
 
 export const apiAgreeApply = params => {
-  return axios.post(`${host}/secretary/match/agreeApply`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/agreeApply`, params, {
     headers: {
       token: store.state.token
     }
@@ -240,7 +236,7 @@ export const apiAgreeApply = params => {
 }
 
 export const apiRejectApply = params => {
-  return axios.post(`${host}/secretary/match/rejectApply`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/rejectApply`, params, {
     headers: {
       token: store.state.token
     }
@@ -248,7 +244,7 @@ export const apiRejectApply = params => {
 }
 
 export const apiListAppliedJob = params => {
-  return axios.post(`${host}/secretary/match/listAppliedJob`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/listAppliedJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -256,7 +252,7 @@ export const apiListAppliedJob = params => {
 }
 
 export const apiListApplyHistory = params => {
-  return axios.post(`${host}/secretary/match/listApplyHistory`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/listApplyHistory`, params, {
     headers: {
       token: store.state.token
     }
@@ -264,7 +260,7 @@ export const apiListApplyHistory = params => {
 }
 
 export const apiGetApplyDetail = params => {
-  return axios.post(`${host}/secretary/match/getApplyDetail`, params, {
+  return axios.post(`${host}/rpgapi/secretary/match/getApplyDetail`, params, {
     headers: {
       token: store.state.token
     }
@@ -272,7 +268,7 @@ export const apiGetApplyDetail = params => {
 }
 
 export const apiListMyPartyAJob = params => {
-  return axios.post(`${host}/job/partyA/listMyPartyAJob`, params, {
+  return axios.post(`${host}/rpgapi/job/partyA/listMyPartyAJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -280,7 +276,7 @@ export const apiListMyPartyAJob = params => {
 }
 
 export const apiGetPartyAJob = params => {
-  return axios.post(`${host}/job/partyA/getPartyAJob`, params, {
+  return axios.post(`${host}/rpgapi/job/partyA/getPartyAJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -288,7 +284,7 @@ export const apiGetPartyAJob = params => {
 }
 
 export const apiTotalUnreadByJobId = params => {
-  return axios.post(`${host}/job/my_common/totalUnreadByJobId`, params, {
+  return axios.post(`${host}/rpgapi/job/my_common/totalUnreadByJobId`, params, {
     headers: {
       token: store.state.token
     }
@@ -296,7 +292,7 @@ export const apiTotalUnreadByJobId = params => {
 }
 
 export const apiListMyPartyBJob = params => {
-  return axios.post(`${host}/job/partyB/listMyPartyBJob`, params, {
+  return axios.post(`${host}/rpgapi/job/partyB/listMyPartyBJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -304,7 +300,7 @@ export const apiListMyPartyBJob = params => {
 }
 
 export const apiGetPartyBJobDetail = params => {
-  return axios.post(`${host}/job/partyB/getPartyBJobDetail`, params, {
+  return axios.post(`${host}/rpgapi/job/partyB/getPartyBJobDetail`, params, {
     headers: {
       token: store.state.token
     }
@@ -312,7 +308,7 @@ export const apiGetPartyBJobDetail = params => {
 }
 
 export const apiJobLog = params => {
-  return axios.post(`${host}/job/log/jobLog`, params, {
+  return axios.post(`${host}/rpgapi/job/log/jobLog`, params, {
     headers: {
       token: store.state.token
     }
@@ -320,7 +316,7 @@ export const apiJobLog = params => {
 }
 
 export const apiSetJobLogReadTime = params => {
-  return axios.post(`${host}/job/log/setJobLogReadTime`, params, {
+  return axios.post(`${host}/rpgapi/job/log/setJobLogReadTime`, params, {
     headers: {
       token: store.state.token
     }
@@ -328,7 +324,7 @@ export const apiSetJobLogReadTime = params => {
 }
 
 export const apiCreateLog = params => {
-  return axios.post(`${host}/job/log/createLog`, params, {
+  return axios.post(`${host}/rpgapi/job/log/createLog`, params, {
     headers: {
       token: store.state.token
     }
@@ -336,7 +332,7 @@ export const apiCreateLog = params => {
 }
 
 export const apiListEmailOfUser = params => {
-  return axios.post(`${host}/user/profile/listEmailOfUser`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/listEmailOfUser`, params, {
     headers: {
       token: store.state.token
     }
@@ -344,7 +340,7 @@ export const apiListEmailOfUser = params => {
 }
 
 export const apiListPhoneOfUser = params => {
-  return axios.post(`${host}/user/profile/listPhoneOfUser`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/listPhoneOfUser`, params, {
     headers: {
       token: store.state.token
     }
@@ -352,7 +348,7 @@ export const apiListPhoneOfUser = params => {
 }
 
 export const apiGetUserProfile = params => {
-  return axios.post(`${host}/user/profile/getUserProfile`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/getUserProfile`, params, {
     headers: {
       token: store.state.token
     }
@@ -360,7 +356,7 @@ export const apiGetUserProfile = params => {
 }
 
 export const apiSaveRealName = params => {
-  return axios.post(`${host}/user/profile/saveRealName`, params, {
+  return axios.post(`${host}/rpgapi/user/profile/saveRealName`, params, {
     headers: {
       token: store.state.token
     }
@@ -368,7 +364,7 @@ export const apiSaveRealName = params => {
 }
 
 export const apiListMyComplete = params => {
-  return axios.post(`${host}/job/complete/listMyComplete`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/listMyComplete`, params, {
     headers: {
       token: store.state.token
     }
@@ -376,7 +372,7 @@ export const apiListMyComplete = params => {
 }
 
 export const apiGetJobTinyByJobId = params => {
-  return axios.post(`${host}/job/my_common/getJobTinyByJobId`, params, {
+  return axios.post(`${host}/rpgapi/job/my_common/getJobTinyByJobId`, params, {
     headers: {
       token: store.state.token
     }
@@ -384,7 +380,7 @@ export const apiGetJobTinyByJobId = params => {
 }
 
 export const apiSetCompleteReadTime = params => {
-  return axios.post(`${host}/job/complete/setCompleteReadTime`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/setCompleteReadTime`, params, {
     headers: {
       token: store.state.token
     }
@@ -392,7 +388,7 @@ export const apiSetCompleteReadTime = params => {
 }
 
 export const apiRejectComplete = params => {
-  return axios.post(`${host}/job/complete/rejectComplete`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/rejectComplete`, params, {
     headers: {
       token: store.state.token
     }
@@ -400,7 +396,7 @@ export const apiRejectComplete = params => {
 }
 
 export const apiAcceptComplete = params => {
-  return axios.post(`${host}/job/complete/acceptComplete`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/acceptComplete`, params, {
     headers: {
       token: store.state.token
     }
@@ -408,7 +404,7 @@ export const apiAcceptComplete = params => {
 }
 
 export const apiCreateComplete = params => {
-  return axios.post(`${host}/job/complete/createComplete`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/createComplete`, params, {
     headers: {
       token: store.state.token
     }
@@ -416,7 +412,7 @@ export const apiCreateComplete = params => {
 }
 
 export const apiListMyPartyAAcceptJob = params => {
-  return axios.post(`${host}/job/complete/listMyPartyAAcceptJob`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/listMyPartyAAcceptJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -424,7 +420,7 @@ export const apiListMyPartyAAcceptJob = params => {
 }
 
 export const apiListMyPartyBAcceptJob = params => {
-  return axios.post(`${host}/job/complete/listMyPartyBAcceptJob`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/listMyPartyBAcceptJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -432,7 +428,7 @@ export const apiListMyPartyBAcceptJob = params => {
 }
 
 export const apiTotalMyUnread = params => {
-  return axios.post(`${host}/api/job/my_common/totalMyUnread`, params, {
+  return axios.post(`${host}/rpgapi/job/my_common/totalMyUnread`, params, {
     headers: {
       token: store.state.token
     }
@@ -440,7 +436,7 @@ export const apiTotalMyUnread = params => {
 }
 
 export const apiSetAcceptReadTime = params => {
-  return axios.post(`${host}/job/complete/setAcceptReadTime`, params, {
+  return axios.post(`${host}/rpgapi/job/complete/setAcceptReadTime`, params, {
     headers: {
       token: store.state.token
     }
@@ -448,7 +444,7 @@ export const apiSetAcceptReadTime = params => {
 }
 
 export const apiUpdatePendingJob = params => {
-  return axios.post(`${host}/mypending/updatePendingJob`, params, {
+  return axios.post(`${host}/rpgapi/mypending/updatePendingJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -456,7 +452,7 @@ export const apiUpdatePendingJob = params => {
 }
 
 export const apiListMyAccount = params => {
-  return axios.post(`${host}/account/listMyAccount`, params, {
+  return axios.post(`${host}/rpgapi/account/listMyAccount`, params, {
     headers: {
       token: store.state.token
     }
@@ -464,7 +460,7 @@ export const apiListMyAccount = params => {
 }
 
 export const apiLoadAccountBalance = params => {
-  return axios.post(`${host}/account/loadAccountBalance`, params, {
+  return axios.post(`${host}/rpgapi/account/loadAccountBalance`, params, {
     headers: {
       token: store.state.token
     }
@@ -472,7 +468,7 @@ export const apiLoadAccountBalance = params => {
 }
 
 export const apiListMyHonor = params => {
-  return axios.post(`${host}/honor/listMyHonor`, params, {
+  return axios.post(`${host}/rpgapi/honor/listMyHonor`, params, {
     headers: {
       token: store.state.token
     }
@@ -480,7 +476,7 @@ export const apiListMyHonor = params => {
 }
 
 export const apiLoadUserHonorBalance = params => {
-  return axios.post(`${host}/honor/loadUserHonorBalance`, params, {
+  return axios.post(`${host}/rpgapi/honor/loadUserHonorBalance`, params, {
     headers: {
       token: store.state.token
     }
@@ -494,23 +490,23 @@ export const apiLoadUserHonorBalance = params => {
  * @returns {AxiosPromise<any>}
  */
 export const apiGetPhoneVerifyCode = params => {
-  return axios.post(`${host}/sms/getPhoneVerifyCode`, params)
+  return axios.post(`${host}/rpgapi/sms/getPhoneVerifyCode`, params)
 }
 
 export const apiResetPassword = params => {
-  return axios.post(`${host}/admin/resetPassword`, params)
+  return axios.post(`${host}/rpgapi/admin/resetPassword`, params)
 }
 
 export const apiGetPhone = params => {
-  return axios.post(`${host}/user/getPhone`, params)
+  return axios.post(`${host}/rpgapi/user/getPhone`, params)
 }
 
 export const apiRegisterByPhone = params => {
-  return axios.post(`${host}/user/registerByPhone`, params)
+  return axios.post(`${host}/rpgapi/user/registerByPhone`, params)
 }
 
 export const apiListUserActionLog = params => {
-  return axios.post(`${host}/api/admin/userActionLog/listUserActionLog`, params, {
+  return axios.post(`${host}/rpgapi/admin/userActionLog/listUserActionLog`, params, {
     headers: {
       token: store.state.token
     }

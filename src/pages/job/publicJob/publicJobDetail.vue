@@ -28,6 +28,7 @@
     },
     methods: {
       loadAllData() {
+          console.log(this.$store.state.jobId)
         apiGetPublicJobDetail({
           jobId: this.$store.state.jobId
         }).then((response) => {
