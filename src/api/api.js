@@ -15,7 +15,7 @@ export const apiRegisterByEmail = params => {
 }
 
 export const apiListPublicJob = params => {
-  return axios.post(`${host}/public_job/listPublicJob`, params, {
+  return axios.post(`${host}/api/public_job/listPublicJob`, params, {
     headers: {
       token: store.state.token
     }
@@ -432,7 +432,7 @@ export const apiListMyPartyBAcceptJob = params => {
 }
 
 export const apiTotalMyUnread = params => {
-  return axios.post(`${host}/job/my_common/totalMyUnread`, params, {
+  return axios.post(`${host}/api/job/my_common/totalMyUnread`, params, {
     headers: {
       token: store.state.token
     }
