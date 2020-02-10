@@ -235,6 +235,13 @@
       "applyProcessResult":"申请处理结果",
       "jobStatus":"申请任务当前的状态",
       "applyUsername":"申请用户"
+    },
+    "userActionLog": {
+      "logId": "日志Id",
+      "userId": "用户Id",
+      "createTime": "时间",
+      "actType": "行为",
+      "memo": "行为内容"
     }
   },
   "syserr":{

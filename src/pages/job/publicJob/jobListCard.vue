@@ -27,12 +27,28 @@
     },
     methods: {
       goJobDetail(jobId) {
-        this.$router.push({
-          name: 'publicJobDetail',
-          params:{
-            jobId:jobId
-          }
-        })
+        /**
+         * 跳转到任务详情页面
+         * 这里要检查当前用户
+         * 如果当前用户是甲方，就跳转到甲方专用的详情页面
+         */
+        console.log(this.$store.state.userId)
+        console.log(this.job.partyAId)
+        if(this.$store.state.userId.toString()===this.job.partyAId.toString()){
+          this.$router.push({
+            name:'publicJobDetailPartyA',
+            params:{
+              jobId:jobId
+            }
+          })
+        }else{
+          this.$router.push({
+            name: 'publicJobDetail',
+            params:{
+              jobId:jobId
+            }
+          })
+        }
       }
     }
   }

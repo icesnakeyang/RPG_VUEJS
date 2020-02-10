@@ -236,6 +236,13 @@
       "applyProcessResult": "Apply Result",
       "jobStatus": "Job Status",
       "applyUsername": "Apply User"
+    },
+    "userActionLog": {
+      "logId": "Log Id",
+      "userId": "User Id",
+      "createTime": "Create Time",
+      "actType": "Action Type",
+      "memo": "Memo"
     }
   },
   "syserr": {

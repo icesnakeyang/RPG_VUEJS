@@ -106,6 +106,7 @@ import homeLayout from "../pages/layout/homeLayout";
 import home from "../pages/home/home";
 import baseLayout from "../pages/layout/baseLayout";
 import userActionLogList from "../pages/admin/userActionLog/userActionLogList";
+import publicJobDetailPartyA from "../pages/job/publicJob/publicJobDetailPartyA";
 
 Vue.use(Router);
 
@@ -686,6 +687,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: registerByPhone,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'publicJobDetailPartyA',
+            name: 'publicJobDetailPartyA',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: publicJobDetailPartyA,
               footer: footerBar
             }
           }
