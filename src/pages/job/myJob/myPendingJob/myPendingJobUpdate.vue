@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Form :model="job" :label-width="200">
+    <Breadcrumb :style="{margin:'24px 0'}">
+      <BreadcrumbItem>asdf</BreadcrumbItem>
+      <BreadcrumbItem>aaa</BreadcrumbItem>
+    </Breadcrumb>
+
+    <Form :model="job" :label-width="80">
       <FormItem v-show="errInput">
         <Alert type="error" show-icon>{{errMsg}}</Alert>
       </FormItem>

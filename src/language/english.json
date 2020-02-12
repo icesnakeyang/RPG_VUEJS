@@ -210,7 +210,8 @@
         "remark": "Process remark",
         "time": "Process time"
       }
-    }
+    },
+    "jobStatus": "Job Status"
   },
   "admin": {
     "loginPage": {

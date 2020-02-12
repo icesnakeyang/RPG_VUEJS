@@ -99,14 +99,11 @@ import indexPage from '../pages/layout/index'
 import contentPage from "../pages/layout/contentPage";
 import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
-import guestLayout from "../pages/layout/guestLayout";
 import findPassword from "../pages/user/password/findPassword";
 import registerByPhone from "../pages/user/register/registerByPhone";
 import homeLayout from "../pages/layout/homeLayout";
 import home from "../pages/home/home";
-import baseLayout from "../pages/layout/baseLayout";
 import userActionLogList from "../pages/admin/userActionLog/userActionLogList";
-import publicJobDetailPartyA from "../pages/job/publicJob/publicJobDetailPartyA";
 
 Vue.use(Router);
 
@@ -591,7 +588,8 @@ const router = new Router({
             path: 'myPendingJobUpdate',
             name: 'myPendingJobUpdate',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: myPendingJobUpdate,
               footerBar: footerBar
             },
@@ -689,16 +687,6 @@ const router = new Router({
               content: registerByPhone,
               footer: footerBar
             }
-          },
-          {
-            path: 'publicJobDetailPartyA',
-            name: 'publicJobDetailPartyA',
-            components: {
-              head: baseHeader,
-              sider: baseSider,
-              content: publicJobDetailPartyA,
-              footer: footerBar
-            }
           }
         ]
       },
@@ -741,7 +729,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to) {
-    console.log(to)
     if (!to.name) {
       //如果路由里name=null，即指用户是通过外部链接直接访问
       //输入域名访问，直接跳转到任务广场

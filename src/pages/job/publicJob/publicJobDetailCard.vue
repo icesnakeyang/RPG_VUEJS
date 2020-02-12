@@ -3,11 +3,27 @@
     <p slot="title">
       {{job.title}}
     </p>
-    <p>{{$t("task.code")}}: {{job.code}}</p>
-    <p>{{$t("job.partyAName")}}: {{job.partyAName}}</p>
-    <p>{{$t("job.publishTime")}}: {{createdTime}}</p>
-    <p>{{$t("task.days")}}: {{job.days}}</p>
-    <p>{{$t("task.price")}}: {{job.price}}</p>
+    <div style="margin: 0 5px 10px">
+      <Row>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("task.code")}}: {{job.code}}</Col>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("task.price")}}: <span class="price_text">{{job.price}}</span>
+        </Col>
+      </Row>
+      <Row>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("job.partyAName")}}: {{job.partyAName}}</Col>
+        <Col :xs="24" :sm="12" :md="12" :lg="12"></Col>
+      </Row>
+      <Row>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("job.publishTime")}}: {{createdTime}}</Col>
+        <Col :xs="24" :sm="12" :md="12" :lg="12"></Col>
+      </Row>
+      <Row>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("task.days")}}: {{job.days}}</Col>
+        <Col :xs="24" :sm="12" :md="12" :lg="12">{{$t("job.jobStatus")}}:
+          <span v-if="isPending"><Tag color="error">{{$t("common.status.matching")}}</Tag></span>
+        </Col>
+      </Row>
+    </div>
     <quill-editor v-model="job.detail"
                   :options="options">
     </quill-editor>
@@ -23,34 +39,44 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
-  import {quillEditor} from 'vue-quill-editor'
+    import {rpgFormat} from "../../../common/rpgfun";
+    import {quillEditor} from 'vue-quill-editor'
 
-  export default {
-    name: "publicJobDetailCard",
-    components: {
-      quillEditor
-    },
-    data() {
-      return {
-        options: {
-          modules: {
-            toolbar: false
-          }
+    export default {
+        name: "publicJobDetailCard",
+        components: {
+            quillEditor
+        },
+        data() {
+            return {
+                options: {
+                    modules: {
+                        toolbar: false
+                    }
+                }
+            }
+        },
+        props: [
+            'job'
+        ],
+        computed: {
+            createdTime() {
+                return rpgFormat.formatTime(this.job.createdTime)
+            },
+            isPending(){
+                if(this.job.status==='PENDING'){
+                    return true
+                }
+                return false
+            }
         }
-      }
-    },
-    props: [
-      'job'
-    ],
-    computed: {
-      createdTime() {
-        return rpgFormat.formatTime(this.job.createdTime)
-      }
     }
-  }
 </script>
 
 <style scoped>
-
+  .price_text {
+    font-family: Arial;
+    color: #ff4721;
+    font-size: 16px;
+  }
 </style>

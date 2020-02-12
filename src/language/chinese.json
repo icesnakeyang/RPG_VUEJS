@@ -209,7 +209,8 @@
         "remark": "处理说明",
         "time": "处理时间"
       }
-    }
+    },
+    "jobStatus": "任务状态"
   },
   "admin":{
     "loginPage":{
