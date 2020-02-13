@@ -7,103 +7,11 @@ import store from '../store/index'
  */
 import headerBarBase from '@/pages/layout/header/headerBarBase'
 import footerBar from '@/pages/layout/footerBar'
-
-/**
- * user
- */
-import loginPage from '@/pages/user/login/loginPage'
-import registerByEmail from '@/pages/user/register/registerByEmail'
-//profile
-import profileDashboard from '@/pages/user/profile/profileDashboard'
-import submitUserProfile from '@/pages/user/profile/submitUserProfile'
-
-/**
- * task
- */
-import taskCreateNew from '@/pages/task/taskCreateNew'
-import taskPage from '@/pages/task/taskPage'
-import taskDetail from '@/pages/task/taskDetail'
-import taskEdit from '@/pages/task/taskEdit'
-import subTaskPage from '@/pages/task/subTaskPage'
-import taskFreelancer from '@/pages/task/taskFreelancer'
-
-/**
- * job
- */
-// public
-import publicJobPage from '@/pages/job/publicJob/publicJobPage'
-import publicJobDetail from '@/pages/job/publicJob/publicJobDetail'
-
-// apply
-import jobApplyForm from '@/pages/job/myJob/applyJob/jobApplyForm'
-import applyJobSuccess from '@/pages/job/myJob/applyJob/applyJobSuccess'
-import myApplyJob from '@/pages/job/myJob/applyJob/myApplyJob'
-import myApplyJobDetail from '@/pages/job/myJob/applyJob/myApplyJobDetail'
-
-// detail
-import jobDetail from '@/pages/job/myJob/detail/jobDetail'
-
-// pending
-import myPendingJobPage from '@/pages/job/myJob/myPendingJob/myPendingJobPage'
-import myPendingJobDetail from '@/pages/job/myJob/myPendingJob/myPendingJobDetail'
-import myPendingJobUpdate from '@/pages/job/myJob/myPendingJob/myPendingJobUpdate'
-
-//partyA
-import partyAJobPage from '@/pages/job/myJob/partyA/partyAJobPage'
-import partyAJobDetail from '@/pages/job/myJob/partyA/partyAJobDetail'
-
-//partyB
-import partyBJobPage from '@/pages/job/myJob/partyB/partyBJobPage'
-import partyBJobDetail from '@/pages/job/myJob/partyB/partyBJobDetail'
-
-//job log
-import jobLogPage from '@/pages/job/myJob/jobLog/jobLogPage'
-import createJobLog from '@/pages/job/myJob/jobLog/createJobLog'
-
-//job complete
-import completePage from '@/pages/job/myJob/complete/completePage'
-import createComplete from '@/pages/job/myJob/complete/createComplete'
-import myAcceptJobPage from '@/pages/job/myJob/complete/myAcceptJobPage'
-
-/**
- * spotlight
- */
-
-/**
- * Admin
- */
-import adminLogin from '@/pages/admin/adminLogin'
-
-/**
- * Secretary
- */
-import secretaryApplyPage from '@/pages/secretary/match/secretaryApplyPage'
-import secretaryDashboard from '@/pages/secretary/secretaryDashboard'
-import secretaryAppliedJobList from '@/pages/secretary/match/secretaryAppliedJobList'
-import userApplyHistoryPage from '@/pages/secretary/match/userApplyHistoryPage'
-import userApplyHistoryDetail from '@/pages/secretary/match/userApplyHistoryDetail'
-
-/**
- * my account
- */
-import myAccountPage from '@/pages/account/myAccountPage'
-import myAccountDashboard from '@/pages/account/myAccountDashboard'
-
-/**
- * my honor
- */
-import myHonorDashboard from '@/pages/honor/myHonorDashboard'
-import myHonorList from '@/pages/honor/myHonorList'
-
 import indexPage from '../pages/layout/index'
-import contentPage from "../pages/layout/contentPage";
 import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
-import findPassword from "../pages/user/password/findPassword";
-import registerByPhone from "../pages/user/register/registerByPhone";
 import homeLayout from "../pages/layout/homeLayout";
-import home from "../pages/home/home";
-import userActionLogList from "../pages/admin/userActionLog/userActionLogList";
+
 
 Vue.use(Router);
 
@@ -118,7 +26,7 @@ const router = new Router({
             name: 'loginPage',
             components: {
               head: baseHeader,
-              content: loginPage,
+              content: ()=>import('@/pages/user/login/loginPage'),
               footer: footerBar
             },
             meta: {
@@ -132,7 +40,8 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: publicJobPage,
+              content: ()=>import('@/pages/job/publicJob/publicJobPage'),
+              // content: publicJobPage,
               footer: footerBar
             },
             meta: {
@@ -146,7 +55,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: taskCreateNew,
+              content: ()=>import('@/pages/task/taskCreateNew'),
               footer: footerBar
             },
             meta: {
@@ -159,7 +68,7 @@ const router = new Router({
             name: 'registerByEmail',
             components: {
               head: baseHeader,
-              content: registerByEmail,
+              content: ()=>import('@/pages/user/register/registerByEmail'),
               footer: footerBar
             },
             meta: {
@@ -173,7 +82,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: taskPage,
+              content: ()=>import('@/pages/task/taskPage'),
               footer: footerBar
             },
             meta: {
@@ -187,7 +96,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: taskDetail,
+              content: ()=>import('@/pages/task/taskDetail'),
               footer: footerBar
             },
             meta: {
@@ -201,7 +110,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: taskEdit,
+              content: ()=>import('@/pages/task/taskEdit'),
               footer: footerBar
             },
             meta: {
@@ -215,7 +124,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: subTaskPage,
+              content: ()=>import('@/pages/task/subTaskPage'),
               footer: footerBar
             },
             meta: {
@@ -229,7 +138,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: taskFreelancer,
+              content: ()=>import('@/pages/task/taskFreelancer'),
               footer: footerBar
             },
             meta: {
@@ -243,7 +152,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: publicJobDetail,
+              content: ()=>import('@/pages/job/publicJob/publicJobDetail'),
               footer: footerBar
             },
             meta: {
@@ -257,7 +166,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: jobApplyForm,
+              content: ()=>import('@/pages/job/myJob/applyJob/jobApplyForm'),
               footer: footerBar
             },
             meta: {
@@ -271,7 +180,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: applyJobSuccess,
+              content: ()=>import('@/pages/job/myJob/applyJob/applyJobSuccess'),
               footer: footerBar
             },
             meta: {
@@ -285,7 +194,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myApplyJob,
+              content: ()=>import('@/pages/job/myJob/applyJob/myApplyJob'),
               footer: footerBar
             },
             meta: {
@@ -298,7 +207,7 @@ const router = new Router({
             name: 'jobDetail',
             components: {
               head: headerBarBase,
-              content: jobDetail,
+              content: ()=>import('@/pages/job/myJob/detail/jobDetail'),
               footerBar: footerBar
             },
             meta: {
@@ -312,7 +221,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myPendingJobPage,
+              content: ()=>import('@/pages/job/myJob/myPendingJob/myPendingJobPage'),
               footer: footerBar
             },
             meta: {
@@ -326,7 +235,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myPendingJobDetail,
+              content: ()=>import('@/pages/job/myJob/myPendingJob/myPendingJobDetail'),
               footer: footerBar
             },
             meta: {
@@ -340,7 +249,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myApplyJobDetail,
+              content: ()=>import('@/pages/job/myJob/applyJob/myApplyJobDetail'),
               footer: footerBar
             },
             meta: {
@@ -354,7 +263,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: secretaryApplyPage,
+              content: ()=>import('@/pages/secretary/match/secretaryApplyPage'),
               footer: footerBar
             },
             meta: {
@@ -368,7 +277,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: adminLogin,
+              content: ()=>import('@/pages/admin/adminLogin'),
               footer: footerBar
             },
             meta: {
@@ -382,7 +291,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: secretaryDashboard,
+              content: ()=>import('@/pages/secretary/secretaryDashboard'),
               footer: footerBar
             },
             meta: {
@@ -396,7 +305,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: secretaryAppliedJobList,
+              content: ()=>import('@/pages/secretary/match/secretaryAppliedJobList'),
               footer: footerBar
             },
             meta: {
@@ -409,7 +318,7 @@ const router = new Router({
             name: 'userApplyHistoryPage',
             components: {
               head: headerBarBase,
-              content: userApplyHistoryPage,
+              content: ()=>import('@/pages/secretary/match/userApplyHistoryPage'),
               footerBar: footerBar
             },
             meta: {
@@ -422,7 +331,7 @@ const router = new Router({
             name: 'userApplyHistoryDetail',
             components: {
               head: headerBarBase,
-              content: userApplyHistoryDetail,
+              content: ()=>import('@/pages/secretary/match/userApplyHistoryDetail'),
               footerBar: footerBar
             },
             meta: {
@@ -436,7 +345,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: partyAJobPage,
+              content: ()=>import('@/pages/job/myJob/partyA/partyAJobPage'),
               footer: footerBar
             },
             meta: {
@@ -450,7 +359,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: partyAJobDetail,
+              content: ()=>import('@/pages/job/myJob/partyA/partyAJobDetail'),
               footer: footerBar
             },
             meta: {
@@ -464,7 +373,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: partyBJobPage,
+              content: ()=>import('@/pages/job/myJob/partyB/partyBJobPage'),
               footer: footerBar
             },
             meta: {
@@ -478,7 +387,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: partyBJobDetail,
+              content: ()=>import('@/pages/job/myJob/partyB/partyBJobDetail'),
               footer: footerBar
             },
             meta: {
@@ -492,7 +401,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: jobLogPage,
+              content: ()=>import('@/pages/job/myJob/jobLog/jobLogPage'),
               footer: footerBar
             },
             meta: {
@@ -506,7 +415,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: createJobLog,
+              content: ()=>import('@/pages/job/myJob/jobLog/createJobLog'),
               footer: footerBar
             },
             meta: {
@@ -520,7 +429,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: profileDashboard,
+              content: ()=>import('@/pages/user/profile/profileDashboard'),
               footer: footerBar
             },
             meta: {
@@ -534,7 +443,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: submitUserProfile,
+              content: ()=>import('@/pages/user/profile/submitUserProfile'),
               footer: footerBar
             },
             meta: {
@@ -548,7 +457,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: completePage,
+              content: ()=>import('@/pages/job/myJob/complete/completePage'),
               footer: footerBar
             },
             meta: {
@@ -562,7 +471,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: createComplete,
+              content: ()=>import('@/pages/job/myJob/complete/createComplete'),
               footer: footerBar
             },
             meta: {
@@ -576,7 +485,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myAcceptJobPage,
+              content: ()=>import('@/pages/job/myJob/complete/myAcceptJobPage'),
               footer: footerBar
             },
             meta: {
@@ -590,7 +499,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider:baseSider,
-              content: myPendingJobUpdate,
+              content: ()=>import('@/pages/job/myJob/myPendingJob/myPendingJobUpdate'),
               footerBar: footerBar
             },
             meta: {
@@ -604,7 +513,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myAccountPage,
+              content: ()=>import('@/pages/account/myAccountPage'),
               footer: footerBar
             },
             meta: {
@@ -618,7 +527,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myAccountDashboard,
+              content: ()=>import('@/pages/account/myAccountDashboard'),
               footer: footerBar
             },
             meta: {
@@ -632,7 +541,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myHonorList,
+              content: ()=>import('@/pages/honor/myHonorList'),
               footer: footerBar
             },
             meta: {
@@ -646,7 +555,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: myHonorDashboard,
+              content: ()=>import('@/pages/honor/myHonorDashboard'),
               footer: footerBar
             },
             meta: {
@@ -655,26 +564,12 @@ const router = new Router({
             }
           },
           {
-            path: 'contentPage',
-            name: 'contentPage',
-            components: {
-              header: baseHeader,
-              sider: baseSider,
-              content: contentPage,
-              footer: footerBar
-            },
-            meta: {
-              title: 'contentPage',
-              token: false
-            }
-          },
-          {
             path: 'findPassword',
             name: 'findPassword',
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: findPassword,
+              content: ()=>import('../pages/user/password/findPassword'),
               footer: footerBar
             }
           },
@@ -684,7 +579,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: registerByPhone,
+              content: ()=>import('../pages/user/register/registerByPhone'),
               footer: footerBar
             }
           }
@@ -699,7 +594,7 @@ const router = new Router({
             name: 'home',
             components: {
               head: baseHeader,
-              content: home,
+              content: ()=>import('../pages/home/home'),
               footer: footerBar
             }
           }
@@ -716,7 +611,7 @@ const router = new Router({
             components:{
               head:baseHeader,
               sider:baseSider,
-              content:userActionLogList,
+              content:()=>import('../pages/admin/userActionLog/userActionLogList'),
               footer:footerBar
             }
           }
