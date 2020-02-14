@@ -12,6 +12,10 @@
       <Icon type="ios-navigate"></Icon>
       {{$t('navigator.myAccount')}}
     </MenuItem>
+    <MenuItem name="menuMyWithdraw">
+      <Icon type="ios-navigate"></Icon>
+      {{$t('navigator.myWithdrawList')}}
+    </MenuItem>
   </Submenu>
 </template>
 

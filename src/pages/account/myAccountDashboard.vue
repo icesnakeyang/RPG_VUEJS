@@ -11,7 +11,7 @@
             <Form>
               <FormItem>
                 <div class="label_text">{{$t('account.withdrawBalance')}}</div>
-                <div class="money_text">199.99</div>
+                <div class="money_text">{{balance}}</div>
               </FormItem>
               <FormItem>
                 <div class="label_text">{{$t('account.noneWithdrawBalance')}}</div>

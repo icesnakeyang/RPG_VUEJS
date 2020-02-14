@@ -592,6 +592,16 @@ const router = new Router({
               content: ()=>import('../pages/account/withdraw/withdrawApply'),
               footer: footerBar
             }
+          },
+          {
+            path: 'withdrawLogList',
+            name: 'withdrawLogList',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: ()=>import('../pages/account/withdraw/withdrawLogList'),
+              footer: footerBar
+            }
           }
         ]
       },

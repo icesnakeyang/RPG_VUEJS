@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'https://gogorpg.com';
-// let host = 'http://localhost:9527';
+// let host = 'https://gogorpg.com';
+let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -507,6 +507,22 @@ export const apiRegisterByPhone = params => {
 
 export const apiListUserActionLog = params => {
   return axios.post(`${host}/rpgapi/admin/userActionLog/listUserActionLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiWithdraw = params => {
+  return axios.post(`${host}/rpgapi/account/withdraw`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiListWithdraw = params => {
+  return axios.post(`${host}/rpgapi/account/listWithdraw`, params, {
     headers: {
       token: store.state.token
     }

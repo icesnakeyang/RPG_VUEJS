@@ -9,7 +9,8 @@
       "unProcess": "Waiting",
       "reject": "Reject",
       "agree": "Agree",
-      "matching": "Matching"
+      "matching": "Matching",
+      "PENDING": "Pending"
     }
   },
   "navigator": {
@@ -56,7 +57,8 @@
     "jobCompleteCreate": "Create Complete",
     "userActionLog": "User Action",
     "userActionLogStatistic": "Dashboard",
-    "userActionLogList": "User Action List"
+    "userActionLogList": "User Action List",
+    "myWithdrawList": "Withdraw List"
   },
   "user": {
     "username": "Login name",
@@ -246,7 +248,7 @@
       "memo": "Memo"
     }
   },
-  "account":{
+  "account": {
     "myBalance": "Account Balance",
     "withdrawBalance": "Available",
     "noneWithdrawBalance": "None available",
@@ -256,7 +258,11 @@
     "tip1": "Description",
     "tip2": "1. withdraw amount = balance - spot task total amount，the task in spotlight progressing cannot be withdrawed.",
     "tip3": "2. The withdrawal will be processed in 1-7 days, please be patient and keep your phone online.",
-    "tip4": ""
+    "tip4": "",
+    "tipSubmitSuccess": "Submit success, please waiting for admin progress",
+    "tipSubmitFail": "Submit failed, please contact the client service",
+    "applyTime": "Apply Time",
+    "status": "Status"
   },
   "syserr": {
     "10024": "Username or password error",
@@ -295,6 +301,7 @@
     "10106": "Send verify code error",
     "10107": "Reset password failed",
     "10108": "Verify code error",
-    "20002":"Read user action log failed"
+    "20002": "Read user action log failed",
+    "20004": "No enough balance to withdraw"
   }
 }
