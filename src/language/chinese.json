@@ -59,7 +59,9 @@
     "userActionLog": "用户姓名日志",
     "userActionLogStatistic": "统计面板",
     "userActionLogList": "用户行为记录",
-    "myWithdrawList": "我的取现记录"
+    "myWithdrawList": "我的取现记录",
+    "userWithdraw": "用户取现",
+    "userWithdrawApply": "用户取现申请"
   },
   "user": {
     "username":"登录名",
@@ -262,7 +264,8 @@
     "tipSubmitSuccess": "提交成功，请等待管理员处理。",
     "tipSubmitFail": "提交失败，请联系管理员处理",
     "applyTime": "申请时间",
-    "status": "状态"
+    "status": "状态",
+    "balance": "账户余额"
   },
   "syserr":{
     "10024":"用户名或密码错误",

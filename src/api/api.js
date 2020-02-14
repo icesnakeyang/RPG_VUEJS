@@ -529,6 +529,14 @@ export const apiListWithdraw = params => {
   })
 }
 
+export const apiListUserWithdrawApplys = params => {
+  return axios.post(`${host}/rpgapi/admin/userWithdraw/listUserWithdrawApplys`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

@@ -58,7 +58,9 @@
     "userActionLog": "User Action",
     "userActionLogStatistic": "Dashboard",
     "userActionLogList": "User Action List",
-    "myWithdrawList": "Withdraw List"
+    "myWithdrawList": "Withdraw List",
+    "userWithdraw": "User Withdraw",
+    "userWithdrawApply": "User Withdraw apply"
   },
   "user": {
     "username": "Login name",
@@ -262,7 +264,8 @@
     "tipSubmitSuccess": "Submit success, please waiting for admin progress",
     "tipSubmitFail": "Submit failed, please contact the client service",
     "applyTime": "Apply Time",
-    "status": "Status"
+    "status": "Status",
+    "balance": "Balance"
   },
   "syserr": {
     "10024": "Username or password error",

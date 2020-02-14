@@ -126,6 +126,11 @@
             name: 'withdrawLogList'
           })
         }
+        if(name==='menuUserWithdrawApply'){
+            this.$router.push({
+                name:'userWithdrawApply'
+            })
+        }
       }
     }
   }

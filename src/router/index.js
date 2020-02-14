@@ -589,7 +589,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: ()=>import('../pages/account/withdraw/withdrawApply'),
+              content: () => import('../pages/account/withdraw/withdrawApply'),
               footer: footerBar
             }
           },
@@ -599,7 +599,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: ()=>import('../pages/account/withdraw/withdrawLogList'),
+              content: () => import('../pages/account/withdraw/withdrawLogList'),
               footer: footerBar
             }
           }
@@ -633,6 +633,16 @@ const router = new Router({
               sider: baseSider,
               content: () => import('../pages/admin/userActionLog/userActionLogList'),
               footer: footerBar
+            }
+          },
+          {
+            path: 'userWithdrawApply',
+            name: 'userWithdrawApply',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: ()=>import('../pages/admin/withdraw/userWithdrawApply'),
+              footerBar: footerBar
             }
           }
         ],
