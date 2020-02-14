@@ -7,18 +7,18 @@
       <Row>
         <Col :xs="24" :sm="12" :md="12" :lg="4">
           <Card style="margin: 10px;">
-            <p slot="title" class="title_text">我的余额</p>
+            <p slot="title" class="title_text">{{$t('account.myBalance')}}</p>
             <Form>
               <FormItem>
-                <div class="label_text">账户可用余额</div>
+                <div class="label_text">{{$t('account.withdrawBalance')}}</div>
                 <div class="money_text">199.99</div>
               </FormItem>
               <FormItem>
-                <div class="label_text">账户不可用余额</div>
+                <div class="label_text">{{$t('account.noneWithdrawBalance')}}</div>
                 <div class="money_none_text">0.00</div>
               </FormItem>
               <FormItem>
-                <Button type="primary">withdraw</Button>
+                <Button type="primary" @click="btWithdraw">{{$t('account.withdraw')}}</Button>
               </FormItem>
             </Form>
           </Card>
@@ -65,54 +65,60 @@
 </template>
 
 <script>
-  import {apiLoadAccountBalance} from "../../api/api";
+    import {apiLoadAccountBalance} from "../../api/api";
 
-  export default {
-    name: "myAccountDashboard",
-    data() {
-      return {
-        income: 0,
-        outgoing: 0,
-        balance: 0
-      }
-    },
-    methods: {
-      loadAllData() {
-        apiLoadAccountBalance({}).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.income = response.data.data.income
-            this.outgoing = response.data.data.outgoing
-            this.balance = response.data.data.balance
-          } else {
-            this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-          }
-        })
-      }
-    },
-    mounted() {
-      this.loadAllData()
+    export default {
+        name: "myAccountDashboard",
+        data() {
+            return {
+                income: 0,
+                outgoing: 0,
+                balance: 0
+            }
+        },
+        methods: {
+            loadAllData() {
+                apiLoadAccountBalance({}).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.income = response.data.data.income
+                        this.outgoing = response.data.data.outgoing
+                        this.balance = response.data.data.balance
+                    } else {
+                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+                    }
+                })
+            },
+            btWithdraw() {
+                this.$router.push({
+                    name: 'withdrawApply'
+                })
+            }
+        },
+        mounted() {
+            this.loadAllData()
+        }
     }
-  }
 </script>
 
 <style scoped>
   @import '../../assets/gogoStyles.css';
-  .title_text{
+
+  .title_text {
     font-size: 18px;
     color: #353535;
   }
 
-  .label_text{
+  .label_text {
     font-size: 14px;
     color: #9ca3b4;
   }
 
-  .money_text{
+  .money_text {
     font-size: 14px;
     color: #009a14;
   }
 
-  .money_none_text{
+  .money_none_text {
     font-size: 14px;
     color: #ea6963;
   }

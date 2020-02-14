@@ -246,6 +246,18 @@
       "memo": "Memo"
     }
   },
+  "account":{
+    "myBalance": "Account Balance",
+    "withdrawBalance": "Available",
+    "noneWithdrawBalance": "None available",
+    "withdraw": "Withdraw",
+    "amount": "Withdraw amount",
+    "remark": "Remark",
+    "tip1": "Description",
+    "tip2": "1. withdraw amount = balance - spot task total amount，the task in spotlight progressing cannot be withdrawed.",
+    "tip3": "2. The withdrawal will be processed in 1-7 days, please be patient and keep your phone online.",
+    "tip4": ""
+  },
   "syserr": {
     "10024": "Username or password error",
     "10031": "Read task failed",
