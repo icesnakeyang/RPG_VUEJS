@@ -1,7 +1,7 @@
 <template>
   <Card>
     <p slot="title">
-      <a @click="onDetail(job.jobId)">
+      <a @click="onDetail">
         {{job.title}}
       </a>
     </p>
@@ -26,11 +26,12 @@
       }
     },
     methods: {
-      onDetail(data) {
+      onDetail() {
+          console.log(this.job)
         this.$router.push({
           name: 'secretaryApplyPage',
           params: {
-            jobId: data
+            jobId: this.job.jobId
           }
         })
       }

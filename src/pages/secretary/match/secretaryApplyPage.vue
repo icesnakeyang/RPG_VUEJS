@@ -39,6 +39,7 @@
           pageSize: 20,
           jobId: this.$store.state.jobId
         }).then((response) => {
+            console.log(response)
           if (response.data.errorCode === 0) {
             this.applies = response.data.data.applyList
           } else {

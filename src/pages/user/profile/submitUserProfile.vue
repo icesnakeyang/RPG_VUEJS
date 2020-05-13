@@ -7,10 +7,10 @@
     <Content class="gogo_content">
       <Form :label-width="80">
         <FormItem :label="this.$t('user.realname.realName')">
-          <Input v-model="realName.realName" placeholder="Enter something..."></Input>
+          <Input v-model="realName" placeholder="Enter something..."></Input>
         </FormItem>
         <FormItem :label="this.$t('user.realname.idCardNo')">
-          <Input v-model="realName.idcardNo" placeholder="Enter something..."></Input>
+          <Input v-model="idcardNo" placeholder="Enter something..."></Input>
         </FormItem>
 
         <FormItem>
@@ -29,14 +29,17 @@
         name: "submitUserProfile",
         data() {
             return {
-                realName: {}
+                realName: '',
+                idcardNo:''
             }
         },
         methods: {
             loadAllData() {
                 apiGetUserProfile({}).then((response) => {
+                    console.log(response)
                     if (response.data.errorCode === 0) {
-                        this.realName = response.data.data.realname
+                        this.realName = response.data.data.realname.realName
+                        this.idcardNo=response.data.data.realname.idcardNo
                     } else {
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }
@@ -45,8 +48,8 @@
 
             onSubmit() {
                 apiSaveRealName({
-                    realName: this.realName.realName,
-                    idcardNo: this.realName.idcardNo
+                    realName: this.realName,
+                    idcardNo: this.idcardNo
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.$store.dispatch('saveRealName', this.realName.realName)
