@@ -11,7 +11,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "emailRow",
@@ -26,7 +27,7 @@
         return this.$t('user.phone.unverifyTag')
       },
       createdTime() {
-        return rpgFormat.formatTime(this.email.createdTime)
+        return rpgFunc.formatTime(this.email.createdTime)
       },
       defaultTag(){
         if (this.email.default) {

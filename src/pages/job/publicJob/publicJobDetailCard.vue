@@ -39,8 +39,8 @@
 </template>
 
 <script>
-    import {rpgFormat} from "../../../common/rpgfun";
     import {quillEditor} from 'vue-quill-editor'
+    import {rpgFunc} from "../../../common/rpgfun";
 
     export default {
         name: "publicJobDetailCard",
@@ -61,7 +61,7 @@
         ],
         computed: {
             createdTime() {
-                return rpgFormat.formatTime(this.job.createdTime)
+                return rpgFunc.formatTime(this.job.createdTime)
             },
             isPending(){
                 if(this.job.status==='PENDING'){

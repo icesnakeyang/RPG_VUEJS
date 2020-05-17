@@ -29,7 +29,7 @@
     import ToolBar from '../component/toolbar'
     import {apiGetPartyAJob} from "../../../../api/api";
     import {quillEditor} from "vue-quill-editor"
-    import {rpgFormat} from "../../../../common/rpgfun";
+    import {rpgFunc} from "../../../../common/rpgfun";
 
     export default {
         name: "partyAJobDetail",
@@ -50,10 +50,10 @@
         },
         computed: {
             publishTime() {
-                return rpgFormat.formatTime(this.job.publishTime)
+                return rpgFunc.formatTime(this.job.publishTime)
             },
             contractTime() {
-                return rpgFormat.formatTime(this.job.contractTime)
+                return rpgFunc.formatTime(this.job.contractTime)
             }
         },
         methods: {

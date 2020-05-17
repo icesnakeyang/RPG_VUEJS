@@ -17,7 +17,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "jobMatchLogList",
@@ -26,10 +27,10 @@
     },
     computed:{
       publishTime(){
-        return rpgFormat.formatTime(this.log.job.createdTime)
+        return rpgFunc.formatTime(this.log.job.createdTime)
       },
       matchTime(){
-        return rpgFormat.formatTime(this.log.match.matchTime)
+        return rpgFunc.formatTime(this.log.match.matchTime)
       }
     },
     methods:{

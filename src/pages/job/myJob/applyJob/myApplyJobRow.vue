@@ -37,8 +37,8 @@
 </template>
 
 <script>
-    import {rpgFormat} from "../../../../common/rpgfun";
     import moment from "moment";
+    import {rpgFunc} from "../../../../common/rpgfun";
 
     export default {
         name: "myApplyJobRow",
@@ -54,7 +54,7 @@
             },
             readTime() {
                 if (this.jobApply.apply.readTime) {
-                    return rpgFormat.formatTime(this.jobApply.apply.readTime)
+                    return rpgFunc.formatTime(this.jobApply.apply.readTime)
                 } else {
                     return this.$t("common.unRead");
                 }

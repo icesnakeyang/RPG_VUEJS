@@ -67,10 +67,12 @@
         },
         methods: {
             create() {
-                if (!this.task.title) {
+                if(!this.task){
+                    this.$Message.error(this.$t('task.errTitle'))
                     return;
                 }
-                if (!this.task.days) {
+                if (!this.task.title) {
+                    this.$Message.error(this.$t('task.errTitle'))
                     return;
                 }
                 this.saving = true;
@@ -85,7 +87,7 @@
                         this.$router.push({name: 'taskPage'})
                     } else {
                         this.errInput = true;
-                        this.errMsg = this.$t("task.err1")
+                        this.errMsg = this.$t("syserr."+response.data.errorCode)
                     }
                 })
             }

@@ -22,10 +22,10 @@
           ></quill-editor>
         </FormItem>
         <FormItem :label="$t('task.price')">
-          <Input v-model="task.price"/>
+          <InputNumber :min="0" v-model="price"/>
         </FormItem>
         <FormItem :label="$t('task.days')">
-          <Input v-model="task.days"/>
+          <InputNumber :min="1" v-model="days"/>
         </FormItem>
         <FormItem v-show="!saving">
           <Button type="primary" @click="clickUpdate">{{$t("task.update")}}</Button>
@@ -56,6 +56,8 @@
         data() {
             return {
                 task: {},
+                price:0,
+                days:1,
                 errInput: false,
                 errMsg: false,
                 saving: false,
@@ -72,6 +74,8 @@
                     taskId: this.$store.state.taskId
                 }).then((response) => {
                     this.task = response.data.data.task;
+                    this.price=response.data.data.task.price
+                    this.days=response.data.data.task.days
                 })
             },
             clickUpdate() {
@@ -79,9 +83,9 @@
                     taskId: this.$store.state.taskId,
                     title: this.task.title,
                     detail: this.task.detail,
-                    days: this.task.days,
+                    days: this.days,
                     code: this.task.code,
-                    price: this.task.price
+                    price: this.price
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.$router.push({

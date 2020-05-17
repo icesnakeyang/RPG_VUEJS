@@ -8,7 +8,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../common/rpgfun";
+
+  import {rpgFunc} from "../../common/rpgfun";
 
   export default {
     name: "adminPageRow",
@@ -17,7 +18,7 @@
     },
     computed: {
       createdTime() {
-        return rpgFormat.formatTime(this.row.createdTime)
+        return rpgFunc.formatTime(this.row.createdTime)
       }
     }
   }

@@ -77,6 +77,7 @@
     "err1": "The two passwords are not same",
     "err4": "This email has been used by other user",
     "realName": "Real Name",
+    "realNameHolder": "Please input your full name",
     "btVerifyRealname": "Certify Real Name",
     "btSaveUserInfo": "Confirm",
     "email": {
@@ -104,7 +105,8 @@
       "phoneHolder": "Please input phone number",
       "phoneOccupied": "Sorry, the phone has been registered by others",
       "tipSendSMSSuccess": "Send sms success, please check your sms",
-      "tipSendSMSFail": "Send sms failed"
+      "tipSendSMSFail": "Send sms failed",
+      "formatError": "The phone is not correct"
     },
     "realname": {
       "title": "Real name information",
@@ -159,7 +161,8 @@
     "freelancer": "Publish",
     "complete": "Complete",
     "addSubTaskTitle": "Create sub task",
-    "tipSubTask1": "You must input sub task title"
+    "tipSubTask1": "You must input sub task title",
+    "errTitle": "Please input task title"
   },
   "job": {
     "publish": "Publish",
@@ -305,6 +308,9 @@
     "10107": "Reset password failed",
     "10108": "Verify code error",
     "20002": "Read user action log failed",
-    "20004": "No enough balance to withdraw"
+    "20004": "No enough balance to withdraw",
+    "30000": "Sorry，program failed for some unknown reason",
+    "30008": "Please input your real name",
+    "30012": "The SMS code is overdue"
   }
 }

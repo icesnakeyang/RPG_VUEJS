@@ -41,7 +41,6 @@
 </template>
 
 <script>
-    import {rpgFormat} from "../../../../common/rpgfun";
     import moment from "moment";
 
     export default {

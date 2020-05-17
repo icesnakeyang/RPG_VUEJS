@@ -25,7 +25,7 @@
 <script>
     import {apiGetMyApplyJob} from "../../../../api/api";
     import {quillEditor} from "vue-quill-editor"
-    import {rpgFormat} from "../../../../common/rpgfun";
+    import {rpgFunc} from "../../../../common/rpgfun";
 
     export default {
         name: "myApplyJobDetail",
@@ -46,7 +46,7 @@
 
         computed: {
             publishTime() {
-                return rpgFormat.formatTime(this.job.createdTime)
+                return rpgFunc.formatTime(this.job.createdTime)
             }
         },
 

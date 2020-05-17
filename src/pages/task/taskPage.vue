@@ -4,7 +4,7 @@
       <BreadcrumbItem>{{$t('navigator.myTask')}}</BreadcrumbItem>
     </Breadcrumb>
     <Content :style="{minHeight: '400px'}">
-      <Card class="card" v-for="item in jobs" :key="item.jobId">
+      <Card class="card" v-for="item in tasks" :key="item.taskId">
         <p slot="title"><a @click="goTask(item.taskId)">{{item.title}}</a></p>
         <p>{{$t("task.code")}}: {{item.code}}</p>
         <p>{{$t("task.days")}}: {{item.days}}</p>
@@ -21,20 +21,23 @@
         name: "taskPage",
         data() {
             return {
-                jobs: []
+                pageIndex:1,
+                pageSize:10,
+                tasks: []
             }
         },
         methods: {
             loadAllData() {
                 apiListMyTask({
-                    pageIndex: 0,
-                    pageSize: 100
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.jobs = response.data.data.content;
+                        this.tasks = response.data.data.tasks;
                     } else {
                         this.$Message.error(this.$t("syserr." + response.data.errorCode));
                     }
+                }).catch((error)=>{
                 })
             },
 

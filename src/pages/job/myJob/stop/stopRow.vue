@@ -24,7 +24,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../../common/rpgfun";
 
   export default {
     name: "stopRow",
@@ -33,18 +34,18 @@
     },
     computed: {
       createdTime() {
-        return rpgFormat.formatTime(this.stop.createdTime);
+        return rpgFunc.formatTime(this.stop.createdTime);
       },
       readTime() {
         if (this.stop.readTime) {
-          return rpgFormat.formatTime(this.stop.readTime)
+          return rpgFunc.formatTime(this.stop.readTime)
         } else {
           return false
         }
       },
       processTime() {
         if (this.stop.processTime) {
-          return rpgFormat.formatTime(this.stop.processTime)
+          return rpgFunc.formatTime(this.stop.processTime)
         } else {
           return false
         }

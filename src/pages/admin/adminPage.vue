@@ -43,7 +43,6 @@
 
 <script>
   import {loadAdmins} from "../../api/api";
-  import {rpgFormat} from "../../common/rpgfun";
   import {loadRoleType} from "../../api/api";
   import {createAdmin} from "../../api/api";
   import AdminPageRoleBar from "./adminPageRoleBar"

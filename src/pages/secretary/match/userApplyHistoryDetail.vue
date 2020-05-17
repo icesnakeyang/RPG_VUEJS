@@ -19,7 +19,7 @@
 
 <script>
   import {apiGetApplyDetail} from "../../../api/api";
-  import {rpgFormat} from "../../../common/rpgfun";
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "userApplyHistoryDetail",
@@ -30,11 +30,11 @@
     },
     computed:{
       applyTime(){
-        return rpgFormat.formatTime(this.apply.applyTime)
+        return rpgFunc.formatTime(this.apply.applyTime)
       },
       processTime(){
         if(this.apply.processTime) {
-          return rpgFormat.formatTime(this.apply.processTime)
+          return rpgFunc.formatTime(this.apply.processTime)
         }else{
           return ''
         }

@@ -68,7 +68,7 @@
 
             onRegister() {
                 this.$router.push({
-                    name: 'registerByEmail'
+                    name: 'registerByPhone'
                 })
             },
 

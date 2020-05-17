@@ -15,7 +15,7 @@
 
 <script>
   import {apiListWithdraw} from "../../../api/api";
-  import {rpgFormat} from "../../../common/rpgfun";
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "withdrawLogList",
@@ -29,7 +29,7 @@
             title: this.$t('account.applyTime'),
             key: 'createTime',
             render: (h, params) => {
-              return h('div', rpgFormat.formatTime(params.row.createTime))
+              return h('div', rpgFunc.formatTime(params.row.createTime))
             }
           },
           {

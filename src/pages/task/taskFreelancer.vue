@@ -16,10 +16,10 @@
           <Input v-model="task.code"/>
         </FormItem>
         <FormItem :label="$t('task.days')">
-          <Input v-model="task.days"/>
+          <InputNumber v-model="task.days"/>
         </FormItem>
         <FormItem :label="$t('task.price')">
-          <Input v-model="task.price"/>
+          <InputNumber v-model="task.price"/>
         </FormItem>
 
         <div>{{$t('task.detail')}}</div>

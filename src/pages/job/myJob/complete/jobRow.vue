@@ -16,7 +16,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../../common/rpgfun";
 
   export default {
         name: "jobRow",
@@ -25,10 +26,10 @@
       },
       computed:{
         contractTime(){
-          return rpgFormat.formatTime(this.job.contractTime)
+          return rpgFunc.formatTime(this.job.contractTime)
         },
         acceptTime(){
-          return rpgFormat.formatTime(this.job.acceptedTime)
+          return rpgFunc.formatTime(this.job.acceptedTime)
         }
       }
     }

@@ -12,7 +12,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../../common/rpgfun";
 
   export default {
     name: "myPendingJobRow",
@@ -21,7 +22,7 @@
     },
     computed: {
       publishedTime() {
-        return rpgFormat.formatTime(this.job.createdTime)
+        return rpgFunc.formatTime(this.job.createdTime)
       }
     },
     methods:{

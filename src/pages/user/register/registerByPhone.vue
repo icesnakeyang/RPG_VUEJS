@@ -5,8 +5,8 @@
     </Breadcrumb>
     <Content class="gogo_content">
       <Form :label-width="200">
-        <FormItem v-show="errInput">
-          <Alert type="error" show-icon>{{errMsg}}</Alert>
+        <FormItem v-if="errInput">
+          <Alert type="error" show-icon v-cloak>{{errMsg}}</Alert>
         </FormItem>
         <FormItem :label="$t('user.phone.phone')">
           <Input @on-blur="onCheckPhone" v-model="phone" :placeholder="$t('user.phone.phoneHolder')"/>
@@ -24,7 +24,7 @@
           <Input type="password" v-model="password2" :placeholder="$t('user.password2Placeholder')"/>
         </FormItem>
         <FormItem :label="$t('user.realName')">
-          <Input type="text" v-model="realName"></Input>
+          <Input type="text" v-model="realName" :placeholder="$t('user.realNameHolder')"></Input>
         </FormItem>
         <FormItem>
           <Button type="primary" @click="onRegister">{{$t("user.btRegister")}}</Button>
@@ -40,6 +40,7 @@
 
 <script>
     import {apiGetPhone, apiGetPhoneVerifyCode, apiRegisterByPhone} from "../../../api/api";
+    import {rpgFunc} from "../../../common/rpgfun";
 
     export default {
         name: "registerByPhone",
@@ -57,6 +58,14 @@
         },
         methods: {
             onCheckPhone() {
+                if(!rpgFunc.checkMobilePhone(this.phone)){
+                    this.errInput = true
+                    this.errMsg = this.$t('user.phone.formatError')
+                    return
+                }else {
+                    this.errInput=false
+                    this.errMsg = ''
+                }
                 apiGetPhone({
                     phone: this.phone
                 }).then((response) => {
@@ -72,6 +81,14 @@
                 })
             },
             btSendSms() {
+                if(!rpgFunc.checkMobilePhone(this.phone)){
+                    this.errInput = true
+                    this.errMsg = this.$t('user.phone.formatError')
+                    return
+                }else{
+                    this.errInput=false
+                    this.errMsg = ''
+                }
                 let params = {
                     phone: this.phone
                 }

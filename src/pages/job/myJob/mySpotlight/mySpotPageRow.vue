@@ -10,7 +10,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../../common/rpgfun";
 
   export default {
     name: "mySpotPageRow",
@@ -19,7 +20,7 @@
     },
     computed: {
       spotCreateTime() {
-        return rpgFormat.formatTime(this.spot.createdTime)
+        return rpgFunc.formatTime(this.spot.createdTime)
       }
     },
     methods: {

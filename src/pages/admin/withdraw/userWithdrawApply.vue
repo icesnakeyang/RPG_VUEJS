@@ -15,7 +15,7 @@
 
 <script>
     import {apiListUserWithdrawApplys} from "../../../api/api";
-    import {rpgFormat} from "../../../common/rpgfun";
+    import {rpgFunc} from "../../../common/rpgfun";
 
     export default {
         name: "userWithdrawApply",
@@ -34,7 +34,7 @@
                         title:this.$t('account.applyTime'),
                         key:'create_time',
                         render:(h, params)=>{
-                            return h('div', rpgFormat.formatTime(params.row.create_time))
+                            return h('div', rpgFunc.formatTime(params.row.create_time))
                         }
                     },
                     {

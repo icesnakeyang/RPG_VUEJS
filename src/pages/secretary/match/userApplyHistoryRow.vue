@@ -16,7 +16,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
+
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "userApplyHistoryRow",
@@ -25,7 +26,7 @@
     },
     computed: {
       applyTime() {
-        return rpgFormat.formatTime(this.apply.applyTime)
+        return rpgFunc.formatTime(this.apply.applyTime)
       },
       processResult() {
         if (this.apply.processResult === null) {

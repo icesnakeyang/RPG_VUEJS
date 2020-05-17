@@ -12,7 +12,7 @@
 <script>
     import {apiListMyHonor} from "../../api/api";
     import MyHonorRow from "./myHonorRow"
-    import {rpgFormat} from "../../common/rpgfun";
+    import {rpgFunc} from "../../common/rpgfun";
 
     export default {
         name: "myHonorList",
@@ -27,7 +27,7 @@
                         title: this.$t("user.honor.createdTime"),
                         key: 'cratedTime',
                         render: (h, params) => {
-                            return h('div', rpgFormat.formatTime(params.row.createdTime))
+                            return h('div', rpgFunc.formatTime(params.row.createdTime))
                         }
                     },
                     {

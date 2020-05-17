@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../../common/rpgfun";
   import {apiAgreeApply} from "../../../api/api";
   import {apiRejectApply} from "../../../api/api";
+  import {rpgFunc} from "../../../common/rpgfun";
 
   export default {
     name: "secretaryApplyPageRow",
@@ -44,7 +44,7 @@
     },
     computed: {
       createdTime() {
-        return rpgFormat.formatTime(this.apply.applyTime)
+        return rpgFunc.formatTime(this.apply.applyTime)
       }
     },
     methods: {

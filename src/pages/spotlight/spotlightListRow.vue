@@ -13,7 +13,8 @@
 </template>
 
 <script>
-  import {rpgFormat} from "../../common/rpgfun";
+
+  import {rpgFunc} from "../../common/rpgfun";
 
   export default {
     name: "spotlightListRow",
@@ -22,7 +23,7 @@
     },
     computed: {
       createdTime() {
-        return rpgFormat.formatTime(this.spotlight.createdTime)
+        return rpgFunc.formatTime(this.spotlight.createdTime)
       }
     },
     methods: {
