@@ -1,9 +1,9 @@
+import moment from "moment";
+
 export const rpgFunc = {
   formatTime(value) {
-    let timestamp3 = value;
-    let newDate = new Date();
-    newDate.setTime(timestamp3);
-    return newDate.toLocaleString()
+    let timeStr=moment(value).format('YYYY-MM-DD HH:mm')
+    return timeStr
   },
 
   //检查是否为手机号码

@@ -17,53 +17,54 @@
 </template>
 
 <script>
-  import {apiListApplyByJobId} from "../../../api/api";
-  import SecretaryApplyPageRow from "./secretaryApplyPageRow"
-  import {apiGetApplyJobTiny} from "../../../api/api";
+    import {apiListApplyByJobId} from "../../../api/api";
+    import SecretaryApplyPageRow from "./secretaryApplyPageRow"
+    import {apiGetApplyJobTiny} from "../../../api/api";
 
-  export default {
-    name: "secretaryApplyPage",
-    components: {
-      SecretaryApplyPageRow
-    },
-    data() {
-      return {
-        applies: [],
-        job: {}
-      }
-    },
-    methods: {
-      loadAllData() {
-        apiListApplyByJobId({
-          pageIndex: 1,
-          pageSize: 20,
-          jobId: this.$store.state.jobId
-        }).then((response) => {
-            console.log(response)
-          if (response.data.errorCode === 0) {
-            this.applies = response.data.data.applyList
-          } else {
-            this.$Message.error(this.$t("syserr." + response.data.errorCode))
-          }
-        })
-        apiGetApplyJobTiny({
-          jobId: this.$store.state.jobId
-        }).then((response) => {
-          if (response.data.errorCode === 0) {
-            this.job = response.data.data.job
-          } else {
-            this.$Message.error(this.$t("syserr." + response.data.errorCode))
-          }
-        })
-      }
-    },
-    mounted() {
-      if (this.$route.params.jobId) {
-        this.$store.dispatch('saveJobId', this.$route.params.jobId)
-      }
-      this.loadAllData()
+    export default {
+        name: "secretaryApplyPage",
+        components: {
+            SecretaryApplyPageRow
+        },
+        data() {
+            return {
+                pageIndex: 1,
+                pageSize: 20,
+                applies: [],
+                job: {}
+            }
+        },
+        methods: {
+            loadAllData() {
+                apiListApplyByJobId({
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize,
+                    jobId: this.$store.state.jobId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.applies = response.data.data.applyList
+                    } else {
+                        this.$Message.error(this.$t("syserr." + response.data.errorCode))
+                    }
+                })
+                apiGetApplyJobTiny({
+                    jobId: this.$store.state.jobId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.job = response.data.data.job
+                    } else {
+                        this.$Message.error(this.$t("syserr." + response.data.errorCode))
+                    }
+                })
+            }
+        },
+        mounted() {
+            if (this.$route.params.jobId) {
+                this.$store.dispatch('saveJobId', this.$route.params.jobId)
+            }
+            this.loadAllData()
+        }
     }
-  }
 </script>
 
 <style scoped>

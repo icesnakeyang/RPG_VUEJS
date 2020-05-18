@@ -23,13 +23,20 @@
         },
         data() {
             return {
+                pageIndex: 1,
+                pageSize: 10,
                 jobList: []
             }
         },
         mounted() {
-            apiListMyPartyAJob({}).then((response) => {
+            apiListMyPartyAJob({
+                pageIndex: this.pageIndex,
+                pageSize: this.pageSize
+            }).then((response) => {
                 if (response.data.errorCode === 0) {
-                    this.jobList = response.data.data.content
+                    this.jobList = response.data.data.jobs
+                } else {
+                    this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                 }
             })
         }

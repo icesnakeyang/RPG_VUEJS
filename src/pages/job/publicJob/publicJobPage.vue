@@ -32,9 +32,8 @@
                     pageSize: this.pageSize
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.jobs = response.data.data.jobs.content
+                        this.jobs = response.data.data.jobs
                     } else {
-                        console.log(response.data.errorCode)
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }
                 })

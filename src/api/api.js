@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'https://gogorpg.com';
-let host = 'http://localhost:9527';
+let host = 'https://gogorpg.com';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -11,7 +11,7 @@ let host = 'http://localhost:9527';
  * @returns {AxiosPromise<any>}
  */
 export const apiRegisterByEmail = params => {
-  return axios.post(`${host}/rpgapi/user/register/registerByEmail`, params)
+  return axios.post(`${host}/rpgapi/user/registerByEmail`, params)
 }
 
 export const apiListPublicJob = params => {
@@ -27,7 +27,7 @@ export const apiLogin = params => {
 }
 
 export const apiGetEmailByEmail = params => {
-  return axios.post(`${host}/rpgapi/user/register/getEmailByEmail`, params)
+  return axios.post(`${host}/rpgapi/user/getEmailByEmail`, params)
 }
 
 export const apiCreateTask = params => {
@@ -283,14 +283,6 @@ export const apiGetPartyAJob = params => {
   })
 }
 
-export const apiTotalUnreadByJobId = params => {
-  return axios.post(`${host}/rpgapi/job/my_common/totalUnreadByJobId`, params, {
-    headers: {
-      token: store.state.token
-    }
-  })
-}
-
 export const apiListMyPartyBJob = params => {
   return axios.post(`${host}/rpgapi/job/partyB/listMyPartyBJob`, params, {
     headers: {
@@ -307,8 +299,8 @@ export const apiGetPartyBJobDetail = params => {
   })
 }
 
-export const apiJobLog = params => {
-  return axios.post(`${host}/rpgapi/job/log/jobLog`, params, {
+export const apiListJobLog = params => {
+  return axios.post(`${host}/rpgapi/job/log/listJobLog`, params, {
     headers: {
       token: store.state.token
     }
@@ -372,7 +364,7 @@ export const apiListMyComplete = params => {
 }
 
 export const apiGetJobTinyByJobId = params => {
-  return axios.post(`${host}/rpgapi/job/my_common/getJobTinyByJobId`, params, {
+  return axios.post(`${host}/rpgapi/job/common/getJobTinyByJobId`, params, {
     headers: {
       token: store.state.token
     }
@@ -428,7 +420,7 @@ export const apiListMyPartyBAcceptJob = params => {
 }
 
 export const apiTotalMyUnread = params => {
-  return axios.post(`${host}/rpgapi/job/my_common/totalMyUnread`, params, {
+  return axios.post(`${host}/rpgapi/job/common/totalMyUnread`, params, {
     headers: {
       token: store.state.token
     }

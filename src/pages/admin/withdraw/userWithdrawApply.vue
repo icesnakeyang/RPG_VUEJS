@@ -70,7 +70,6 @@
                     pageSize: this.pageSize
                 }
                 apiListUserWithdrawApplys(params).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.withdrawApplyList = response.data.data.withdrawLedgers
                         this.total = response.data.data.totalWithdrawApply

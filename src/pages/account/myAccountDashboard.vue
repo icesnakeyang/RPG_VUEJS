@@ -79,10 +79,11 @@
         methods: {
             loadAllData() {
                 apiLoadAccountBalance({}).then((response) => {
+                    console.log(response)
                     if (response.data.errorCode === 0) {
-                        this.income = response.data.data.income
-                        this.outgoing = response.data.data.outgoing
-                        this.balance = response.data.data.balance
+                        this.income = response.data.data.accountIn
+                        this.outgoing = response.data.data.accountOut
+                        this.balance = response.data.data.accountBalance
                     } else {
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }

@@ -23,14 +23,19 @@
         },
         data() {
             return {
+                pageIndex:1,
+                pageSize:10,
                 jobList: []
             }
         },
         methods: {
             loadAllData() {
-                apiListMyPartyBJob({}).then((response) => {
+                apiListMyPartyBJob({
+                    pageIndex:this.pageIndex,
+                    pageSize:this.pageSize
+                }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.jobList = response.data.data.content
+                        this.jobList = response.data.data
                     }
                 })
             }

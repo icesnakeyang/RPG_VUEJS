@@ -101,7 +101,7 @@
                         this.$router.push({
                             name: "jobDetail",
                             params: {
-                                jobId: response.data.data.job.jobId
+                                jobId: response.data.data.jobId
                             }
                         })
                     } else {
@@ -116,19 +116,25 @@
                 this.errInput = false;
                 if (!this.task.taskId) {
                     this.errInput = true;
-                    this.errMsg = "1";
+                    this.errMsg = this.$t("task.publishTaskFail");
                 }
                 if (!this.task.title) {
                     this.errInput = true;
-                    this.errMsg = "2";
+                    this.errMsg = this.$t("task.checkTitle");
                 }
                 if (!this.task.days) {
                     this.errInput = true;
-                    this.errMsg = "3";
+                    this.errMsg = this.$t("task.checkDays");
                 }
                 if (!this.task.price) {
-                    this.errInput = true
-                    this.errMsg = this.$t("task.checkPrice");
+                    if(this.task.price!==0) {
+                        this.errInput = true
+                        this.errMsg = this.$t("task.checkPrice");
+                    }
+                }
+                if(!this.task.detail){
+                    this.errInput=true
+                    this.errMsg=this.$t("task.checkDetail")
                 }
                 return this.errInput;
             }

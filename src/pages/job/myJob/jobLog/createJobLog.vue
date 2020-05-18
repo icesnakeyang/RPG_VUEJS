@@ -50,10 +50,11 @@
                 if (!this.jobLog.content) {
                     return;
                 }
-                apiCreateLog({
+                const params={
                     jobId: this.$store.state.jobId,
                     content: this.jobLog.content
-                }).then((response) => {
+                }
+                apiCreateLog(params).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.$router.push({
                             name: 'jobLogPage',

@@ -72,7 +72,9 @@
                 acceptModal: false,
                 rejectRemark: '',
                 acceptRemark: '',
-                job: {}
+                job: {},
+                pageIndex:1,
+                pageSize:10
             }
         },
         computed: {
@@ -115,11 +117,12 @@
             loadAllData() {
                 apiListMyComplete({
                     jobId: this.$store.state.jobId,
-                    pageIndex: 0,
-                    pageSize: 100
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize
                 }).then((response) => {
+                    console.log(response)
                     if (response.data.errorCode === 0) {
-                        this.jobCompleteList = response.data.data.content
+                        this.jobCompleteList = response.data.data
                     }
                 })
 

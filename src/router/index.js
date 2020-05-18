@@ -11,6 +11,7 @@ import indexPage from '../pages/layout/index'
 import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
 import homeLayout from "../pages/layout/homeLayout";
+import jobDetail from "../pages/job/myJob/detail/jobDetail";
 
 
 Vue.use(Router);
@@ -206,7 +207,8 @@ const router = new Router({
             path: 'jobDetail',
             name: 'jobDetail',
             components: {
-              head: headerBarBase,
+              head: baseHeader,
+              sider:baseSider,
               content: () => import('@/pages/job/myJob/detail/jobDetail'),
               footerBar: footerBar
             },

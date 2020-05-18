@@ -43,23 +43,18 @@
     },
     methods: {
       btSubmit() {
-        console.log(this.amount)
-        console.log(this.remark)
         let params = {
           amount: this.amount,
           remark: this.remark
         }
-        console.log(params)
 
         apiWithdraw(params).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.$Message.success(this.$t('account.tipSubmitSuccess'))
           } else {
             this.$Message.error(this.$t('syserr.' + response.data.errorCode))
           }
         }).catch((error) => {
-          console.log(error)
           this.$Message.error(this.$t('account.tipSubmitFail'))
         })
       }

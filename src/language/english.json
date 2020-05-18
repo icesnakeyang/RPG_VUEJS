@@ -142,7 +142,8 @@
       "honorPoint": "Honor Point",
       "honorType": "Type",
       "JOB_ACCEPTED": "Job Acceptance",
-      "CREATE_SPOTLIGHT": "Spotlight"
+      "CREATE_SPOTLIGHT": "Spotlight",
+      "jobTitle": "Job"
     }
   },
   "task": {
@@ -162,7 +163,12 @@
     "complete": "Complete",
     "addSubTaskTitle": "Create sub task",
     "tipSubTask1": "You must input sub task title",
-    "errTitle": "Please input task title"
+    "errTitle": "Please input task title",
+    "checkPrice": "Please input task price",
+    "publishTaskFail": "Publish task failed",
+    "checkTitle": "Please input job title",
+    "checkDays": "Please set up the job days",
+    "checkDetail": "Please describe the job detail"
   },
   "job": {
     "publish": "Publish",
@@ -311,6 +317,12 @@
     "20004": "No enough balance to withdraw",
     "30000": "Sorry，program failed for some unknown reason",
     "30008": "Please input your real name",
-    "30012": "The SMS code is overdue"
+    "30012": "The SMS code is overdue",
+    "10044": "This email has been registered by others",
+    "10006": "Sorry, you cannot apply this job now",
+    "10040": "Sorry, you don't have the RPG secretary authority",
+    "30005": "You only can delete job that nobody applied",
+    "30014": "Sorry, you don't have authority to create this log",
+    "30015": "Sorry, we didn't find the complete log for this job"
   }
 }

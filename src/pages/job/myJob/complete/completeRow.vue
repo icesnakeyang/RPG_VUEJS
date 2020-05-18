@@ -79,14 +79,15 @@
                 }
             },
             isProcess() {
-                if (this.complete.result === null) {
+                console.log(this.complete.processTime)
+                if (this.complete.processTime === null) {
                     return false
                 }
                 return true
             },
             processResult() {
-                if (this.complete.result) {
-                    if (this.complete.result === 'REJECT') {
+                if (this.complete.status) {
+                    if (this.complete.status === 'REJECT') {
                         return false
                     } else {
                         return true

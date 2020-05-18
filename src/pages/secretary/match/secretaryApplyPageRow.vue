@@ -3,7 +3,7 @@
     <Card class="card">
       <p slot="title">
         <a @click="onApplyUser(apply.applyUserId)">
-          {{apply.applyUser}}
+          {{apply.applyUserName}}
         </a>
       </p>
       <p>{{createdTime}}</p>
@@ -63,7 +63,7 @@
           onOk: () => {
             //match the job to user
             apiAgreeApply({
-              applyId: applyId
+              applyId: this.apply.jobApplyId
             }).then((response) => {
               if (response.data.errorCode === 0) {
                 this.$Message.success(this.$t('admin.secretary.tipAgreeSuccess'))

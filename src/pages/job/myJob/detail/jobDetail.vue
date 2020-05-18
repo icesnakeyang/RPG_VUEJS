@@ -3,19 +3,9 @@
 </template>
 
 <script>
-  import jobDetailCard from "./jobDetailCard";
-
-  export default {
-    name: "jobDetail",
-    components: {
-      jobDetailCard
-    },
-    data() {
-      return {
-        job: {}
-      }
-    },
-  }
+    export default {
+        name: "jobDetail"
+    }
 </script>
 
 <style scoped>

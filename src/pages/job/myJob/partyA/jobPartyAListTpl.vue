@@ -1,9 +1,9 @@
 <template>
   <Card class="card">
     <p slot="title">
-      <Badge :count="job.unRead"></Badge>
-        <a @click="goJobDetail(job.jobId)">
-          {{job.title}}</a>
+      <Badge :count="unread"></Badge>
+      <a @click="goJobDetail(job.jobId)">
+        {{job.title}}</a>
     </p>
     <p>{{$t("task.code")}}:{{job.code}}</p>
     <Row>
@@ -41,33 +41,47 @@
 </template>
 
 <script>
-  import moment from "moment";
+    import moment from "moment";
 
-  export default {
-    name: "jobPartyAListTpl",
-    props: {
-      job: {}
-    },
-    computed: {
-      publishTime() {
-        return moment(this.job.createdTime).format('YYYY-MM-DD HH:mm')
-      },
-      contractTime() {
-        return moment(this.job.contractTime).format('YYYY-MM-DD HH:mm')
-      }
-    },
-    methods: {
-      goJobDetail(jobId) {
-        this.$store.dispatch('saveJobId', jobId);
-        this.$router.push({
-          name: 'partyAJobDetail',
-          params: {
-            jobId: jobId
-          }
-        })
-      }
+    export default {
+        name: "jobPartyAListTpl",
+        props: {
+            job: {}
+        },
+        computed: {
+            publishTime() {
+                return moment(this.job.createdTime).format('YYYY-MM-DD HH:mm')
+            },
+            contractTime() {
+                return moment(this.job.contractTime).format('YYYY-MM-DD HH:mm')
+            },
+            unread() {
+                console.log(this.job)
+                let cc=0
+                if (this.job && this.job.totalLogUnread) {
+                    cc+= this.job.totalLogUnread
+                }
+                if (this.job && this.job.totalCompleteUnread) {
+                    cc+= this.job.totalCompleteUnread
+                }
+                if (this.job && this.job.totalStopUnread) {
+                    cc += this.job.totalStopUnread
+                }
+                return cc
+            }
+        },
+        methods: {
+            goJobDetail(jobId) {
+                this.$store.dispatch('saveJobId', jobId);
+                this.$router.push({
+                    name: 'partyAJobDetail',
+                    params: {
+                        jobId: jobId
+                    }
+                })
+            }
+        }
     }
-  }
 </script>
 
 <style scoped>

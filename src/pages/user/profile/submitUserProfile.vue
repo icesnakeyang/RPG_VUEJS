@@ -36,7 +36,6 @@
         methods: {
             loadAllData() {
                 apiGetUserProfile({}).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.realName = response.data.data.realname.realName
                         this.idcardNo=response.data.data.realname.idcardNo

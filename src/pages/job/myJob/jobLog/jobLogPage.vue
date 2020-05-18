@@ -16,9 +16,8 @@
 </template>
 
 <script>
-    import {apiJobLog} from "../../../../api/api";
     import JobLogRow from "./jobLogRow"
-    import {apiSetJobLogReadTime} from "../../../../api/api";
+    import {apiListJobLog, apiSetJobLogReadTime} from "../../../../api/api";
 
     export default {
         name: "jobLogPage",
@@ -27,19 +26,24 @@
         },
         data() {
             return {
+                pageIndex: 1,
+                pageSize: 10,
                 jobLogList: []
             }
         },
         methods: {
             loadAllData() {
-                apiJobLog({
+                const params = {
                     jobId: this.$store.state.jobId,
-                    pageIndex: 0,
-                    pageSize: 100
-                }).then((response) => {
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize
+                }
+                apiListJobLog(params).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.jobLogList = response.data.data.content
+                        this.jobLogList = response.data.data
                         this.setReadTime()
+                    }else{
+                        this.$Message.error(this.$t('syserr.'+response.data.errorCode))
                     }
                 })
             },

@@ -5,7 +5,7 @@
       <BreadcrumbItem>{{$t('navigator.jobDetail')}}</BreadcrumbItem>
     </Breadcrumb>
     <Content class="gogo_content">
-      <ToolBar></ToolBar>
+      <ToolBar :totalLog="totalLog" :totalComplete="totalComplete" :totalStop="totalStop"></ToolBar>
       <Card class="card">
         <p slot="title">
           {{job.title}}
@@ -40,6 +40,9 @@
         data() {
             return {
                 job: {},
+                totalLog:0,
+                totalComplete:0,
+                totalStop:0,
                 options: {
                     modules: {
                         toolbar: false
@@ -61,7 +64,10 @@
                     jobId: this.$store.state.jobId
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.job = response.data.data
+                        this.job = response.data.data.job
+                        this.totalLog=response.data.data.job.totalLog
+                        this.totalComplete=response.data.data.job.totalComplete
+                        this.totalStop=response.data.data.job.totalStop
                     }
                 })
             },

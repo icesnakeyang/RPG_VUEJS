@@ -18,6 +18,9 @@
         <FormItem :label="$t('user.password2')">
           <Input type="password" v-model="password2" :placeholder="$t('user.password2Placeholder')"/>
         </FormItem>
+        <FormItem :label="$t('user.realName')">
+          <Input v-model="realName" :placeholder="$t('user.realNameHolder')"/>
+        </FormItem>
         <FormItem>
           <Button type="primary" @click="onRegister">{{$t("user.btRegister")}}</Button>
           <Button type="text" @click="onLogin">{{$t("user.btLogin")}}</Button>
@@ -42,7 +45,8 @@
                 errMsg: '',
                 emailStr: '',
                 password: '',
-                password2: ''
+                password2: '',
+                realName: ''
             }
         },
         methods: {
@@ -80,18 +84,14 @@
                 }
                 apiRegisterByEmail({
                     email: this.emailStr,
-                    loginPassword: this.password
+                    password: this.password,
+                    realName: this.realName
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
                         let userInfo = {}
-                        if (response.data.data.realName) {
-                            userInfo.username = response.data.data.realName
-                        } else {
-                            userInfo.username = response.data.data.email
-                        }
+                        userInfo.username = response.data.data.username
                         userInfo.userId = response.data.data.userId
                         userInfo.token = response.data.data.token
-                        userInfo.roleType = response.data.data.roleType
                         this.$store.dispatch('saveToken', userInfo);
                         if (this.$store.state.toUrl) {
                             const theUrl = this.$store.state.toUrl;

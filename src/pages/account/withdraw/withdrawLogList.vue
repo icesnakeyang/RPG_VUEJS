@@ -58,11 +58,9 @@
           pageSize: this.pageSize
         }
         apiListWithdraw(params).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.withdrawLedgers = response.data.data.withdrawLedgers
             this.total = response.data.data.totalWithdrawLedger
-            console.log(this.total)
           } else {
             this.$Message.error(this.$t('syserr.' + response.data.errorCode))
           }
@@ -71,7 +69,6 @@
         })
       },
       pageChange(page){
-        console.log(page)
       }
     },
     mounted() {

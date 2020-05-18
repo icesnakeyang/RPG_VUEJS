@@ -49,7 +49,6 @@
                     password: this.formItem.password
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                      console.log(response.data.data.admin)
                         this.$store.dispatch('saveAdmin', response.data.data.admin);
 
                         if (this.$store.state.toUrl) {

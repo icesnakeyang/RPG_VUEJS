@@ -5,10 +5,10 @@
         {{job.title}}
       </a>
     </p>
-    <p>{{job.code}}</p>
-    <p>{{job.price}}</p>
-    <p>{{job.days}}</p>
-    <p>{{publishTime}}</p>
+    <p>Code: {{job.code}}</p>
+    <p>Price: {{job.price}}</p>
+    <p>Days: {{job.days}}</p>
+    <p>Publish time: {{publishTime}}</p>
   </Card>
 </template>
 
@@ -28,7 +28,6 @@
     },
     methods: {
       onDetail() {
-          console.log(this.job)
         this.$router.push({
           name: 'secretaryApplyPage',
           params: {

@@ -25,17 +25,19 @@
         },
         data() {
             return {
+                pageIndex:1,
+                pageSize:10,
                 jobs: []
             }
         },
         methods: {
             loadAllData() {
                 apiListMyPendingJob({
-                    pageIndex: 0,
-                    pageSize: 10
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.jobs = response.data.data.jobs.content
+                        this.jobs = response.data.data.jobs
                     } else {
                         this.$Message.error(this.$t("syserr." + response.data.errorCode))
                     }
