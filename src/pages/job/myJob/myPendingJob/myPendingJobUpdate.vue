@@ -1,8 +1,6 @@
 <template>
   <div>
     <Breadcrumb :style="{margin:'24px 0'}">
-      <BreadcrumbItem>asdf</BreadcrumbItem>
-      <BreadcrumbItem>aaa</BreadcrumbItem>
     </Breadcrumb>
 
     <Form :model="job" :label-width="80">
@@ -41,64 +39,64 @@
 </template>
 
 <script>
-  import {apiGetPartyAJob} from "../../../../api/api";
-  import {apiUpdatePendingJob} from "../../../../api/api";
-  import {quillEditor} from "vue-quill-editor";
+    import {apiGetPartyAJob} from "../../../../api/api";
+    import {apiUpdatePendingJob} from "../../../../api/api";
+    import {quillEditor} from "vue-quill-editor";
 
-  export default {
-    name: "myPendingJobUpdate",
-    components:{
-      quillEditor
-    },
-    data() {
-      return {
-        job: {},
-        errInput: false,
-        errMsg: '',
-        saving: false
-      }
-    },
-    methods:{
-      loadAllData(){
-        apiGetPartyAJob({
-          jobId: this.$store.state.jobId
-        }).then((response)=>{
-          if(response.data.errorCode===0){
-            this.job=response.data.data
-          }
-        }).catch(error=>{
-        })
-      },
-      onUpdate(){
-        apiUpdatePendingJob({
-          jobId:this.job.jobId,
-          title: this.job.title,
-          code: this.job.code,
-          days: this.job.days,
-          price: this.job.price,
-          jobDetail:this.job.detail
-        }).then((response)=>{
-          if(response.data.errorCode===0){
-            this.$Message.success(this.$t("job.updateTipSucess"))
-            this.$router.push({
-              name:'myPendingJobDetail',
-              params:{
-                jobId:this.job.jobId
-              }
-            })
-          }else{
-            this.$Message.error(this.$t("syserr."+response.data.errorCode))
-          }
-        }).catch(error=>{
-          this.$Message.error(this.$t("syserr.10099"))
-        })
+    export default {
+        name: "myPendingJobUpdate",
+        components: {
+            quillEditor
+        },
+        data() {
+            return {
+                job: {},
+                errInput: false,
+                errMsg: '',
+                saving: false
+            }
+        },
+        methods: {
+            loadAllData() {
+                apiGetPartyAJob({
+                    jobId: this.$store.state.jobId
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.job = response.data.data.job
+                    }
+                }).catch(error => {
+                })
+            },
+            onUpdate() {
+                apiUpdatePendingJob({
+                    jobId: this.job.jobId,
+                    title: this.job.title,
+                    code: this.job.code,
+                    days: this.job.days,
+                    price: this.job.price,
+                    jobDetail: this.job.detail
+                }).then((response) => {
+                    if (response.data.errorCode === 0) {
+                        this.$Message.success(this.$t("job.updateTipSucess"))
+                        this.$router.push({
+                            name: 'myPendingJobDetail',
+                            params: {
+                                jobId: this.job.jobId
+                            }
+                        })
+                    } else {
+                        this.$Message.error(this.$t("syserr." + response.data.errorCode))
+                    }
+                }).catch(error => {
+                    this.$Message.error(this.$t("syserr.10099"))
+                })
 
-      }
-    },
-    mounted() {
-      this.loadAllData()
+            }
+        },
+        mounted() {
+            this.loadAllData()
+        }
     }
-  }
 </script>
 
 <style scoped>
