@@ -14,7 +14,7 @@
         <p slot="title">
           {{task.title}}
         </p>
-        <div v-if="published">
+        <div v-if="isPublish">
           <Tag color="success">已发布</Tag>
         </div>
         <p>{{$t("task.code")}}:{{task.code}}</p>
@@ -69,6 +69,12 @@
             },
             pid() {
                 return this.task.pid
+            },
+            isPublish(){
+                if(this.published){
+                    return true
+                }
+                return false
             }
         },
         methods: {

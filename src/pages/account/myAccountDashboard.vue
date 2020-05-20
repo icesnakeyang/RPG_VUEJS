@@ -79,7 +79,6 @@
         methods: {
             loadAllData() {
                 apiLoadAccountBalance({}).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.income = response.data.data.accountIn
                         this.outgoing = response.data.data.accountOut

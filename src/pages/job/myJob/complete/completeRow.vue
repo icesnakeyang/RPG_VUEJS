@@ -79,7 +79,6 @@
                 }
             },
             isProcess() {
-                console.log(this.complete.processTime)
                 if (this.complete.processTime === null) {
                     return false
                 }

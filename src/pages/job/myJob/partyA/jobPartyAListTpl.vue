@@ -56,7 +56,6 @@
                 return moment(this.job.contractTime).format('YYYY-MM-DD HH:mm')
             },
             unread() {
-                console.log(this.job)
                 let cc=0
                 if (this.job && this.job.totalLogUnread) {
                     cc+= this.job.totalLogUnread

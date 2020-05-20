@@ -12,6 +12,8 @@ import baseHeader from "../pages/layout/header/baseHeader";
 import baseSider from "../pages/layout/header/baseSider";
 import homeLayout from "../pages/layout/homeLayout";
 import jobDetail from "../pages/job/myJob/detail/jobDetail";
+import taskDetail from "../pages/task/taskDetail";
+import subTaskPage from "../pages/task/subTaskPage";
 
 
 Vue.use(Router);
@@ -120,20 +122,6 @@ const router = new Router({
             }
           },
           {
-            path: 'subTaskPage',
-            name: 'subTaskPage',
-            components: {
-              head: baseHeader,
-              sider: baseSider,
-              content: () => import('@/pages/task/subTaskPage'),
-              footer: footerBar
-            },
-            meta: {
-              title: 'subTaskPage',
-              token: false
-            }
-          },
-          {
             path: 'taskFreelancer',
             name: 'taskFreelancer',
             components: {
@@ -208,7 +196,7 @@ const router = new Router({
             name: 'jobDetail',
             components: {
               head: baseHeader,
-              sider:baseSider,
+              sider: baseSider,
               content: () => import('@/pages/job/myJob/detail/jobDetail'),
               footerBar: footerBar
             },
@@ -604,6 +592,16 @@ const router = new Router({
               content: () => import('../pages/account/withdraw/withdrawLogList'),
               footer: footerBar
             }
+          },
+          {
+            path: 'subTaskPage',
+            name: 'subTaskPage',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: subTaskPage,
+              footer: footerBar
+            }
           }
         ]
       },
@@ -643,13 +641,13 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: ()=>import('../pages/admin/withdraw/userWithdrawApply'),
+              content: () => import('../pages/admin/withdraw/userWithdrawApply'),
               footerBar: footerBar
             }
           }
         ],
 
-      }
+      },
     ]
   })
 ;

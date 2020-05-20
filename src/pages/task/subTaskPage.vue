@@ -14,11 +14,11 @@
           <Button type="primary" long @click="addTask" icon="md-add">{{$t('task.addSubTaskTitle')}}</Button>
         </FormItem>
       </Form>
-      <CellGroup v-for="(row, index) in tasks" :key="index">
-        <Cell>
-          <span @click="onTask(row)">{{row.title}}</span>
-        </Cell>
-      </CellGroup>
+
+      <Card>
+        <p slot="title">{{$t('task.subTask')}}</p>
+        <Tree :data="tasks" @on-select-change="onSubTask"></Tree>
+      </Card>
     </Content>
   </div>
 </template>
@@ -36,7 +36,8 @@
                 pTask: {},
                 tasks: [],
                 taskTitle: '',
-                pList: []
+                pList: [],
+                data5:
             }
         },
         methods: {
@@ -54,7 +55,7 @@
                     pid: this.$store.state.taskId
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.tasks = response.data.data.task
+                        this.tasks = response.data.data.tasks
                     } else {
                         this.$Message.error(this.$t("syserr." + response.data.errorCode))
                     }
@@ -81,7 +82,8 @@
                     code: this.pTask.code
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
-                        this.loadSubTaskList()
+                        // this.loadSubTaskList()
+                        this.loadAllData()
                     } else {
                         this.$Message.error(this.$t("syserr." + response.data.errorCode))
                     }
@@ -113,6 +115,16 @@
                     name: 'taskDetail',
                     params: {
                         taskId: data
+                    }
+                })
+            },
+
+            onSubTask(e) {
+                const taskId = e[0].taskId
+                this.$router.push({
+                    name: 'taskDetail',
+                    params: {
+                        taskId
                     }
                 })
             }

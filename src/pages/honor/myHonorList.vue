@@ -63,7 +63,6 @@
                     pageIndex: this.pageIndex,
                     pageSize: this.pageSize
                 }).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.honorList = response.data.data.honors
                         this.totalHonors = response.data.data.totalHonors

@@ -61,7 +61,6 @@
                     pageSize: this.pageSize
                 }
                 apiListMyAccount(params).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.data5 = response.data.data.accounts
                         this.totalAccounts = response.data.data.totalAccounts
@@ -79,7 +78,6 @@
             },
 
             onPageChange(pageIndex){
-                console.log(pageIndex)
             }
         },
         mounted() {

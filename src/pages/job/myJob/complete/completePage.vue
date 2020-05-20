@@ -120,7 +120,6 @@
                     pageIndex: this.pageIndex,
                     pageSize: this.pageSize
                 }).then((response) => {
-                    console.log(response)
                     if (response.data.errorCode === 0) {
                         this.jobCompleteList = response.data.data
                     }

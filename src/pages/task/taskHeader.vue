@@ -43,7 +43,7 @@
       },
       onSubTask() {
         this.$router.push({
-          name: 'subTaskPage',
+          path: 'subTaskPage',
           params: {
             taskId: this.$store.state.taskId
           }
