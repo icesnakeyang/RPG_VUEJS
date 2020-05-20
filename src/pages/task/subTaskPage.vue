@@ -17,7 +17,7 @@
 
       <Card>
         <p slot="title">{{$t('task.subTask')}}</p>
-        <Tree :data="data5" @on-select-change="onSubTask"></Tree>
+        <Tree :data="tasks" @on-select-change="onSubTask"></Tree>
       </Card>
     </Content>
   </div>
