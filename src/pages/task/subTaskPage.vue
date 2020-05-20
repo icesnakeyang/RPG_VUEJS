@@ -17,7 +17,7 @@
 
       <Card>
         <p slot="title">{{$t('task.subTask')}}</p>
-        <Tree :data="tasks" @on-select-change="onSubTask"></Tree>
+        <Tree :data="data5" @on-select-change="onSubTask"></Tree>
       </Card>
     </Content>
   </div>
@@ -37,7 +37,62 @@
                 tasks: [],
                 taskTitle: '',
                 pList: [],
-                data5:
+                data5:[
+                    {
+                        title: 'parent 1',
+                        expand: true,
+                        children: [
+                            {
+                                title: '开发rpg任务——10 已发布',
+                                expand: true,
+                                render:(h, {root, node, data})=>{
+                                  return h('span', {
+                                      style:{
+                                          display:'inline-block',
+                                          width:'100%'
+                                      }
+                                  }, [
+                                      h('span', [
+                                          h('Icon', {
+                                              props:{
+                                                  type:'ios-folder-outline'
+                                              },
+                                              style:{
+                                                  marginRight:'8px'
+                                              }
+                                          }),
+                                          h('span', data.title)
+                                      ])
+                                  ])
+                                },
+                                children: [
+                                    {
+                                        title: 'leaf 1-1-1',
+                                        expand: true
+                                    },
+                                    {
+                                        title: 'leaf 1-1-2',
+                                        expand: true
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'child 1-2',
+                                expand: true,
+                                children: [
+                                    {
+                                        title: 'leaf 1-2-1',
+                                        expand: true
+                                    },
+                                    {
+                                        title: 'leaf 1-2-1',
+                                        expand: true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         methods: {
