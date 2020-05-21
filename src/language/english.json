@@ -323,6 +323,9 @@
     "10040": "Sorry, you don't have the RPG secretary authority",
     "30005": "You only can delete job that nobody applied",
     "30014": "Sorry, you don't have authority to create this log",
-    "30015": "Sorry, we didn't find the complete log for this job"
+    "30015": "Sorry, we didn't find the complete log for this job",
+    "30016":"The job now is not in progress status",
+    "30017": "Someone is applying this job now, cannot change",
+    "30018": "The job status cannot be changed in this time"
   }
 }
