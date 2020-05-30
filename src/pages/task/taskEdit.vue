@@ -43,69 +43,73 @@
 </template>
 
 <script>
-    import {apiGetTaskDetailByTaskId} from "../../api/api";
-    import {apiUpdateTask} from "../../api/api";
-    import {quillEditor} from "vue-quill-editor";
-    import {ImageResize} from 'quill-image-resize-module'
+  import {apiGetTaskDetailByTaskId} from "../../api/api";
+  import {apiUpdateTask} from "../../api/api";
+  import {quillEditor} from "vue-quill-editor";
+  import {ImageResize} from 'quill-image-resize-module'
 
-    export default {
-        name: "taskEdit",
-        components: {
-            quillEditor
-        },
-        data() {
-            return {
-                task: {},
-                price:0,
-                days:1,
-                errInput: false,
-                errMsg: false,
-                saving: false,
-                editorOption: {
-                    modules: {
-                        imageResize: true
-                    }
-                }
-            }
-        },
-        methods: {
-            loadAllData() {
-                apiGetTaskDetailByTaskId({
-                    taskId: this.$store.state.taskId
-                }).then((response) => {
-                    this.task = response.data.data.task;
-                    this.price=response.data.data.task.price
-                    this.days=response.data.data.task.days
-                })
-            },
-            clickUpdate() {
-                apiUpdateTask({
-                    taskId: this.$store.state.taskId,
-                    title: this.task.title,
-                    detail: this.task.detail,
-                    days: this.days,
-                    code: this.task.code,
-                    price: this.price
-                }).then((response) => {
-                    if (response.data.errorCode === 0) {
-                        this.$router.push({
-                            name: 'taskDetail',
-                            params: {
-                                taskId: this.$route.params.taskId
-                            }
-                        })
-                    } else {
-                        this.errInput = true;
-                        this.errMsg = this.$t("task.err1")
-                    }
-                })
-
-            }
-        },
-        created() {
-            this.loadAllData()
+  export default {
+    name: "taskEdit",
+    components: {
+      quillEditor
+    },
+    data() {
+      return {
+        task: {},
+        price: 0,
+        days: 1,
+        errInput: false,
+        errMsg: false,
+        saving: false,
+        editorOption: {
+          modules: {
+            imageResize: true
+          }
         }
+      }
+    },
+    methods: {
+      loadAllData() {
+        apiGetTaskDetailByTaskId({
+          taskId: this.$store.state.taskId
+        }).then((response) => {
+          this.task = response.data.data.task;
+          this.price = response.data.data.task.price
+          this.days = response.data.data.task.days
+        })
+      },
+      clickUpdate() {
+        this.saving=true
+
+        apiUpdateTask({
+          taskId: this.$store.state.taskId,
+          title: this.task.title,
+          detail: this.task.detail,
+          days: this.days,
+          code: this.task.code,
+          price: this.price
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.saving=false
+            this.$router.push({
+              name: 'taskDetail',
+              params: {
+                taskId: this.$route.params.taskId
+              }
+            })
+          } else {
+            this.errInput = true;
+            this.errMsg = this.$t("task.err1")
+            this.saving=false
+          }
+        })
+
+      }
+    },
+    created() {
+      this.loadAllData()
     }
+  }
 </script>
 
 <style scoped>
