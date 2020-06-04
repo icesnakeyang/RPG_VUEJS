@@ -51,12 +51,9 @@
                     if (response.data.errorCode === 0) {
                         this.$store.dispatch('saveAdmin', response.data.data.admin);
 
-                        if (this.$store.state.toUrl) {
-                            const theUrl = this.$store.state.toUrl;
-                            this.$store.dispatch('saveToUrl', '');
+                        if (response.data.data.admin.roleType==='ROOT_ADMIN') {
                             this.$router.push({
-                                name: theUrl.name,
-                                params: theUrl.params
+                                name: 'adminDashboard'
                             })
                         } else {
                             this.$router.push({

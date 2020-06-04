@@ -23,12 +23,16 @@
         userActionLogList: [],
         cols: [
           {
-            title: this.$t('admin.userActionLog.logId'),
-            key: 'userActionLogId',
-          },
-          {
             title: this.$t('admin.userActionLog.userId'),
             key: 'userId',
+          },
+          {
+            title: this.$t('admin.userActionLog.userName'),
+            key: 'realName'
+          },
+          {
+            title: this.$t('admin.userActionLog.actType'),
+            key: 'actType'
           },
           {
             title: this.$t('admin.userActionLog.createTime'),
@@ -39,6 +43,22 @@
                 h('span', moment(params.row.createTime).format('YYYY-MM-DD HH:mm'))
               ]);
             }
+          },
+          {
+            title: this.$t('admin.userActionLog.result'),
+            key: 'result'
+          },
+          {
+            title: this.$t('admin.userActionLog.jobTitle'),
+            key: 'jobTitle'
+          },
+          {
+            title: this.$t('admin.userActionLog.ip'),
+            key: 'ip'
+          },
+          {
+            title: this.$t('admin.userActionLog.city'),
+            key: 'cityName'
           },
           {
             title: this.$t('admin.userActionLog.memo'),
@@ -56,6 +76,7 @@
           pageSize: this.pageSize
         }
         apiListUserActionLog(params).then((response) => {
+          console.log(response)
           if (response.data.errorCode === 0) {
             this.userActionLogList = response.data.data.userActionLogs
             this.totalData = response.data.data.totalUserActionLog

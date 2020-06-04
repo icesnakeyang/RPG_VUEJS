@@ -47,6 +47,9 @@
         if (this.$store.state.roleType === 'ADMINISTRATOR') {
           return true
         }
+        if(this.$store.state.roleType==='ROOT_ADMIN'){
+          return true
+        }
         return false
       },
       isSecretary() {

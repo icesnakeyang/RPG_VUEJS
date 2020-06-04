@@ -14,6 +14,7 @@ import homeLayout from "../pages/layout/homeLayout";
 import jobDetail from "../pages/job/myJob/detail/jobDetail";
 import taskDetail from "../pages/task/taskDetail";
 import subTaskPage from "../pages/task/subTaskPage";
+import adminDashboard from "../pages/admin/adminDashboard";
 
 
 Vue.use(Router);
@@ -642,6 +643,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: () => import('../pages/admin/withdraw/userWithdrawApply'),
+              footerBar: footerBar
+            }
+          },
+          {
+            path: 'adminDashboard',
+            name: 'adminDashboard',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: adminDashboard,
               footerBar: footerBar
             }
           }

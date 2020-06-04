@@ -23,14 +23,19 @@
     },
     data() {
       return {
-        job: {}
+        job: {},
+        ip:'',
+        cityName:''
       }
     },
     methods: {
       loadAllData() {
-        apiGetPublicJobDetail({
-          jobId: this.$store.state.jobId
-        }).then((response) => {
+        const params={
+          ip:this.ip,
+          cityName:this.cityName,
+          jobId:this.$store.state.jobId
+        }
+        apiGetPublicJobDetail(params).then((response) => {
           if (response.data.errorCode === 0) {
             this.job = response.data.data.job
           } else {
@@ -45,12 +50,17 @@
             jobId: this.$store.state.jobId
           }
         })
-      }
+      },
     },
+
     mounted() {
       if (this.$route.params.jobId) {
         this.$store.dispatch('saveJobId', this.$route.params.jobId)
       }
+      const ip = localStorage.getItem('Ip')
+      const cityName = localStorage.getItem('cityname')
+      this.ip=ip
+      this.cityName=cityName
       this.loadAllData()
     }
   }

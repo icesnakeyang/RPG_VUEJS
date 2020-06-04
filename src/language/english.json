@@ -256,7 +256,12 @@
       "userId": "User Id",
       "createTime": "Create Time",
       "actType": "Action Type",
-      "memo": "Memo"
+      "memo": "Memo",
+      "result": "Result",
+      "jobTitle": "Job Title",
+      "userName": "User Name",
+      "ip": "IP From",
+      "city": "City From"
     }
   },
   "account": {

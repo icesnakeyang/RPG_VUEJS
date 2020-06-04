@@ -259,7 +259,12 @@
       "userId": "用户Id",
       "createTime": "时间",
       "actType": "行为",
-      "memo": "行为内容"
+      "memo": "行为内容",
+      "result": "结果",
+      "jobTitle": "任务名称",
+      "userName": "用户姓名",
+      "ip": "访问自IP地址",
+      "city": "访问来源城市"
     }
   },
   "account": {
