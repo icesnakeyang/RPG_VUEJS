@@ -5,44 +5,54 @@
     </Breadcrumb>
     <Content class="gogo_content">
       <JobListCard v-for="(item, index) in jobs" :key="index" :job="item" style="margin-top: 10px"></JobListCard>
+      <div style="margin-top: 20px">
+        <Page :total="totalJobPages" @on-change="onJobPage"/>
+      </div>
     </Content>
   </div>
 </template>
 
 <script>
-    import {apiListPublicJob} from "../../../api/api";
-    import JobListCard from './jobListCard'
+  import {apiListPublicJob} from "../../../api/api";
+  import JobListCard from './jobListCard'
 
-    export default {
-        name: "publicJobPage",
-        components: {
-            JobListCard
-        },
-        data() {
-            return {
-                pageIndex: 1,
-                pageSize: 10,
-                jobs: []
-            }
-        },
-        methods: {
-            loadAllData() {
-                apiListPublicJob({
-                    pageIndex: this.pageIndex,
-                    pageSize: this.pageSize
-                }).then((response) => {
-                    if (response.data.errorCode === 0) {
-                        this.jobs = response.data.data.jobs
-                    } else {
-                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-                    }
-                })
-            }
-        },
-        mounted() {
-            this.loadAllData()
-        }
+  export default {
+    name: "publicJobPage",
+    components: {
+      JobListCard
+    },
+    data() {
+      return {
+        pageIndex: 1,
+        pageSize: 10,
+        jobs: [],
+        totalJobPages: 0
+      }
+    },
+    methods: {
+      loadAllData() {
+        apiListPublicJob({
+          pageIndex: this.pageIndex,
+          pageSize: this.pageSize
+        }).then((response) => {
+          if (response.data.errorCode === 0) {
+            this.jobs = response.data.data.jobs
+            this.totalJobPages = response.data.data.totalJobPages
+          } else {
+            this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+          }
+        })
+      },
+
+      onJobPage(e) {
+        this.pageIndex = e
+        this.loadAllData()
+      }
+    },
+    mounted() {
+      this.loadAllData()
     }
+  }
 </script>
 
 <style scoped>
