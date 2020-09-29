@@ -7,12 +7,6 @@
       <Col :xs="2" :sm="2" :md="2" :lg="2">
         <a herf="" style="color: azure" class="gogo-title" @click="clickRPG">RPG2</a>
       </Col>
-      <Col :xs="3" :sm="2" :md="2" :lg="2">
-        <span class="gogo-title"> sdfadf </span>
-        <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px',color:'azure'}"
-              type="md-menu"
-              size="24"></Icon>
-      </Col>
       <Col :xs="2" :sm="1" :md="1" :lg="2">
         <Button color="#fff" icon="md-add" size="small" @click="createTask">
         </Button>

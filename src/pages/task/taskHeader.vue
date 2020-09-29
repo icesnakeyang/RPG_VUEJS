@@ -65,10 +65,14 @@
         });
       },
       deleteTask(){
+        console.log(this.$store.state.taskId)
+        console.log(this.taskId)
         const pid=this.pid
-        apiDeleteTask({
-          taskId:this.taskId
-        }).then((response)=>{
+        const params={
+          taskId:this.$store.state.taskId
+        }
+        console.log(params)
+        apiDeleteTask(params).then((response)=>{
           if(response.data.errorCode===0){
             if(pid){
               this.$router.push({
@@ -90,6 +94,7 @@
     },
     mounted() {
       this.taskId = this.$store.state.taskId
+      console.log(this.taskId)
     }
   }
 </script>

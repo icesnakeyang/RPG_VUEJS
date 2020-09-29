@@ -176,6 +176,7 @@
 
             onSubTask(e) {
                 const taskId = e[0].taskId
+              console.log(taskId)
                 this.$router.push({
                     name: 'taskDetail',
                     params: {
