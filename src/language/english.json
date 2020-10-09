@@ -331,6 +331,7 @@
     "30015": "Sorry, we didn't find the complete log for this job",
     "30016":"The job now is not in progress status",
     "30017": "Someone is applying this job now, cannot change",
-    "30018": "The job status cannot be changed in this time"
+    "30018": "The job status cannot be changed in this time",
+    "30019": "Network error"
   }
 }

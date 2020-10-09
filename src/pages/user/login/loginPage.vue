@@ -63,6 +63,9 @@
                     } else {
                         this.$Message.error(this.$t('syserr.' + response.data.errorCode))
                     }
+                }).catch((error)=>{
+                  console.log('网络错误')
+                  this.$Message.error(this.$t('syserr.30019'))
                 })
             },
 
