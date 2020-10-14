@@ -22,6 +22,7 @@
 
 <script>
   import {quillEditor} from 'vue-quill-editor'
+  import moment from 'moment'
 
   export default {
     name: "jobDetailCard",
@@ -42,10 +43,8 @@
     ],
     computed: {
       createdTime() {
-        var timestamp3 = this.job.createdTime;
-        var newDate = new Date();
-        newDate.setTime(timestamp3);
-        return newDate.toLocaleString()
+        let time=moment(this.job.createdTime).format("YYYY-MM-DD HH:mm")
+        return time
       }
     }
   }

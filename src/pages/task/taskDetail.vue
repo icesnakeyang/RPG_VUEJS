@@ -36,6 +36,7 @@
   import {quillEditor} from 'vue-quill-editor'
   import TaskHeader from './taskHeader';
   import {apiGetTaskDetailByTaskId} from "../../api/api";
+  import moment from 'moment'
 
   export default {
     name: "taskDetail",
@@ -63,10 +64,8 @@
     },
     computed: {
       createdTime() {
-        var timestamp3 = this.task.createdTime;
-        var newDate = new Date();
-        newDate.setTime(timestamp3);
-        return newDate.toLocaleString()
+        const time = moment(this.task.createdTime).format("YYYY-MM-DD HH:mm")
+        return time
       },
       pid() {
         return this.task.pid
