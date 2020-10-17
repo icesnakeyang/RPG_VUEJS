@@ -6,6 +6,7 @@
         {{ log.createdUserName }}
       </span>
         <span class="card_head_view_right">
+          <a @click="btEditLog"><Icon type="md-create" size="20"/></a>
           <a @click="btDetele" style="color:#1d1d1d"><Icon type="ios-trash" size="20"/></a>
       </span>
       </div>
@@ -59,6 +60,19 @@
       }
     },
     methods: {
+      btEditLog(){
+        if(this.log.readTime){
+          //对方已查看的任务，不能修改了
+          this.$Message.show(this.$t('job.log.tip4'))
+          return
+        }
+        this.$router.push({
+          name:'editJobLog',
+          params:{
+            jobLogId:this.log.jobLogId
+          }
+        })
+      },
       btDetele() {
         if (this.log.readTime) {
           //对方已查看的任务，不能删除了

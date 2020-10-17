@@ -15,6 +15,7 @@ import jobDetail from "../pages/job/myJob/detail/jobDetail";
 import taskDetail from "../pages/task/taskDetail";
 import subTaskPage from "../pages/task/subTaskPage";
 import adminDashboard from "../pages/admin/adminDashboard";
+import editJobLog from "../pages/job/myJob/jobLog/editJobLog";
 
 
 Vue.use(Router);
@@ -601,6 +602,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: subTaskPage,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'editJobLog',
+            name: 'editJobLog',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: editJobLog,
               footer: footerBar
             }
           }

@@ -203,7 +203,8 @@
       "tipConfirmDeteleLog": "Confirm to delete this log？",
       "tip1": "You only can delete unread log",
       "tip2": "Delete log successful",
-      "tip3": "Delete log faild"
+      "tip3": "Delete log faild",
+      "tip4": "The log has been read already, cannot edit anymore"
     },
     "jobComplete": {
       "content": "Complete description",
