@@ -530,6 +530,14 @@ export const apiListUserWithdrawApplys = params => {
   })
 }
 
+export const apiDeleteJobLog = params => {
+  return axios.post(`${host}/rpgapi/job/common/deleteJobLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

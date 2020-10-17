@@ -7,9 +7,11 @@
       <Button type="info" @click="onCreateJobLog" class="card">
         {{$t("job.tbCreateLog")}}
       </Button>
+      <Button type="error" @click="onRefreshData">刷新页面</Button>
       <JobLogRow v-for="log in jobLogList"
                  v-bind:key="log.jobLogId"
                  v-bind:log="log"
+                 @onRefreshData="onRefreshData"
       ></JobLogRow>
     </Content>
   </div>
@@ -61,7 +63,11 @@
                         jobId: this.$store.state.jobId
                     }
                 })
-            }
+            },
+
+          onRefreshData(){
+              this.loadAllData()
+          }
         },
         mounted() {
             this.loadAllData()

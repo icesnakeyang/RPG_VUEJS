@@ -336,6 +336,9 @@
     "30016":"The job now is not in progress status",
     "30017": "Someone is applying this job now, cannot change",
     "30018": "The job status cannot be changed in this time",
-    "30019": "Network error"
+    "30019": "Network error",
+    "30020": "The job log is not exist",
+    "30021": "The los has been read by other party，cannot delete",
+    "30022": "You only can delete the log created by yourself"
   }
 }
