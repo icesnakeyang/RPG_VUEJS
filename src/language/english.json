@@ -199,7 +199,11 @@
       "btCreate": "Create",
       "createdTime": "Created Time",
       "readTime": "Read Time",
-      "contentHolder": "Please input job log content here"
+      "contentHolder": "Please input job log content here",
+      "tipConfirmDeteleLog": "Confirm to delete this log？",
+      "tip1": "You only can delete unread log",
+      "tip2": "Delete log successful",
+      "tip3": "Delete log faild"
     },
     "jobComplete": {
       "content": "Complete description",

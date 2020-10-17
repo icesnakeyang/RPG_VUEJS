@@ -202,7 +202,11 @@
       "btCreate": "创建日志",
       "createdTime": "创建时间",
       "readTime": "对方阅读时间",
-      "contentHolder": "请输入日志内容"
+      "contentHolder": "请输入日志内容",
+      "tipConfirmDeteleLog": "确认要删除该日志吗？",
+      "tip1": "日志对方已阅读，不能删除",
+      "tip2": "日志删除成功",
+      "tip3": "日志删除失败"
     },
     "jobComplete": {
       "content": "完成说明",

@@ -3,6 +3,7 @@
     <Card class="card">
       <p slot="title">
         {{log.createdUserName}}
+        <Button type="error" @click="btDetele">删除</Button>
       </p>
       <p>{{$t("job.log.createdTime")}}: {{createdTime}}</p>
       <p v-if="readTime">{{$t("job.log.readTime")}}: {{readTime}}</p>
@@ -50,6 +51,29 @@
       },
       unRead() {
         return this.$t('common.unRead')
+      }
+    },
+    methods:{
+      btDetele(){
+        console.log('detete')
+        console.log(this.log)
+        if(this.log.readTime){
+          //对方已查看的任务，不能删除了
+          this.$Message.show(this.$t('job.log.tip1'))
+        }else{
+          console.log('真的要删除了')
+          this.$Modal.confirm({
+            title: this.$t('common.tipTitleQuestion'),
+            content: this.$t('job.log.tipConfirmDeteleLog'),
+            onOk: () => {
+              this.$Message.info('Clicked ok');
+              console.log(this.log.jobLogId)
+            },
+            onCancel: () => {
+              this.$Message.info('Clicked cancel');
+            }
+          });
+        }
       }
     }
   }
