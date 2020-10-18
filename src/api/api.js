@@ -538,6 +538,22 @@ export const apiDeleteJobLog = params => {
   })
 }
 
+export const apiGetJobLog = params => {
+  return axios.post(`${host}/rpgapi/job/common/getJobLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiUpdateMyJobLog = params => {
+  return axios.post(`${host}/rpgapi/job/log/updateMyJobLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

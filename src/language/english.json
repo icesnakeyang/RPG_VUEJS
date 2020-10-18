@@ -55,6 +55,7 @@
     "jobLogCreate": "Create Job Log",
     "jobComplete": "Complete",
     "jobCompleteCreate": "Create Complete",
+    "jobLogUpdate": "Update Job Log",
     "userActionLog": "User Action",
     "userActionLogStatistic": "Dashboard",
     "userActionLogList": "User Action List",
@@ -204,7 +205,9 @@
       "tip1": "You only can delete unread log",
       "tip2": "Delete log successful",
       "tip3": "Delete log faild",
-      "tip4": "The log has been read already, cannot edit anymore"
+      "tip4": "The log has been read already, cannot edit anymore",
+      "btUpdate": "Update",
+      "tip5": "Update job log successful"
     },
     "jobComplete": {
       "content": "Complete description",
@@ -340,6 +343,8 @@
     "30019": "Network error",
     "30020": "The job log is not exist",
     "30021": "The los has been read by other party，cannot delete",
-    "30022": "You only can delete the log created by yourself"
+    "30022": "You only can delete the log created by yourself",
+    "30023": "You cannot update the job log that does not create by yourself",
+    "30024": "You cannot update the job log that has been read already by other party"
   }
 }
