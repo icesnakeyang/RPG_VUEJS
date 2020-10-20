@@ -35,7 +35,6 @@
           pageIndex: this.pageIndex,
           pageSize: this.pageSize
         }).then((response) => {
-          console.log(response)
           if (response.data.errorCode === 0) {
             this.tasks = response.data.data.tasks;
             this.totalTasks = response.data.data.totalTasks

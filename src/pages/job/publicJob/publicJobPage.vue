@@ -6,7 +6,7 @@
     <Content class="gogo_content">
       <JobListCard v-for="(item, index) in jobs" :key="index" :job="item" style="margin-top: 10px"></JobListCard>
       <div style="margin-top: 20px">
-        <Page :total="totalJobPages" @on-change="onJobPage"/>
+        <Page :total="totalJobs" @on-change="onJobPage"/>
       </div>
     </Content>
   </div>
@@ -26,7 +26,8 @@
         pageIndex: 1,
         pageSize: 10,
         jobs: [],
-        totalJobPages: 0
+        totalJobPages: 0,
+        totalJobs:0
       }
     },
     methods: {
@@ -37,7 +38,7 @@
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.jobs = response.data.data.jobs
-            this.totalJobPages = response.data.data.totalJobPages
+            this.totalJobs = response.data.data.totalJobs
           } else {
             this.$Message.error(this.$t('syserr.' + response.data.errorCode))
           }
