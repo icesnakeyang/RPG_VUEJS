@@ -28,8 +28,7 @@
 </template>
 
 <script>
-
-    import {rpgFunc} from "../../../common/rpgfun";
+    import moment from "moment";
 
     export default {
         name: "jobListCard",
@@ -38,7 +37,7 @@
         ],
         computed: {
             createdTime() {
-                return rpgFunc.formatTime(this.job.createdTime);
+                return moment(this.job.createdTime).format('YYYY-MM-DD HH:mm');
             }
         },
         methods: {
