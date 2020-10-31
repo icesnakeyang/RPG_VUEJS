@@ -10,7 +10,10 @@
       "reject": "拒绝",
       "agree": "通过",
       "matching": "等待匹配",
-      "PENDING": "等待处理"
+      "PENDING": "等待处理",
+      "PROGRESS": "进行中",
+      "COMPLETE": "已完成",
+      "ACCEPTED": "已验收"
     },
     "error": "抱歉，请稍后重试！"
   },
@@ -30,6 +33,7 @@
     "myProfile": "我的信息",
     "myAccount": "我的账户",
     "myHonor": "我的荣誉",
+    "myTeam": "我的团队",
     "administrator": "RPG管理员",
     "secretary": "RPG秘书",
     "matchJob": "匹配任务",
@@ -62,7 +66,8 @@
     "userActionLogList": "用户行为记录",
     "myWithdrawList": "我的取现记录",
     "userWithdraw": "用户取现",
-    "userWithdrawApply": "用户取现申请"
+    "userWithdrawApply": "用户取现申请",
+    "createTeam": "创建团队"
   },
   "user": {
     "username": "登录名",
@@ -292,6 +297,14 @@
     "status": "状态",
     "balance": "账户余额"
   },
+  "team": {
+    "teamName": "团队名称",
+    "description": "团队介绍",
+    "btCreate": "创建团队",
+    "tip1": "创建团队成功",
+    "errName": "请输入团队名称",
+    "errDescription": "请描述团队信息"
+  },
   "syserr": {
     "10024": "用户名或密码错误",
     "10031": "读取私有任务失败",
@@ -340,7 +353,7 @@
     "30005": "只能删除等待匹配的任务",
     "30014": "您没有创建任务日志的权限",
     "30015": "没有查找到该任务的验收申请日志",
-    "30016":"只能验收通过进行中的任务",
+    "30016":"只能验收通过进行中或者已完成的任务",
     "30017": "该任务已经有人申请了，不能修改了",
     "30018": "该任务不是等待申请状态，不能修改",
     "30019": "网络错误",

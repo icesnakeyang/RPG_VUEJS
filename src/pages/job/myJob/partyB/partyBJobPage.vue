@@ -4,6 +4,10 @@
       <BreadcrumbItem>{{$t('navigator.partyB')}}</BreadcrumbItem>
     </Breadcrumb>
     <Content class="gogo_content">
+      <Card>
+        <Tag checkable color="primary" @on-change="onProgressStatus">{{ $t('common.status.PROGRESS') }}</Tag>
+        <Tag checkable color="success" @on-change="onCompleteStatus">{{ $t('common.status.COMPLETE') }}</Tag>
+      </Card>
       <JobPartyBListTpl v-for="job in jobList"
                         v-bind:key="job.jobId"
                         v-bind:job="job"
@@ -29,14 +33,19 @@
         pageIndex: 1,
         pageSize: 10,
         jobList: [],
-        totalJobs: 0
+        totalJobs: 0,
+        jobStatus: [
+          'PROGRESS',
+          'COMPLETE'
+        ]
       }
     },
     methods: {
       loadAllData() {
         apiListMyPartyBJob({
           pageIndex: this.pageIndex,
-          pageSize: this.pageSize
+          pageSize: this.pageSize,
+          statusList: this.jobStatus
         }).then((response) => {
           if (response.data.errorCode === 0) {
             this.jobList = response.data.data.jobList
@@ -46,6 +55,26 @@
       },
       onJobPage(e) {
         this.pageIndex = e
+        this.loadAllData()
+      },
+
+      onCompleteStatus(e) {
+        if (e) {
+          this.jobStatus.push('COMPLETE')
+        } else {
+          let index = this.jobStatus.indexOf('COMPLETE')
+          this.jobStatus.splice(index, 1)
+        }
+        this.loadAllData()
+      },
+
+      onProgressStatus(e) {
+        if (e) {
+          this.jobStatus.push('PROGRESS')
+        } else {
+          let index = this.jobStatus.indexOf('PROGRESS')
+          this.jobStatus.splice(index, 1)
+        }
         this.loadAllData()
       }
     },

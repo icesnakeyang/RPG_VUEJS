@@ -19,13 +19,15 @@ export default new Vuex.Store({
     jobId: '' || localStorage.jobId,
     userId: '' || localStorage.userId,
     spotId: '' || localStorage.spotId,
-    applyId: '' || localStorage.applyId
+    applyId: '' || localStorage.applyId,
+
+    teamId: '' || localStorage.teamId
   },
   actions: {
     saveToken(ctx, user) {
       ctx.commit('saveToken', user)
     },
-    saveRealName(ctx, realName){
+    saveRealName(ctx, realName) {
       ctx.commit('saveRealName', realName)
     },
     logout(ctx) {
@@ -57,6 +59,9 @@ export default new Vuex.Store({
     },
     saveApplyId(ctx, applyId) {
       ctx.commit('saveApplyId', applyId)
+    },
+    saveTeamId(ctx, teamId) {
+      ctx.commit('saveTeamId', teamId)
     }
   },
   mutations: {
@@ -76,11 +81,11 @@ export default new Vuex.Store({
       state.userId = user.userId;
       localStorage.userId = user.userId;
     },
-    saveRealName(state, realName){
-      state.realName=realName
-      localStorage.realName=realName
-      state.username=realName
-      localStorage.username=realName
+    saveRealName(state, realName) {
+      state.realName = realName
+      localStorage.realName = realName
+      state.username = realName
+      localStorage.username = realName
     },
     logout(state) {
       state.token = '';
@@ -132,6 +137,10 @@ export default new Vuex.Store({
     saveApplyId(state, applyId) {
       state.applyId = applyId
       localStorage.applyId = applyId
+    },
+    saveTeamId(state, teamId) {
+      state.teamId = teamId
+      localStorage.teamId = teamId
     },
     clearAll(state) {
       state.token = ''

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-let host = 'https://gogorpg.com';
-// let host = 'http://localhost:9527';
+// let host = 'https://gogorpg.com';
+let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -548,6 +548,22 @@ export const apiGetJobLog = params => {
 
 export const apiUpdateMyJobLog = params => {
   return axios.post(`${host}/rpgapi/job/log/updateMyJobLog`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiCreateTeam = params => {
+  return axios.post(`${host}/rpgapi/team/createTeam`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiListMyTeam = params => {
+  return axios.post(`${host}/rpgapi/team/listMyTeam`, params, {
     headers: {
       token: store.state.token
     }

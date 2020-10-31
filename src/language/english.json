@@ -10,7 +10,10 @@
       "reject": "Reject",
       "agree": "Agree",
       "matching": "Matching",
-      "PENDING": "Pending"
+      "PENDING": "Pending",
+      "PROGRESS": "PROGRESS",
+      "COMPLETE": "COMPLETE",
+      "ACCEPTED": "ACCEPTED"
     }
   },
   "navigator": {
@@ -29,6 +32,7 @@
     "myProfile": "Profile",
     "myAccount": "Account",
     "myHonor": "Honor",
+    "myTeam": "My Team",
     "administrator": "Administrator",
     "secretary": "Secretary",
     "matchJob": "Match",
@@ -61,7 +65,8 @@
     "userActionLogList": "User Action List",
     "myWithdrawList": "Withdraw List",
     "userWithdraw": "User Withdraw",
-    "userWithdrawApply": "User Withdraw apply"
+    "userWithdrawApply": "User Withdraw apply",
+    "createTeam": "Create Team"
   },
   "user": {
     "username": "Login name",
@@ -289,6 +294,14 @@
     "status": "Status",
     "balance": "Balance"
   },
+  "team": {
+    "teamName": "Team Name",
+    "description": "Description",
+    "btCreate": "Create Team",
+    "tip1": "Create team successful",
+    "errName": "Please input team name",
+    "errDescription": "Please describe the team"
+  },
   "syserr": {
     "10024": "Username or password error",
     "10031": "Read task failed",
@@ -337,7 +350,7 @@
     "30005": "You only can delete job that nobody applied",
     "30014": "Sorry, you don't have authority to create this log",
     "30015": "Sorry, we didn't find the complete log for this job",
-    "30016":"The job now is not in progress status",
+    "30016":"The job now is not in progress or complete status",
     "30017": "Someone is applying this job now, cannot change",
     "30018": "The job status cannot be changed in this time",
     "30019": "Network error",

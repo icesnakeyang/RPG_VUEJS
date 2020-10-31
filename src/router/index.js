@@ -16,6 +16,9 @@ import taskDetail from "../pages/task/taskDetail";
 import subTaskPage from "../pages/task/subTaskPage";
 import adminDashboard from "../pages/admin/adminDashboard";
 import editJobLog from "../pages/job/myJob/jobLog/editJobLog";
+import createTeam from "../pages/team/createTeam";
+import teamList from "../pages/team/teamList";
+import teamProfile from "../pages/team/teamProfile";
 
 
 Vue.use(Router);
@@ -612,6 +615,36 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: editJobLog,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'createTeam',
+            name: 'createTeam',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: createTeam,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'teamList',
+            name: 'teamList',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: teamList,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'teamProfile',
+            name: 'teamProfile',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: teamProfile,
               footer: footerBar
             }
           }

@@ -45,30 +45,30 @@
         })
       },
 
-      goTask(id) {
-        this.$store.dispatch('saveTaskId', id)
-        this.$router.push({
-          name: 'taskDetail',
-          params: {
-            taskId: id
-          }
-        })
-      },
-
-      onTaskPage(e) {
-        this.pageIndex = e
-        this.loadAllData()
-      }
+    goTask(id) {
+      this.$store.dispatch('saveTaskId', id)
+      this.$router.push({
+        name: 'taskDetail',
+        params: {
+          taskId: id
+        }
+      })
     },
-    mounted() {
+
+    onTaskPage(e) {
+      this.pageIndex = e
       this.loadAllData()
     }
+  },
+  mounted() {
+    this.loadAllData()
   }
+}
 </script>
 
 <style scoped>
-  .card {
-    margin: 20px;
-  }
+.card {
+  margin: 20px;
+}
 
 </style>
