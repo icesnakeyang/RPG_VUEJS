@@ -19,6 +19,7 @@ import editJobLog from "../pages/job/myJob/jobLog/editJobLog";
 import createTeam from "../pages/team/createTeam";
 import teamList from "../pages/team/teamList";
 import teamProfile from "../pages/team/teamProfile";
+import teamAddMember from "../pages/team/teamAddMember";
 
 
 Vue.use(Router);
@@ -645,6 +646,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: teamProfile,
+              footer: footerBar
+            }
+          },
+          {
+            path: 'teamAddMember',
+            name: 'teamAddMember',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: teamAddMember,
               footer: footerBar
             }
           }

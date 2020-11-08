@@ -570,6 +570,30 @@ export const apiListMyTeam = params => {
   })
 }
 
+export const apiGetTeamDetail = params => {
+  return axios.post(`${host}/rpgapi/team/getTeamDetail`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiListUser = params => {
+  return axios.post(`${host}/rpgapi/user/listUser`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiAddTeamMember = params => {
+  return axios.post(`${host}/rpgapi/team/addTeamMember`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

@@ -8,12 +8,20 @@
         <Tag checkable color="primary" @on-change="onProgressStatus">{{ $t('common.status.PROGRESS') }}</Tag>
         <Tag checkable color="success" @on-change="onCompleteStatus">{{ $t('common.status.COMPLETE') }}</Tag>
       </Card>
-      <JobPartyAListTpl v-for="job in jobList"
-                        v-bind:key="job.jobId"
-                        v-bind:job="job"
-      ></JobPartyAListTpl>
-      <div style="margin-top: 20px">
-        <Page :total="totalJobs" @on-change="onJobPage"/>
+      <div v-if="isLoading" class="demo-spin-col">
+        <Spin size="large"></Spin>
+      </div>
+      <div v-else="isLoading">
+        <div style="margin-top: 20px">
+          <Table border :columns="col1" :data="jobList"></Table>
+          <div style="margin-top: 20px">
+            <Page
+              :total="totalJobs"
+              :current="pageIndex"
+              show-total
+              @on-change="onJobPage"/>
+          </div>
+        </div>
       </div>
     </Content>
   </div>
@@ -22,6 +30,7 @@
 <script>
 import JobPartyAListTpl from './jobPartyAListTpl'
 import {apiListMyPartyAJob} from "../../../../api/api";
+import moment from "moment";
 
 export default {
   name: "partyAJobPage",
@@ -37,11 +46,67 @@ export default {
       jobStatus: [
         'PROGRESS',
         'COMPLETE'
-      ]
+      ],
+      isLoading: true,
+      col1: [
+        {
+          title: this.$t('task.title'),
+          key: 'title',
+          sortable: false
+        },
+        {
+          title: this.$t('task.price'),
+          key: 'price',
+          sortable: false
+        },
+        {
+          title: this.$t('job.partyBName'),
+          key: 'partyBName',
+          sortable: false
+        },
+        {
+          title: this.$t('job.contractTime'),
+          key: 'contractTime',
+          render: (h, params) => {
+            return h('div', [
+              h('span', moment(params.row.contractTime).format('YYYY-MM-DD HH:mm'))
+            ]);
+          }
+        },
+        {
+          title: this.$t("common.action"),
+          key: 'action',
+          width: 80,
+          render: (h, params) => {
+            return h('div', [
+              h('Button', {
+                props: {
+                  type: 'primary',
+                  size: 'small'
+                },
+                on: {
+                  click: () => {
+                    this.$store.dispatch('saveJobId', params.row.jobId);
+                    this.$router.push({
+                      name: 'partyAJobDetail',
+                      params: {
+                        jobId: params.row.jobId
+                      }
+                    })
+                    // this.confirmMatch(params.row.userId, this.jobId)
+                  }
+                }
+              }, this.$t("task.detail"))
+            ]);
+          }
+        }
+      ],
+      currentPage: 1
     }
   },
   methods: {
     loadAllData() {
+      this.isLoading = true
       apiListMyPartyAJob({
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
@@ -54,10 +119,16 @@ export default {
         } else {
           this.$Message.error(this.$t('syserr.' + response.data.errorCode))
         }
+        this.isLoading = false
+      }).catch(() => {
+        this.$Message.error(this.$t('syserr.30000'))
+        this.isLoading = false
       })
     },
     onJobPage(e) {
       this.pageIndex = e
+      console.log(this.pageIndex)
+      this.currentPage = e
       this.loadAllData()
     },
 
@@ -68,7 +139,7 @@ export default {
         let index = this.jobStatus.indexOf('COMPLETE')
         this.jobStatus.splice(index, 1)
       }
-      this.pageIndex=1
+      this.pageIndex = 1
       this.loadAllData()
     },
 
@@ -79,7 +150,7 @@ export default {
         let index = this.jobStatus.indexOf('PROGRESS')
         this.jobStatus.splice(index, 1)
       }
-      this.pageIndex=1
+      this.pageIndex = 1
       this.loadAllData()
     }
   },
@@ -91,4 +162,12 @@ export default {
 
 <style scoped>
 @import "../../../../assets/gogoStyles.css";
+
+.demo-spin-col {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+}
 </style>

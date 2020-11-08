@@ -12,8 +12,8 @@
       <MenuAdmin></MenuAdmin>
     </span>
     <span v-if="isSecretary">
-            <MenuSecretary></MenuSecretary>
-          </span>
+      <MenuSecretary></MenuSecretary>
+    </span>
   </Menu>
 </template>
 

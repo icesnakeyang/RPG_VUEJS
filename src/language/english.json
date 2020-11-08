@@ -13,8 +13,11 @@
       "PENDING": "Pending",
       "PROGRESS": "PROGRESS",
       "COMPLETE": "COMPLETE",
-      "ACCEPTED": "ACCEPTED"
-    }
+      "ACCEPTED": "ACCEPTED",
+      "ACTIVE": "ACTIVE"
+    },
+    "error": "Sorry，try again please.",
+    "action": "Action"
   },
   "navigator": {
     "signIn": "Sign in",
@@ -300,7 +303,12 @@
     "btCreate": "Create Team",
     "tip1": "Create team successful",
     "errName": "Please input team name",
-    "errDescription": "Please describe the team"
+    "errDescription": "Please describe the team",
+    "btAddMember": "Add Team Member",
+    "addNewMemberTitle": "Add New Member",
+    "addNewMemberTip1": "Please input the phone of member what you want to add",
+    "addToMyTeam": "Add",
+    "tip2": "Add successful!"
   },
   "syserr": {
     "10024": "Username or password error",
@@ -358,6 +366,9 @@
     "30021": "The los has been read by other party，cannot delete",
     "30022": "You only can delete the log created by yourself",
     "30023": "You cannot update the job log that does not create by yourself",
-    "30024": "You cannot update the job log that has been read already by other party"
+    "30024": "You cannot update the job log that has been read already by other party",
+    "30025": "Sorry， you are not the team manager",
+    "30026": "You cannot add yourself",
+    "30027": "This user is in the team already"
   }
 }
