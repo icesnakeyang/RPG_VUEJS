@@ -239,7 +239,8 @@
         "time": "处理时间"
       }
     },
-    "jobStatus": "任务状态"
+    "jobStatus": "任务状态",
+    "searchJobKeyPlaceholder": "请输入要搜索的任务标题、用户、团队名称"
   },
   "admin": {
     "loginPage": {

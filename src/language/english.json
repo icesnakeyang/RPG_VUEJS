@@ -240,7 +240,8 @@
         "time": "Process time"
       }
     },
-    "jobStatus": "Job Status"
+    "jobStatus": "Job Status",
+    "searchJobKeyPlaceholder": "job title/username/team name"
   },
   "admin": {
     "loginPage": {

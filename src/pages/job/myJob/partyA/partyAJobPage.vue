@@ -5,8 +5,17 @@
     </Breadcrumb>
     <Content class="gogo_content">
       <Card>
-        <Tag checkable color="primary" @on-change="onProgressStatus">{{ $t('common.status.PROGRESS') }}</Tag>
-        <Tag checkable color="success" @on-change="onCompleteStatus">{{ $t('common.status.COMPLETE') }}</Tag>
+        <Row>
+          <Col :xs="24" :sm="12" :md="12" :lg="12">
+            <Input search enter-button :placeholder="$t('job.searchJobKeyPlaceholder')"
+                   @on-search="onSearchJob"
+                   v-model="searchKey"/>
+          </Col>
+          <Col :xs="24" :sm="12" :md="12" :lg="12" style="padding-left: 20px">
+            <Tag checkable color="primary" @on-change="onProgressStatus">{{ $t('common.status.PROGRESS') }}</Tag>
+            <Tag checkable color="success" @on-change="onCompleteStatus">{{ $t('common.status.COMPLETE') }}</Tag>
+          </Col>
+        </Row>
       </Card>
       <div v-if="isLoading" class="demo-spin-col">
         <Spin size="large"></Spin>
@@ -101,18 +110,21 @@ export default {
           }
         }
       ],
-      currentPage: 1
+      currentPage: 1,
+      searchKey:''
     }
   },
   methods: {
     loadAllData() {
       this.isLoading = true
-      apiListMyPartyAJob({
+      let params={
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
-        statusList: this.jobStatus
-      }).then((response) => {
-        console.log(response)
+        statusList: this.jobStatus,
+        searchKey:this.searchKey
+      }
+      console.log(params)
+      apiListMyPartyAJob(params).then((response) => {
         if (response.data.errorCode === 0) {
           this.jobList = response.data.data.jobs
           this.totalJobs = response.data.data.totalJobs
@@ -151,6 +163,10 @@ export default {
         this.jobStatus.splice(index, 1)
       }
       this.pageIndex = 1
+      this.loadAllData()
+    },
+
+    onSearchJob(){
       this.loadAllData()
     }
   },
