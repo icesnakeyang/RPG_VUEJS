@@ -1,8 +1,8 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// let host = 'https://gogorpg.com';
-let host = 'http://localhost:9527';
+let host = 'https://gogorpg.com';
+// let host = 'http://localhost:9527';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /**
@@ -594,6 +594,13 @@ export const apiAddTeamMember = params => {
   })
 }
 
+export const apiGetoffTeamMember = params => {
+  return axios.post(`${host}/rpgapi/team/getoffTeamMember`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
 
 
 

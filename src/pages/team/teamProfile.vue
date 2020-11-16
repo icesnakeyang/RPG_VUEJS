@@ -15,11 +15,12 @@
       <Button type="primary" @click="onAddMember">{{$t('team.btAddMember')}}</Button>
     </Card>
     <div>
-      <Card v-for="(item, index) in memberList"
+      <div v-for="(item, index) in memberList"
             :key="index"
+            style="margin-top: 20px"
       >
         <TeamMemberRow :data="item"/>
-      </Card>
+      </div>
     </div>
   </div>
 </template>

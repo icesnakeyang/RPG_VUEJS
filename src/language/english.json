@@ -309,7 +309,13 @@
     "addNewMemberTitle": "Add New Member",
     "addNewMemberTip1": "Please input the phone of member what you want to add",
     "addToMyTeam": "Add",
-    "tip2": "Add successful!"
+    "tip2": "Add successful!",
+    "manager": "Manager",
+    "normal": "Member",
+    "btDelete": "Get Off",
+    "tipDeleteSuccess": "Kick him out successful",
+    "btListTeam": "Dispatch Team",
+    "btListMember": "Dispatch Member"
   },
   "syserr": {
     "10024": "Username or password error",
@@ -370,6 +376,7 @@
     "30024": "You cannot update the job log that has been read already by other party",
     "30025": "Sorry， you are not the team manager",
     "30026": "You cannot add yourself",
-    "30027": "This user is in the team already"
+    "30027": "This user is in the team already",
+    "30028": "This member is not in this team"
   }
 }

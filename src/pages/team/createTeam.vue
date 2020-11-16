@@ -77,7 +77,12 @@ export default {
       apiCreateTeam(params).then((response) => {
         if (response.data.errorCode === 0) {
           this.$Message.success(this.$t('team.tip1'))
-          this.$router.push({name: 'teamProfile'})
+          this.$router.push({
+            name: 'teamProfile',
+            params:{
+              'teamId':response.data.data.team.teamId
+            }
+          })
         } else {
           this.errInput = true;
           this.errMsg = this.$t("syserr." + response.data.errorCode)
