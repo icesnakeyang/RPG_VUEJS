@@ -602,6 +602,14 @@ export const apiGetoffTeamMember = params => {
   })
 }
 
+export const apiListTeamMember = params => {
+  return axios.post(`${host}/rpgapi/team/listTeamMember`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

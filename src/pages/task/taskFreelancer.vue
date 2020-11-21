@@ -30,17 +30,26 @@
         </FormItem>
 
         <FormItem>
-          <Dropdown style="margin-left: 20px" on-click="onTeamList">
-            <Button type="primary">
-              {{ $t('team.btListTeam') }}
-              <Icon type="ios-arrow-down"></Icon>
-            </Button>
-            <DropdownMenu slot="list">
-              <span v-for="item in teamList" :key="item.ids">
-              <DropdownItem>{{ item.teamName }}</DropdownItem>
-                </span>
-            </DropdownMenu>
-          </Dropdown>
+          <Select v-model="selectedTeamId"
+                  style="width:200px"
+                  :placeholder="$t('team.selectTeam')"
+                  @on-change="onTeamSelect">
+            <Option v-for="item in teamList"
+                    :value="item.teamId"
+                    :key="item.ids">
+              {{ item.teamName }}
+            </Option>
+          </Select>
+          <Select v-model="selectedMemberId"
+                  @on-change="onMemberSelect"
+                  :placeholder="$t('team.selectTeamMember')"
+                  style="width:200px">
+            <Option v-for="item in teamMemberList"
+                    :value="item.userId"
+                    :key="item.ids">
+              {{ item.realName }}
+            </Option>
+          </Select>
         </FormItem>
 
         <FormItem v-show="!saving">
@@ -59,7 +68,7 @@
 </template>
 
 <script>
-import {apiGetTaskDetailByTaskId, apiListMyTeam} from "../../api/api";
+import {apiGetTaskDetailByTaskId, apiListMyTeam, apiListTeamMember} from "../../api/api";
 import {apiPublishNewJob} from "../../api/api";
 import {quillEditor} from "vue-quill-editor";
 import {ImageResize} from "quill-image-resize-module"
@@ -80,7 +89,10 @@ export default {
         modules: {
           imageResize: true
         }
-      }
+      },
+      selectedTeamId: '',
+      teamMemberList: [],
+      selectedMemberId: ''
     }
   },
   computed: {
@@ -116,18 +128,22 @@ export default {
       })
     },
     clickPublish() {
-      if (this.inputCheck()) {
-        return;
-      }
+      // if (this.inputCheck()) {
+      //   return;
+      // }
       this.saving = true;
-      apiPublishNewJob({
+      let params = {
         taskId: this.task.taskId,
         title: this.task.title,
         code: this.task.code,
         days: this.task.days,
         price: this.task.price,
-        detail: this.task.detail
-      }).then((response) => {
+        detail: this.task.detail,
+        teamId: this.selectedTeamId,
+        memberId: this.selectedMemberId
+      }
+
+      apiPublishNewJob(params).then((response) => {
         if (response.data.errorCode === 0) {
           this.$Message.success(this.$t("job.succPublish"));
           // jump to job detail
@@ -171,9 +187,30 @@ export default {
       }
       return this.errInput;
     },
+    loadTeamMember() {
+      let params = {
+        teamId: this.selectedTeamId
+      }
+      apiListTeamMember(params).then((response) => {
+        console.log(response)
+        if (response.data.errorCode === 0) {
+          console.log(response.data.data)
+          this.teamMemberList = response.data.data.teamUserList
+        }
+        console.log(this.teamMemberList)
+      })
+    },
 
-    onTeamList(){
+    onTeamSelect(e) {
       console.log(1)
+      console.log(e)
+      console.log(this.selectedTeamId)
+      this.selectedMemberId = ''
+      this.loadTeamMember()
+    },
+
+    onMemberSelect() {
+      console.log(this.selectedMemberId)
     }
   },
   created() {

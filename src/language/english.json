@@ -315,7 +315,9 @@
     "btDelete": "Get Off",
     "tipDeleteSuccess": "Kick him out successful",
     "btListTeam": "Dispatch Team",
-    "btListMember": "Dispatch Member"
+    "btListMember": "Dispatch Member",
+    "selectTeam": "Appoint team",
+    "selectTeamMember": "Appoint team member"
   },
   "syserr": {
     "10024": "Username or password error",
@@ -377,6 +379,10 @@
     "30025": "Sorry， you are not the team manager",
     "30026": "You cannot add yourself",
     "30027": "This user is in the team already",
-    "30028": "This member is not in this team"
+    "30028": "This member is not in this team",
+    "30029": "The team is not exist",
+    "30030": "The appoint team member is not exist",
+    "30031": "You cannot appoint this job to yourself",
+    "30032": "You need to appoint the team member when you appoint the team"
   }
 }
