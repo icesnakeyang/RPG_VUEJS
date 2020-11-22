@@ -69,7 +69,8 @@
     "myWithdrawList": "Withdraw List",
     "userWithdraw": "User Withdraw",
     "userWithdrawApply": "User Withdraw apply",
-    "createTeam": "Create Team"
+    "createTeam": "Create Team",
+    "userRealname": "Real Name Apply"
   },
   "user": {
     "username": "Login name",
@@ -120,8 +121,10 @@
     "realname": {
       "title": "Real name information",
       "realName": "Real Name",
+      "realnameHolder": "Please input your real name",
       "realNameCertify": "Certify",
       "idCardNo": "ID Card No.",
+      "idcardHolder": "Please input your id card number",
       "sex": "Sex",
       "male": "Male",
       "female": "Female",
@@ -241,7 +244,7 @@
       }
     },
     "jobStatus": "Job Status",
-    "searchJobKeyPlaceholder": "job title/username/team name"
+    "searchJobKeyPlaceholder": "job title/username/team name/detail"
   },
   "admin": {
     "loginPage": {
@@ -279,6 +282,23 @@
       "userName": "User Name",
       "ip": "IP From",
       "city": "City From"
+    },
+    "realname": {
+      "title1": "User Real Name Apply",
+      "realname": "Real Name",
+      "idcardno":"ID Card No.",
+      "status1": "ACTIVE",
+      "verify1": "PENDING",
+      "btAgree": "Agree",
+      "btReject": "Reject",
+      "modalRejectTitle": "Reject this real name apply",
+      "modalAgreeTitle": "Agree this real name apply",
+      "agreeTip": "Agree successful",
+      "rejectTip": "Rejected this apply",
+      "rejectReason": "Reject remark",
+      "statusAgree": "Agree",
+      "statusReject": "Reject",
+      "statusPending": "Pending"
     }
   },
   "account": {
@@ -364,6 +384,7 @@
     "10044": "This email has been registered by others",
     "10006": "Sorry, you cannot apply this job now",
     "10040": "Sorry, you don't have the RPG secretary authority",
+    "30004": "Your real name information has been verified already",
     "30005": "You only can delete job that nobody applied",
     "30014": "Sorry, you don't have authority to create this log",
     "30015": "Sorry, we didn't find the complete log for this job",
@@ -383,6 +404,7 @@
     "30029": "The team is not exist",
     "30030": "The appoint team member is not exist",
     "30031": "You cannot appoint this job to yourself",
-    "30032": "You need to appoint the team member when you appoint the team"
+    "30032": "You need to appoint the team member when you appoint the team",
+    "30033": "This user has not submit real name apply"
   }
 }

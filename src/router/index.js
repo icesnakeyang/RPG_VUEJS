@@ -20,6 +20,8 @@ import createTeam from "../pages/team/createTeam";
 import teamList from "../pages/team/teamList";
 import teamProfile from "../pages/team/teamProfile";
 import teamAddMember from "../pages/team/teamAddMember";
+import realnameList from "../pages/secretary/realname/realnameList";
+import realnamePendingDetail from "../pages/secretary/realname/realnamePendingDetail";
 
 
 Vue.use(Router);
@@ -708,6 +710,26 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: adminDashboard,
+              footerBar: footerBar
+            }
+          },
+          {
+            path: 'realnameList',
+            name: 'realnameList',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: realnameList,
+              footerBar: footerBar
+            }
+          },
+          {
+            path: 'realnamePendingDetail',
+            name: 'realnamePendingDetail',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: realnamePendingDetail,
               footerBar: footerBar
             }
           }

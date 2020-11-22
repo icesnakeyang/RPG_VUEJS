@@ -69,7 +69,9 @@
     "myWithdrawList": "我的取现记录",
     "userWithdraw": "用户取现",
     "userWithdrawApply": "用户取现申请",
-    "createTeam": "创建团队"
+    "createTeam": "创建团队",
+    "userRealname": "用户实名认证"
+
   },
   "user": {
     "username": "登录名",
@@ -119,8 +121,10 @@
     "realname": {
       "title": "实名信息",
       "realName": "真实姓名",
+      "realnameHolder": "请输入您的真实姓名",
       "realNameCertify": "实名认证",
       "idCardNo": "身份证号码",
+      "idcardHolder": "请输入您的身份证号码",
       "sex": "性别",
       "male": "男",
       "female": "女",
@@ -240,7 +244,7 @@
       }
     },
     "jobStatus": "任务状态",
-    "searchJobKeyPlaceholder": "请输入要搜索的任务标题、用户、团队名称"
+    "searchJobKeyPlaceholder": "请输入要搜索的任务标题、用户、团队名称、任务详情关键字"
   },
   "admin": {
     "loginPage": {
@@ -278,6 +282,23 @@
       "userName": "用户姓名",
       "ip": "访问自IP地址",
       "city": "访问来源城市"
+    },
+    "realname": {
+      "title1": "用户实名认证申请",
+      "realname": "真实姓名",
+      "idcardno":"身份证号码",
+      "status1": "正常",
+      "verify1": "等待审核",
+      "btAgree": "通过",
+      "btReject": "拒绝",
+      "modalRejectTitle": "拒绝该用户的实名认证申请",
+      "modalAgreeTitle": "通过该用户的实名认证申请",
+      "agreeTip": "已通过该用户的实名认证申请",
+      "rejectTip": "已拒绝该用户的实名认真申请",
+      "rejectReason": "拒绝原因说明",
+      "statusAgree": "已通过实名认证",
+      "statusReject": "实名认证失败",
+      "statusPending": "等待审核"
     }
   },
   "account": {
@@ -363,6 +384,7 @@
     "10044": "该Email已经被注册过了",
     "10006": "当前任务不在可申请状态，申请失败",
     "10040": "您不是RPG秘书，没有操作权限",
+    "30004": "实名信息已经认证，不能修改",
     "30005": "只能删除等待匹配的任务",
     "30014": "您没有创建任务日志的权限",
     "30015": "没有查找到该任务的验收申请日志",
@@ -382,6 +404,7 @@
     "30029": "指定的团队不存在",
     "30030": "指定的用户不存在",
     "30031": "不能将任务指定给自己",
-    "30032": "指定团队时，需要指定执行任务的团队成员"
+    "30032": "指定团队时，需要指定执行任务的团队成员",
+    "30033": "该用户还没有提交实名认证申请"
   }
 }

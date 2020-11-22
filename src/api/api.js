@@ -610,6 +610,38 @@ export const apiListTeamMember = params => {
   })
 }
 
+export const apiListRealnamePending = params => {
+  return axios.post(`${host}/rpgapi/admin/realname/listRealnamePending`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiGetRealnamePending = params => {
+  return axios.post(`${host}/rpgapi/admin/realname/getRealnamePending`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiRejectRealname = params => {
+  return axios.post(`${host}/rpgapi/admin/realname/rejectRealname`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiAgreeRealname = params => {
+  return axios.post(`${host}/rpgapi/admin/realname/agreeRealname`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

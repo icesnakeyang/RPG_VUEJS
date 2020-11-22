@@ -142,6 +142,11 @@ export default {
           name: 'teamList'
         })
       }
+      if(name==='menuSecretaryRealnamePage'){
+        this.$router.push({
+          name:'realnameList'
+        })
+      }
     }
   }
 }

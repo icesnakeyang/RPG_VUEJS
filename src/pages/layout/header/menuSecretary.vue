@@ -12,6 +12,10 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.topUp")}}
     </MenuItem>
+    <MenuItem name="menuSecretaryRealnamePage">
+      <Icon type="ios-navigate"></Icon>
+      {{$t("navigator.userRealname")}}
+    </MenuItem>
   </Submenu>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <div>
     <Breadcrumb class="gogo_breadcrumb">
-      <BreadcrumbItem>{{$t('navigator.myProfile')}}</BreadcrumbItem>
+      <BreadcrumbItem>{{ $t('navigator.myProfile') }}</BreadcrumbItem>
     </Breadcrumb>
     <Content class="gogo_content">
       <Card class="card">
         <p slot="title">
-          {{$t('user.email.title')}}
+          {{ $t('user.email.title') }}
         </p>
         <EmailRow v-for="(item, index) in emailList"
                   :key="index"
@@ -14,7 +14,7 @@
       </Card>
       <Card class="card">
         <p slot="title">
-          {{$t('user.phone.phone')}}
+          {{ $t('user.phone.phone') }}
         </p>
         <PhoneRow v-for="(item, index) in phoneList"
                   :key="index"
@@ -22,84 +22,81 @@
       </Card>
       <Card class="card">
         <p slot="title">
-          {{$t('user.realname.title')}}
+          {{ $t('user.realname.title') }}
         </p>
-        <p>{{$t('user.realname.realName')}}: {{user.realName}}</p>
-        <divider></divider>
-        <Button type="primary" @click="onCertify">{{$t('user.btVerifyRealname')}}</Button>
+        <RealnameRow :theData="realname" />
       </Card>
     </Content>
   </div>
 </template>
 
 <script>
-    import {apiGetUserInfo} from "../../../api/api";
-    import {apiListEmailOfUser} from "../../../api/api";
-    import {apiListPhoneOfUser} from "../../../api/api";
-    import PhoneRow from './phoneRow'
-    import EmailRow from './emailRow'
+import {apiGetUserProfile} from "../../../api/api";
+import {apiListEmailOfUser} from "../../../api/api";
+import {apiListPhoneOfUser} from "../../../api/api";
+import PhoneRow from './phoneRow'
+import EmailRow from './emailRow'
+import RealnameRow from './realnameRow'
 
-    export default {
-        name: "profileDashboard",
-        components: {
-            PhoneRow,
-            EmailRow
-        },
-        data() {
-            return {
-                user: {},
-                phoneList: [],
-                emailList: []
-            }
-        },
-
-        methods: {
-            loadAllData() {
-                apiGetUserInfo({}).then((response) => {
-                    if (response.data.errorCode === 0) {
-                        this.user = response.data.data.user
-                    } else {
-                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-                    }
-                })
-
-                apiListPhoneOfUser({}).then((response) => {
-                    if (response.data.errorCode === 0) {
-                        this.phoneList = response.data.data.phones
-                    } else {
-                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-                    }
-                })
-
-                apiListEmailOfUser({}).then((response) => {
-                    if (response.data.errorCode === 0) {
-                        this.emailList = response.data.data.emails
-                    } else {
-                        this.$Message.error(this.$t('syserr.' + response.data.errorCode))
-                    }
-                })
-            },
-
-            onCertify() {
-                this.$router.push({
-                    name: 'submitUserProfile'
-                })
-            }
-        },
-
-        mounted() {
-            this.loadAllData()
-        }
+export default {
+  name: "profileDashboard",
+  components: {
+    PhoneRow,
+    EmailRow,
+    RealnameRow
+  },
+  data() {
+    return {
+      realname: {},
+      phoneList: [],
+      emailList: []
     }
+  },
+
+  methods: {
+    loadAllData() {
+      apiGetUserProfile({}).then((response) => {
+        console.log(response)
+        if (response.data.errorCode === 0) {
+          this.realname = response.data.data.realname
+        } else {
+          this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+        }
+      })
+
+      apiListPhoneOfUser({}).then((response) => {
+        if (response.data.errorCode === 0) {
+          this.phoneList = response.data.data.phones
+          console.log(this.phoneList)
+        } else {
+          this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+        }
+      })
+
+      apiListEmailOfUser({}).then((response) => {
+        if (response.data.errorCode === 0) {
+          this.emailList = response.data.data.emails
+        } else {
+          this.$Message.error(this.$t('syserr.' + response.data.errorCode))
+        }
+      })
+    }
+  },
+
+  mounted() {
+    this.loadAllData()
+  }
+}
 </script>
 
 <style scoped>
-  @import "../../../assets/gogoStyles.css";
-  .card {
-    margin: 20px;
-  }
+@import "../../../assets/gogoStyles.css";
 
-  .title_row {
-    padding-left: 20px;
-  }
+.card {
+  margin: 20px;
+}
+
+.title_row {
+  padding-left: 20px;
+}
 </style>

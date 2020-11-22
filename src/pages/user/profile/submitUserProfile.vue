@@ -7,10 +7,10 @@
     <Content class="gogo_content">
       <Form :label-width="80">
         <FormItem :label="this.$t('user.realname.realName')">
-          <Input v-model="realName" placeholder="Enter something..."></Input>
+          <Input v-model="realName" :placeholder="$t('user.realname.realnameHolder')"></Input>
         </FormItem>
         <FormItem :label="this.$t('user.realname.idCardNo')">
-          <Input v-model="idcardNo" placeholder="Enter something..."></Input>
+          <Input v-model="idcardNo" :placeholder="$t('user.realname.idcardHolder')"></Input>
         </FormItem>
 
         <FormItem>

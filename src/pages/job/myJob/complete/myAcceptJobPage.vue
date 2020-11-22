@@ -6,14 +6,16 @@
     <Content class="gogo_content">
       <Tabs value="name1">
         <TabPane label="甲方任务" name="name1">
-          <JobRow v-for="(item, index) in jobsA"
+          <JobCardTiny v-for="(item, index) in jobsA"
                   :job="item"
-                  :key="index"></JobRow>
+                  :key="index"></JobCardTiny>
+          <Page :total="totalJobsA" style="margin-top: 20px" @on-change="onJobPageA"></Page>
         </TabPane>
         <TabPane label="乙方任务" name="name2">
-          <JobRow v-for="(item, index) in jobsB"
+          <JobCardTiny v-for="(item, index) in jobsB"
                   :job="item"
-                  :key="index"></JobRow>
+                  :key="index"></JobCardTiny>
+          <Page :total="totalJobsB" style="margin-top: 20px" @on-change="onJobPageB"></Page>
         </TabPane>
       </Tabs>
     </Content>
@@ -25,43 +27,71 @@
     import JobRow from './jobRow'
     import {apiListMyPartyBAcceptJob} from "../../../../api/api";
     import {apiSetAcceptReadTime} from "../../../../api/api";
+    import JobCardTiny from '../../components/myJobCardTiny'
 
     export default {
         name: "myAcceptJobPage",
         components: {
-            JobRow
+            JobRow,
+          JobCardTiny
         },
         data() {
             return {
+              pageIndexA:1,
+              pageSizeA:10,
+              pageIndexB:1,
+              pageSizeB:10,
                 jobsA: [],
-                jobsB: []
+              totalJobsA:0,
+                jobsB: [],
+              totalJobsB:0
             }
         },
         methods: {
 
             loadAllData() {
+              let params={
+              }
                 apiListMyPartyAAcceptJob({
-                    pageIndex: 0,
-                    pageSize: 20
+                    pageIndex: this.pageIndexA,
+                    pageSize: this.pageSizeA
                 }).then((response) => {
+                  console.log(response)
                     if (response.data.errorCode === 0) {
-                        this.jobsA = response.data.data.jobs
+                        this.jobsA = response.data.data.jobList
+                      this.totalJobsA=response.data.data.totalJobs
+                    }else{
+                      this.$Message.error(this.$t('syserr.'+response.data.errorCode))
                     }
+                }).catch(()=>{
+                  this.$Message.error(this.$t('syserr.30000'))
                 })
 
                 apiListMyPartyBAcceptJob({
-                    pageIndex: 0,
-                    pageSize: 20
+                    pageIndex: this.pageIndexB,
+                    pageSize: this.pageSizeB
                 }).then((response) => {
                     if (response.data.errorCode === 0) {
                         this.jobsB = response.data.data.jobs
+                    }else{
+                      this.$Message.error(this.$t('syserr.'+response.data.errorCode))
                     }
+                }).catch(()=>{
+                  this.$Message.error(this.$t('syserr.30000'))
                 })
 
                 apiSetAcceptReadTime({}).then((response) => {
 
                 })
-            }
+            },
+          onJobPageA(e){
+              this.pageIndexA=e
+            this.loadAllData()
+          },
+          onJobPageB(e) {
+              this.pageIndexB=e
+            this.loadAllData()
+          }
         },
         mounted() {
             this.loadAllData()
