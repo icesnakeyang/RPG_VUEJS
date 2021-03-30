@@ -70,7 +70,8 @@
     "userWithdraw": "User Withdraw",
     "userWithdrawApply": "User Withdraw apply",
     "createTeam": "Create Team",
-    "userRealname": "Real Name Apply"
+    "userRealname": "Real Name Apply",
+    "maintenance": "Maintenance"
   },
   "user": {
     "username": "Login name",
@@ -286,7 +287,7 @@
     "realname": {
       "title1": "User Real Name Apply",
       "realname": "Real Name",
-      "idcardno":"ID Card No.",
+      "idcardno": "ID Card No.",
       "status1": "ACTIVE",
       "verify1": "PENDING",
       "btAgree": "Agree",
@@ -299,6 +300,10 @@
       "statusAgree": "Agree",
       "statusReject": "Reject",
       "statusPending": "Pending"
+    },
+    "maintenance": {
+      "overdueJobsSuccess": "All overdue jobs have been cleared",
+      "btJobOverdue": "Clear overdue jobs"
     }
   },
   "account": {
@@ -388,7 +393,7 @@
     "30005": "You only can delete job that nobody applied",
     "30014": "Sorry, you don't have authority to create this log",
     "30015": "Sorry, we didn't find the complete log for this job",
-    "30016":"The job now is not in progress or complete status",
+    "30016": "The job now is not in progress or complete status",
     "30017": "Someone is applying this job now, cannot change",
     "30018": "The job status cannot be changed in this time",
     "30019": "Network error",

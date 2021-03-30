@@ -642,6 +642,14 @@ export const apiAgreeRealname = params => {
   })
 }
 
+export const apiOverdueJobs = params => {
+  return axios.post(`${host}/rpgapi/admin/maintenance/overdueJobs`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 

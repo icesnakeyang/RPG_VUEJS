@@ -147,6 +147,11 @@ export default {
           name:'realnameList'
         })
       }
+      if(name==='menuSecretaryMaintenance'){
+        this.$router.push({
+          name:'secretaryMaintenance'
+        })
+      }
     }
   }
 }

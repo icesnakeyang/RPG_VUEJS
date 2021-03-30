@@ -16,6 +16,10 @@
       <Icon type="ios-navigate"></Icon>
       {{$t("navigator.userRealname")}}
     </MenuItem>
+    <MenuItem name="menuSecretaryMaintenance">
+      <Icon type="ios-navigate"></Icon>
+      {{$t("navigator.maintenance")}}
+    </MenuItem>
   </Submenu>
 </template>
 

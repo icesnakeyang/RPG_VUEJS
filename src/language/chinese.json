@@ -70,7 +70,8 @@
     "userWithdraw": "用户取现",
     "userWithdrawApply": "用户取现申请",
     "createTeam": "创建团队",
-    "userRealname": "用户实名认证"
+    "userRealname": "用户实名认证",
+    "maintenance": "系统维护"
 
   },
   "user": {
@@ -299,6 +300,10 @@
       "statusAgree": "已通过实名认证",
       "statusReject": "实名认证失败",
       "statusPending": "等待审核"
+    },
+    "maintenance": {
+      "overdueJobsSuccess": "已清理完所有过期任务",
+      "btJobOverdue": "清理过期任务"
     }
   },
   "account": {

@@ -22,6 +22,8 @@ import teamProfile from "../pages/team/teamProfile";
 import teamAddMember from "../pages/team/teamAddMember";
 import realnameList from "../pages/secretary/realname/realnameList";
 import realnamePendingDetail from "../pages/secretary/realname/realnamePendingDetail";
+import adminLogin from "../pages/admin/adminLogin";
+import secretaryMaintenance from "../pages/secretary/maitenance/secretaryMaintenance";
 
 
 Vue.use(Router);
@@ -275,7 +277,7 @@ const router = new Router({
             components: {
               head: baseHeader,
               sider: baseSider,
-              content: () => import('@/pages/admin/adminLogin'),
+              content: adminLogin,
               footer: footerBar
             },
             meta: {
@@ -732,6 +734,16 @@ const router = new Router({
               content: realnamePendingDetail,
               footerBar: footerBar
             }
+          },
+          {
+            path: 'secretaryMaintenance',
+            name: 'secretaryMaintenance',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: secretaryMaintenance,
+              footerBar: footerBar
+            }
           }
         ],
 
@@ -742,6 +754,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to) {
+    console.log(to)
     if (!to.name) {
       //如果路由里name=null，即指用户是通过外部链接直接访问
       //输入域名访问，直接跳转到任务广场
