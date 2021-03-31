@@ -24,6 +24,7 @@ import realnameList from "../pages/secretary/realname/realnameList";
 import realnamePendingDetail from "../pages/secretary/realname/realnamePendingDetail";
 import adminLogin from "../pages/admin/adminLogin";
 import secretaryMaintenance from "../pages/secretary/maitenance/secretaryMaintenance";
+import userWithdrawApplyDetail from "../pages/admin/withdraw/userWithdrawApplyDetail";
 
 
 Vue.use(Router);
@@ -742,6 +743,16 @@ const router = new Router({
               head: baseHeader,
               sider: baseSider,
               content: secretaryMaintenance,
+              footerBar: footerBar
+            }
+          },
+          {
+            path: 'userWithdrawApplyDetail',
+            name: 'userWithdrawApplyDetail',
+            components: {
+              head: baseHeader,
+              sider: baseSider,
+              content: userWithdrawApplyDetail,
               footerBar: footerBar
             }
           }

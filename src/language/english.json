@@ -17,7 +17,8 @@
       "ACTIVE": "ACTIVE"
     },
     "error": "Sorry，try again please.",
-    "action": "Action"
+    "action": "Action",
+    "btSaving": "Saving..."
   },
   "navigator": {
     "signIn": "Sign in",
@@ -304,6 +305,11 @@
     "maintenance": {
       "overdueJobsSuccess": "All overdue jobs have been cleared",
       "btJobOverdue": "Clear overdue jobs"
+    },
+    "withdraw": {
+      "btProcess": "Process",
+      "btAgreeWithdraw": "Agree Withdraw",
+      "agreeWithdrawSuccess": "Withdraw success"
     }
   },
   "account": {
@@ -410,6 +416,8 @@
     "30030": "The appoint team member is not exist",
     "30031": "You cannot appoint this job to yourself",
     "30032": "You need to appoint the team member when you appoint the team",
-    "30033": "This user has not submit real name apply"
+    "30033": "This user has not submit real name apply",
+    "30034": "This withdraw apply has been processed already",
+    "30035": "This withdraw apply is not exist"
   }
 }

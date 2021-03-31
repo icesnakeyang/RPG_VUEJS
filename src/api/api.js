@@ -650,6 +650,22 @@ export const apiOverdueJobs = params => {
   })
 }
 
+export const apiGetWithdrawApplys = params => {
+  return axios.post(`${host}/rpgapi/admin/userWithdraw/getWithdrawApplys`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
+export const apiAgreeWithdraw = params => {
+  return axios.post(`${host}/rpgapi/admin/userWithdraw/agreeWithdraw`, params, {
+    headers: {
+      token: store.state.token
+    }
+  })
+}
+
 
 
 
