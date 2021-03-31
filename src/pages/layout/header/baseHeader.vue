@@ -77,6 +77,9 @@
         }
         if (name === "menuSignOut") {
           this.$store.dispatch('logout');
+          this.$router.push({
+            name:'loginPage'
+          })
         }
         if (name === "menuSignIn") {
           this.$router.push({name: "loginPage"})

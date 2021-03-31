@@ -1,7 +1,7 @@
 <template>
   <div>
     <Footer class="layout-footer-center">
-      <div>2007-2019 &copy; GOGOYANG DATATECH LIMITED</div>
+      <div>2007-2021 &copy; GOGOYANG DATATECH LIMITED</div>
       <a href="https://www.beian.miit.gov.cn">粤ICP备18047805号-1</a>
       Email:liuyang@gogoyang.com
     </Footer>
